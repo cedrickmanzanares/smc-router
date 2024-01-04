@@ -1,0 +1,35 @@
+.sample-video {
+	/* height: 150vh; */
+	padding-top: 25vh;
+}
+
+.sample-video > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sample-video .container-fluid-width {
+	position: relative;
+	z-index: 3;
+	color: white;
+	display: flex;
+	align-items: center;
+	width: 1024px;
+	flex-direction: column;
+	padding: 4rem;
+	min-height: calc(100vh - 8rem);
+}
+.video-container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	left: 50%;
+	top: 50%;
+}
+
+.video-container video {
+	opacity: 1;
+	object-fit: cover;
+}

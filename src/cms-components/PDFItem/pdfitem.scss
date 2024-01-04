@@ -1,0 +1,48 @@
+.pdf-item {
+	padding: 1.5rem 1rem;
+	border-top: 1px solid var(--gray-3);
+	display: flex;
+	gap: 4rem;
+	color: var(--base-black);
+	position: relative;
+	overflow: hidden;
+}
+
+.pdf-item a {
+	color: currentColor;
+}
+.pdf-grid {
+	gap: 2rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.pdf-name {
+	margin-right: auto;
+	font-size: 1.1rem;
+}
+
+.pdf-details,
+.pdf-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.pdf-link {
+	color: currentColor;
+}
+
+.pdf-name,
+.pdf-details {
+	position: relative;
+	z-index: 1;
+}
+
+.pdf-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--yellow-1);
+}

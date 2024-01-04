@@ -1,0 +1,34 @@
+.curve {
+	padding-bottom: 25vh;
+	.route-transition {
+		position: fixed;
+		height: calc(100vh + 600px);
+		width: 100vw;
+		pointer-events: none;
+		left: 0;
+		top: 0;
+
+		+ *:not(.parallax-container) {
+			margin-top: var(--nav-height);
+		}
+	}
+
+	.route {
+		position: absolute;
+		left: 50%;
+		top: 40%;
+		color: white;
+		font-weight: bold;
+		z-index: 3;
+		transform: translateX(-50%);
+		text-align: center;
+		z-index: 2001;
+	}
+
+	.route-transition {
+		z-index: 2000;
+		path {
+			fill: var(--base-red);
+		}
+	}
+}
