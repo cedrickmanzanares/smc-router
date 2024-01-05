@@ -4,7 +4,7 @@ import Image3D from '@/cms-components/Image3D/Image3D';
 import { useRef } from 'react';
 import SingleParallax from '../single-parallax/single-parallax';
 import Button from '../button/button';
-import { useScroll } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 export default function Card({ scrollYProgress_start, children, images }) {
 	const parent = useRef(null);
