@@ -17,16 +17,32 @@ export default function PageCTA() {
 		'./images/CTA/cta-3.png',
 	];
 
-	let yValues = images
-		.map((val, index) => {
-			return useTransform(
-				scrollYProgress,
-				[0, 1],
-				['0%', `${(index * 25) / 2}%`],
-				'anticipate'
-			);
-		})
-		.reverse();
+	let yValues = [
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['0%', `${(0 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['0%', `${(1 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['0%', `${(2 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['0%', `${(3 * 25) / 2}%`],
+			'anticipate'
+		),
+	];
 
 	let yTextValues = useTransform(
 		scrollYProgress,

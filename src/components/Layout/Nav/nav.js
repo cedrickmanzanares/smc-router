@@ -221,7 +221,7 @@ function FloatingNav({ navOpen }) {
 		[
 			'.toggle_path2',
 			{
-				scaleX: '0',
+				scaleX: 0,
 			},
 			{
 				duration: 0.25,
@@ -338,7 +338,7 @@ function FloatingNav({ navOpen }) {
 		[
 			'.toggle_path3',
 			{
-				y: '0',
+				y: 0,
 				rotate: '0deg',
 			},
 			{
@@ -349,7 +349,7 @@ function FloatingNav({ navOpen }) {
 		[
 			'.toggle_path2',
 			{
-				scaleX: '1',
+				scaleX: 1,
 			},
 			{
 				duration: 0.25,
@@ -359,8 +359,8 @@ function FloatingNav({ navOpen }) {
 		[
 			'.toggle_path1',
 			{
-				y: '0',
-				rotate: '0',
+				y: 0,
+				rotate: 0,
 			},
 			{
 				duration: 0.25,
@@ -829,7 +829,8 @@ function FloatingNavContent({ isOpen }) {
 					</div>
 					<div className='dropdown-item'>
 						<a className=''>
-							Public Offering of Securities News Walang Iwanan SMC's COVID-19
+							Public Offering of Securities News Walang Iwanan SMC&lsquo;s
+							COVID-19
 						</a>
 					</div>
 					<div className='dropdown-item'>

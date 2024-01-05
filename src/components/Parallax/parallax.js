@@ -31,37 +31,101 @@ export default function Parallax() {
 		['0%', '-75%'],
 		'anticipate'
 	);
-
-	let yValues = imageSrc
-		.map((val, index) => {
-			return useTransform(
-				springScroll,
-				[0, 1],
-				['0%', `${(index * 25) / 2}%`],
-				'anticipate'
-			);
-		})
-		.reverse();
-
-	let scaleValues = imageSrc.map((val, index) => {
-		return useTransform(
+	let yValues = [
+		useTransform(
 			springScroll,
 			[0, 1],
-			['100%', `${100 + (index / 2) * 50}%`],
+			['0%', `${(0 * 25) / 2}%`],
 			'anticipate'
-		);
-	});
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['0%', `${(1 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['0%', `${(2 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['0%', `${(3 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['0%', `${(4 * 25) / 2}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['0%', `${(5 * 25) / 2}%`],
+			'anticipate'
+		),
+	].reverse();
+	// let yValues = imageSrc
+	// 	.map((val, index) => {
+	// 		return useTransform(
+	// 			springScroll,
+	// 			[0, 1],
+	// 			['0%', `${(index * 25) / 2}%`],
+	// 			'anticipate'
+	// 		);
+	// 	})
+	// 	.reverse();
 
-	let blurValues = imageSrc
-		.map((val, index) => {
-			return useTransform(
-				springScroll,
-				[0, 1],
-				['0', `${(index / 2) * 100}`],
-				'anticipate'
-			);
-		})
-		.reverse();
+	let scaleValues = [
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (0 / 2) * 50}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (1 / 2) * 50}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (2 / 2) * 50}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (3 / 2) * 50}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (4 / 2) * 50}%`],
+			'anticipate'
+		),
+		useTransform(
+			springScroll,
+			[0, 1],
+			['100%', `${100 + (5 / 2) * 50}%`],
+			'anticipate'
+		),
+	];
+	// let scaleValues = imageSrc.map((val, index) => {
+	// 	return useTransform(
+	// 		springScroll,
+	// 		[0, 1],
+	// 		['100%', `${100 + (index / 2) * 50}%`],
+	// 		'anticipate'
+	// 	);
+	// });
 
 	return (
 		<section className='parallax-container'>
@@ -78,7 +142,6 @@ export default function Parallax() {
 								x: '-50%',
 								y: yValues[index],
 								scale: scaleValues[index],
-								filter: `blur(${blurValues[index]})`,
 								transformOrigin: 'center',
 							}}
 							src={val}></motion.img>

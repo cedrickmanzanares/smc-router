@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDimensions } from '@/hooks/use-dimension';
 import useMousepoition from '@/hooks/use-mousepoition';
 
@@ -10,6 +10,8 @@ export default function Image3D({ scrollYProgress_start, images }) {
 	const { x: mouseX, y: mouseY } = useMousepoition();
 
 	const { width, height } = useDimensions(imgBg);
+
+	// const [y, setY] = useState([]);
 
 	const springValue = useSpring(scrollYProgress_start, {
 		stiffness: 100,
@@ -23,20 +25,12 @@ export default function Image3D({ scrollYProgress_start, images }) {
 
 	let yCon = useTransform(springValue, [0, 1], [`-5%`, `15%`], 'anticipate');
 
-	let yValues = images
-		.map((src, index) => {
-			return useTransform(
-				springValue,
-				[0, 1],
-				[
-					`${0 - ((index + 1) * multiplier) / 4}%`,
-					`${0 + ((index + 1) * multiplier) / 2}%`,
-				],
-				'anticipate'
-			);
-		})
-		.filter((n) => n)
-		.reverse();
+	let y = useTransform(
+		springValue,
+		[0, 1],
+		[`${0 - multiplier / 4}%`, `${0 + multiplier / 2}%`],
+		'anticipate'
+	);
 
 	return (
 		<div className='image3d'>
@@ -72,7 +66,7 @@ export default function Image3D({ scrollYProgress_start, images }) {
 									x: '-50%',
 								}}
 								style={{
-									y: yValues[index - 1],
+									y: y,
 								}}
 								key={`img3d_${index}`}></motion.img>
 						);

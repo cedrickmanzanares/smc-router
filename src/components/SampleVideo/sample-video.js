@@ -173,13 +173,11 @@ export default function SampleVideo() {
 							height: '100%',
 							width: '100%',
 						}}
-						muted='true'
+						muted={true}
 						preload='auto'
-						autoplay='true'
-						loop='true'
-						playsinline
-						webkit-playsinlin
-						x5-playsinline=''
+						autoPlay={true}
+						loop={true}
+						playsInline
 						src='./videos/sample-video.mp4'></video>
 				</motion.div>
 			</motion.div>
