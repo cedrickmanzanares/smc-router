@@ -86,6 +86,36 @@ export default function All() {
 							subtitle={'Annual Reports'}
 							link={'/disclosures/inner'}
 						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
+						<PDFWidget
+							title={'17-A'}
+							subtitle={'Annual Reports'}
+							link={'/disclosures/inner'}
+						/>
 					</div>
 				</div>
 			</motion.div>

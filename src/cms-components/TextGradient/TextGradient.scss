@@ -1,0 +1,14 @@
+.text-gradient {
+	display: flex;
+	line-height: 1;
+	flex-wrap: wrap;
+	.word {
+		position: relative;
+		margin-right: 0.75rem;
+		margin-top: 1rem;
+		.shadow {
+			position: absolute;
+			opacity: 20%;
+		}
+	}
+}

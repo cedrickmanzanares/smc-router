@@ -1,3 +1,23 @@
-.page-title h1 {
-	position: relative;
+.page-title {
+	.container-fluid-width {
+		padding-top: calc(var(--container-gap) * 2);
+		padding-bottom: 0;
+	}
+
+	h1 {
+		width: 768px;
+		max-width: 100%;
+		position: relative;
+		margin-bottom: 0;
+	}
+}
+
+.page-title.center {
+	text-align: center;
+	.container-fluid-width {
+	}
+	h1 {
+		margin: auto;
+		text-align: center;
+	}
 }

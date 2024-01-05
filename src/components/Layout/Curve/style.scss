@@ -7,13 +7,14 @@
 		pointer-events: none;
 		left: 0;
 		top: 0;
-
+		pointer-events: none;
 		+ *:not(.parallax-container) {
 			margin-top: var(--nav-height);
 		}
 	}
 
 	.route {
+		pointer-events: none;
 		position: absolute;
 		left: 50%;
 		top: 40%;
@@ -27,6 +28,7 @@
 
 	.route-transition {
 		z-index: 2000;
+
 		path {
 			fill: var(--base-red);
 		}

@@ -9,6 +9,8 @@ const routes = {
 	'/disclosures': 'Disclosures',
 	'/disclosures/inner': 'Disclosures Inner',
 	'/contact': 'Contact',
+	'/our-story/our-history': 'Our History',
+	'/news': 'News',
 };
 
 export default function Curve({ children, backgroundColor }) {

@@ -6,7 +6,7 @@ import { getColors } from '@/hooks/use-color';
 import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 
-export default function PageTitle({ title, split }) {
+export default function PageTitle({ title, split, horizontal }) {
 	const { blue } = getColors;
 
 	const translate = {
@@ -26,11 +26,13 @@ export default function PageTitle({ title, split }) {
 		},
 	};
 
+	const pageTitleClasses = `${horizontal ? horizontal : ''} page-title`;
+
 	return (
-		<motion.div className='page-title'>
+		<motion.div className={pageTitleClasses}>
 			<motion.div className='container-fluid-width'>
 				<motion.h1
-					className='heading-3 split-color'
+					className='heading-1 split-color'
 					{...useAnim(pageTranslate(0))}>
 					<motion.span>
 						{title} <b>{split}</b>

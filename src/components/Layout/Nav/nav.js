@@ -88,13 +88,13 @@ function MainNav() {
 					initial={hover_animation.closed}
 					variants={hover_animation}>
 					<div className='dropdown-item'>
-						<a className=''>Our Company</a>
+						{/* <a className=''>Our Company</a> */}
 						<div>
-							<a>Our Values</a>
-							<a>Our Strategy</a>
-							<a>Our History</a>
+							{/* <a>Our Values</a>
+							<a>Our Strategy</a> */}
+							<Link href='/our-story/our-history'>Our History</Link>
 
-							<div>
+							{/* <div>
 								<a>Corporate Social Responsibility</a>
 								<div>
 									<a>Environmental and Other Programs</a>
@@ -104,11 +104,11 @@ function MainNav() {
 							<a>Our Vision and Core Purpose</a>
 							<a>Board of Directors</a>
 							<a>Company Officers</a>
-							<a>Organizational Chart</a>
+							<a>Organizational Chart</a> */}
 						</div>
 					</div>
 					<div className='dropdown-item'>
-						<a className=''>Our Businesses</a>
+						{/* <a className=''>Our Businesses</a>
 						<div>
 							<a>Food and Beverage</a>
 							<a>Oil Refining & Marketing</a>
@@ -118,7 +118,7 @@ function MainNav() {
 							<a>Power & Energy</a>
 							<a>Infrastructure</a>
 							<a>Other Businesses</a>
-						</div>
+						</div> */}
 					</div>
 				</motion.div>
 			</NavItem>
@@ -142,6 +142,7 @@ function MainNav() {
 							<Link href='/'>SMC Privacy Statement</Link>
 							<Link href='/'>Enterprise Risk Management</Link>
 						</div> */}
+						<Link href='/news'>News</Link>
 					</div>
 					<div className='dropdown-item'>
 						<a className=''>Investor Relations</a>
@@ -623,111 +624,113 @@ function FloatingNavContent({ isOpen }) {
 					duration: 0.35,
 					staggerChildren: 100,
 				}}>
-				<svg
-					className='nav-toggle-bg-elements'
-					width={windowDimensions.width}
-					height={windowDimensions.height}
-					viewBox={`0 0 ${windowDimensions.width} ${windowDimensions.height}`}>
-					<motion.circle
-						className='circle-bg'
-						initial={{
-							r: 0,
-							fill: red,
-						}}
-						animate={{
-							cx: mouseX,
-							cy: mouseY,
+				{windowDimensions.width !== null && (
+					<svg
+						className='nav-toggle-bg-elements'
+						width={windowDimensions.width}
+						height={windowDimensions.height}
+						viewBox={`0 0 ${windowDimensions.width} ${windowDimensions.height}`}>
+						<motion.circle
+							className='circle-bg'
+							initial={{
+								r: 0,
+								fill: red,
+							}}
+							animate={{
+								cx: mouseX,
+								cy: mouseY,
 
-							// r:
-							// 	windowDimensions.height > windowDimensions.width
-							// 		? windowDimensions.height
-							// 		: windowDimensions.width,
-						}}></motion.circle>
-					<motion.path
-						className='big_1'
-						d={`M${
-							windowDimensions.width / 2 - windowDimensions.height / 2 + 300
-						} ${windowDimensions.height - 100} 
-					L${windowDimensions.width / 2 + windowDimensions.height / 2 + 100} ${100}`}
-						stroke='#F8D258'
-						strokeWidth='330'
-						strokeLinecap='round'
-						// variants={big_1}
-						initial={big_1.closed}
-						style={{
-							x: `-${windowDimensions.height}px`,
-							y: `${windowDimensions.height}px`,
-						}}
-					/>
+								// r:
+								// 	windowDimensions.height > windowDimensions.width
+								// 		? windowDimensions.height
+								// 		: windowDimensions.width,
+							}}></motion.circle>
+						<motion.path
+							className='big_1'
+							d={`M${
+								windowDimensions.width / 2 - windowDimensions.height / 2 + 300
+							} ${windowDimensions.height - 100} 
+						L${windowDimensions.width / 2 + windowDimensions.height / 2 + 100} ${100}`}
+							stroke='#F8D258'
+							strokeWidth='330'
+							strokeLinecap='round'
+							// variants={big_1}
+							initial={big_1.closed}
+							style={{
+								x: `-${windowDimensions.height}px`,
+								y: `${windowDimensions.height}px`,
+							}}
+						/>
 
-					<motion.path
-						className='path_bg'
-						d='M-262 637L43 332'
-						stroke='white'
-						strokeWidth='160'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
+						<motion.path
+							className='path_bg'
+							d='M-262 637L43 332'
+							stroke='white'
+							strokeWidth='160'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
 
-					<motion.path
-						className='path_bg'
-						d='M-318 875L171 386'
-						stroke='#F8D258'
-						strokeWidth='180'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
-					<motion.path
-						className='path_bg'
-						d={`M${windowDimensions.width - 350} ${50} 
-					L${windowDimensions.width - 200} ${-100}`}
-						stroke='#F8D258'
-						strokeWidth='125'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
+						<motion.path
+							className='path_bg'
+							d='M-318 875L171 386'
+							stroke='#F8D258'
+							strokeWidth='180'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
+						<motion.path
+							className='path_bg'
+							d={`M${windowDimensions.width - 350} ${50} 
+						L${windowDimensions.width - 200} ${-100}`}
+							stroke='#F8D258'
+							strokeWidth='125'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
 
-					<motion.path
-						className='path_bg'
-						d={`M${windowDimensions.width - 100} ${
-							windowDimensions.height / 2 - 150
-						} 
-					L${windowDimensions.width + 150} ${windowDimensions.height / 2 - 400}`}
-						stroke='white'
-						strokeWidth='160'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
+						<motion.path
+							className='path_bg'
+							d={`M${windowDimensions.width - 100} ${
+								windowDimensions.height / 2 - 150
+							} 
+						L${windowDimensions.width + 150} ${windowDimensions.height / 2 - 400}`}
+							stroke='white'
+							strokeWidth='160'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
 
-					<motion.path
-						className='path_bg'
-						d={`M${windowDimensions.width - 150} ${
-							windowDimensions.height - 250
-						} 
-					L${windowDimensions.width + 100} ${windowDimensions.height - 500}`}
-						stroke='#3779B0'
-						strokeWidth='160'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
-					<motion.path
-						className='path_bg'
-						d={`M${windowDimensions.width - 600} ${
-							windowDimensions.height + 200
-						} 
-					L${windowDimensions.width - 300} ${windowDimensions.height - 100}`}
-						stroke='white'
-						strokeWidth='160'
-						strokeLinecap='round'
-						initial={path_variants.closed}
-						variants={path_variants}
-					/>
-				</svg>
+						<motion.path
+							className='path_bg'
+							d={`M${windowDimensions.width - 150} ${
+								windowDimensions.height - 250
+							} 
+						L${windowDimensions.width + 100} ${windowDimensions.height - 500}`}
+							stroke='#3779B0'
+							strokeWidth='160'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
+						<motion.path
+							className='path_bg'
+							d={`M${windowDimensions.width - 600} ${
+								windowDimensions.height + 200
+							} 
+						L${windowDimensions.width - 300} ${windowDimensions.height - 100}`}
+							stroke='white'
+							strokeWidth='160'
+							strokeLinecap='round'
+							initial={path_variants.closed}
+							variants={path_variants}
+						/>
+					</svg>
+				)}
 			</MotionConfig>
 			<div className='nav-toggle-nav'>
 				<motion.div
@@ -785,7 +788,7 @@ function FloatingNavContent({ isOpen }) {
 						y: '100%',
 					}}>
 					<a>Corporate</a>
-					{/* <div className='dropdown-item'>
+					<div className='dropdown-item'>
 						<a className=''>Corporate Governance</a>
 						<div>
 							<a>Our Values</a>
@@ -831,7 +834,7 @@ function FloatingNavContent({ isOpen }) {
 					</div>
 					<div className='dropdown-item'>
 						<a className=''>Efforts Find us on social media</a>
-					</div> */}
+					</div>
 				</motion.div>
 				<motion.div
 					className='toggle-nav-item'
