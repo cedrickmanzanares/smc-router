@@ -31,6 +31,12 @@
 .footer-links > * {
 	flex: 1 0 20rem;
 }
+.footer-links-col {
+	flex: 0 1 50%;
+	p {
+		margin-top: 1rem;
+	}
+}
 
 .footer-logo {
 	display: flex;

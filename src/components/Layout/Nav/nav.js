@@ -64,7 +64,7 @@ export default function Nav() {
 					</Link>
 					<MainNav />
 					{/* <FloatingNav></FloatingNav> */}
-					<IoIosSearch className='nav-search' />
+					<IoIosSearch className='nav-search' size={'1.75rem'} />
 				</div>
 			</motion.div>
 			<FloatingNav navOpen={navOpen} />
@@ -177,7 +177,9 @@ function MainNav() {
 					</Accordion>
 				</motion.div>
 			</NavItem>
-			<Link href='/our-businesses'>Sustainability</Link>
+			<Link className='nav-item' href='/our-businesses'>
+				Sustainability
+			</Link>
 			<NavItem label='Corporate' link={'/corporate'}>
 				<motion.div
 					className='nav-dropdown'
@@ -299,7 +301,9 @@ function MainNav() {
 					</Accordion>
 				</motion.div>
 			</NavItem>
-			<Link href={`/careers`}>Careers</Link>
+			<Link className='nav-item' href={`/careers`}>
+				Careers
+			</Link>
 		</nav>
 	);
 }

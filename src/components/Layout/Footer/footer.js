@@ -15,7 +15,16 @@ import { getColors } from '@/hooks/use-color';
 import { LuInstagram } from 'react-icons/lu';
 
 import Modal from '@/components/modal/modal';
-import Accordion from '@/components/xAccordion/accordion';
+import { xAccordion } from '@/components/xAccordion/accordion';
+import {
+	Box,
+	Accordion,
+	AccordionItem,
+	AccordionButton,
+	AccordionPanel,
+	AccordionIcon,
+} from '@chakra-ui/react';
+
 import { useRef } from 'react';
 
 export default function Footer() {
@@ -37,6 +46,7 @@ export default function Footer() {
 
 	return (
 		<footer className='section-content main-footer' ref={footer}>
+			<xAccordion></xAccordion>
 			<motion.div className='container-fluid-width medium' style={{ y: y }}>
 				<div className='footer-logo'>
 					<Link href='/' className='brand-logo'>
@@ -130,7 +140,7 @@ export default function Footer() {
 						}}
 						trigger={{
 							className:
-								'push-right btn btn-bordered btn-gray3 btn-clear text-center uppercase',
+								'size-limit push-right btn btn-bordered btn-gray3 btn-clear text-center uppercase',
 							label: 'View subsidiary websites',
 						}}>
 						<a
@@ -329,7 +339,167 @@ export default function Footer() {
 				</div>
 
 				<div className='footer-links'>
-					<Accordion title='Corporate Head Office' className='footer-item'>
+					<Accordion
+						allowToggle={true}
+						style={{ display: 'flex', gap: '2rem' }}>
+						<div className='footer-links-col'>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											Corporate Head Office
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<p className='small'>
+										SAN MIGUEL CORPORATION <br />
+										40 San Miguel Avenue, Mandaluyong City
+										<br />
+										1550 Metro Manila, Philippines
+										<br />
+										P.O. Box 271 Manila Central Post Office
+										<br />
+										Telephone: (+632) 8-632-3000
+										<br />
+									</p>
+								</AccordionPanel>
+							</AccordionItem>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											San Miguel Customer Care Hotline
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<p className='small'>
+										Telephone: (+632) 8-632-2000
+										<br />
+										SAN MIGUEL CORPORATION
+										<br />
+										Fax: (+632) 8-632-3299 routing code 2005
+										<br />
+										Toll Free 1-800-1888-7621
+										<br />
+										customercare@sanmiguel.com.ph
+										<br />
+									</p>
+								</AccordionPanel>
+							</AccordionItem>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											Shareholder Services and Assistance
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<p className='small'>
+										SMC STOCK TRANSFER SERVICE CORPORATION
+										<br />
+										40 San Miguel Avenue, Mandaluyong City
+										<br />
+										1550 Metro Manila, Philippines
+										<br />
+										P.O. Box 271 Manila Central Post Office
+										<br />
+										Telephone: (+632) 8-632-3000
+										<br />
+										smc_stsc@sanmiguel.com.ph
+										<br />
+									</p>
+								</AccordionPanel>
+							</AccordionItem>
+						</div>
+						<div className='footer-links-col'>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											Whistleblowing Office
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<p className='small'>
+										ATTY. NOEL D. BALSICAS
+										<br />
+										WHISTLEBLOWER RELATIONS
+										<br />
+										OFFICER (WRO)
+										<br />
+										Telephone: 86322-WRO
+										<br />
+										[86322-976]
+										<br />
+										Mobile: 09177-WRO-SMC
+										<br />
+										[0917-7976-762]
+										<br />
+										smcwhistleblower@sanmiguel.com.ph
+									</p>
+								</AccordionPanel>
+							</AccordionItem>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											Investor Relations
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<p className='small'>
+										SAN MIGUEL CORPORATION
+										<br />
+										SMCInvestorRelations@sanmiguel.com.ph
+										<br />
+										Telephone: (+632) 8-632-3752
+										<br />
+									</p>
+								</AccordionPanel>
+							</AccordionItem>
+							<AccordionItem className='accordion-item'>
+								<AccordionButton>
+									<div className='accordion-header'>
+										<Box as='span' flex='1' textAlign='left'>
+											Data Privacy and Security Office
+										</Box>
+										<AccordionIcon />
+									</div>
+								</AccordionButton>
+								<AccordionPanel>
+									<div className='privacy-flex'>
+										<img
+											src='/storage/images/extra/SMC_SOR.png'
+											alt='Seal of Registration'
+											className='dpo'
+											data-filename='SMC_SOR.png'
+										/>
+										<p className='small'>
+											Telephone: (+632) 8-632-3007
+											<br />
+											Email: dpo@sanmiguel.com.ph
+											<br />
+											Click <a href='/page/npc-seal'>here</a> to view our
+											<br />
+											NPC Seal of Registration
+										</p>
+									</div>
+								</AccordionPanel>
+							</AccordionItem>
+						</div>
+					</Accordion>
+
+					{/* <Accordion title='Corporate Head Office' className='footer-item'>
 						<p>
 							<small>
 								<b>SAN MIGUEL CORPORATION</b> <br />
@@ -344,24 +514,7 @@ export default function Footer() {
 							</small>
 						</p>
 					</Accordion>
-					<Accordion
-						title='San Miguel Customer Care Hotline'
-						className='footer-item'>
-						<p>
-							<small>
-								Telephone: (+632) 8-632-2000
-								<br />
-								<b>SAN MIGUEL CORPORATION</b>
-								<br />
-								Fax: (+632) 8-632-3299 routing code 2005
-								<br />
-								Toll Free 1-800-1888-7621
-								<br />
-								customercare@sanmiguel.com.ph
-								<br />
-							</small>
-						</p>
-					</Accordion>
+					
 					<Accordion
 						title='Shareholder Services and Assistance'
 						className='footer-item'>
@@ -436,7 +589,7 @@ export default function Footer() {
 								</small>
 							</p>
 						</div>
-					</Accordion>
+					</Accordion> */}
 				</div>
 
 				<p className='copy text-center small'>

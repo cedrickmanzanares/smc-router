@@ -4,6 +4,7 @@
 	z-index: 1000;
 	height: var(--nav-height);
 	top: 0;
+	font-family: var(--font-mw_sans);
 }
 
 .nav-container .container-fluid-width {
@@ -96,6 +97,11 @@
 
 .nav-item {
 	position: relative;
+}
+
+a.nav-item,
+.nav-item > a {
+	font-weight: 500;
 }
 .nav-dropdown {
 	font-size: 0.9rem;

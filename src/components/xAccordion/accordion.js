@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 import { useDimensions } from '@/hooks/use-dimension';
 import { getColors } from '@/hooks/use-color';
 
-export default function Accordion({ title, children }) {
+export default function xAccordion({ title, children }) {
 	const [isOpen, toggle] = useCycle(false, true);
 	const containerRef = useRef(null);
 	const { height } = useDimensions(containerRef);

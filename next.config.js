@@ -2,7 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	output: 'export',
-	// basePath: '/revamp',
+	basePath: '/revamp',
 	reactStrictMode: true,
 	swcMinify: true,
 	compiler: {
