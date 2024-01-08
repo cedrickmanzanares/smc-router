@@ -207,7 +207,7 @@ function MainNav() {
 										Amended Articles of Incorporation and By-laws
 									</Link>
 									<Link href='/disclosures/inner'>Board Committees</Link>
-									<Link href='/disclosures/inner'>Company's Policies</Link>
+									<Link href='/disclosures/inner'>Company&apos;s Policies</Link>
 									<Link href='/disclosures/inner'>Corporate Structure</Link>
 									<Link href='/disclosures/inner'>SMC Privacy Statement</Link>
 									<Link href='/disclosures/inner'>
@@ -241,7 +241,7 @@ function MainNav() {
 											</AccordionButton>
 											<AccordionPanel>
 												<div className='inner-dropdown'>
-													<a>President’s Message</a>
+													<a>President&apos;s Message</a>
 													<a>Share Prices</a>
 													<a>Dividend History</a>
 													<a>Analyst Coverage</a>
@@ -271,7 +271,7 @@ function MainNav() {
 													<a>Financial Highlights</a>
 													<a>
 														Shelf Registration and Public Offering of Series 2
-														Preferred Shares’
+														Preferred Shares&apos;
 													</a>
 													<a>Corporate Notes</a>
 												</div>
@@ -293,7 +293,7 @@ function MainNav() {
 							<b>Kaunlaran</b>
 						</Link>
 						<Link href='/news'>
-							<b>Walang Iwanan SMC's COVID-19 Efforts</b>
+							<b>Walang Iwanan SMC&apos;s COVID-19 Efforts</b>
 						</Link>
 						<Link href='/news'>
 							<b>Find us on social media</b>

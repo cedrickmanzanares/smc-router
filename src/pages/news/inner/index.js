@@ -172,12 +172,12 @@ export default function NewsInner() {
 						</p>
 
 						<p className='heading-5 popout'>
-							"San Miguel Corporation (SMC) and the Technical Education Skills
-							and Development Authority (TESDA) are launching a skills training
-							program that will enable a greater number of Filipinos to
+							&quot;San Miguel Corporation (SMC) and the Technical Education
+							Skills and Development Authority (TESDA) are launching a skills
+							training program that will enable a greater number of Filipinos to
 							participate in opportunities at its New Manila International
 							Airport (NMIA) project as well as its various strategic
-							initiatives across the country."
+							initiatives across the country.&quot;
 						</p>
 						<p>
 							San Miguel Corporation (SMC) and the Technical Education Skills

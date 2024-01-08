@@ -82,7 +82,7 @@ export default function OurCompany() {
 				<ColumnSection direction={'reverse'}>
 					<>
 						<p>
-							SMC is one of the nation’s largest employers, with a direct
+							SMC is one of the nation&quot;s largest employers, with a direct
 							workforce of 50,433 employees as of December 2022. For each job
 							created within the San Miguel ecosystem, many additional jobs are
 							generated through suppliers, distributors, retailers, and other
@@ -112,7 +112,7 @@ export default function OurCompany() {
 					<div className='desc-container'>
 						<h3 className='heading-5'>Food and Beverage</h3>
 						<p>
-							San Miguel Food and Beverage, Inc. (SMFB) is the Philippines’
+							San Miguel Food and Beverage, Inc. (SMFB) is the Philippines&quot;
 							leading food and beverage company in the Philippines, combining
 							the strength of San Miguel Brewery Inc., Ginebra San Miguel Inc,
 							and San Miguel Foods. It has among the most recognizable and
@@ -135,7 +135,7 @@ export default function OurCompany() {
 					<div className='desc-container'>
 						<h3 className='heading-5'>Food and Beverage</h3>
 						<p>
-							San Miguel Food and Beverage, Inc. (SMFB) is the Philippines’
+							San Miguel Food and Beverage, Inc. (SMFB) is the Philippines&quot;
 							leading food and beverage company in the Philippines, combining
 							the strength of San Miguel Brewery Inc., Ginebra San Miguel Inc,
 							and San Miguel Foods. It has among the most recognizable and
@@ -197,9 +197,9 @@ export default function OurCompany() {
 						<p>
 							Petron participates in the reseller (service station), industrial,
 							lube, and liquefied petroleum gas sectors. In addition, the
-							Company’s service station provides a one-stop service experience
-							to travelers on the road, offering amenities such as Treats
-							convenience stores, restaurants, and specialty shops.
+							Company&quot;s service station provides a one-stop service
+							experience to travelers on the road, offering amenities such as
+							Treats convenience stores, restaurants, and specialty shops.
 						</p>
 					</div>
 				</FloatingImages>
@@ -231,24 +231,26 @@ export default function OurCompany() {
 						<p>
 							The infrastructure business, conducted through San Miguel Holdings
 							Corp. doing business under the name and style of SMC
-							Infrastructure (“SMHC”), consists of investments in companies that
-							hold long-term concessions in the infrastructure sector in the
-							Philippines.
+							Infrastructure (&ldquo; SMHC&rdquo;), consists of investments in
+							companies that hold long-term concessions in the infrastructure
+							sector in the Philippines.
 						</p>
 						<p>
 							Its current operating toll roads include the South Luzon
-							Expressway (“SLEX”), SLEX Elevated Extension, Skyway Stages 1, 2
-							and 3, the Southern Tagalog Arterial Road (“STAR”), Tarlac-
-							Pangasinan-La Union Toll Expressway (“TPLEX”) and NAIA Expressway
-							(“NAIAX”). Ongoing projects include Skyway Stage 4, the extension
-							of SLEX - Toll Road 4 (“SLEX TR4"), SLEX - Toll Road 5 (“SLEX
-							TR5”), Pasig River Expressway (“PAREX”), Southern Access Link
-							Expressway (“SALEX”), Northern Access Link Expressway (“NALEX”),
-							Metro Rail Transit Line 7 (“MRT-7”), and Manila International
-							Airport (“MIA”). It also operates and is currently expanding the
-							Boracay Airport and has investments in Manila North Harbour Port
-							Inc. (MNHPI) and Luzon Clean Water Development Corporation
-							(“LCWDC”) for the Bulacan Bulk Water Supply Project.
+							Expressway (&ldquo; SLEX&rdquo;), SLEX Elevated Extension, Skyway
+							Stages 1, 2 and 3, the Southern Tagalog Arterial Road (&ldquo;
+							STAR&rdquo;), Tarlac- Pangasinan-La Union Toll Expressway (&ldquo;
+							TPLEX&rdquo;) and NAIA Expressway (&ldquo; NAIAX&rdquo;). Ongoing
+							projects include Skyway Stage 4, the extension of SLEX - Toll Road
+							4 (&ldquo; SLEX TR4&rdquo;), SLEX - Toll Road 5 (&ldquo; SLEX
+							TR5&rdquo;), Pasig River Expressway (&ldquo; PAREX&rdquo;),
+							Southern Access Link Expressway (&ldquo; SALEX&rdquo;), Northern
+							Access Link Expressway (&ldquo; NALEX&rdquo;), Metro Rail Transit
+							Line 7 (&ldquo; MRT-7&rdquo;), and Manila International Airport
+							(&ldquo; MIA&rdquo;). It also operates and is currently expanding
+							the Boracay Airport and has investments in Manila North Harbour
+							Port Inc. (MNHPI) and Luzon Clean Water Development Corporation
+							(&ldquo; LCWDC&rdquo;) for the Bulacan Bulk Water Supply Project.
 						</p>
 					</div>
 				</FloatingImages>

@@ -15,7 +15,7 @@ import { getColors } from '@/hooks/use-color';
 import { LuInstagram } from 'react-icons/lu';
 
 import Modal from '@/components/modal/modal';
-import { xAccordion } from '@/components/xAccordion/accordion';
+
 import {
 	Box,
 	Accordion,
@@ -46,7 +46,6 @@ export default function Footer() {
 
 	return (
 		<footer className='section-content main-footer' ref={footer}>
-			<xAccordion></xAccordion>
 			<motion.div className='container-fluid-width medium' style={{ y: y }}>
 				<div className='footer-logo'>
 					<Link href='/' className='brand-logo'>
