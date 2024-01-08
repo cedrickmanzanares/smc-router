@@ -26,13 +26,15 @@ export default function PageTitle({ title, split, horizontal }) {
 		},
 	};
 
-	const pageTitleClasses = `${horizontal ? horizontal : ''} page-title`;
+	const pageTitleClasses = `${
+		horizontal ? horizontal : ''
+	} section-content page-title`;
 
 	return (
 		<motion.div className={pageTitleClasses}>
-			<motion.div className='container-fluid-width'>
+			<motion.div className='container-fluid-width medium'>
 				<motion.h1
-					className='heading-1 split-color'
+					className='heading-2 split-color'
 					{...useAnim(pageTranslate(0))}>
 					<motion.span>
 						{title} <b>{split}</b>

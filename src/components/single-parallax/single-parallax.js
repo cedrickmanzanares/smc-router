@@ -13,17 +13,24 @@ export default function SingleParallax({ children, scrollYProgress_start }) {
 	let yValues = useTransform(
 		springScroll,
 		[0, 1],
-		[`-25%`, `25%`],
+		[`-60%`, `-40%`],
 		'anticipate'
 	);
 
 	return (
-		<motion.div
-			className='single-parallax'
-			style={{
-				y: yValues,
-			}}>
-			{children}
+		<motion.div className='single-parallax'>
+			<motion.div
+				initial={{
+					x: '-50%',
+					y: '-50%',
+					height: '120%',
+					width: '120%',
+				}}
+				style={{
+					y: yValues,
+				}}>
+				{children}
+			</motion.div>
 		</motion.div>
 	);
 }

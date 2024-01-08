@@ -1,7 +1,13 @@
+.textgradient-section {
+	+ div {
+		padding-top: unset;
+	}
+}
 .text-gradient {
 	display: flex;
 	line-height: 1;
 	flex-wrap: wrap;
+	width: 75%;
 	.word {
 		position: relative;
 		margin-right: 0.75rem;

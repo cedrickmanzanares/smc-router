@@ -7,27 +7,45 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import { useRef } from 'react';
 
-export default function TextGradient({ paragraph, classes }) {
+export default function TextGradient({
+	children,
+	paragraph,
+	classes,
+	paddingBottom = 'var(--section-padding)',
+	anim,
+}) {
 	const textGradient = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: textGradient,
-		offset: ['start 0.5', 'start -0.25'],
+		offset: ['start 0.5', 'start 0'],
 	});
 
 	const words = paragraph.split(' ');
 
 	return (
-		<p className={`${classes ? classes : ''} text-gradient`} ref={textGradient}>
-			{words.map((word, i) => {
-				const start = i / words.length;
-				const end = start + 1 / words.length;
-				return (
-					<Word key={i} progress={scrollYProgress} range={[start, end]}>
-						{word}
-					</Word>
-				);
-			})}
-		</p>
+		<div
+			className={`section-content img-section no-min-height textgradient-section ${paddingBottom}`}
+			style={{
+				paddingBottom: paddingBottom,
+			}}
+			{...anim}>
+			<div className='container-fluid-width medium'>
+				{children}
+				<p
+					className={`${classes ? classes : ''} text-gradient`}
+					ref={textGradient}>
+					{words.map((word, i) => {
+						const start = i / words.length;
+						const end = start + 1 / words.length;
+						return (
+							<Word key={i} progress={scrollYProgress} range={[start, end]}>
+								{word}
+							</Word>
+						);
+					})}
+				</p>
+			</div>
+		</div>
 	);
 }
 

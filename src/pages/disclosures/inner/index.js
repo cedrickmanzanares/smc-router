@@ -19,7 +19,9 @@ export default function All() {
 	};
 
 	const src = './videos/sample-video.mp4';
-
+	const years = [
+		2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
+	].reverse();
 	return (
 		<Curve>
 			<PageTitle title='Diclosures' split='Inner' />
@@ -27,7 +29,26 @@ export default function All() {
 			<div
 				className='section-content no-min-height'
 				{...useAnim(pageTranslate(1))}>
-				<div className='container-fluid-width'>
+				<div className='container-fluid-width medium'>
+					<div
+						className='pdf-filter'
+						style={{
+							display: 'none',
+						}}>
+						<label className='form-group'>
+							<span className='size-limit'>Keyword</span>
+							<input type='text' />
+						</label>
+						<label className='form-group'>
+							<span className='size-limit'>Year</span>
+							<input list='browsers' />
+							<datalist id='browsers'>
+								{years.map((year, index) => {
+									return <option key={`year_${index}`} value={year} />;
+								})}
+							</datalist>
+						</label>
+					</div>
 					<div className='pdf-listing'>
 						<PDFItem
 							title={

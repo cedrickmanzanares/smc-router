@@ -4,6 +4,8 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
 export default function Parallax() {
+	const ref = useRef(null);
+
 	const text = ['Ready for', 'Tomorrow'];
 
 	const imageSrc = [
@@ -13,123 +15,99 @@ export default function Parallax() {
 		'/images/Homepage-1/4.png',
 		// '/images/Homepage-1/5.png',
 	];
-	const ref = useRef(null);
+
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		offset: ['start start', 'end start'],
 	});
 
-	const springScroll = useSpring(scrollYProgress, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001,
-	});
-
 	let textValue = useTransform(
-		springScroll,
+		scrollYProgress,
 		[0, 0.5],
 		['0%', '-75%'],
 		'anticipate'
 	);
 	let yValues = [
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(0 * 25) / 2}%`],
+			['0vh', `${(0 * 15) / 2}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(1 * 25) / 2}%`],
+			['0vh', `${(1 * 15) / 2}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(2 * 25) / 2}%`],
+			['0vh', `${(2 * 15) / 2}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(3 * 25) / 2}%`],
+			['0vh', `${(3 * 15) / 2}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(4 * 25) / 2}%`],
+			['0vh', `${(4 * 15) / 2}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['0%', `${(5 * 25) / 2}%`],
+			['0vh', `${(5 * 15) / 2}%`],
 			'anticipate'
 		),
 	].reverse();
-	// let yValues = imageSrc
-	// 	.map((val, index) => {
-	// 		return useTransform(
-	// 			springScroll,
-	// 			[0, 1],
-	// 			['0%', `${(index * 25) / 2}%`],
-	// 			'anticipate'
-	// 		);
-	// 	})
-	// 	.reverse();
 
 	let scaleValues = [
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (0 / 2) * 50}%`],
+			['100%', `${100 + (0 / 2) * 35}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (1 / 2) * 50}%`],
+			['100%', `${100 + (1 / 2) * 35}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (2 / 2) * 50}%`],
+			['100%', `${100 + (2 / 2) * 35}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (3 / 2) * 50}%`],
+			['100%', `${100 + (3 / 2) * 35}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (4 / 2) * 50}%`],
+			['100%', `${100 + (4 / 2) * 35}%`],
 			'anticipate'
 		),
 		useTransform(
-			springScroll,
+			scrollYProgress,
 			[0, 1],
-			['100%', `${100 + (5 / 2) * 50}%`],
+			['100%', `${100 + (5 / 2) * 35}%`],
 			'anticipate'
 		),
 	];
-	// let scaleValues = imageSrc.map((val, index) => {
-	// 	return useTransform(
-	// 		springScroll,
-	// 		[0, 1],
-	// 		['100%', `${100 + (index / 2) * 50}%`],
-	// 		'anticipate'
-	// 	);
-	// });
 
 	return (
-		<section className='parallax-container'>
-			<motion.div className='parallax' ref={ref}>
+		<section className='parallax-container' ref={ref}>
+			<motion.div className='parallax'>
 				{imageSrc.map((val, index) => {
 					return (
 						<motion.img

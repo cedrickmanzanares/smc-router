@@ -27,6 +27,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import gsap from 'gsap';
+import { pageTranslate } from '@/hooks/pageAnim';
 
 export default function News() {
 	const parent1 = useRef(null);
@@ -35,7 +36,13 @@ export default function News() {
 		offset: ['start end', 'end start'],
 	});
 
-	const [modal, setModal] = useState({ active: false, index: 0 });
+	const news_section = useRef(null);
+
+	const [modal, setModal] = useState({
+		active: false,
+		index: 0,
+		link: '',
+	});
 
 	const newsItems = [
 		{
@@ -87,17 +94,16 @@ export default function News() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				{/* <PageTitle title='News' /> */}
-				<div
-					className='section-content'
-					style={{
-						position: 'static',
-					}}>
-					<div className='container-fluid-width'>
+				<PageTitle title='News' />
+
+				<motion.div
+					className='section-content news-section'
+					{...useAnim(pageTranslate(1))}>
+					<div className='container-fluid-width medium'>
 						<div className='news-featured' ref={parent1}>
 							<div className='desc-container'>
-								<div className='news-date'>Sept. 20, 2023</div>
-								<h2 className='heading-2 news-title'>
+								<div className='news-date size-limit'>Sept. 20, 2023</div>
+								<h2 className='heading-3 news-title'>
 									SMC marks a decade of building homes, empowering communities,
 									with P3-B investment
 								</h2>
@@ -131,7 +137,7 @@ export default function News() {
 						</div>
 						<NewsModal modal={modal} newsItems={newsItems} />
 					</div>
-				</div>
+				</motion.div>
 			</Curve>
 		</>
 	);
@@ -142,21 +148,21 @@ function NewsItem({ index, title, date, img, link, setModal }) {
 		<div
 			className='news-item'
 			onMouseEnter={() => {
-				setModal({ active: true, index });
+				setModal({ active: true, index, link });
 			}}
 			onMouseLeave={() => {
-				setModal({ active: false, index });
+				setModal({ active: false, index, link: '' });
 			}}>
 			<div className='img-container'>
 				<Link href={link}>
 					<img src={img} />
 				</Link>
 			</div>
-			<h3 className='news-title heading-5'>
+			<h3 className='news-title heading-6'>
 				<Link href={link}>{title}</Link>
 			</h3>
 
-			<div className='news-date'>{date}</div>
+			<div className='news-date size-limit'>{date}</div>
 		</div>
 	);
 }
@@ -223,20 +229,22 @@ function NewsModal({ modal, newsItems }) {
 			ease: 'power3',
 		});
 
+		let top_adjustment =
+			document.querySelector('.news-section').getBoundingClientRect().top - 55;
 		window.addEventListener('mousemove', (e) => {
 			const { pageX, pageY } = e;
-
+			console.log(pageY);
 			xMoveContainer(pageX);
 
-			yMoveContainer(pageY);
+			yMoveContainer(pageY - top_adjustment);
 
 			xMoveCursor(pageX);
 
-			yMoveCursor(pageY);
+			yMoveCursor(pageY - top_adjustment);
 
 			xMoveCursorLabel(pageX);
 
-			yMoveCursorLabel(pageY);
+			yMoveCursorLabel(pageY - top_adjustment);
 		});
 	}, []);
 
@@ -275,7 +283,7 @@ function NewsModal({ modal, newsItems }) {
 				variants={scaleAnimation}
 				initial='initial'
 				animate={active ? 'enter' : 'closed'}>
-				View
+				<Link href={modal.link}>View</Link>
 			</motion.div>
 		</>
 	);

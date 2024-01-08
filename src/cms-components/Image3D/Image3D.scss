@@ -1,9 +1,7 @@
 .image3d {
 	position: relative;
 	align-self: center;
-	padding: 4rem;
 	padding-bottom: 0;
-	overflow: hidden;
 }
 
 .image3d img {
@@ -25,17 +23,18 @@
 	height: 100%;
 	width: 100%;
 }
-.image3d-elements img:nth-child(1) {
-	/* transform: translate(-60%, -50%); */
-}
-
-.image3d-elements img:nth-child(2) {
-	/* transform: translate(-50%, -50%); */
-}
 
 .image3d-bg {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	padding-bottom: 120%;
+	padding-bottom: 100%;
+}
+
+.image3d-label {
+	position: absolute;
+	top: 0%;
+	left: var(--gap-padding);
+	right: var(--gap-padding);
+	color: white;
 }

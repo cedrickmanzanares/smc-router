@@ -3,13 +3,18 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { text, curve, translate } from './anim';
 import useAnim from '@/hooks/use-anim';
+import Lenis from '@studio-freight/lenis';
 
 const routes = {
 	'/': 'Ready For Tomorrow',
 	'/disclosures': 'Disclosures',
 	'/disclosures/inner': 'Disclosures Inner',
 	'/contact': 'Contact',
+
+	'/our-story': 'Our Story',
 	'/our-story/our-history': 'Our History',
+	'/our-story/our-business': 'Our Business',
+
 	'/news': 'News',
 };
 
@@ -22,6 +27,16 @@ export default function Curve({ children, backgroundColor }) {
 	});
 
 	useEffect(() => {
+		const lenis = new Lenis();
+
+		const raf = (time) => {
+			lenis.raf(time);
+
+			requestAnimationFrame(raf);
+		};
+
+		requestAnimationFrame(raf);
+
 		function resize() {
 			setDimensions({
 				width: window.innerWidth,
@@ -42,9 +57,9 @@ export default function Curve({ children, backgroundColor }) {
 				className='background'
 			/>
 
-			<motion.p className='route heading-1' {...useAnim(text)}>
+			<motion.h6 className='route heading-1' {...useAnim(text)}>
 				{routes[router.route]}
-			</motion.p>
+			</motion.h6>
 			{dimensions.width != null && <SVG {...dimensions} />}
 			{children}
 		</div>
@@ -52,6 +67,7 @@ export default function Curve({ children, backgroundColor }) {
 }
 
 const SVG = ({ height, width }) => {
+	console.log(height, width);
 	const initialPath = `
         M0 300 
         Q${width / 2} 0 ${width} 300

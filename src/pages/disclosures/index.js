@@ -27,7 +27,7 @@ export default function All() {
 			<motion.div
 				className='section-content no-min-height'
 				{...useAnim(pageTranslate(1))}>
-				<div className='container-fluid-width'>
+				<div className='container-fluid-width medium'>
 					<div className='pdf-listing'>
 						<PDFItem
 							title={
@@ -78,7 +78,7 @@ export default function All() {
 			<motion.div
 				className='section-content no-min-height'
 				{...useAnim(pageTranslate(2))}>
-				<div className='container-fluid-width'>
+				<div className='container-fluid-width medium'>
 					<h2 className='heading-4'>Sec Filings</h2>
 					<div className='grid pdf-grid'>
 						<PDFWidget

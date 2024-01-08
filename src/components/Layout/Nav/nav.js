@@ -12,7 +12,15 @@ import { animate, stagger } from 'framer-motion/dom';
 import { IoIosSearch } from 'react-icons/io';
 import { useCycle } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Accordion from '@/components/Accordion/accordion';
+
+import {
+	Box,
+	Accordion,
+	AccordionItem,
+	AccordionButton,
+	AccordionPanel,
+	AccordionIcon,
+} from '@chakra-ui/react';
 
 import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
@@ -45,10 +53,10 @@ export default function Nav() {
 	return (
 		<>
 			<motion.div
-				className='nav-container'
+				className='nav-container size-limit'
 				animate={navOpen ? 'open' : 'closed'}
 				variants={navContainer_variants}>
-				<div className='container-fluid-width'>
+				<div className='container-fluid-width large'>
 					<Link href='/' className='brand-logo'>
 						<figure>
 							<img src='/images/smc-logo.svg'></img>
@@ -87,72 +95,211 @@ function MainNav() {
 					className='nav-dropdown'
 					initial={hover_animation.closed}
 					variants={hover_animation}>
-					<div className='dropdown-item'>
-						{/* <a className=''>Our Company</a> */}
-						<div>
-							{/* <a>Our Values</a>
-							<a>Our Strategy</a> */}
-							<Link href='/our-story/our-history'>Our History</Link>
+					<Accordion defaultIndex={[0]} allowMultiple={true}>
+						<AccordionItem>
+							<AccordionButton>
+								<Box as='span' flex='1' textAlign='left'>
+									<Link href='/our-story/our-company'>
+										<b>Our Company</b>
+									</Link>
+								</Box>
+								<AccordionIcon />
+							</AccordionButton>
+							<AccordionPanel>
+								<div className='inner-dropdown'>
+									<Link href='/our-story/our-values'>Our Values</Link>
+									<Link href='/our-story/our-strategy'>Our Strategy</Link>
+									<Link href='/our-story/our-history'>Our History</Link>
 
-							{/* <div>
-								<a>Corporate Social Responsibility</a>
-								<div>
-									<a>Environmental and Other Programs</a>
-									<a>World We Want</a>
+									<Accordion>
+										<AccordionItem>
+											<AccordionButton>
+												<Box as='span' flex='1' textAlign='left'>
+													<Link href='/our-story/corporate-social-responsibility'>
+														Corporate Social Responsibility
+													</Link>
+												</Box>
+
+												<AccordionIcon />
+											</AccordionButton>
+											<AccordionPanel>
+												<div className='inner-dropdown'>
+													<Link href='/our-story/environmental-and-other-programs'>
+														Environmental and Other Programs
+													</Link>
+													<a href='https://worldwewant.ph/' target='_blank'>
+														World We Want
+													</a>
+												</div>
+											</AccordionPanel>
+										</AccordionItem>
+									</Accordion>
+									<a>Our Vision and Core Purpose</a>
+									<a>Board of Directors</a>
+									<a>Company Officers</a>
+									<a>Organizational Chart</a>
 								</div>
-							</div>
-							<a>Our Vision and Core Purpose</a>
-							<a>Board of Directors</a>
-							<a>Company Officers</a>
-							<a>Organizational Chart</a> */}
-						</div>
-					</div>
-					<div className='dropdown-item'>
-						{/* <a className=''>Our Businesses</a>
-						<div>
-							<a>Food and Beverage</a>
-							<a>Oil Refining & Marketing</a>
-							<a>Cement</a>
-							<a>Packaging</a>
-							<a>Properties</a>
-							<a>Power & Energy</a>
-							<a>Infrastructure</a>
-							<a>Other Businesses</a>
-						</div> */}
-					</div>
+							</AccordionPanel>
+						</AccordionItem>
+
+						<AccordionItem>
+							<AccordionButton>
+								<Box as='span' flex='1' textAlign='left'>
+									<Link href='/our-story/our-business'>
+										<b>Our Businesses</b>
+									</Link>
+								</Box>
+								<AccordionIcon />
+							</AccordionButton>
+							<AccordionPanel>
+								<div>
+									<Link href='/our-story/our-business/inner'>
+										Food and Beverage
+									</Link>
+									<Link href='/our-story/our-business/inner'>
+										Oil Refining & Marketing
+									</Link>
+									<Link href='/our-story/our-business/inner'>Cement</Link>
+									<Link href='/our-story/our-business/inner'>Packaging</Link>
+									<Link href='/our-story/our-business/inner'>Properties</Link>
+									<Link href='/our-story/our-business/inner'>
+										Power & Energy
+									</Link>
+									<Link href='/our-story/our-business/inner'>
+										Infrastructure
+									</Link>
+									<Link href='/our-story/our-business/inner'>
+										Other Businesses
+									</Link>
+								</div>
+							</AccordionPanel>
+						</AccordionItem>
+					</Accordion>
 				</motion.div>
 			</NavItem>
-			<Link href={`/corporate`}>Sustainability</Link>
+			<Link href='/our-businesses'>Sustainability</Link>
 			<NavItem label='Corporate' link={'/corporate'}>
 				<motion.div
 					className='nav-dropdown'
 					initial={hover_animation.closed}
 					variants={hover_animation}>
-					<div className='dropdown-item'>
-						<a className=''>Corporate Governance</a>
-						{/* <div>
-							<Link href='/'>Manual of Corporate Governance</Link>
-							<Link href='/'>Annual Corporate Governance Report</Link>
-							<Link href='/'>
-								Amended Articles of Incorporation and By-laws
-							</Link>
-							<Link href='/'>Board Committees</Link>
-							<Link href='/'>Company's Policies</Link>
-							<Link href='/'>Corporate Structure</Link>
-							<Link href='/'>SMC Privacy Statement</Link>
-							<Link href='/'>Enterprise Risk Management</Link>
-						</div> */}
-						<Link href='/news'>News</Link>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>Investor Relations</a>
-						<div>
-							<Link href='/disclosures'>Company Disclosures</Link>
-						</div>
-					</div>
+					<Accordion defaultIndex={[0]} allowMultiple={true}>
+						<AccordionItem>
+							<AccordionButton>
+								<Box as='span' flex='1' textAlign='left'>
+									<Link href='/corporate/corporate-governance'>
+										<b>Corporate Governance</b>
+									</Link>
+								</Box>
+								<AccordionIcon />
+							</AccordionButton>
+							<AccordionPanel>
+								<div className='inner-dropdown'>
+									<Link href='/disclosures/inner'>
+										Manual of Corporate Governance
+									</Link>
+									<Link href='/disclosures/inner'>
+										Annual Corporate Governance Report
+									</Link>
+									<Link href='/disclosures/inner'>
+										Amended Articles of Incorporation and By-laws
+									</Link>
+									<Link href='/disclosures/inner'>Board Committees</Link>
+									<Link href='/disclosures/inner'>Company's Policies</Link>
+									<Link href='/disclosures/inner'>Corporate Structure</Link>
+									<Link href='/disclosures/inner'>SMC Privacy Statement</Link>
+									<Link href='/disclosures/inner'>
+										Enterprise Risk Management
+									</Link>
+								</div>
+							</AccordionPanel>
+						</AccordionItem>
+
+						<AccordionItem>
+							<AccordionButton>
+								<Box as='span' flex='1' textAlign='left'>
+									<Link href='/our-story/our-business'>
+										<b>Investor Relations</b>
+									</Link>
+								</Box>
+								<AccordionIcon />
+							</AccordionButton>
+							<AccordionPanel>
+								<div className='inner-dropdown'>
+									<Accordion allowToggle={true}>
+										<AccordionItem>
+											<AccordionButton>
+												<Box as='span' flex='1' textAlign='left'>
+													<Link href='/our-story/corporate-social-responsibility'>
+														Shareholder Information
+													</Link>
+												</Box>
+
+												<AccordionIcon />
+											</AccordionButton>
+											<AccordionPanel>
+												<div className='inner-dropdown'>
+													<a>President’s Message</a>
+													<a>Share Prices</a>
+													<a>Dividend History</a>
+													<a>Analyst Coverage</a>
+													<a>Total Outstanding Shares</a>
+													<a>Top 20 Stockholders</a>
+													<a>Exchange Where Listed</a>
+													<a>Company Ownership Report</a>
+												</div>
+											</AccordionPanel>
+										</AccordionItem>
+										<a>Company Disclosures</a>
+										<AccordionItem>
+											<AccordionButton>
+												<Box as='span' flex='1' textAlign='left'>
+													<Link href='/our-story/corporate-social-responsibility'>
+														Financial Performance
+													</Link>
+												</Box>
+
+												<AccordionIcon />
+											</AccordionButton>
+											<AccordionPanel>
+												<div className='inner-dropdown'>
+													<a>Annual Reports</a>
+													<a>Financial Statements</a>
+													<a>IR Presentations</a>
+													<a>Financial Highlights</a>
+													<a>
+														Shelf Registration and Public Offering of Series 2
+														Preferred Shares’
+													</a>
+													<a>Corporate Notes</a>
+												</div>
+											</AccordionPanel>
+										</AccordionItem>
+										<a>Investor Contact</a>
+									</Accordion>
+								</div>
+							</AccordionPanel>
+						</AccordionItem>
+
+						<Link href='/news'>
+							<b>Public Offering of Securities</b>
+						</Link>
+						<Link href='/news'>
+							<b>News</b>
+						</Link>
+						<Link href='/news'>
+							<b>Kaunlaran</b>
+						</Link>
+						<Link href='/news'>
+							<b>Walang Iwanan SMC's COVID-19 Efforts</b>
+						</Link>
+						<Link href='/news'>
+							<b>Find us on social media</b>
+						</Link>
+					</Accordion>
 				</motion.div>
 			</NavItem>
-			<Link href={`/sustainability`}>Careers</Link>
+			<Link href={`/careers`}>Careers</Link>
 		</nav>
 	);
 }
@@ -758,10 +905,12 @@ function FloatingNavContent({ isOpen }) {
 							<a>Company Officers</a>
 							<a>Organizational Chart</a>
 						</div>
-					</div>
+					</div> */}
 					<div className='dropdown-item'>
-						<a className=''>Our Businesses</a>
-						<div>
+						<Link href='/our-story/our-business' className=''>
+							Our Businesses
+						</Link>
+						{/* <div>
 							<a>Food and Beverage</a>
 							<a>Oil Refining & Marketing</a>
 							<a>Cement</a>
@@ -770,8 +919,8 @@ function FloatingNavContent({ isOpen }) {
 							<a>Power & Energy</a>
 							<a>Infrastructure</a>
 							<a>Other Businesses</a>
-						</div>
-					</div> */}
+						</div> */}
+					</div>
 				</motion.div>
 				<motion.div
 					className='toggle-nav-item'

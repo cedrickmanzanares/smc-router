@@ -66,7 +66,11 @@ export default function OurBusinesses({ className, link, children }) {
 		console.log(info);
 	};
 	return (
-		<div className='section-content ourbusinesses-section' style={{}}>
+		<motion.div
+			className='ourbusinesses-section'
+			style={{}}
+			initial='initial'
+			whileInView='visible'>
 			<div className='ourbusinesses-bg'>
 				{data.map((val, index) => {
 					return (
@@ -81,80 +85,82 @@ export default function OurBusinesses({ className, link, children }) {
 					);
 				})}
 			</div>
-			<div className='container-fluid-width'>
-				<h2 className='heading-3'>Our Businesses</h2>
-				<div className='outer-ring'>
-					<div className='ring'></div>
-					{data.map((val, index) => {
-						return (
-							<motion.img
-								animate={{
-									opacity: index == selected ? 1 : 0,
-								}}
-								data-index={index}
-								key={`outer-ring-img_${index}`}
-								src={val.img}
-							/>
-						);
-					})}
-					<div className='ring-selected'>
+			<div className='container-fluid-width large'>
+				<div className='ourbusinesses-container'>
+					<h2 className='heading-3'>Our Businesses</h2>
+					<div className='outer-ring'>
 						<div className='ring'></div>
-					</div>
-				</div>
-
-				<div className='ring-description'>
-					<h3 className='heading-4'>{data[selected].title}</h3>
-					<p>{data[selected].description}</p>
-					<p>
-						<Button className='btn-bordered pri' link={data[selected].link}>
-							Read More
-						</Button>
-					</p>
-				</div>
-				<motion.div className='inner-ring'>
-					{data.map((val, index) => {
-						return (
-							<motion.div
-								data-index={index}
-								key={`inner-item_${index}`}
-								className='inner-item'
-								initial={{
-									y: `-50%`,
-								}}
-								animate={{
-									y: `${-50 - selected * 100}%`,
-								}}
-								transition={{
-									ease: 'easeInOut',
-									duration: 0.5,
-								}}
-								onTap={(event, info) => {
-									innerItem_click(event, info);
-								}}>
-								<div className='inner-img'>
-									<motion.img
-										transition={{
-											ease: 'easeInOut',
-											duration: 0.5,
-										}}
-										animate={{
-											scale: index == selected ? 0.85 : 0.5,
-										}}
-										src={val.img}
-									/>
-								</div>
-								<motion.p
-									className=''
+						{data.map((val, index) => {
+							return (
+								<motion.img
 									animate={{
-										opacity: index == selected ? 0 : 1,
+										opacity: index == selected ? 1 : 0,
+									}}
+									data-index={index}
+									key={`outer-ring-img_${index}`}
+									src={val.img}
+								/>
+							);
+						})}
+						<div className='ring-selected'>
+							<div className='ring'></div>
+						</div>
+					</div>
+
+					<div className='ring-description'>
+						<h3 className='heading-5'>{data[selected].title}</h3>
+						<p>{data[selected].description}</p>
+						<p>
+							<Button className='btn-bordered pri' link={data[selected].link}>
+								Read More
+							</Button>
+						</p>
+					</div>
+					<motion.div className='inner-ring'>
+						{data.map((val, index) => {
+							return (
+								<motion.div
+									data-index={index}
+									key={`inner-item_${index}`}
+									className='inner-item'
+									initial={{
+										y: `-50%`,
+									}}
+									animate={{
+										y: `${-50 - selected * 100}%`,
+									}}
+									transition={{
+										ease: 'easeInOut',
+										duration: 0.5,
+									}}
+									onTap={(event, info) => {
+										innerItem_click(event, info);
 									}}>
-									<b>{val.title}</b>
-								</motion.p>
-							</motion.div>
-						);
-					})}
-				</motion.div>
+									<div className='inner-img'>
+										<motion.img
+											transition={{
+												ease: 'easeInOut',
+												duration: 0.5,
+											}}
+											animate={{
+												scale: index == selected ? 0.85 : 0.5,
+											}}
+											src={val.img}
+										/>
+									</div>
+									<motion.p
+										className=''
+										animate={{
+											opacity: index == selected ? 0 : 1,
+										}}>
+										<b>{val.title}</b>
+									</motion.p>
+								</motion.div>
+							);
+						})}
+					</motion.div>
+				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

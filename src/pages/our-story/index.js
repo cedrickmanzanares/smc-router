@@ -23,62 +23,16 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
+import Image3D from '@/cms-components/Image3D/Image3D';
+import { Grid } from '@chakra-ui/react';
 
-export default function OurHistory() {
-	const images1 = [
-		'/images/Image3D/image3d1-1.png',
-		'/images/Image3D/image3d1-2.png',
-	];
+export default function OurStory() {
+	const grid = useRef(null);
 
-	const images2 = [
-		'/images/Image3D/image3d2-1.png',
-		'/images/Image3D/image3d2-2.png',
-		'/images/Image3D/image3d2-3.png',
-	];
-
-	const images3 = [
-		'/images/Image3D/image3d3-1.png',
-		'/images/Image3D/image3d3-2.png',
-	];
-
-	const images4 = [
-		'/images/Image3D/image3d4-1.png',
-		'/images/Image3D/image3d4-2.png',
-	];
-
-	const images5 = [
-		'/images/Image3D/image3d5-1.png',
-		'/images/Image3D/image3d5-2.png',
-	];
-
-	const images6 = [
-		'/images/Image3D/image3d6-1.png',
-		'/images/Image3D/image3d6-2.png',
-	];
-
-	const parent1 = useRef(null);
-	const parent2 = useRef(null);
-
-	const ref = useRef(null);
-	const { width: w1 } = useDimensions(parent1);
-
-	const { scrollYProgress: scrollYProgress_start1 } = useScroll({
-		target: parent1,
+	const { scrollYProgress } = useScroll({
+		target: grid,
 		offset: ['start end', 'end start'],
 	});
-
-	const springValue1 = useSpring(scrollYProgress_start1, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001,
-	});
-
-	const xVal = useTransform(
-		springValue1,
-		[0, 1],
-		['0px', `-${w1}px`],
-		'anticipate'
-	);
 
 	return (
 		<>
@@ -89,7 +43,100 @@ export default function OurHistory() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageTitle title='Our' split='History' horizontal='center' />
+				<div className='page-title clipped-title text-center'>
+					<div className='container-fluid-width medium'>
+						<h1
+							className='heading-1'
+							style={{
+								background: 'url(/images/Homepage-1/1.png)',
+								backgroundSize: 'cover',
+								backgroundAttachment: 'fixed',
+								webkitBackgroundClip: 'text',
+								backgroundClip: 'text',
+								color: 'transparent',
+							}}>
+							Our Story
+						</h1>
+					</div>
+				</div>
+				<div className='section-content no-padding '>
+					<div className='container-fluid-width small'>
+						<div className='text-center'>
+							<h3 className='heading-4 split-color'>
+								<b>Purus varius elit morbi</b> diam varius integer ullamcorper
+							</h3>
+							<p>
+								Mi ullamcorper diam et est in. Massa arcu massa fermentum sed
+								viverra eu. Maecenas sit ac sed elementum. Amet diam lobortis
+								nisl nunc. Vivamus nibh augue pellentesque venenatis. Ut gravida
+								vestibulum nulla suspendisse sit neque nunc malesuada felis.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div className='grid-section section-content ' ref={grid}>
+					<div className='container-fluid-width medium'>
+						<Grid gridTemplateColumns={'1fr 1fr'} gap={32}>
+							<SingleParallax
+								images={['/images/Homepage-1/1.png']}
+								scrollYProgress_start={scrollYProgress}>
+								<img src='/images/Homepage-1/1.png' />
+								{/* <h2 className='heading-4'>Our Company</h2>
+								<p className='small'>
+									San Miguel Corporation is one of the largest and most
+									diversified conglomerates in the Philippines, making your
+									world better for over 130 years, through beverages, food,
+									packaging, fuel and oil, power, and infrastructure.
+								</p> */}
+							</SingleParallax>
+							<SingleParallax
+								images={['/images/Homepage-1/1.png']}
+								scrollYProgress_start={scrollYProgress}>
+								<img src='/images/Homepage-1/1.png' />
+								<h2 className='heading-4'>Our Strategy</h2>
+								<p className='small'>
+									San Miguel’s goal is to help people enjoy and make progress in
+									their lives through the many products and services that our
+									company offers. We want to give every customer and consumer we
+									touch access to the best we can offer—whether in terms of
+									quality, or affordability or choice.
+								</p>
+							</SingleParallax>
+						</Grid>
+					</div>
+				</div>
+
+				<div className='section-content no-padding'>
+					<div className='container-fluid-width medium'>
+						<div className='grid by-2' style={{ gap: '2rem' }}>
+							<div className='img-container'>
+								<img src='/images/Homepage-1/1.png' />
+							</div>
+							<div className='img-container'>
+								<img src='/images/Homepage-1/1.png' />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className='section-content no-padding '>
+					<div className='container-fluid-width small'>
+						<div className='grid by-2' style={{ gap: '2rem' }}>
+							<h3 className='heading-4 split-color'>
+								<b>Purus varius elit morbi</b> diam varius integer ullamcorper
+							</h3>
+							<p>
+								Mi ullamcorper diam et est in. Massa arcu massa fermentum sed
+								viverra eu. Maecenas sit ac sed elementum. Amet diam lobortis
+								nisl nunc. Vivamus nibh augue pellentesque venenatis. Ut gravida
+								vestibulum nulla suspendisse sit neque nunc malesuada felis.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div clas></div>
 			</Curve>
 		</>
 	);

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import {
 	ImFacebook,
@@ -15,7 +15,8 @@ import { getColors } from '@/hooks/use-color';
 import { LuInstagram } from 'react-icons/lu';
 
 import Modal from '@/components/modal/modal';
-import Accordion from '@/components/Accordion/accordion';
+import Accordion from '@/components/xAccordion/accordion';
+import { useRef } from 'react';
 
 export default function Footer() {
 	const year = new Date().getFullYear();
@@ -24,9 +25,19 @@ export default function Footer() {
 		size: '1.75rem',
 		color: baseBlack,
 	};
+
+	const footer = useRef(null);
+
+	const { scrollYProgress } = useScroll({
+		target: footer,
+		offset: ['start end', 'start 0.5'],
+	});
+
+	const y = useTransform(scrollYProgress, [0, 1], ['-50%', '0%']);
+
 	return (
-		<footer className='main-footer'>
-			<div className='container-fluid-width'>
+		<footer className='section-content main-footer' ref={footer}>
+			<motion.div className='container-fluid-width medium' style={{ y: y }}>
 				<div className='footer-logo'>
 					<Link href='/' className='brand-logo'>
 						<figure>
@@ -40,7 +51,7 @@ export default function Footer() {
 						}}
 						whileHover={{
 							scale: 1.2,
-							color: 'white',
+							color: '#ffffff',
 							backgroundColor: '#3975ea',
 						}}
 						whileTap={{ scale: 0.9 }}>
@@ -55,7 +66,7 @@ export default function Footer() {
 						}}
 						whileHover={{
 							scale: 1.2,
-							color: 'white',
+							color: '#ffffff',
 							backgroundImage:
 								'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
 						}}
@@ -72,7 +83,7 @@ export default function Footer() {
 						}}
 						whileHover={{
 							scale: 1.2,
-							color: 'white',
+							color: '#ffffff',
 							backgroundColor: '#ea3324',
 						}}
 						whileTap={{ scale: 0.9 }}>
@@ -88,7 +99,7 @@ export default function Footer() {
 						}}
 						whileHover={{
 							scale: 1.2,
-							color: 'white',
+							color: '#ffffff',
 							backgroundColor: '#2a6496',
 						}}
 						whileTap={{ scale: 0.9 }}>
@@ -104,7 +115,7 @@ export default function Footer() {
 						}}
 						whileHover={{
 							scale: 1.2,
-							color: 'white',
+							color: '#ffffff',
 							backgroundColor: red,
 						}}
 						whileTap={{ scale: 0.9 }}>
@@ -428,12 +439,10 @@ export default function Footer() {
 					</Accordion>
 				</div>
 
-				<p className='copy text-center'>
-					<small>
-						Copyright &copy; {year} San Miguel Corporation. All Rights Reserved.
-					</small>
+				<p className='copy text-center small'>
+					Copyright &copy; {year} San Miguel Corporation. All Rights Reserved.
 				</p>
-			</div>
+			</motion.div>
 		</footer>
 	);
 }

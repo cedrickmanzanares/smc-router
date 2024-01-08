@@ -30,10 +30,10 @@ export default function PDFItem({ title, date, download, link }) {
 
 	const buttonVariants = {
 		rest: {
-			color: blue,
+			color: '#ffffff',
 		},
 		hover: {
-			color: '#ffffff',
+			color: blue,
 		},
 	};
 
@@ -48,7 +48,10 @@ export default function PDFItem({ title, date, download, link }) {
 		},
 	};
 	return (
-		<motion.div className='pdf-item' inital='rest' whileHover='hover'>
+		<motion.div
+			className='pdf-item size-limit'
+			inital='rest'
+			whileHover='hover'>
 			<motion.div className='pdf-name' variants={nameVariants}>
 				<a
 					target='_blank'
@@ -59,15 +62,21 @@ export default function PDFItem({ title, date, download, link }) {
 				</a>
 			</motion.div>
 			<motion.div className='pdf-details' variants={detailsVariants}>
-				{date && <span>{date}</span>}
+				{date && <span className='small'>{date}</span>}
 				{download ? (
-					<motion.div variants={buttonVariants}>
+					<motion.div
+						variants={buttonVariants}
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+						}}>
 						<a
 							target='_blank'
 							href={link}
 							rel='noopener noreferrer'
 							className='pdf-link'>
-							<BsArrowDownCircle size={`2rem`} /> <span>Download</span>
+							<BsArrowDownCircle size={`2rem`} fill='currentColor' />
+							<span className='small'>Download</span>
 						</a>
 					</motion.div>
 				) : (

@@ -1,5 +1,9 @@
 .curve {
-	padding-bottom: 25vh;
+	position: relative;
+	> *:last-child:not(.pageCTA):not(.fullbanner-section) {
+		padding-bottom: 25vh;
+	}
+
 	.route-transition {
 		position: fixed;
 		height: calc(100vh + 600px);
@@ -9,13 +13,13 @@
 		top: 0;
 		pointer-events: none;
 		+ *:not(.parallax-container) {
-			margin-top: var(--nav-height);
+			padding-top: calc(var(--nav-height) + var(--section-padding));
 		}
 	}
 
 	.route {
 		pointer-events: none;
-		position: absolute;
+		position: fixed;
 		left: 50%;
 		top: 40%;
 		color: white;

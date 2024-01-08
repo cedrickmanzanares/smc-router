@@ -2,18 +2,19 @@
 	position: relative;
 	z-index: 1;
 	background-color: #ffffff;
+	overflow: hidden;
 }
 
 .main-footer .container-fluid-width {
-	width: 75rem;
 	max-width: 100%;
 	margin: auto;
+	position: relative;
 }
 
 .footer-links {
 	display: flex;
 	flex-wrap: wrap;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	gap: 2rem;
 	padding: 2rem;
 	line-height: 1.25;

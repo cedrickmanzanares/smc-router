@@ -23,43 +23,11 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
+import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
 export default function OurHistory() {
-	const images1 = [
-		'/images/Image3D/image3d1-1.png',
-		'/images/Image3D/image3d1-2.png',
-	];
-
-	const images2 = [
-		'/images/Image3D/image3d2-1.png',
-		'/images/Image3D/image3d2-2.png',
-		'/images/Image3D/image3d2-3.png',
-	];
-
-	const images3 = [
-		'/images/Image3D/image3d3-1.png',
-		'/images/Image3D/image3d3-2.png',
-	];
-
-	const images4 = [
-		'/images/Image3D/image3d4-1.png',
-		'/images/Image3D/image3d4-2.png',
-	];
-
-	const images5 = [
-		'/images/Image3D/image3d5-1.png',
-		'/images/Image3D/image3d5-2.png',
-	];
-
-	const images6 = [
-		'/images/Image3D/image3d6-1.png',
-		'/images/Image3D/image3d6-2.png',
-	];
-
 	const parent1 = useRef(null);
-	const parent2 = useRef(null);
 
-	const ref = useRef(null);
 	const { width: w1 } = useDimensions(parent1);
 
 	const { scrollYProgress: scrollYProgress_start1 } = useScroll({
@@ -67,16 +35,23 @@ export default function OurHistory() {
 		offset: ['start end', 'end start'],
 	});
 
-	const springValue1 = useSpring(scrollYProgress_start1, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001,
-	});
+	// const springValue1 = useSpring(scrollYProgress_start1, {
+	// 	stiffness: 100,
+	// 	damping: 30,
+	// 	restDelta: 0.001,
+	// });
 
 	const xVal = useTransform(
-		springValue1,
+		scrollYProgress_start1,
 		[0, 1],
-		['0px', `-${w1}px`],
+		['0vw', `-100vw`],
+		'anticipate'
+	);
+
+	const xVal2 = useTransform(
+		scrollYProgress_start1,
+		[0, 1],
+		['-100vw', `0vw`],
 		'anticipate'
 	);
 
@@ -90,9 +65,11 @@ export default function OurHistory() {
 			</Head>
 			<Curve>
 				<PageTitle title='Our' split='History' horizontal='center' />
-				<motion.div className='section-content img-section full no-min-height'>
+				<motion.div
+					className='section-content img-section full no-min-height'
+					ref={parent1}>
 					<div className='container-fluid-width'>
-						<div className='marquee' ref={parent1}>
+						<div className='marquee'>
 							<motion.div
 								className='marquee-overflow'
 								initial={{
@@ -178,28 +155,104 @@ export default function OurHistory() {
 								</div>
 							</motion.div>
 						</div>
+						<div className='marquee'>
+							<motion.div
+								className='marquee-overflow'
+								initial={{
+									x: '-100vw',
+								}}
+								style={{ x: xVal2 }}>
+								<div
+									className='grid'
+									style={{
+										gridTemplateColumns:
+											'1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+									}}>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 1</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 2</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 3</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 4</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 5</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 1</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 2</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 3</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 4</span>
+										</SingleParallax>
+									</div>
+									<div>
+										<SingleParallax
+											scrollYProgress_start={scrollYProgress_start1}>
+											<img src='/images/Homepage-1/1.png' />
+											<span> 5</span>
+										</SingleParallax>
+									</div>
+								</div>
+							</motion.div>
+						</div>
 					</div>
 				</motion.div>
-				<div
-					className='section-content img-section no-min-height'
-					{...useAnim(pageTranslate(2))}>
-					<div className='container-fluid-width'>
-						<h3 className='heading-5 split-color'>
-							Proud <b>Beginnings</b>
-						</h3>
-						{/* <motion.p
-							ref={textGradient}
-							className='paragraph'
-							style={{ opacity }}>
-							{paragraph}
-						</motion.p> */}
 
-						<TextGradient
-							classes='heading-2'
-							paragraph='Established in 1890, La Fabrica de Cerveza de San Miguel, Southeast Asia’s first brewery produced and bottled what would eventually become one of the bestselling beers in the region. Within the span of a generation, San Miguel Beer would become an icon among beer drinkers.'
-						/>
-					</div>
-				</div>
+				<TextGradient
+					classes='heading-4'
+					paragraph='Established in 1890, La Fabrica de Cerveza de San Miguel, Southeast Asia’s first brewery produced and bottled what would eventually become one of the bestselling beers in the region. Within the span of a generation, San Miguel Beer would become an icon among beer drinkers.'>
+					<h3 className='heading-5 split-color'>
+						Proud <b>Beginnings</b>
+					</h3>
+				</TextGradient>
+
+				<FullPageBanner />
 			</Curve>
 		</>
 	);

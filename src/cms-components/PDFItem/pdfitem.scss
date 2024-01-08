@@ -1,11 +1,12 @@
 .pdf-item {
-	padding: 1.5rem 1rem;
+	padding: 1rem 1rem;
 	border-top: 1px solid var(--gray-3);
 	display: flex;
-	gap: 4rem;
+	gap: calc(var(--gap-padding) * 2);
 	color: var(--base-black);
 	position: relative;
 	overflow: hidden;
+	align-items: center;
 }
 
 .pdf-item a {
@@ -18,7 +19,7 @@
 
 .pdf-name {
 	margin-right: auto;
-	font-size: 1.1rem;
+	// font-size: 1.1rem;
 }
 
 .pdf-details,
@@ -29,7 +30,7 @@
 }
 
 .pdf-link {
-	color: currentColor;
+	color: inherit;
 }
 
 .pdf-name,

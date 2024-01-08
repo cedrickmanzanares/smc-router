@@ -1,17 +1,9 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useSpring, useTransform } from 'framer-motion';
 
-import { useEffect, useRef, useState } from 'react';
-import { useDimensions } from '@/hooks/use-dimension';
-import useMousepoition from '@/hooks/use-mousepoition';
+import { useRef } from 'react';
 
-export default function Image3D({ scrollYProgress_start, images }) {
+export default function Image3D({ children, scrollYProgress_start, images }) {
 	const imgBg = useRef(null);
-
-	const { x: mouseX, y: mouseY } = useMousepoition();
-
-	const { width, height } = useDimensions(imgBg);
-
-	// const [y, setY] = useState([]);
 
 	const springValue = useSpring(scrollYProgress_start, {
 		stiffness: 100,
@@ -25,12 +17,12 @@ export default function Image3D({ scrollYProgress_start, images }) {
 
 	let yCon = useTransform(springValue, [0, 1], [`-5%`, `15%`], 'anticipate');
 
-	let y = useTransform(
-		springValue,
-		[0, 1],
-		[`${0 - multiplier / 4}%`, `${0 + multiplier / 2}%`],
-		'anticipate'
-	);
+	// let yBg = useTransform(springValue, [0, 1], ['0cqh', '30cqh'], 'anticipate');
+	let y = [
+		useTransform(springValue, [0, 1], ['0cqh', '3cqh'], 'anticipate'),
+		useTransform(springValue, [0, 1], ['0cqh', '6cqh'], 'anticipate'),
+		useTransform(springValue, [0, 1], ['0cqh', '12cqh'], 'anticipate'),
+	];
 
 	return (
 		<div className='image3d'>
@@ -38,11 +30,13 @@ export default function Image3D({ scrollYProgress_start, images }) {
 				className='image3d-bg'
 				initial={{}}
 				ref={imgBg}
-				style={{
-					// height: `${width * 1.45}px`,
-					y: yCon,
-					scale: yBg_scale,
-				}}>
+				style={
+					{
+						// height: `${width * 1.45}px`,
+						// y: yBg,
+						// scale: yBg_scale,
+					}
+				}>
 				<motion.img
 					src={images[0]}
 					initial={{
@@ -55,23 +49,28 @@ export default function Image3D({ scrollYProgress_start, images }) {
 						// y: yBg,
 					}}></motion.img>
 			</motion.div>
-			<div className='image3d-elements'>
-				{images.map((src, index) => {
-					if (index == 0) return;
-					else
-						return (
-							<motion.img
-								src={src}
-								initial={{
-									x: '-50%',
-								}}
-								style={{
-									y: y,
-								}}
-								key={`img3d_${index}`}></motion.img>
-						);
-				})}
-			</div>
+
+			{images.length > 1 && (
+				<div className='image3d-elements'>
+					{images.map((src, index) => {
+						if (index == 0) return;
+						else
+							return (
+								<motion.img
+									src={src}
+									initial={{
+										x: '-50%',
+									}}
+									style={{
+										y: y[index],
+									}}
+									key={`img3d_${index}`}></motion.img>
+							);
+					})}
+				</div>
+			)}
+
+			{children && <div className='image3d-label '>{children}</div>}
 		</div>
 	);
 }

@@ -4,12 +4,13 @@ import Parallax from '@/components/Parallax/parallax';
 import SampleVideo from '@/components/SampleVideo/sample-video';
 import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
 
-import { animate, motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import { getColors } from '@/hooks/use-color';
 import Card from '@/components/card/card';
 import Button from '@/components/button/button';
 import PageCTA from '@/cms-components/PageCTA/PageCTA';
+import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
 export default function Home() {
 	const images1 = [
@@ -43,26 +44,6 @@ export default function Home() {
 		'/images/Image3D/image3d6-2.png',
 	];
 
-	const parent1 = useRef(null);
-	const { scrollYProgress: scrollYProgress_start1 } = useScroll({
-		target: parent1,
-		offset: ['start end', 'end start'],
-	});
-
-	const parent2 = useRef(null);
-	const { scrollYProgress: scrollYProgress_start2 } = useScroll({
-		target: parent2,
-		offset: ['start end', 'end start'],
-	});
-
-	const parent3 = useRef(null);
-	const { scrollYProgress: scrollYProgress_start3 } = useScroll({
-		target: parent3,
-		offset: ['start end', 'end start'],
-	});
-
-	const { yellow, red, blue } = getColors;
-
 	return (
 		<>
 			<Head>
@@ -74,138 +55,96 @@ export default function Home() {
 			<Curve>
 				<Parallax />
 				<SampleVideo />
-				<motion.div className='section-content ph-trigger' ref={parent1}>
-					<div className='container-fluid-width'>
-						<div className={`flex by-2 align-center card-container`}>
-							<Card
-								images={images1}
-								parent={parent1}
-								scrollYProgress_start={scrollYProgress_start1}>
-								<h2 className='heading-3'>
-									A resilient and globally competitive Philippines
-								</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-									maecenas accumsan lacus vel facilisis.
-								</p>
-								<Button href='/' className='btn-bordered pri' link='/'>
-									Read more
-								</Button>
-							</Card>
-						</div>
-					</div>
-				</motion.div>
-				<motion.div className='section-content tao-trigger' ref={parent1}>
-					<div className='container-fluid-width'>
-						<div className={`flex by-2 align-center reverse card-container`}>
-							<Card
-								images={images2}
-								parent={parent2}
-								scrollYProgress_start={scrollYProgress_start2}>
-								<h2 className='heading-3'>
-									Creating opportunities that will uplift generations of
-									Filipinos
-								</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-									maecenas accumsan lacus vel facilisis.
-								</p>
-
-								<p>
-									Et harum quidem rerum facilis est et expedita distinctio. Nam
-									libero tempore.
-								</p>
-								<Button href='/' className='btn-bordered pri' link='/'>
-									Read more
-								</Button>
-							</Card>
-						</div>
-					</div>
-				</motion.div>
-
-				<OurBusinesses />
-				<motion.div className='section-content heart-trigger' ref={parent3}>
-					<div
-						className='container-fluid-width'
-						style={{
-							width: 1200,
-						}}>
-						<h2
-							className='heading-3'
-							style={{
-								width: 1024,
-								textAlign: 'center',
-								marginLeft: 'auto',
-								marginRight: 'auto',
-							}}>
-							World We Want aut officiis debitis aut rerum{' '}
+				<ColumnSection
+					conClass='ph-trigger'
+					images={images1}
+					direction='reverse'>
+					<>
+						<h2 className='heading-4'>
+							A resilient and globally competitive Philippines
 						</h2>
-						<div className={`flex by-2 align-center card-container`}>
-							<Card
-								images={images3}
-								parent={parent1}
-								scrollYProgress_start={scrollYProgress_start3}>
-								<h2 className='heading-4'>Economic</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									eiusmod tempor incididunt ut labore et dolore magna.
-								</p>
-								<Button href='/' className='btn-bordered sec' link='/'>
-									Read more
-								</Button>
-							</Card>
-						</div>
-						<div className={`flex by-2 align-center card-container reverse`}>
-							<Card
-								images={images4}
-								parent={parent1}
-								scrollYProgress_start={scrollYProgress_start3}>
-								<h2 className='heading-4'>Environmental</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									eiusmod tempor incididunt ut labore et dolore magna.
-								</p>
-								<Button href='/' className='btn-bordered sec' link='/'>
-									Read more
-								</Button>
-							</Card>
-						</div>
-						<div className={`flex by-2 align-center card-container`}>
-							<Card
-								images={images5}
-								parent={parent1}
-								scrollYProgress_start={scrollYProgress_start3}>
-								<h2 className='heading-4'>Governance</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									eiusmod tempor incididunt ut labore et dolore magna.
-								</p>
-								<Button href='/' className='btn-bordered sec' link='/'>
-									Read more
-								</Button>
-							</Card>
-						</div>
-						<div className={`flex by-2 align-center card-container reverse`}>
-							<Card
-								images={images6}
-								parent={parent1}
-								scrollYProgress_start={scrollYProgress_start3}>
-								<h2 className='heading-4'>Social</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-									eiusmod tempor incididunt ut labore et dolore magna.
-								</p>
-								<Button href='/' className='btn-bordered sec' link='/'>
-									Read more
-								</Button>
-							</Card>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+							ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+							accumsan lacus vel facilisis.
+						</p>
+					</>
+					<></>
+				</ColumnSection>
+				<ColumnSection conClass='tao-trigger' images={images2}>
+					<>
+						<h2 className='heading-4'>
+							A resilient and globally competitive Philippines
+						</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+							ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+							accumsan lacus vel facilisis.
+						</p>
+					</>
+					<></>
+				</ColumnSection>
+				<OurBusinesses />
+				<div className='heart-trigger'>
+					<div className='section-content'>
+						<div className='container-fuild-width small text-center'>
+							<h2 className='heading-3'>
+								World We Want aut officiis debitis <br />
+								aut rerum
+							</h2>
 						</div>
 					</div>
-				</motion.div>
+					<ColumnSection images={images3} direction='reverse'>
+						<>
+							<h2 className='heading-4'>Economic</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+								ipsum suspendisse ultrices gravida. Risus commodo viverra
+								maecenas accumsan lacus vel facilisis.
+							</p>
+						</>
+						<></>
+					</ColumnSection>
+					<ColumnSection images={images4} direction=''>
+						<>
+							<h2 className='heading-4'>Environmental</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+								ipsum suspendisse ultrices gravida. Risus commodo viverra
+								maecenas accumsan lacus vel facilisis.
+							</p>
+						</>
+						<></>
+					</ColumnSection>
+					<ColumnSection images={images5} direction='reverse'>
+						<>
+							<h2 className='heading-4'>Governance</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+								ipsum suspendisse ultrices gravida. Risus commodo viverra
+								maecenas accumsan lacus vel facilisis.
+							</p>
+						</>
+						<></>
+					</ColumnSection>
+					<ColumnSection images={images6} direction=''>
+						<>
+							<h2 className='heading-4'>Social</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+								ipsum suspendisse ultrices gravida. Risus commodo viverra
+								maecenas accumsan lacus vel facilisis.
+							</p>
+						</>
+						<></>
+					</ColumnSection>
+				</div>
 				<PageCTA />
 			</Curve>
 		</>

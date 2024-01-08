@@ -6,6 +6,18 @@
 	background-color: #fffbf2;
 }
 
+.ourbusinesses-container {
+	display: grid;
+	padding: var(--section-padding);
+	grid-template-columns: 0.85fr 1.3fr 0.85fr;
+	grid-template-rows: 100px auto;
+	gap: 0 var(--gap);
+	overflow: hidden;
+	border: 10px solid white;
+	position: relative;
+	z-index: 1;
+	min-height: calc(100vh - 8rem);
+}
 .ourbusinesses-bg {
 	position: absolute;
 	z-index: 0;
@@ -27,16 +39,7 @@
 }
 
 .ourbusinesses-section .container-fluid-width {
-	display: grid;
-	grid-template-columns: 0.85fr 1.3fr 0.85fr;
-	grid-template-rows: 100px auto;
-	gap: 0 var(--gap);
-	overflow: hidden;
-	border: 10px solid white;
-	position: relative;
-	z-index: 1;
-	min-height: calc(100vh - 8rem);
-	padding: 4rem;
+	padding: var(--section-padding);
 }
 
 .ourbusinesses-section h2 {
