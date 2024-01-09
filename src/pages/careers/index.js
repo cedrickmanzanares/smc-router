@@ -14,15 +14,18 @@ import { useRef } from 'react';
 import { AspectRatio } from '@chakra-ui/layout';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Button from '@/components/button/button';
 
+import { basePath } from '/next.config';
+import SingleParallax from '@/components/single-parallax/single-parallax';
 export default function Careers() {
 	return (
 		<Curve>
 			<PageBanner
 				images={[
-					'/images/Careers/2.png',
-					'/images/Careers/3.png',
-					'/images/Careers/4.svg',
+					basePath + '/images/Careers/2.png',
+					basePath + '/images/Careers/3.png',
+					basePath + '/images/Careers/4.svg',
 				]}>
 				<div className='desc-container'>
 					<h1 className='heading-3 split-color'>
@@ -37,24 +40,6 @@ export default function Careers() {
 				</div>
 			</PageBanner>
 
-			<div className='section-content text-center'>
-				<div className='container-fluid-width small'>
-					<div className='desc-container'>
-						<p
-							className='split-color heading-4'
-							style={{
-								fontWeight: 'bold',
-							}}>
-							We are today in the midst of an unprecedented expansion program{' '}
-							<b>
-								that will weave our products and services even more tightly into
-								the fabric of everyday life.
-							</b>
-						</p>
-					</div>
-					<div className='img-container'></div>
-				</div>
-			</div>
 			{/* 
 			<TextGradient
 				anim={{ ...useAnim(pageTranslate(2)) }}
@@ -80,11 +65,13 @@ export default function Careers() {
 						1550
 					</p>
 
-					<p>[_Button_]</p>
+					<Button link='/our-business/inner' className={'btn-bordered pri'}>
+						Read More
+					</Button>
 				</>
 				<>
 					<AspectRatio maxW='560px' ratio={1}>
-						<img src='/images/Homepage-1/1.png'></img>
+						<img src={basePath + '/images/Careers/b1.png'} />
 					</AspectRatio>
 				</>
 			</ColumnSection>

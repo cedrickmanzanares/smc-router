@@ -54,7 +54,9 @@ export default function Corporate() {
 						1550
 					</p>
 
-					<p>[_Button_]</p>
+					<Button link='/our-business/inner' className={'btn-bordered pri'}>
+						Read More
+					</Button>
 				</>
 				<>
 					<AspectRatio ratio={1}>
