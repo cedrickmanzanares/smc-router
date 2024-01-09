@@ -13,6 +13,7 @@ body {
 	--nav-height: 7rem;
 	background-color: #fffbf2;
 
+	--border-radius: 1rem;
 	color: var(--base-black);
 	font-size: 16px;
 	--section-padding: clamp(2.5em, 10vh, 8em);
@@ -741,7 +742,7 @@ a {
 	.floating-img:nth-child(2) {
 		width: 8vw;
 		top: 40vh;
-		left: 105%;
+		left: 90%;
 		z-index: 3;
 	}
 	.floating-img:nth-child(3) {
@@ -759,11 +760,11 @@ a {
 
 	.floating-img:nth-child(2) {
 		left: auto;
-		right: 80%;
+		right: 66%;
 	}
 	.floating-img:nth-child(3) {
 		left: auto;
-		right: 75%;
+		right: 69%;
 	}
 }
 
@@ -785,4 +786,92 @@ a {
 .accordion-overflow {
 	overflow: hidden;
 	height: 0;
+}
+
+.kaunlaran-section {
+	padding-top: var(--nav-height);
+	.container-fluid-width {
+		display: grid;
+		gap: var(--gap-padding);
+		grid-template-columns: 0.9fr 1fr;
+	}
+}
+
+.kaunlaran-featured {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	.desc-container {
+		position: absolute;
+		padding: calc(var(--gap-padding) / 3);
+		color: white;
+	}
+
+	.img-container {
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+	.issue-title {
+		margin-bottom: 0;
+		margin-top: 1rem;
+	}
+}
+
+.kaunlaran-list {
+	margin-top: calc(var(--gap-padding) / 2);
+	--kaunlaran-gap: calc(var(--gap-padding) / 2);
+	display: grid;
+	gap: calc(var(--kaunlaran-gap) / 2);
+	grid-template-columns: 1fr 1fr;
+	// grid-template-rows: [offset-top] var(--gap-padding) [content-start] auto;
+}
+
+.issue-item {
+	position: relative;
+	grid-column: 1;
+	border: 1px solid var(--gray-3);
+	border-radius: (var(--border-radius));
+	// grid-row: content-start;
+	.img-container {
+		border-radius: (var(--border-radius));
+		overflow: hidden;
+	}
+	.issue-title {
+		font-size: 1.1rem;
+		margin-top: 0;
+	}
+
+	.desc-container {
+		padding: 1rem;
+	}
+}
+
+.issue-item:nth-child(even) {
+	grid-column: 2;
+	transform: translateY(var(--gap-padding));
+}
+
+@import '../cms-components/PageBanner/pagebanner.scss';
+
+.walaakongmaipangalan {
+	.img-container {
+		position: relative;
+	}
+	.label {
+		position: absolute;
+		top: 50%;
+		z-index: 2;
+		color: white;
+		padding: 4rem;
+	}
+	.label + div {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.mvs-item {
+	.img-container {
+		width: 10rem;
+	}
 }

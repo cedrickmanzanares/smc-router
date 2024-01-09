@@ -6,53 +6,54 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 import Button from '@/components/button/button';
 
+import { basePath } from '/next.config';
 export default function OurBusinesses({ className, link, children }) {
 	const [selected, setSelected] = useState(0);
 	const data = [
 		{
-			img: './images/OurBusinesses/food.jpg',
+			img: basePath + '/images/OurBusinesses/food.jpg',
 			title: 'Food and Beverage',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/careers',
 		},
 		{
-			img: './images/OurBusinesses/oil.jpg',
+			img: basePath + '/images/OurBusinesses/oil.jpg',
 			title: 'Oil Refining and Marketing',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/',
 		},
 		{
-			img: './images/OurBusinesses/packaging.jpg',
+			img: basePath + '/images/OurBusinesses/packaging.jpg',
 			title: 'Packaging',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/',
 		},
 		{
-			img: './images/OurBusinesses/properties.jpg',
+			img: basePath + '/images/OurBusinesses/properties.jpg',
 			title: 'Properties',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/',
 		},
 		{
-			img: './images/OurBusinesses/power.jpg',
+			img: basePath + '/images/OurBusinesses/power.jpg',
 			title: 'Power and Energy',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/',
 		},
 		{
-			img: './images/OurBusinesses/infrastructure.jpg',
+			img: basePath + '/images/OurBusinesses/infrastructure.jpg',
 			title: 'Infrastructure',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
 			link: '/',
 		},
 		{
-			img: './images/OurBusinesses/other.jpg',
+			img: basePath + '/images/OurBusinesses/other.jpg',
 			title: 'Other businsesses',
 			description:
 				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
@@ -111,7 +112,7 @@ export default function OurBusinesses({ className, link, children }) {
 						<h3 className='heading-5'>{data[selected].title}</h3>
 						<p>{data[selected].description}</p>
 						<p>
-							<Button className='btn-bordered pri' link={data[selected].link}>
+							<Button link='/our-business/inner' className={'btn-bordered pri'}>
 								Read More
 							</Button>
 						</p>

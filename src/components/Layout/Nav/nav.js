@@ -25,10 +25,29 @@ import {
 import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
 import { useWindowSize } from '@uidotdev/usehooks';
+import {
+	big_1_variants,
+	circleBg_variants,
+	circle_variants,
+	floatingNavContent_variants,
+	hover_animation,
+	navContainer_variants,
+	navItem_variants,
+	path1_variants,
+	path2_variants,
+	path3_variants,
+	path_variants,
+	toggleSettings,
+	transitionSettings,
+} from './anim';
+import Image from 'next/image';
+
+import { basePath } from '/next.config';
 
 export default function Nav() {
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
+	const [isOpen, toggle] = useCycle(false, true);
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		if (latest < 500) {
@@ -37,18 +56,6 @@ export default function Nav() {
 			navShow(false);
 		}
 	});
-
-	const navContainer_variants = {
-		open: {
-			opacity: 1,
-			y: '0%',
-		},
-
-		closed: {
-			opacity: 0,
-			y: '-100%',
-		},
-	};
 
 	return (
 		<>
@@ -59,74 +66,94 @@ export default function Nav() {
 				<div className='container-fluid-width large'>
 					<Link href='/' className='brand-logo'>
 						<figure>
-							<img src='/images/smc-logo.svg'></img>
+							<img src={`${basePath}/images/smc-logo.svg`} alt='SMC Logo' />
 						</figure>
 					</Link>
 					<MainNav />
-					{/* <FloatingNav></FloatingNav> */}
+
 					<IoIosSearch className='nav-search' size={'1.75rem'} />
 				</div>
 			</motion.div>
-			<FloatingNav navOpen={navOpen} />
+			<FloatingNav navOpen={navOpen} isOpen={isOpen} toggle={toggle} />
 		</>
 	);
 }
 
-function MainNav() {
-	const hover_animation = {
-		open: {
-			opacity: 1,
-			scale: 1,
-			y: 0,
-			pointerEvents: 'all',
-		},
-		closed: {
-			opacity: 0,
-			scale: 0.9,
-			x: '-50%',
-			y: 10,
-			pointerEvents: 'none',
-		},
-	};
+function MainNav({
+	c,
+	color = '',
+	defaultOpen = 'true',
+	animation = false,
+	toggle,
+}) {
 	return (
-		<nav className='main-nav'>
-			<NavItem label='Our Story' link={'/our-story'}>
+		<motion.nav
+			variants={{
+				initial: {},
+				open: {
+					transition: {
+						staggerChildren: 0.015,
+						// delayChildren: 0.5,
+					},
+				},
+			}}
+			className={`main-nav ${c && c}`}>
+			<NavItem
+				label='Our Story'
+				link={'/our-story'}
+				animation={animation}
+				toggle={toggle}
+				navItem_variants={navItem_variants}>
 				<motion.div
 					className='nav-dropdown'
 					initial={hover_animation.closed}
 					variants={hover_animation}>
-					<Accordion defaultIndex={[0]} allowMultiple={true}>
+					<Accordion
+						defaultIndex={defaultOpen && [0]}
+						allowMultiple={defaultOpen && true}>
 						<AccordionItem>
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
-									<Link href='/our-story/our-company'>
-										<b>Our Company</b>
-									</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-company'>
+											<b>Our Company</b>
+										</Link>
+									</motion.div>
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
 							<AccordionPanel>
 								<div className='inner-dropdown'>
-									<Link href='/our-story/our-values'>Our Values</Link>
-									<Link href='/our-story/our-strategy'>Our Strategy</Link>
-									<Link href='/our-story/our-history'>Our History</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-values'>Our Values</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-strategy'>Our Strategy</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-history'>Our History</Link>
+									</motion.div>
 
 									<Accordion>
 										<AccordionItem>
 											<AccordionButton>
 												<Box as='span' flex='1' textAlign='left'>
-													<Link href='/our-story/corporate-social-responsibility'>
-														Corporate Social Responsibility
-													</Link>
+													<motion.div onTap={toggle}>
+														<Link href='/our-story/corporate-social-responsibility'>
+															Corporate Social Responsibility
+														</Link>
+													</motion.div>
 												</Box>
 
 												<AccordionIcon />
 											</AccordionButton>
 											<AccordionPanel>
 												<div className='inner-dropdown'>
-													<Link href='/our-story/environmental-and-other-programs'>
-														Environmental and Other Programs
-													</Link>
+													<motion.div onTap={toggle}>
+														<Link href='/our-story/environmental-and-other-programs'>
+															Environmental and Other Programs
+														</Link>
+													</motion.div>
 													<a href='https://worldwewant.ph/' target='_blank'>
 														World We Want
 													</a>
@@ -145,32 +172,50 @@ function MainNav() {
 						<AccordionItem>
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
-									<Link href='/our-story/our-business'>
-										<b>Our Businesses</b>
-									</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business'>
+											<b>Our Businesses</b>
+										</Link>
+									</motion.div>
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
 							<AccordionPanel>
-								<div>
-									<Link href='/our-story/our-business/inner'>
-										Food and Beverage
-									</Link>
-									<Link href='/our-story/our-business/inner'>
-										Oil Refining & Marketing
-									</Link>
-									<Link href='/our-story/our-business/inner'>Cement</Link>
-									<Link href='/our-story/our-business/inner'>Packaging</Link>
-									<Link href='/our-story/our-business/inner'>Properties</Link>
-									<Link href='/our-story/our-business/inner'>
-										Power & Energy
-									</Link>
-									<Link href='/our-story/our-business/inner'>
-										Infrastructure
-									</Link>
-									<Link href='/our-story/our-business/inner'>
-										Other Businesses
-									</Link>
+								<div className='inner-dropdown'>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>
+											Food and Beverage
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>
+											Oil Refining & Marketing
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>Cement</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>Packaging</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>Properties</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>
+											Power & Energy
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>
+											Infrastructure
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business/inner'>
+											Other Businesses
+										</Link>
+									</motion.div>
 								</div>
 							</AccordionPanel>
 						</AccordionItem>
@@ -178,41 +223,73 @@ function MainNav() {
 				</motion.div>
 			</NavItem>
 			<Link className='nav-item' href='/our-businesses'>
-				Sustainability
+				<motion.span
+					onTap={toggle}
+					variants={animation ? navItem_variants : undefined}>
+					Sustainability
+				</motion.span>
 			</Link>
-			<NavItem label='Corporate' link={'/corporate'}>
+			<NavItem
+				toggle={toggle}
+				label='Corporate'
+				link={'/corporate'}
+				animation={animation}
+				navItem_variants={navItem_variants}>
 				<motion.div
 					className='nav-dropdown'
 					initial={hover_animation.closed}
 					variants={hover_animation}>
-					<Accordion defaultIndex={[0]} allowMultiple={true}>
+					<Accordion
+						defaultIndex={defaultOpen && [0]}
+						allowMultiple={defaultOpen && true}
+						color={color}>
 						<AccordionItem>
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
-									<Link href='/corporate/corporate-governance'>
-										<b>Corporate Governance</b>
-									</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/corporate/corporate-governance'>
+											<b>Corporate Governance</b>
+										</Link>
+									</motion.div>
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
 							<AccordionPanel>
 								<div className='inner-dropdown'>
-									<Link href='/disclosures/inner'>
-										Manual of Corporate Governance
-									</Link>
-									<Link href='/disclosures/inner'>
-										Annual Corporate Governance Report
-									</Link>
-									<Link href='/disclosures/inner'>
-										Amended Articles of Incorporation and By-laws
-									</Link>
-									<Link href='/disclosures/inner'>Board Committees</Link>
-									<Link href='/disclosures/inner'>Company&apos;s Policies</Link>
-									<Link href='/disclosures/inner'>Corporate Structure</Link>
-									<Link href='/disclosures/inner'>SMC Privacy Statement</Link>
-									<Link href='/disclosures/inner'>
-										Enterprise Risk Management
-									</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>
+											Manual of Corporate Governance
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>
+											Annual Corporate Governance Report
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>
+											Amended Articles of Incorporation and By-laws
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>Board Committees</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>
+											Company&apos;s Policies
+										</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>Corporate Structure</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>SMC Privacy Statement</Link>
+									</motion.div>
+									<motion.div onTap={toggle}>
+										<Link href='/disclosures/inner'>
+											Enterprise Risk Management
+										</Link>
+									</motion.div>
 								</div>
 							</AccordionPanel>
 						</AccordionItem>
@@ -220,9 +297,11 @@ function MainNav() {
 						<AccordionItem>
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
-									<Link href='/our-story/our-business'>
-										<b>Investor Relations</b>
-									</Link>
+									<motion.div onTap={toggle}>
+										<Link href='/our-story/our-business'>
+											<b>Investor Relations</b>
+										</Link>
+									</motion.div>
 								</Box>
 								<AccordionIcon />
 							</AccordionButton>
@@ -232,9 +311,11 @@ function MainNav() {
 										<AccordionItem>
 											<AccordionButton>
 												<Box as='span' flex='1' textAlign='left'>
-													<Link href='/our-story/corporate-social-responsibility'>
-														Shareholder Information
-													</Link>
+													<motion.div onTap={toggle}>
+														<Link href='/our-story/corporate-social-responsibility'>
+															Shareholder Information
+														</Link>
+													</motion.div>
 												</Box>
 
 												<AccordionIcon />
@@ -256,9 +337,11 @@ function MainNav() {
 										<AccordionItem>
 											<AccordionButton>
 												<Box as='span' flex='1' textAlign='left'>
-													<Link href='/our-story/corporate-social-responsibility'>
-														Financial Performance
-													</Link>
+													<motion.div onTap={toggle}>
+														<Link href='/our-story/corporate-social-responsibility'>
+															Financial Performance
+														</Link>
+													</motion.div>
 												</Box>
 
 												<AccordionIcon />
@@ -283,32 +366,54 @@ function MainNav() {
 							</AccordionPanel>
 						</AccordionItem>
 
-						<Link href='/news'>
-							<b>Public Offering of Securities</b>
-						</Link>
-						<Link href='/news'>
-							<b>News</b>
-						</Link>
-						<Link href='/news'>
-							<b>Kaunlaran</b>
-						</Link>
-						<Link href='/news'>
-							<b>Walang Iwanan SMC&apos;s COVID-19 Efforts</b>
-						</Link>
-						<Link href='/news'>
-							<b>Find us on social media</b>
-						</Link>
+						<motion.div onTap={toggle}>
+							<Link href='/news'>
+								<b>Public Offering of Securities</b>
+							</Link>
+						</motion.div>
+						<motion.div onTap={toggle}>
+							<Link href='/news'>
+								<b>News</b>
+							</Link>
+						</motion.div>
+						<motion.div onTap={toggle}>
+							<Link href='/corporate/kaunlaran'>
+								<b>Kaunlaran</b>
+							</Link>
+						</motion.div>
+						<motion.div onTap={toggle}>
+							<Link href='/corporate/walang-iwanan'>
+								<b>Walang Iwanan SMC&apos;s COVID-19 Efforts</b>
+							</Link>
+						</motion.div>
+						<motion.div onTap={toggle}>
+							<Link href='/news'>
+								<b>Find us on social media</b>
+							</Link>
+						</motion.div>
 					</Accordion>
 				</motion.div>
 			</NavItem>
+
 			<Link className='nav-item' href={`/careers`}>
-				Careers
+				<motion.span
+					onTap={toggle}
+					variants={animation ? navItem_variants : undefined}>
+					Careers
+				</motion.span>
 			</Link>
-		</nav>
+		</motion.nav>
 	);
 }
 
-function NavItem({ children, label, link }) {
+function NavItem({
+	children,
+	label,
+	link,
+	navItem_variants,
+	animation,
+	toggle,
+}) {
 	const [isOpen, toggleOpen] = useCycle(false, true);
 
 	const hover_animation1 = {
@@ -326,374 +431,85 @@ function NavItem({ children, label, link }) {
 	return (
 		<motion.div
 			className='nav-item'
+			variants={navItem_variants}
 			onMouseEnter={hover}
 			onMouseLeave={hover}
-			animate={isOpen ? 'open' : 'closed'}>
-			<Link href={link}>{label}</Link>
+			animate={animation ? navItem_variants : isOpen ? 'open' : 'closed'}>
+			<motion.div onTap={toggle} style={{}}>
+				<Link href={link}>{label}</Link>
+			</motion.div>
 			{children}
 		</motion.div>
 	);
 }
 
-function FloatingNav({ navOpen }) {
-	const [isOpen, toggle] = useCycle(false, true);
-	const { baseBlack } = getColors;
+function FloatingNav({ navOpen, isOpen, toggle }) {
+	const { baseBlack, red } = getColors;
 	// const [isOpen, toggle] = useCycle(true, true);
 
-	const windowDimensions = useWindowSize();
-
-	const spring_settings = {
-		type: 'spring',
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001,
-	};
-	const toggleAnimation = [
-		[
-			'.nav-toggle-trigger path',
-			{
-				stroke: '#fff',
-			},
-			{
-				duration: 0,
-			},
-		],
-		[
-			'.toggle_path1',
-			{
-				y: '7px',
-				rotate: '135deg',
-			},
-			{
-				duration: 0.25,
-				at: '-0.1',
-			},
-		],
-		[
-			'.toggle_path2',
-			{
-				scaleX: 0,
-			},
-			{
-				duration: 0.25,
-				at: '-0.25',
-			},
-		],
-		[
-			'.toggle_path3',
-			{
-				y: '-8px',
-				rotate: '225deg',
-			},
-			{
-				duration: 0.25,
-				at: '-0.25',
-			},
-		],
-		[
-			'.circle-bg',
-			{
-				r:
-					windowDimensions.height > windowDimensions.width
-						? windowDimensions.height * 1.5
-						: windowDimensions.width * 1.5,
-			},
-			{
-				duration: 0.5,
-				at: '-0.25',
-			},
-		],
-		[
-			'.big_1',
-			{
-				x: `${windowDimensions.height}px`,
-				y: `-${windowDimensions.height}px`,
-			},
-			{
-				duration: 0.35,
-				at: '-0.35',
-			},
-		],
-		[
-			'.path_bg',
-			{
-				x: `0px`,
-				y: `0px`,
-			},
-			{
-				duration: 0.35,
-				at: '-0.35',
-				delay: stagger(0.03),
-			},
-		],
-		[
-			'.toggle-nav-item',
-			{
-				opacity: 1,
-				y: '0%',
-			},
-			{
-				duration: 0.35,
-				at: '-0.3',
-				delay: stagger(0.03),
-			},
-		],
-	];
-
-	const toggleReverseAnimation = [
-		[
-			'.toggle-nav-item',
-			{
-				opacity: 0,
-				y: '100%',
-			},
-			{
-				transition: spring_settings,
-				duration: 0.25,
-				delay: stagger(0.03),
-			},
-		],
-		[
-			'.path_bg',
-			{
-				x: `-${windowDimensions.height * 1.25}px`,
-				y: `${windowDimensions.height * 1.25}px`,
-			},
-			{
-				duration: 0.35,
-				at: '-0.3',
-				delay: stagger(0.03),
-			},
-		],
-		[
-			'.big_1',
-			{
-				x: `-${windowDimensions.height * 1.25}px`,
-				y: `${windowDimensions.height * 1.25}px`,
-			},
-			{
-				duration: 0.35,
-				at: '-0.35',
-			},
-		],
-		[
-			'.circle-bg',
-			{
-				r: 0,
-			},
-			{
-				duration: 0.35,
-				at: '-0.35',
-			},
-		],
-		[
-			'.toggle_path3',
-			{
-				y: 0,
-				rotate: '0deg',
-			},
-			{
-				duration: 0.25,
-				at: '-0.55',
-			},
-		],
-		[
-			'.toggle_path2',
-			{
-				scaleX: 1,
-			},
-			{
-				duration: 0.25,
-				at: '-0.35',
-			},
-		],
-		[
-			'.toggle_path1',
-			{
-				y: 0,
-				rotate: 0,
-			},
-			{
-				duration: 0.25,
-				at: '-0.35',
-			},
-		],
-		[
-			'.nav-toggle-trigger path',
-			{
-				stroke: '#fff',
-			},
-			{
-				duration: 0.25,
-			},
-		],
-		//
-	];
-	useEffect(() => {
-		if (isOpen) {
-			animate(toggleAnimation);
-		} else {
-			animate(toggleReverseAnimation);
-		}
-	}, [isOpen]);
-	return (
-		<figure className='nav-toggle'>
-			<FloatingNavContent isOpen={isOpen}></FloatingNavContent>
-			<Toggle navOpen={navOpen} toggle={toggle} isOpen={isOpen}></Toggle>
-		</figure>
-	);
-}
-
-function Toggle({ navOpen, toggle, isOpen }) {
-	const [toggleIsHover, setToggleIsHover] = useState(false);
-	const { red, baseBlack } = getColors;
-	useEffect(() => {
-		console.log(isOpen);
-	}, [isOpen]);
-
-	const toggleTrigger_variants = {
-		open: {
-			scale: 1,
-			opacity: 1,
-			transition: { type: 'spring', stiffness: 350 },
-		},
-		closed: {
-			scale: 0.8,
-			opacity: 0,
-		},
-	};
-
 	const toggleDefaults = {
-		stroke: '#fffffff',
-		strokeWidth: '4px',
+		stroke: '#ffffff',
+		strokeWidth: '3px',
 		strokeLinecap: 'round',
 	};
 
-	const toggleSettings = {
-		size: 70,
-		gap: 8,
-		edge: 10,
-		padding: 10,
-		hover: 15,
-	};
-
-	const path1_variants = {
-		hovered: {
-			d: `M${
-				toggleSettings.size -
-				toggleSettings.edge -
-				toggleSettings.padding -
-				toggleSettings.hover
-			}  ${toggleSettings.size / 2 - toggleSettings.gap} L${
-				toggleSettings.size - toggleSettings.edge - toggleSettings.padding
-			} ${toggleSettings.size / 2 - toggleSettings.gap}`,
-		},
-		notHovered: {
-			d: `M${toggleSettings.edge + toggleSettings.padding} ${
-				toggleSettings.size / 2 - toggleSettings.gap
-			} L${
-				toggleSettings.size - toggleSettings.edge - toggleSettings.padding
-			} ${toggleSettings.size / 2 - toggleSettings.gap}`,
-		},
-	};
-
-	const path2_variants = {
-		hovered: {
-			d: `M${toggleSettings.edge + toggleSettings.padding} ${
-				toggleSettings.size / 2
-			} L${
-				toggleSettings.size -
-				toggleSettings.edge -
-				toggleSettings.padding -
-				toggleSettings.hover
-			} ${toggleSettings.size / 2}`,
-		},
-		notHovered: {
-			d: `M${toggleSettings.edge + toggleSettings.padding} ${
-				toggleSettings.size / 2
-			} L${
-				toggleSettings.size - toggleSettings.edge - toggleSettings.padding
-			} ${toggleSettings.size / 2}`,
-		},
-	};
-
-	const path3_variants = {
-		hovered: {
-			d: `M${toggleSettings.edge + toggleSettings.padding} ${
-				toggleSettings.size / 2 + toggleSettings.gap
-			} L${
-				toggleSettings.edge + toggleSettings.padding + toggleSettings.hover
-			} ${toggleSettings.size / 2 + toggleSettings.gap}`,
-		},
-		notHovered: {
-			d: `M${toggleSettings.edge + toggleSettings.padding}  ${
-				toggleSettings.size / 2 + toggleSettings.gap
-			} L${
-				toggleSettings.size - toggleSettings.edge - toggleSettings.padding
-			} ${toggleSettings.size / 2 + toggleSettings.gap}`,
-		},
-	};
 	return (
 		<motion.div
-			className='nav-toggle-trigger'
-			// initial={toggleTrigger_variants.closed}
-			// animate={navOpen ? 'closed' : 'open'}
-			// variants={toggleTrigger_variants}
-			onTap={toggle}>
-			<svg
-				onMouseEnter={() => setToggleIsHover(true)}
-				onMouseLeave={() => setToggleIsHover(false)}
-				animate={toggleIsHover && !isOpen ? 'hovered' : 'notHovered'}
-				width={toggleSettings.size}
-				height={toggleSettings.size}
-				viewBox={`0 0 ${toggleSettings.size} ${toggleSettings.size}`}
-				fill='none'
-				xmlns='http://www.w3.org/2000/svg'>
-				<motion.circle
-					initial={{
-						cx: toggleSettings.size / 2,
-						cy: toggleSettings.size / 2,
-						r: 30,
-						fill: red,
-					}}
-					animate={{
-						r: toggleIsHover ? 30 : 30,
-					}}
-				/>
-				<motion.path
-					className='toggle_path1'
-					initial={{
-						...path1_variants.notHovered,
-						...toggleDefaults,
-					}}
-					animate={
-						toggleIsHover && !isOpen
-							? path1_variants.hovered
-							: path1_variants.notHovered
-					}
-				/>
+			className='nav-toggle'
+			initial='initial'
+			variants={{
+				open: {
+					transition: {
+						staggerChildren: 0.5,
+					},
+				},
+			}}>
+			<FloatingNavContent isOpen={isOpen} toggle={toggle}></FloatingNavContent>
+			<motion.div
+				className='nav-toggle-trigger'
+				// initial={toggleTrigger_variants.closed}
+				// animate={navOpen ? 'closed' : 'open'}
+				// variants={toggleTrigger_variants}
+				initial='initial'
+				whileHover={isOpen ? 'open' : 'hovered'}
+				animate={isOpen ? 'open' : !navOpen ? 'navopen' : 'initial'}
+				onTap={toggle}
+				variants={{
+					initial: {
+						scale: 0,
+					},
+					navopen: {
+						scale: 1,
+					},
+					open: {
+						scale: 1,
+					},
+				}}>
+				<svg
+					width={toggleSettings.size}
+					height={toggleSettings.size}
+					viewBox={`0 0 ${toggleSettings.size} ${toggleSettings.size}`}
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'>
+					<motion.circle variants={circle_variants} />
+					<motion.path
+						className='toggle_path1'
+						{...toggleDefaults}
+						variants={path1_variants}
+					/>
 
-				<motion.path
-					className='toggle_path2'
-					initial={{
-						...path2_variants.notHovered,
-						...toggleDefaults,
-					}}
-				/>
-				<motion.path
-					className='toggle_path3'
-					initial={{
-						...path3_variants.notHovered,
-						...toggleDefaults,
-					}}
-					animate={
-						toggleIsHover && !isOpen
-							? path3_variants.hovered
-							: path3_variants.notHovered
-					}
-				/>
+					<motion.path
+						className='toggle_path2'
+						{...toggleDefaults}
+						variants={path2_variants}
+					/>
+					<motion.path
+						className='toggle_path3'
+						{...toggleDefaults}
+						variants={path3_variants}
+					/>
 
-				{/* <path
+					{/* <path
 	d='M3 3L34.5 34.5'
 	stroke='black'
 	stroke-width='6'
@@ -705,12 +521,13 @@ function Toggle({ navOpen, toggle, isOpen }) {
 	stroke-width='6'
 	stroke-linecap='round'
 /> */}
-			</svg>
+				</svg>
+			</motion.div>
 		</motion.div>
 	);
 }
 
-function FloatingNavContent({ isOpen }) {
+function FloatingNavContent({ isOpen, toggle }) {
 	const { red } = getColors;
 	const windowDimensions = useWindowSize();
 	const { x: mouseX, y: mouseY } = useMousePosition();
@@ -719,286 +536,162 @@ function FloatingNavContent({ isOpen }) {
 		if (isOpen) document.querySelector('body').style.overflow = 'hidden';
 		else document.querySelector('body').style.overflow = 'auto';
 	}, [isOpen]);
-	const floatingNavContent_variants = {
-		open: {
-			display: 'flex',
-		},
-		closed: {
-			display: 'block',
-		},
-	};
 
-	const settings = {
-		duration: 0.35,
-		delay: 0.1,
-	};
-
-	const big_1 = {
+	const big_1_variants = {
 		open: {
+			opacity: 1,
 			x: `${windowDimensions.height}px`,
 			y: `-${windowDimensions.height}px`,
+			transition: transitionSettings,
 		},
-		closed: {
+		initial: {
+			opacity: 0,
 			x: `-${windowDimensions.height}px`,
 			y: `${windowDimensions.height}px`,
+			transition: transitionSettings,
 		},
 	};
 
 	const path_variants = {
 		open: {
+			opacity: 1,
 			x: `0px`,
 			y: `0px`,
-			transition: {
-				stagger: 2,
-			},
+			transition: transitionSettings,
 		},
-		closed: {
+		initial: {
+			opacity: 0,
 			x: `-${windowDimensions.height}px`,
 			y: `${windowDimensions.height}px`,
+			transition: transitionSettings,
 		},
 	};
 
-	const getHeight = (percent) => {
-		return windowDimensions;
+	const circleBg_variants = {
+		initial: {
+			r: 0,
+			fill: red,
+			transition: transitionSettings,
+		},
+		open: {
+			r:
+				windowDimensions.height > windowDimensions.width
+					? windowDimensions.height * 1.5
+					: windowDimensions.width * 1.5,
+			transition: transitionSettings,
+		},
 	};
+
 	return (
 		<motion.div
 			className='nav-toggle-content'
-			animate={isOpen ? 'open' : 'closed'}
+			initial='initial'
+			animate={isOpen ? 'open' : 'initial'}
 			style={{
 				overflow: isOpen ? 'auto' : 'hidden',
 				pointerEvents: isOpen ? 'all' : 'none',
 			}}
 			variants={floatingNavContent_variants}>
-			<MotionConfig
-				transition={{
-					duration: 0.35,
-					staggerChildren: 100,
-				}}>
-				{windowDimensions.width !== null && (
-					<svg
-						className='nav-toggle-bg-elements'
-						width={windowDimensions.width}
-						height={windowDimensions.height}
-						viewBox={`0 0 ${windowDimensions.width} ${windowDimensions.height}`}>
-						<motion.circle
-							className='circle-bg'
-							initial={{
-								r: 0,
-								fill: red,
-							}}
-							animate={{
-								cx: mouseX,
-								cy: mouseY,
+			{windowDimensions.width !== null && (
+				<svg
+					className='nav-toggle-bg-elements'
+					width={windowDimensions.width}
+					height={windowDimensions.height}
+					viewBox={`0 0 ${windowDimensions.width} ${windowDimensions.height}`}>
+					<motion.circle
+						className='circle-bg'
+						variants={circleBg_variants}
+						animate={{
+							cx: mouseX,
+							cy: mouseY,
 
-								// r:
-								// 	windowDimensions.height > windowDimensions.width
-								// 		? windowDimensions.height
-								// 		: windowDimensions.width,
-							}}></motion.circle>
-						<motion.path
-							className='big_1'
-							d={`M${
-								windowDimensions.width / 2 - windowDimensions.height / 2 + 300
-							} ${windowDimensions.height - 100} 
-						L${windowDimensions.width / 2 + windowDimensions.height / 2 + 100} ${100}`}
-							stroke='#F8D258'
-							strokeWidth='330'
-							strokeLinecap='round'
-							// variants={big_1}
-							initial={big_1.closed}
-							style={{
-								x: `-${windowDimensions.height}px`,
-								y: `${windowDimensions.height}px`,
-							}}
-						/>
+							// r:
+							// 	windowDimensions.height > windowDimensions.width
+							// 		? windowDimensions.height
+							// 		: windowDimensions.width,
+						}}></motion.circle>
+					{/* <motion.path
+						className='big_1'
+						d={`M${
+							windowDimensions.width / 2 - windowDimensions.height / 2 + 300
+						} ${windowDimensions.height - 100} 
+						L${windowDimensions.width / 2 + windowDimensions.height / 2 + 100} ${200}`}
+						stroke='#F8D258'
+						strokeWidth='330'
+						strokeLinecap='round'
+						variants={big_1_variants}
+					/> */}
 
-						<motion.path
-							className='path_bg'
-							d='M-262 637L43 332'
-							stroke='white'
-							strokeWidth='160'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
+					<motion.path
+						className='path_bg 1'
+						d='M-262 637 L43 332'
+						stroke='white'
+						strokeWidth='160'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
 
-						<motion.path
-							className='path_bg'
-							d='M-318 875L171 386'
-							stroke='#F8D258'
-							strokeWidth='180'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
-						<motion.path
-							className='path_bg'
-							d={`M${windowDimensions.width - 350} ${50} 
-						L${windowDimensions.width - 200} ${-100}`}
-							stroke='#F8D258'
-							strokeWidth='125'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
+					<motion.path
+						className='path_bg 2'
+						d='M-318 875L171 386'
+						stroke='#F8D258'
+						strokeWidth='180'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
+					<motion.path
+						className='path_bg 3'
+						d={`M${windowDimensions.width - 350} ${250} 
+					L${windowDimensions.width - 200} ${100}`}
+						stroke='#F8D258'
+						strokeWidth='125'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
 
-						<motion.path
-							className='path_bg'
-							d={`M${windowDimensions.width - 100} ${
-								windowDimensions.height / 2 - 150
-							} 
+					<motion.path
+						className='path_bg'
+						d={`M${windowDimensions.width - 100} ${
+							windowDimensions.height / 2 - 150
+						} 
 						L${windowDimensions.width + 150} ${windowDimensions.height / 2 - 400}`}
-							stroke='white'
-							strokeWidth='160'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
+						stroke='white'
+						strokeWidth='160'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
 
-						<motion.path
-							className='path_bg'
-							d={`M${windowDimensions.width - 150} ${
-								windowDimensions.height - 250
-							} 
+					<motion.path
+						className='path_bg'
+						d={`M${windowDimensions.width - 150} ${
+							windowDimensions.height - 250
+						} 
 						L${windowDimensions.width + 100} ${windowDimensions.height - 500}`}
-							stroke='#3779B0'
-							strokeWidth='160'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
-						<motion.path
-							className='path_bg'
-							d={`M${windowDimensions.width - 600} ${
-								windowDimensions.height + 200
-							} 
+						stroke='#3779B0'
+						strokeWidth='160'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
+					<motion.path
+						className='path_bg'
+						d={`M${windowDimensions.width - 600} ${
+							windowDimensions.height + 200
+						} 
 						L${windowDimensions.width - 300} ${windowDimensions.height - 100}`}
-							stroke='white'
-							strokeWidth='160'
-							strokeLinecap='round'
-							initial={path_variants.closed}
-							variants={path_variants}
-						/>
-					</svg>
-				)}
-			</MotionConfig>
-			<div className='nav-toggle-nav'>
-				<motion.div
-					className='toggle-nav-item'
-					initial={{
-						opacity: 0,
-						y: '100%',
-					}}>
-					<a>Our Story</a>
-					{/* <div className='dropdown-item'>
-						<a className=''>Our Businesses</a>
-						<div>
-							<a>Our Values</a>
-							<a>Our Strategy</a>
-							<a>Our History</a>
+						stroke='white'
+						strokeWidth='160'
+						strokeLinecap='round'
+						variants={path_variants}
+					/>
+				</svg>
+			)}
 
-							<a>Corporate Social Responsibility</a>
-							<div>
-								<a>Environmental and Other Programs</a>
-								<a>World We Want</a>
-							</div>
-
-							<a>Our Vision and Core Purpose</a>
-							<a>Board of Directors</a>
-							<a>Company Officers</a>
-							<a>Organizational Chart</a>
-						</div>
-					</div> */}
-					<div className='dropdown-item'>
-						<Link href='/our-story/our-business' className=''>
-							Our Businesses
-						</Link>
-						{/* <div>
-							<a>Food and Beverage</a>
-							<a>Oil Refining & Marketing</a>
-							<a>Cement</a>
-							<a>Packaging</a>
-							<a>Properties</a>
-							<a>Power & Energy</a>
-							<a>Infrastructure</a>
-							<a>Other Businesses</a>
-						</div> */}
-					</div>
-				</motion.div>
-				<motion.div
-					className='toggle-nav-item'
-					initial={{
-						opacity: 0,
-						y: '100%',
-					}}>
-					<a>Sustainability</a>
-				</motion.div>
-				<motion.div
-					className='toggle-nav-item'
-					initial={{
-						opacity: 0,
-						y: '100%',
-					}}>
-					<a>Corporate</a>
-					<div className='dropdown-item'>
-						<a className=''>Corporate Governance</a>
-						<div>
-							<a>Our Values</a>
-							<a>Our Strategy</a>
-							<a>Our History</a>
-
-							<div>
-								<a>Corporate Social Responsibility</a>
-								<div>
-									<a>Environmental and Other Programs</a>
-									<a>World We Want</a>
-								</div>
-							</div>
-							<a>Our Vision and Core Purpose</a>
-							<a>Board of Directors</a>
-							<a>Company Officers</a>
-							<a>Organizational Chart</a>
-						</div>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>Investor Relations</a>
-						<div>
-							<a>Food and Beverage</a>
-							<a>Oil Refining & Marketing</a>
-							<a>Cement</a>
-							<a>Packaging</a>
-							<a>Properties</a>
-							<a>Power & Energy</a>
-							<a>Infrastructure</a>
-							<a>Other Businesses</a>
-						</div>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>Public Offering of Securities</a>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>News</a>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>
-							Public Offering of Securities News Walang Iwanan SMC&lsquo;s
-							COVID-19
-						</a>
-					</div>
-					<div className='dropdown-item'>
-						<a className=''>Efforts Find us on social media</a>
-					</div>
-				</motion.div>
-				<motion.div
-					className='toggle-nav-item'
-					initial={{
-						opacity: 0,
-						y: '100%',
-					}}>
-					<a>Careers at San Miguel</a>
-				</motion.div>
-			</div>
+			<MainNav
+				c={'toggle-nav'}
+				defaultOpen={false}
+				animation={true}
+				toggle={toggle}
+			/>
 		</motion.div>
 	);
 }

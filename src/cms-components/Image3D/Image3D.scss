@@ -28,7 +28,11 @@
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	padding-bottom: 100%;
+	// padding-bottom: 100%;
+	img {
+		position: relative;
+		left: 0;
+	}
 }
 
 .image3d-label {

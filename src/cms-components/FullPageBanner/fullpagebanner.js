@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 
-export default function FullPageBanner() {
+export default function FullPageBanner({ children }) {
 	const banner = useRef();
 
 	const { scrollYProgress } = useScroll({
@@ -24,7 +24,7 @@ export default function FullPageBanner() {
 
 	return (
 		<motion.div
-			className='section-content fullbanner-section no-padding'
+			className='section-content fullbanner-section'
 			initial={{
 				clipPath: 'inset(15%)',
 			}}
@@ -32,16 +32,9 @@ export default function FullPageBanner() {
 				clipPath: clip,
 			}}
 			ref={banner}>
-			<SingleParallax scrollYProgress_start={scrollYProgress}>
-				<video
-					style={{
-						height: '100%',
-						width: '100%',
-					}}
-					preload='auto'
-					playsInline
-					src='/videos/sample-video.mp4'></video>
-			</SingleParallax>
+			{/* <SingleParallax scrollYProgress_start={scrollYProgress}> */}
+			{children}
+			{/* </SingleParallax> */}
 		</motion.div>
 	);
 }

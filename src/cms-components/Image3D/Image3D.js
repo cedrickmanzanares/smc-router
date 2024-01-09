@@ -1,4 +1,5 @@
 import { motion, useSpring, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
 import { useRef } from 'react';
 
@@ -37,17 +38,21 @@ export default function Image3D({ children, scrollYProgress_start, images }) {
 						// scale: yBg_scale,
 					}
 				}>
-				<motion.img
-					src={images[0]}
+				<motion.div
 					initial={{
-						x: '-50%',
+						// x: '-50%',
 						y: '0%',
 					}}
-					style={{
-						x: '-50%',
-
-						// y: yBg,
-					}}></motion.img>
+					style={
+						{
+							// height: '100%',
+							// width: '100%',
+							// x: '-50%',
+							// y: yBg,
+						}
+					}>
+					<Image src={images[0]} width={500} height={506} />
+				</motion.div>
 			</motion.div>
 
 			{images.length > 1 && (
@@ -56,15 +61,16 @@ export default function Image3D({ children, scrollYProgress_start, images }) {
 						if (index == 0) return;
 						else
 							return (
-								<motion.img
-									src={src}
+								<motion.div
 									initial={{
 										x: '-50%',
 									}}
 									style={{
 										y: y[index],
 									}}
-									key={`img3d_${index}`}></motion.img>
+									key={`img3d_${index}`}>
+									<Image src={src} width={500} height={506} />
+								</motion.div>
 							);
 					})}
 				</div>

@@ -12,25 +12,31 @@ import useAnim from '@/hooks/use-anim';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { AspectRatio } from '@chakra-ui/layout';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 export default function Corporate() {
 	return (
 		<Curve>
-			<div className='section-content page-banner no-padding'>
-				<div className='container-fluid-width medium'>
-					<div className='desc-container'>
-						<h1 className='heading-3 split-color'>Corporate</h1>
-						<p>
-							San Miguel Corporation is committed to the highest standards of
-							corporate governance—critical in decision-making and corporate
-							strategies that create value for and safeguard the long-term
-							interests of its shareholders.
-						</p>
-					</div>
+			<PageBanner
+				images={[
+					'/images/Corporate/1.png',
+					'/images/Corporate/2.png',
+					'/images/Corporate/3.svg',
+				]}>
+				<div className='desc-container'>
+					<h1 className='heading-3 split-color'>
+						<b>Corporate</b>
+					</h1>
+					<p>
+						San Miguel Corporation is committed to the highest standards of
+						corporate governance—critical in decision-making and corporate
+						strategies that create value for and safeguard the long-term
+						interests of its shareholders.
+					</p>
 				</div>
-			</div>
+			</PageBanner>
 
-			<ColumnSection>
+			<ColumnSection direction={'reverse'}>
 				<>
 					<h3 className='heading-5'>Governance</h3>
 					<p>

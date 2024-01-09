@@ -17,8 +17,11 @@ import stiffness from '@/hooks/use-stiffness';
 
 import { getColors } from '@/hooks/use-color';
 import { useWindowSize } from '@uidotdev/usehooks';
+import { useRouter } from 'next/router';
 
 export default function ShapeBg({ daya }) {
+	const routes = useRouter();
+
 	const { scrollYProgress } = useScroll();
 	const windowDimension = useWindowSize();
 	const { x: mouseX, y: mouseY } = useMousePosition();
@@ -323,6 +326,10 @@ export default function ShapeBg({ daya }) {
 			},
 		],
 	];
+
+	useEffect(() => {
+		if (routes.pathname !== '/') setPosition('');
+	}, [routes]);
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
 		let mvsShape = document.querySelector('.mvs-shapes');
 

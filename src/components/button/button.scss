@@ -1,25 +1,28 @@
 .btn {
 	border-radius: 2rem;
 	display: inline-flex;
-	padding: 0.75rem 2rem;
+	padding: 0.5rem 2rem;
 	align-items: center;
-	border: 3px solid transparent;
+	border: 2px solid transparent;
 	background-color: var(--gray-2);
 	font-weight: bold;
 	transform-origin: center;
 	position: relative;
-	/* overflow: hidden; */
+	overflow: hidden;
+	font-family: var(--font-mw_sans);
+	position: relative;
+	font-size: 0.85rem;
 }
 
-.btn a {
-	position: relative;
-	z-index: 2;
+.btn .btn-label {
 	text-decoration: none;
 	color: currentColor;
+	position: relative;
+	z-index: 2;
 }
 
 .btn.pri {
-	color: var(--base-red);
+	color: var(--base-blue);
 }
 .btn.btn-bordered {
 	background-color: transparent;
@@ -27,16 +30,18 @@
 }
 
 .btn.btn-bordered.pri {
-	border-color: var(--base-red);
+	border-color: var(--base-blue);
 }
 
 .btn.btn-bordered.sec {
-	border-color: var(--base-blue);
-	color: var(--base-blue);
+	border-color: var(--base-red);
+	color: var(--base-red);
 }
 
 .btn.btn-bordered.white {
 	border-color: white;
+	color: white;
+	background-color: transparent;
 }
 
 .btn.white {
@@ -44,17 +49,25 @@
 	color: var(--base-red);
 }
 
-.hover-bg {
+.btn-bg {
 	position: absolute;
-	/* height: 0px;
-	width: 0px; */
-	background-color: red;
-	z-index: 1;
-	border-radius: 100%;
-	pointer-events: none;
-	transform-origin: center;
+
+	top: 0;
+	left: 0;
+	color: inherit;
+	width: 150%;
+	height: 200%;
+	background: currentColor;
+	top: -50%;
+	left: -25%;
+	border-radius: 50%;
 }
 
-.hover-bg {
-	display: none;
+.link-cover {
+	z-index: 5;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
 }

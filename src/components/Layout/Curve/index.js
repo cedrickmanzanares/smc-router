@@ -12,6 +12,8 @@ const routes = {
 	'/contact': 'Contact',
 
 	'/our-story': 'Our Story',
+	'/our-story/our-values': 'Our Values',
+	'/our-story/our-strategy': 'Our Strategy',
 	'/our-story/our-history': 'Our History',
 	'/our-story/our-business': 'Our Business',
 

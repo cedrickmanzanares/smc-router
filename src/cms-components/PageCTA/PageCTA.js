@@ -12,9 +12,9 @@ export default function PageCTA() {
 	});
 
 	const images = [
-		'./images/CTA/cta-1.png',
-		'./images/CTA/cta-2.png',
-		'./images/CTA/cta-3.png',
+		'images/CTA/cta-1.png',
+		'images/CTA/cta-2.png',
+		'images/CTA/cta-3.png',
 	];
 
 	let yValues = [

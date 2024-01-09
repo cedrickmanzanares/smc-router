@@ -1,9 +1,11 @@
 .parallax-column-container {
+	--parallax-gap: 4rem;
 	--parallax-column-height: 175vh;
 	height: var(--parallax-column-height);
 	margin-top: var(--container-gap);
 	padding-top: unset;
 	padding-bottom: unset;
+	margin-top: calc(var(--gap-padding) / 2);
 	.container-fluid-width {
 		padding: 0;
 		height: var(--parallax-column-height);

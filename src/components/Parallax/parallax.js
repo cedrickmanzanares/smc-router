@@ -1,7 +1,10 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
+
+import { basePath } from '/next.config';
 
 export default function Parallax() {
 	const ref = useRef(null);
@@ -9,11 +12,10 @@ export default function Parallax() {
 	const text = ['Ready for', 'Tomorrow'];
 
 	const imageSrc = [
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/2.png',
-		'/images/Homepage-1/3.png',
-		'/images/Homepage-1/4.png',
-		// '/images/Homepage-1/5.png',
+		`${basePath}/images/Homepage-1/1.png`,
+		`${basePath}/images/Homepage-1/2.png`,
+		`${basePath}/images/Homepage-1/3.png`,
+		`${basePath}/images/Homepage-1/4.png`,
 	];
 
 	const { scrollYProgress } = useScroll({
@@ -110,7 +112,7 @@ export default function Parallax() {
 			<motion.div className='parallax'>
 				{imageSrc.map((val, index) => {
 					return (
-						<motion.img
+						<motion.div
 							key={`parallax_img${index}`}
 							transition={{
 								ease: 'ease-out',
@@ -121,8 +123,9 @@ export default function Parallax() {
 								y: yValues[index],
 								scale: scaleValues[index],
 								transformOrigin: 'center',
-							}}
-							src={val}></motion.img>
+							}}>
+							<Image img src={val} fill={true} />
+						</motion.div>
 					);
 				})}
 

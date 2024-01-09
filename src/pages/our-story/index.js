@@ -24,7 +24,9 @@ import { pageTranslate } from '@/hooks/pageAnim';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import Image3D from '@/cms-components/Image3D/Image3D';
-import { Grid } from '@chakra-ui/react';
+import { AspectRatio, Box, Flex, Grid } from '@chakra-ui/react';
+
+import { basePath } from '/next.config';
 
 export default function OurStory() {
 	const grid = useRef(null);
@@ -33,6 +35,32 @@ export default function OurStory() {
 		target: grid,
 		offset: ['start end', 'end start'],
 	});
+
+	const y = [
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['calc(-1 * var(--section-padding))', 'calc(1 * var(--section-padding))']
+		),
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['calc(-2 * var(--section-padding))', 'calc(2 * var(--section-padding))']
+		),
+	];
+
+	const y2 = [
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['calc(-1 * var(--section-padding))', 'calc(1 * var(--section-padding))']
+		),
+		useTransform(
+			scrollYProgress,
+			[0, 1],
+			['calc(-2 * var(--section-padding))', 'calc(2 * var(--section-padding))']
+		),
+	];
 
 	return (
 		<>
@@ -48,7 +76,7 @@ export default function OurStory() {
 						<h1
 							className='heading-1'
 							style={{
-								background: 'url(/images/Homepage-1/1.png)',
+								background: `url(${basePath}/images/OurStory/1.jpg)`,
 								backgroundSize: 'cover',
 								backgroundAttachment: 'fixed',
 								webkitBackgroundClip: 'text',
@@ -59,7 +87,8 @@ export default function OurStory() {
 						</h1>
 					</div>
 				</div>
-				<div className='section-content no-padding '>
+
+				<div className='section-content '>
 					<div className='container-fluid-width small'>
 						<div className='text-center'>
 							<h3 className='heading-4 split-color'>
@@ -75,52 +104,71 @@ export default function OurStory() {
 					</div>
 				</div>
 
-				<div className='grid-section section-content ' ref={grid}>
+				<div
+					className='section-content no-padding walaakongmaipangalan'
+					ref={grid}
+					style={{
+						paddingTop: 'calc(var(--section-padding) * 2)',
+						paddingBottom: 'calc(var(--section-padding) * 2)',
+					}}>
 					<div className='container-fluid-width medium'>
-						<Grid gridTemplateColumns={'1fr 1fr'} gap={32}>
-							<SingleParallax
-								images={['/images/Homepage-1/1.png']}
-								scrollYProgress_start={scrollYProgress}>
-								<img src='/images/Homepage-1/1.png' />
-								{/* <h2 className='heading-4'>Our Company</h2>
-								<p className='small'>
-									San Miguel Corporation is one of the largest and most
-									diversified conglomerates in the Philippines, making your
-									world better for over 130 years, through beverages, food,
-									packaging, fuel and oil, power, and infrastructure.
-								</p> */}
-							</SingleParallax>
-							<SingleParallax
-								images={['/images/Homepage-1/1.png']}
-								scrollYProgress_start={scrollYProgress}>
-								<img src='/images/Homepage-1/1.png' />
-								<h2 className='heading-4'>Our Strategy</h2>
-								<p className='small'>
-									San Miguel’s goal is to help people enjoy and make progress in
-									their lives through the many products and services that our
-									company offers. We want to give every customer and consumer we
-									touch access to the best we can offer—whether in terms of
-									quality, or affordability or choice.
-								</p>
-							</SingleParallax>
-						</Grid>
-					</div>
-				</div>
+						<div className='grid by-2' style={{ gap: '4rem' }}>
+							<motion.div
+								className='img-container'
+								style={{
+									y: y[0],
+								}}>
+								<motion.div
+									className='label'
+									style={{
+										y: y2[0],
+									}}>
+									<h2 className='heading-4'>Our Company</h2>
+									<p>
+										<Button
+											link='/our-story/our-company'
+											className={'btn-bordered white'}>
+											Learn more
+										</Button>
+									</p>
+								</motion.div>
+								<AspectRatio ratio={1}>
+									<SingleParallax scrollYProgress_start={scrollYProgress}>
+										<img src={`${basePath}/images/OurStory/1.jpg`} />
+									</SingleParallax>
+								</AspectRatio>
+							</motion.div>
+							<motion.div
+								className='img-container'
+								style={{
+									y: y[1],
+								}}>
+								<motion.div
+									className='label'
+									style={{
+										y: y2[1],
+									}}>
+									<h2 className='heading-4'>Our Strategy</h2>
 
-				<div className='section-content no-padding'>
-					<div className='container-fluid-width medium'>
-						<div className='grid by-2' style={{ gap: '2rem' }}>
-							<div className='img-container'>
-								<img src='/images/Homepage-1/1.png' />
-							</div>
-							<div className='img-container'>
-								<img src='/images/Homepage-1/1.png' />
-							</div>
+									<p>
+										<Button
+											link='/our-story/our-strategy'
+											className={'btn-bordered white'}>
+											Learn more
+										</Button>
+									</p>
+								</motion.div>
+								<AspectRatio ratio={1}>
+									<SingleParallax scrollYProgress_start={scrollYProgress}>
+										<img src={`${basePath}/images/OurStory/2.jpg`} />
+									</SingleParallax>
+								</AspectRatio>
+							</motion.div>
 						</div>
 					</div>
 				</div>
 
-				<div className='section-content no-padding '>
+				<div className='section-content'>
 					<div className='container-fluid-width small'>
 						<div className='grid by-2' style={{ gap: '2rem' }}>
 							<h3 className='heading-4 split-color'>
@@ -136,7 +184,59 @@ export default function OurStory() {
 					</div>
 				</div>
 
-				<div clas></div>
+				<div className='section-content'>
+					<div className='container-fluid-width small'>
+						<Flex justify={'space-between'} gap={16}>
+							<Box flex='1' className='mvs-item'>
+								<div className='img-container'>
+									<AspectRatio ratio={1}>
+										<img src={`${basePath}/images/OurStory/1.svg`} />
+									</AspectRatio>
+								</div>
+								<div className='desc-container'>
+									<h4 className='heading-6'>
+										A resilient and globally competitive Philippines
+									</h4>
+									<p>where everyone can enrich and enjoy their lives.</p>
+								</div>
+							</Box>
+							<Box flex='1' className='mvs-item'>
+								<div className='img-container'>
+									<AspectRatio ratio={1}>
+										<img src={`${basePath}/images/OurStory/2.svg`} />
+									</AspectRatio>
+								</div>
+								<div className='desc-container'>
+									<h4 className='heading-6'>
+										To lead in nation-building by creating opportunities that
+										will uplift generations of Filipinos,
+									</h4>
+									<p>
+										allowing all to share in the rewards of sustainable
+										development and prosperity.
+									</p>
+								</div>
+							</Box>
+							<Box flex='1' className='mvs-item'>
+								<div className='img-container'>
+									<AspectRatio ratio={1}>
+										<img src={`${basePath}/images/OurStory/3.svg`} />
+									</AspectRatio>
+								</div>
+								<div className='desc-container'>
+									<h4 className='heading-6'>
+										Malasakit is at the core of who we are as a company.
+									</h4>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+										do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua. Quis
+									</p>
+								</div>
+							</Box>
+						</Flex>
+					</div>
+				</div>
 			</Curve>
 		</>
 	);

@@ -34,7 +34,7 @@ export default function PageTitle({ title, split, horizontal }) {
 		<motion.div className={pageTitleClasses}>
 			<motion.div className='container-fluid-width medium'>
 				<motion.h1
-					className='heading-2 split-color'
+					className='heading-3 split-color'
 					{...useAnim(pageTranslate(0))}>
 					<motion.span>
 						{title} <b>{split}</b>

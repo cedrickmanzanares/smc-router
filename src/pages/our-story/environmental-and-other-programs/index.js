@@ -13,6 +13,7 @@ import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
+import { basePath } from '/next.config';
 export default function EnvironmenalProgram() {
 	return (
 		<>
@@ -30,7 +31,12 @@ export default function EnvironmenalProgram() {
 					horizontal='center'
 				/>
 
-				<FloatingImages>
+				<FloatingImages
+					images={[
+						`${basePath}/images/Environmental/1.png`,
+						`${basePath}/images/Environmental/2.png`,
+						`${basePath}/images/Environmental/3.png`,
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Water for All</h3>
 						<p>
@@ -67,7 +73,13 @@ export default function EnvironmenalProgram() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages direction={'reverse'}>
+				<FloatingImages
+					images={[
+						`${basePath}/images/Environmental/4.png`,
+						`${basePath}/images/Environmental/5.png`,
+						`${basePath}/images/Environmental/6.png`,
+					]}
+					direction={'reverse'}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>River cleanup initiative</h3>
 						<p>
@@ -114,7 +126,12 @@ export default function EnvironmenalProgram() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages>
+				<FloatingImages
+					images={[
+						`${basePath}/images/Environmental/7.png`,
+						`${basePath}/images/Environmental/8.png`,
+						`${basePath}/images/Environmental/9.png`,
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Waste-to-resource</h3>
 						<p>

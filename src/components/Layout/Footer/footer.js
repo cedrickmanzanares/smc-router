@@ -26,6 +26,8 @@ import {
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
+import Image from 'next/image';
+import { basePath } from '/next.config';
 
 export default function Footer() {
 	const year = new Date().getFullYear();
@@ -50,7 +52,12 @@ export default function Footer() {
 				<div className='footer-logo'>
 					<Link href='/' className='brand-logo'>
 						<figure>
-							<img src='/images/escudo-gray.png'></img>
+							<img
+								src={`${basePath}/images/escudo-gray.png`}
+								width={95}
+								height={147}
+								alt={'SMC Escudo'}
+							/>
 						</figure>
 					</Link>
 					<motion.div

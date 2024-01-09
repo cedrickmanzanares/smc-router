@@ -7,17 +7,14 @@ import { animate } from 'framer-motion/dom';
 import useMousePosition from '@/hooks/use-mousepoition';
 import { useDimensions } from '@/hooks/use-dimension';
 import { useEffect, useRef } from 'react';
-import { useWindowSize } from '@uidotdev/usehooks';
+import { useMeasure, useWindowSize } from '@uidotdev/usehooks';
+import useAnim from '@/hooks/use-anim';
+import { curve } from '../Layout/Curve/anim';
+import { getColors } from '@/hooks/use-color';
 
 export default function Button({ className, link, children }) {
-	const button = useRef(null);
-	const windowDimensions = useWindowSize();
-
-	const { width: buttonwidth } = useDimensions(button);
-	const { x: mouseX, y: mouseY } = useMousePosition();
-	// useEffect(() => {
-	// 	console.log(`x: ${mouseX} y: ${mouseY}`);
-	// }, [mouseX, mouseY]);
+	const [button, { width, height }] = useMeasure();
+	const { blue } = getColors;
 	const buttonVariants = {
 		hover: {
 			scale: 1.1,
@@ -35,71 +32,54 @@ export default function Button({ className, link, children }) {
 		},
 	};
 
-	const buttonHoverStart = (event, info) => {
-		const parent = event.target;
-		const bg = parent.querySelector('.hover-bg');
-		const size =
-			windowDimensions.width > windowDimensions.height
-				? windowDimensions.width / 2
-				: windowDimensions.height / 2;
-
-		const offset = size / 2;
-		// const offset = 0;
-
-		animate(
-			bg,
-			{
-				scale: 1,
-				// x: `${event.offsetX - offset}px`,
-				// y: `${event.offsetY}px`,
-			},
-			{ duration: 1 }
-		);
-	};
-
-	const buttonHoverEnd = (event, info) => {
-		const parent = event.target;
-		const bg = parent.querySelector('.hover-bg');
-
-		const offset =
-			windowDimensions.width > windowDimensions.height
-				? windowDimensions.width / 2 / 2
-				: windowDimensions.height / 2 / 2;
-
-		animate(bg, {
-			scale: 0.2,
-			// x: `${event.screenX}px`,
-			// y: `${event.screenY}px`,
-		});
+	const textVariants = {
+		initial: {
+			color: className.includes('pri') ? blue : '#ffffff',
+		},
+		enter: {
+			color: className.includes('pri') ? '#ffffff' : blue,
+		},
 	};
 
 	return (
 		<motion.span
 			ref={button}
-			// whileHover='hover'
-			whileTap='tap'
-			onHoverStart={(event, info) => {
-				buttonHoverStart(event, info);
-			}}
+			initial='initial'
+			whileHover='enter'
+			// whileTap='enter'
 			onHoverEnd={(event, info) => {
-				buttonHoverEnd(event, info);
+				animate(event.target.querySelector('.btn-bg'), {
+					top: '-200%',
+					transition: {
+						duration: 0.4,
+					},
+					transitionEnd: {
+						top: '100%',
+					},
+				});
+				console.log(event, info);
 			}}
 			variants={buttonVariants}
-			className={`btn${className ? ` ${className}` : ''}`}>
-			<Link href={link}>{children}</Link>
+			className={`btn size-limit${className ? ` ${className}` : ''}`}>
+			<Link className='link-cover' href={link}></Link>
+			<motion.span variants={textVariants} className='btn-label'>
+				{children}
+			</motion.span>
 			<motion.span
-				className='hover-bg'
-				initial={{
-					scale: 0.2,
-				}}
-				style={{
-					left:
-						mouseX - buttonwidth / 2 - button.current
-							? button.current.offsetLeft
-							: 0,
-					top: mouseY,
-					height: buttonwidth,
-					width: buttonwidth,
+				className='btn-bg'
+				variants={{
+					initial: {
+						top: '100%',
+						transition: {
+							duration: 0.4,
+						},
+					},
+					enter: {
+						top: '-50%',
+						transition: {
+							duration: 0.4,
+						},
+					},
 				}}></motion.span>
 		</motion.span>
 	);

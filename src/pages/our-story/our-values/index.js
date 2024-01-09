@@ -25,6 +25,7 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
+import { basePath } from '/next.config';
 export default function OurValues() {
 	return (
 		<>
@@ -36,7 +37,18 @@ export default function OurValues() {
 			</Head>
 			<Curve>
 				<PageTitle title='Our' split='Values' horizontal='center' />
-				<FullPageBanner />
+				<FullPageBanner>
+					<video
+						style={{
+							height: '100%',
+							width: '100%',
+						}}
+						preload='auto'
+						poster={`${basePath}/videos/615559faf380d-poster.png`}
+						playsInline
+						controls
+						src={`${basePath}/videos/615559faf380d.mp4`}></video>
+				</FullPageBanner>
 
 				<div className='section-content'>
 					<div className='container-fluid-width small'>

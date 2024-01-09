@@ -4,7 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { useEffect, useRef } from 'react';
 
-export default function FloatingImages({ children, direction = '' }) {
+export default function FloatingImages({ children, images, direction = '' }) {
 	const floatingImages = useRef(null);
 	const baseImage = useRef(null);
 
@@ -22,7 +22,7 @@ export default function FloatingImages({ children, direction = '' }) {
 		useTransform(scrollYProgress, [0, 1], ['-10%', '90%']),
 		// useTransform(scrollYProgress, [0, 1], ['-25cqh', '75cqh']),
 		useTransform(scrollYProgress, [0, 1], ['0%', '90%']),
-		useTransform(scrollYProgress, [0, 1], ['20%', '100%']),
+		useTransform(scrollYProgress, [0, 1], ['-10%', '100%']),
 	];
 
 	useEffect(() => {
@@ -45,28 +45,19 @@ export default function FloatingImages({ children, direction = '' }) {
 				{children}
 
 				<div className='img-container'>
-					<motion.div
-						className='floating-img'
-						style={{ x: '-50%', y: y[0], top: t[0] }}
-						ref={baseImage}>
-						<SingleParallax scrollYProgress_start={scrollYProgress}>
-							<img src='/images/Homepage-1/1.png'></img>
-						</SingleParallax>
-					</motion.div>
-					<motion.div
-						className='floating-img'
-						style={{ x: '-50%', y: y[0], top: t[1] }}>
-						<SingleParallax scrollYProgress_start={scrollYProgress}>
-							<img src='/images/Homepage-1/1.png'></img>
-						</SingleParallax>
-					</motion.div>
-					<motion.div
-						className='floating-img'
-						style={{ x: '-50%', y: y[0], top: t[2] }}>
-						<SingleParallax scrollYProgress_start={scrollYProgress}>
-							<img src='/images/Homepage-1/1.png'></img>
-						</SingleParallax>
-					</motion.div>
+					{images.map((images, index) => {
+						return (
+							<motion.div
+								key={`floating-elements_img` + index}
+								className='floating-img'
+								style={{ x: '-50%', y: y[0], top: t[index] }}
+								ref={baseImage}>
+								<SingleParallax scrollYProgress_start={scrollYProgress}>
+									<img src={images}></img>
+								</SingleParallax>
+							</motion.div>
+						);
+					})}
 				</div>
 			</div>
 		</div>

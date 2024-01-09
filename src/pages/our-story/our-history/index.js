@@ -25,6 +25,8 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
+import { basePath } from '/next.config';
+
 export default function OurHistory() {
 	const parent1 = useRef(null);
 
@@ -85,71 +87,61 @@ export default function OurHistory() {
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 1</span>
+											<img src={`${basePath}/images/OurHistory/11.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 2</span>
+											<img src={`${basePath}/images/OurHistory/12.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 3</span>
+											<img src={`${basePath}/images/OurHistory/13.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 4</span>
+											<img src={`${basePath}/images/OurHistory/14.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 5</span>
+											<img src={`${basePath}/images/OurHistory/15.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 1</span>
+											<img src={`${basePath}/images/OurHistory/16.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 2</span>
+											<img src={`${basePath}/images/OurHistory/17.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 3</span>
+											<img src={`${basePath}/images/OurHistory/18.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 4</span>
+											<img src={`${basePath}/images/OurHistory/19.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 5</span>
+											<img src={`${basePath}/images/OurHistory/20.jpg`} />
 										</SingleParallax>
 									</div>
 								</div>
@@ -171,71 +163,61 @@ export default function OurHistory() {
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 1</span>
+											<img src={`${basePath}/images/OurHistory/1.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 2</span>
+											<img src={`${basePath}/images/OurHistory/2.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 3</span>
+											<img src={`${basePath}/images/OurHistory/3.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 4</span>
+											<img src={`${basePath}/images/OurHistory/4.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 5</span>
+											<img src={`${basePath}/images/OurHistory/5.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 1</span>
+											<img src={`${basePath}/images/OurHistory/6.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 2</span>
+											<img src={`${basePath}/images/OurHistory/7.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 3</span>
+											<img src={`${basePath}/images/OurHistory/8.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 4</span>
+											<img src={`${basePath}/images/OurHistory/9.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src='/images/Homepage-1/1.png' />
-											<span> 5</span>
+											<img src={`${basePath}/images/OurHistory/10.jpg`} />
 										</SingleParallax>
 									</div>
 								</div>
@@ -252,7 +234,18 @@ export default function OurHistory() {
 					</h3>
 				</TextGradient>
 
-				<FullPageBanner />
+				<FullPageBanner>
+					<video
+						style={{
+							height: '100%',
+							width: '100%',
+						}}
+						preload='auto'
+						poster={`${basePath}/videos/615559faf380d-poster.png`}
+						playsInline
+						controls
+						src={`${basePath}/videos/615559faf380d.mp4`}></video>
+				</FullPageBanner>
 			</Curve>
 		</>
 	);

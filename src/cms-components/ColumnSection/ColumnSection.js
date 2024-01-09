@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { useRef } from 'react';
 import Image3D from '../Image3D/Image3D';
+import Image from 'next/image';
 
 export default function ColumnSection({
 	children,
@@ -15,12 +16,12 @@ export default function ColumnSection({
 
 	const { scrollYProgress: column_scroll } = useScroll({
 		target: column,
-		offset: ['start end', 'end start'],
+		offset: ['start end', 'end 0.5'],
 	});
 
 	const { scrollYProgress: column_scroll_images } = useScroll({
 		target: column,
-		offset: ['start end', 'end start'],
+		offset: ['start end', 'end 0.5'],
 	});
 
 	const imageY = useTransform(

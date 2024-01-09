@@ -31,21 +31,21 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
 export default function CSR() {
 	const images = [
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		`${basePath}/images/CSR/www-1.jpg`,
+		`${basePath}/images/CSR/www-2.jpg`,
+		`${basePath}/images/CSR/www-3.jpg`,
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		`${basePath}/images/CSR/www-4.jpg`,
+		`${basePath}/images/CSR/www-5.jpg`,
+		`${basePath}/images/CSR/www-6.jpg`,
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		`${basePath}/images/CSR/www-7.jpg`,
+		`${basePath}/images/CSR/www-8.jpg`,
+		`${basePath}/images/CSR/www-9.jpg`,
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		`${basePath}/images/CSR/www-10.jpg`,
+		`${basePath}/images/CSR/www-11.jpg`,
+		`${basePath}/images/CSR/www-12.jpg`,
 	];
 
 	return (
@@ -63,7 +63,9 @@ export default function CSR() {
 					horizontal='center'
 				/>
 
-				<FullPageBanner />
+				<FullPageBanner>
+					<img src={`${basePath}/images/CSR/60dc13a6f26d5.png`} />
+				</FullPageBanner>
 
 				<TextGradient
 					anim={{ ...useAnim(pageTranslate(2)) }}
@@ -85,7 +87,7 @@ export default function CSR() {
 					</>
 					<>
 						<AspectRatio maxW='560px' ratio={1}>
-							<img src='/images/Homepage-1/1.png'></img>
+							<img src={`${basePath}/images/CSR/1.jpg`} />
 						</AspectRatio>
 					</>
 				</ColumnSection>
@@ -102,7 +104,11 @@ export default function CSR() {
 						these problems together. The San Miguel Foundation works with our
 						partners to create solutions on the ground and at a people level.
 					</p>
-					<p>[_Button_]</p>
+					<p>
+						<Button link='#' className={'btn-bordered white'}>
+							Read More
+						</Button>
+					</p>
 				</ParallaxGrid>
 
 				<ColumnSection direction={'reverse'}>
@@ -128,7 +134,9 @@ export default function CSR() {
 						</p>
 					</>
 					<>
-						<img src='/images/Homepage-1/1.png'></img>
+						<AspectRatio maxW='560px' ratio={1}>
+							<img src={`${basePath}/images/CSR/e-1.jpg`} />
+						</AspectRatio>
 					</>
 				</ColumnSection>
 			</Curve>

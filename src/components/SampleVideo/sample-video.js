@@ -31,7 +31,7 @@ export default function SampleVideo() {
 	const [activate, setActivate] = useState(false);
 	const [activateEnd, setActivateEnd] = useState(false);
 
-	const src = './videos/sample-video.mp4';
+	const src = '/videos/sample-video.mp4';
 
 	const { width: wWidth, height: wHeight } = useWindowSize();
 
@@ -180,7 +180,7 @@ export default function SampleVideo() {
 						autoPlay={true}
 						loop={true}
 						playsInline
-						src='./videos/sample-video.mp4'></video>
+						src='/revamp/videos/sample-video.mp4'></video>
 				</motion.div>
 			</motion.div>
 		</motion.div>

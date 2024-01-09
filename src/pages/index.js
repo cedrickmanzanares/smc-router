@@ -12,36 +12,37 @@ import Button from '@/components/button/button';
 import PageCTA from '@/cms-components/PageCTA/PageCTA';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
+import { basePath } from '/next.config';
 export default function Home() {
 	const images1 = [
-		'/images/Image3D/image3d1-1.png',
-		'/images/Image3D/image3d1-2.png',
+		`${basePath}/images/Image3D/image3d1-1.png`,
+		`${basePath}/images/Image3D/image3d1-2.png`,
 	];
 
 	const images2 = [
-		'/images/Image3D/image3d2-1.png',
-		'/images/Image3D/image3d2-2.png',
-		'/images/Image3D/image3d2-3.png',
+		`${basePath}/images/Image3D/image3d2-1.png`,
+		`${basePath}/images/Image3D/image3d2-2.png`,
+		`${basePath}/images/Image3D/image3d2-3.png`,
 	];
 
 	const images3 = [
-		'/images/Image3D/image3d3-1.png',
-		'/images/Image3D/image3d3-2.png',
+		`${basePath}/images/Image3D/image3d3-1.png`,
+		`${basePath}/images/Image3D/image3d3-2.png`,
 	];
 
 	const images4 = [
-		'/images/Image3D/image3d4-1.png',
-		'/images/Image3D/image3d4-2.png',
+		`${basePath}/images/Image3D/image3d4-1.png`,
+		`${basePath}/images/Image3D/image3d4-2.png`,
 	];
 
 	const images5 = [
-		'/images/Image3D/image3d5-1.png',
-		'/images/Image3D/image3d5-2.png',
+		`${basePath}/images/Image3D/image3d5-1.png`,
+		`${basePath}/images/Image3D/image3d5-2.png`,
 	];
 
 	const images6 = [
-		'/images/Image3D/image3d6-1.png',
-		'/images/Image3D/image3d6-2.png',
+		`${basePath}/images/Image3D/image3d6-1.png`,
+		`${basePath}/images/Image3D/image3d6-2.png`,
 	];
 
 	return (
