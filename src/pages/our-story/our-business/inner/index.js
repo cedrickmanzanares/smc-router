@@ -29,26 +29,9 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { Link } from 'lucide-react';
 
+import { basePath } from '/next.config';
+
 export default function OurBusinessesInner() {
-	const { red, yellow } = getColors;
-	const images = [
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-	];
-
 	const parallaxColumn = useRef(null);
 	const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -114,7 +97,9 @@ export default function OurBusinessesInner() {
 					horizontal='center'
 				/>
 
-				<FullPageBanner />
+				<FullPageBanner>
+					<img src={`${basePath}/images/OurBusinesses/1111.png`} />
+				</FullPageBanner>
 
 				<div
 					className='section-content img-section no-min-height'
@@ -198,7 +183,7 @@ export default function OurBusinessesInner() {
 							<div className='control-details'>
 								<p className='label heading-5'>San Miguel Foods</p>
 								<div className='img-container'>
-									<img src='/images/Homepage-1/1.png' />
+									<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
 								</div>
 							</div>
 						</motion.div>
@@ -211,7 +196,7 @@ export default function OurBusinessesInner() {
 							<div className='control-details'>
 								<p className='label heading-5'>San Miguel Foods</p>
 								<div className='img-container'>
-									<img src='/images/Homepage-1/1.png' />
+									<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
 								</div>
 							</div>
 						</motion.div>
