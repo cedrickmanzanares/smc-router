@@ -15,6 +15,7 @@ import { AspectRatio } from '@chakra-ui/layout';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 import { basePath } from '/next.config';
+import Button from '@/components/button/button';
 
 export default function Corporate() {
 	return (
