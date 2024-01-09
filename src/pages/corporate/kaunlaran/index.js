@@ -28,7 +28,9 @@ import Image from 'next/image';
 
 import gsap from 'gsap';
 import { pageTranslate } from '@/hooks/pageAnim';
-import { Badge, Flex } from '@chakra-ui/layout';
+import { AspectRatio, Badge, Flex } from '@chakra-ui/layout';
+
+import { basePath } from '/next.config';
 
 export default function Kaunlaran() {
 	const kol = useRef(null);
@@ -40,84 +42,84 @@ export default function Kaunlaran() {
 	const kaunlaran_items = [
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-1.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-2.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-3.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-4.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-5.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-6.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-7.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-8.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-9.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-10.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-11.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/CSR/www-12.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
@@ -162,7 +164,13 @@ export default function Kaunlaran() {
 								duis.
 							</p>
 
-							<p>[_Button_]</p>
+							<p>
+								<Button
+									link='/our-business/inner'
+									className={'btn-bordered pri'}>
+									Read More
+								</Button>
+							</p>
 						</div>
 						<div>
 							<div className='kaunlaran-featured'>
@@ -175,7 +183,7 @@ export default function Kaunlaran() {
 									</h2>
 								</div>
 								<div className='img-container'>
-									<img src='/images/Homepage-1/1.png' />
+									<img src={basePath + '/images/KOL/1.png'} />
 								</div>
 							</div>
 							<div className='kaunlaran-list'>
@@ -206,7 +214,9 @@ function KaunlaranItems({ index, title, date, vol, img, link, setModal }) {
 		<div className='issue-item'>
 			<div className='img-container'>
 				<Link href={link}>
-					<img src={img} />
+					<AspectRatio ratio={1}>
+						<img src={img} />
+					</AspectRatio>
 				</Link>
 			</div>
 			<div className='desc-container'>
