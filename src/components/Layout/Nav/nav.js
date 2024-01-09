@@ -298,7 +298,7 @@ function MainNav({
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
 									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business'>
+										<Link href='/corporate'>
 											<b>Investor Relations</b>
 										</Link>
 									</motion.div>

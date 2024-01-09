@@ -29,6 +29,8 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { pageTranslate } from '@/hooks/pageAnim';
 
+import { basePath } from '/next.config';
+
 export default function News() {
 	const parent1 = useRef(null);
 	const { scrollYProgress: scrollYProgress_start1 } = useScroll({
@@ -48,35 +50,36 @@ export default function News() {
 		{
 			title:
 				'SMC bests other PH firms; jumps to 43rd in Forbes’ World’s Best Employers list—after ranking high in Time’s World’s Best Companies',
+			desc: 'Since 2013, in the aftermath of typhoons Sendong and Yolanda, San Miguel Corporation (SMC) has been at the forefront of building resilient housing communities nationwide.',
 			date: 'November 28, 2023',
-			img: '/images/Homepage-1/1.png',
+			img: basePath + '/images/News/n1.png',
 			link: '/news/inner',
 		},
 		{
 			title:
 				'SMC, Ayala ink agreement to integrate Arca South to Skyway Stage 4 project',
 			date: 'November 28, 2023',
-			img: '/images/Homepage-1/2.png',
+			img: basePath + '/images/News/n2.png',
 			link: '/news/inner',
 		},
 		{
 			title: "SMC's nine-month profit more than doubles to ₱31.2 billion",
 			date: 'November 28, 2023',
-			img: '/images/Homepage-1/3.png',
+			img: '',
 			link: '/news/inner',
 		},
 		{
 			title:
 				'SMB delivers solid nine-month results amidst higher volumes, improved market conditions',
 			date: 'November 28, 2023',
-			img: '/images/Homepage-1/4.png',
+			img: basePath + '/images/News/n4.png',
 			link: '/news/inner',
 		},
 		{
 			title:
 				'SMC, Pangasinan ink historic JVA for PLEX; to boost economy and connectivity in Central, Northern Luzon',
 			date: 'November 28, 2023',
-			img: '/images/Homepage-1/5.png',
+			img: basePath + '/images/News/n5.png',
 			link: '/news/inner',
 		},
 	];
@@ -102,21 +105,18 @@ export default function News() {
 					<div className='container-fluid-width medium'>
 						<div className='news-featured' ref={parent1}>
 							<div className='desc-container'>
-								<div className='news-date size-limit'>Sept. 20, 2023</div>
-								<h2 className='heading-3 news-title'>
-									SMC marks a decade of building homes, empowering communities,
-									with P3-B investment
-								</h2>
+								<div className='news-date small'>{newsItems[0].date}</div>
+								<h2 className='heading-4 news-title'>{newsItems[0].title}</h2>
+								<p>{newsItems[0].desc}</p>
 								<p>
-									Since 2013, in the aftermath of typhoons Sendong and Yolanda,
-									San Miguel Corporation (SMC) has been at the forefront of
-									building resilient housing communities nationwide.
+									<Button link='/news/inner' className={'btn-bordered pri'}>
+										Read More
+									</Button>
 								</p>
-								<p>[_Button_]</p>
 							</div>
 							<div className='img-container'>
 								<SingleParallax scrollYProgress_start={scrollYProgress_start1}>
-									<img src='/images/Homepage-1/1.png' />
+									<img src={newsItems[0].img} />
 								</SingleParallax>
 							</div>
 						</div>

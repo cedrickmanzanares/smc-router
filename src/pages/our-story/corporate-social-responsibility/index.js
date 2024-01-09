@@ -29,6 +29,8 @@ import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 import { AspectRatio } from '@chakra-ui/react';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
+import { basePath } from '/next.config';
+
 export default function CSR() {
 	const images = [
 		`${basePath}/images/CSR/www-1.jpg`,

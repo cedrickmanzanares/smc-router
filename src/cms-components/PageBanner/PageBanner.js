@@ -7,6 +7,7 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import { useRef } from 'react';
 
+import { basePath } from '/next.config';
 export default function PageBanner({ images, children }) {
 	const careers = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -28,14 +29,14 @@ export default function PageBanner({ images, children }) {
 
 				<div className='img-container'>
 					<motion.div class='img-item'>
-						<img src='/images/Careers/0.png'></img>
+						<img src={basePath + '/images/Careers/0.png'}></img>
 					</motion.div>
 					<motion.div
 						class='img-item'
 						style={{
 							y: y[0],
 						}}>
-						<img src='/images/Careers/1.png'></img>
+						<img src={basePath + '/images/Careers/1.png'}></img>
 					</motion.div>
 					{images.map((image, index) => {
 						return (

@@ -14,14 +14,16 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { AspectRatio } from '@chakra-ui/layout';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
+import { basePath } from '/next.config';
+
 export default function Corporate() {
 	return (
 		<Curve>
 			<PageBanner
 				images={[
-					'/images/Corporate/1.png',
-					'/images/Corporate/2.png',
-					'/images/Corporate/3.svg',
+					basePath + '/images/Corporate/1.png',
+					basePath + '/images/Corporate/2.png',
+					basePath + '/images/Corporate/3.svg',
 				]}>
 				<div className='desc-container'>
 					<h1 className='heading-3 split-color'>
@@ -56,7 +58,7 @@ export default function Corporate() {
 				</>
 				<>
 					<AspectRatio ratio={1}>
-						<img src='/images/Homepage-1/1.png'></img>
+						<img src={basePath + '/images/Corporate/s2.png'}></img>
 					</AspectRatio>
 				</>
 			</ColumnSection>
@@ -83,7 +85,9 @@ export default function Corporate() {
 				</div>
 			</div>
 
-			<FullPageBanner />
+			<FullPageBanner>
+				<img src={`${basePath}/images/Corporate/s3.png`} />
+			</FullPageBanner>
 
 			<div className='section-content'>
 				<div className='container-fluid-width small'>
