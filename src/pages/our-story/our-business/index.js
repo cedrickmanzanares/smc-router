@@ -27,24 +27,26 @@ import ParallaxGrid from '@/cms-components/ParallaxGrid/ParallaxGrid';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 import Link from 'next/link';
 
+import { basePath } from '/next.config';
+
 export default function OurBusinesses() {
 	const { red, yellow } = getColors;
 	const images = [
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		basePath + '/images/OurBusinesses/1.png',
+		basePath + '/images/OurBusinesses/2.png',
+		basePath + '/images/OurBusinesses/3.png',
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		basePath + '/images/OurBusinesses/4.png',
+		basePath + '/images/OurBusinesses/5.png',
+		basePath + '/images/OurBusinesses/6.png',
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		basePath + '/images/OurBusinesses/7.png',
+		basePath + '/images/OurBusinesses/8.png',
+		basePath + '/images/OurBusinesses/9.png',
 
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
-		'/images/Homepage-1/1.png',
+		basePath + '/images/OurBusinesses/10.png',
+		basePath + '/images/OurBusinesses/11.png',
+		basePath + '/images/OurBusinesses/12.png',
 	];
 
 	const parallaxColumn = useRef(null);
@@ -133,7 +135,7 @@ export default function OurBusinesses() {
 						</p>
 					</>
 					<>
-						<img src='/images/Homepage-1/1.png'></img>
+						<img src={`${basePath}/images/OurBusinesses/1.png`}></img>
 					</>
 				</ColumnSection>
 
@@ -167,7 +169,7 @@ function BusinessItem() {
 		<div className='business-item'>
 			<div className='img-container'>
 				<Link href='/our-business/inner'>
-					<img src='/images/Homepage-1/1.png' alt='image' />
+					<img src={`${basePath}/images/OurBusinesses/logo.png`}></img>
 				</Link>
 			</div>
 			<div className='desc-container'>

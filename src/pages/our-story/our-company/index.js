@@ -17,6 +17,7 @@ import {
 	AccordionButton,
 	AccordionPanel,
 	AccordionIcon,
+	AspectRatio,
 } from '@chakra-ui/react';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
@@ -24,6 +25,8 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
+
+import { basePath } from '/next.config';
 
 export default function OurCompany() {
 	const { gray2, red } = getColors;
@@ -76,7 +79,9 @@ export default function OurCompany() {
 						</p>
 					</>
 					<>
-						<img src='/images/Homepage-1/1.png'></img>
+						<AspectRatio ratio={1}>
+							<img src={basePath + '/images/OurCompany/s1.png'}></img>
+						</AspectRatio>
 					</>
 				</ColumnSection>
 				<ColumnSection direction={'reverse'}>
@@ -105,10 +110,18 @@ export default function OurCompany() {
 						</p>
 					</>
 					<>
-						<img src='/images/Homepage-1/1.png'></img>
+						<AspectRatio ratio={1}>
+							<img src={basePath + '/images/OurCompany/s2.png'}></img>
+						</AspectRatio>
 					</>
 				</ColumnSection>
-				<FloatingImages>
+				<FloatingImages
+					direction='reverse'
+					images={[
+						basePath + '/images/OurCompany/s3-1.png',
+						basePath + '/images/OurCompany/s3-2.png',
+						basePath + '/images/OurCompany/s3-3.png',
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Food and Beverage</h3>
 						<p>
@@ -131,30 +144,13 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages direction={'reverse'}>
-					<div className='desc-container'>
-						<h3 className='heading-5'>Food and Beverage</h3>
-						<p>
-							San Miguel Food and Beverage, Inc. (SMFB) is the Philippines&quot;
-							leading food and beverage company in the Philippines, combining
-							the strength of San Miguel Brewery Inc., Ginebra San Miguel Inc,
-							and San Miguel Foods. It has among the most recognizable and
-							top-of-mind brands in the industry and holds market leading
-							positions in their respective categories.
-						</p>
-						<p>
-							Key brands under the SMFB portfolio include San Miguel Pale
-							Pilsen, San Mig Light and Red Horse for beer, Ginebra San Miguel
-							for gin, Magnolia for chicken, ice cream and dairy products,
-							Monterey for fresh and marinated meats, Purefoods Tender Juicy for
-							hotdogs, Purefoods for refrigerated prepared and processed meats,
-							canned meats and seafood lines, Veega for plant-based protein food
-							products, Star and Dari Crème for margarine and B-Meg for animal
-							feeds.
-						</p>
-					</div>
-				</FloatingImages>
-				<FloatingImages>
+
+				<FloatingImages
+					images={[
+						basePath + '/images/OurCompany/s4-1.png',
+						basePath + '/images/OurCompany/s4-2.png',
+						basePath + '/images/OurCompany/s4-3.png',
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Packaging</h3>
 						<p>
@@ -181,7 +177,13 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages direction={'reverse'}>
+				<FloatingImages
+					images={[
+						basePath + '/images/OurCompany/s5-1.png',
+						basePath + '/images/OurCompany/s5-2.png',
+						basePath + '/images/OurCompany/s5-3.png',
+					]}
+					direction={'reverse'}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Fuel and Oil</h3>
 						<p>
@@ -203,7 +205,12 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages>
+				<FloatingImages
+					images={[
+						basePath + '/images/OurCompany/s6-1.png',
+						basePath + '/images/OurCompany/s6-2.png',
+						basePath + '/images/OurCompany/s6-3.png',
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Power</h3>
 						<p>
@@ -225,7 +232,13 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages direction={'reverse'}>
+				<FloatingImages
+					images={[
+						basePath + '/images/OurCompany/s7-1.png',
+						basePath + '/images/OurCompany/s7-2.png',
+						basePath + '/images/OurCompany/s7-3.png',
+					]}
+					direction={'reverse'}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Infrastructure</h3>
 						<p>
@@ -254,7 +267,12 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages>
+				<FloatingImages
+					images={[
+						basePath + '/images/OurCompany/s8-1.png',
+						basePath + '/images/OurCompany/s8-2.png',
+						basePath + '/images/OurCompany/s8-3.png',
+					]}>
 					<div className='desc-container'>
 						<h3 className='heading-5'>Cement</h3>
 						<p>
