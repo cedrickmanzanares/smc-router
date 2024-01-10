@@ -12,7 +12,8 @@ import Button from '@/components/button/button';
 import PageCTA from '@/cms-components/PageCTA/PageCTA';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
+
 export default function Home() {
 	const images1 = [
 		`${basePath}/images/Image3D/image3d1-1.png`,

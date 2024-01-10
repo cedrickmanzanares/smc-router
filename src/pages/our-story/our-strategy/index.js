@@ -30,12 +30,12 @@ export default function OurStrategy() {
 			<Curve>
 				<PageTitle title='Our' split='Strategy' horizontal='center' />
 
-				<TextGradient
-					classes='heading-4'
-					paragraph='San Miguel’s goal is to help people enjoy and make progress in their lives through the many products and services that our company offers. We want to give every customer and consumer we touch access to the best we can offer—whether in terms of quality, affordability or choice.'
-				/>
 				<div className='section-content'>
 					<div className='container-fluid-width small'>
+						<TextGradient
+							classes='heading-4'
+							paragraph='San Miguel’s goal is to help people enjoy and make progress in their lives through the many products and services that our company offers. We want to give every customer and consumer we touch access to the best we can offer—whether in terms of quality, affordability or choice.'
+						/>
 						<p>
 							Our strategy for achieving these goals has five major elements
 							which are common to both our traditional and new businesses:

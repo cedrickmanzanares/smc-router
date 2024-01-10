@@ -13,7 +13,7 @@ import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 export default function EnvironmenalProgram() {
 	return (
 		<>

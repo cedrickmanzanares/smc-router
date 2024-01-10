@@ -42,7 +42,7 @@ import {
 } from './anim';
 import Image from 'next/image';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function Nav() {
 	const { scrollY } = useScroll();
@@ -50,7 +50,7 @@ export default function Nav() {
 	const [isOpen, toggle] = useCycle(false, true);
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
-		if (latest < 500) {
+		if (latest < 100) {
 			navShow(true);
 		} else {
 			navShow(false);
@@ -108,9 +108,7 @@ function MainNav({
 					className='nav-dropdown'
 					initial={hover_animation.closed}
 					variants={hover_animation}>
-					<Accordion
-						defaultIndex={defaultOpen && [0]}
-						allowMultiple={defaultOpen && true}>
+					<Accordion defaultIndex={defaultOpen && [0]} allowMultiple={false}>
 						<AccordionItem>
 							<AccordionButton>
 								<Box as='span' flex='1' textAlign='left'>
@@ -222,7 +220,7 @@ function MainNav({
 					</Accordion>
 				</motion.div>
 			</NavItem>
-			<Link className='nav-item' href='/our-businesses'>
+			<Link className='nav-item' href='/sustainability'>
 				<motion.span
 					onTap={toggle}
 					variants={animation ? navItem_variants : undefined}>
@@ -241,7 +239,7 @@ function MainNav({
 					variants={hover_animation}>
 					<Accordion
 						defaultIndex={defaultOpen && [0]}
-						allowMultiple={defaultOpen && true}
+						allowMultiple={false}
 						color={color}>
 						<AccordionItem>
 							<AccordionButton>
@@ -333,7 +331,7 @@ function MainNav({
 												</div>
 											</AccordionPanel>
 										</AccordionItem>
-										<a>Company Disclosures</a>
+										<Link href='/disclosures'>Company Disclosures</Link>
 										<AccordionItem>
 											<AccordionButton>
 												<Box as='span' flex='1' textAlign='left'>

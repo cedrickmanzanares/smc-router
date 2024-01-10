@@ -26,7 +26,7 @@ import SingleParallax from '@/components/single-parallax/single-parallax';
 import Image3D from '@/cms-components/Image3D/Image3D';
 import { AspectRatio, Box, Flex, Grid } from '@chakra-ui/react';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurStory() {
 	const grid = useRef(null);

@@ -29,7 +29,7 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { Link } from 'lucide-react';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurBusinessesInner() {
 	const parallaxColumn = useRef(null);

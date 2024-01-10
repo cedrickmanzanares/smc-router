@@ -10,7 +10,7 @@ import Curve from '@/components/Layout/Curve';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 
-export default function All() {
+export default function InnerDisclosure() {
 	const { baseBlack, gray2, red } = getColors;
 
 	const footerIcon = {
@@ -24,7 +24,7 @@ export default function All() {
 	].reverse();
 	return (
 		<Curve>
-			<PageTitle title='Diclosures' split='Inner' />
+			<PageTitle title='Diclosures' />
 
 			<div
 				className='section-content no-min-height'

@@ -1,10 +1,11 @@
 .page-banner {
 	height: calc(100dvh - var(--nav-height) + var(--section-padding));
+	overflow: hidden;
+	min-height: 800px;
 	.container-fluid-width {
 		display: flex;
 		align-items: center;
 		height: 100%;
-		overflow: hidden;
 	}
 
 	.page-banner-content {

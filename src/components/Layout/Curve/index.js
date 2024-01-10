@@ -16,8 +16,11 @@ const routes = {
 	'/our-story/our-strategy': 'Our Strategy',
 	'/our-story/our-history': 'Our History',
 	'/our-story/our-business': 'Our Business',
-
+	'/our-story/environmental-and-other-programs':
+		'Enviromental and other Programs',
 	'/news': 'News',
+
+	'/corporate': 'Corporate',
 };
 
 export default function Curve({ children, backgroundColor }) {
@@ -63,6 +66,7 @@ export default function Curve({ children, backgroundColor }) {
 				{routes[router.route]}
 			</motion.h6>
 			{dimensions.width != null && <SVG {...dimensions} />}
+			{dimensions.width == null && <div className='cheat-cover'></div>}
 			{children}
 		</div>
 	);

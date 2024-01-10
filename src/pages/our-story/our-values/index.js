@@ -25,7 +25,7 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 export default function OurValues() {
 	return (
 		<>

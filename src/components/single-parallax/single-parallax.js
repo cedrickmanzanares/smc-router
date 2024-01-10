@@ -10,12 +10,7 @@ export default function SingleParallax({ children, scrollYProgress_start }) {
 		restDelta: 0.001,
 	});
 
-	let yValues = useTransform(
-		springScroll,
-		[0, 1],
-		[`-60%`, `-40%`],
-		'anticipate'
-	);
+	let yValues = useTransform(springScroll, [0, 1], [`-60%`, `-40%`]);
 
 	return (
 		<motion.div className='single-parallax'>

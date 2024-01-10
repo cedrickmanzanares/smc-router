@@ -133,10 +133,11 @@ export default function SampleVideo() {
 				}}>
 				<motion.div
 					className='container-fluid-width text-center'
-					style={{
-						y: yValue,
-					}}>
-					<div>
+					// style={{
+					// 	y: yValue,
+					// }}
+				>
+					<div style={{ margin: 'auto' }}>
 						<motion.h2 className='heading-3'>
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem
 						</motion.h2>

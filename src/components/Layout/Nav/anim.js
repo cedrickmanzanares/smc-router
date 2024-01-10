@@ -53,16 +53,19 @@ export const hover_animation = {
 
 export const floatingNavContent_variants = {
 	open: {
-		// display: 'flex',
+		display: 'flex',
 		transition: {
 			staggerChildren: 0.035,
 			// delayChildren: 0.5,
 		},
 	},
 	initial: {
-		// display: 'block',
-		// staggerChildren: 0.15,
-		// delayChildren: 0.5,
+		display: 'none',
+
+		transition: {
+			delay: 0.4,
+			// delayChildren: 0.5,
+		},
 	},
 };
 

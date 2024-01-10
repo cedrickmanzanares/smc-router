@@ -4,36 +4,50 @@ import { motion } from 'framer-motion';
 
 import { getColors } from '@/hooks/use-color';
 import Link from 'next/link';
+
+import { PiCaretRightBold } from 'react-icons/pi';
+import { PiArrowRightBold } from 'react-icons/pi';
+
 import { IoIosArrowDropright } from 'react-icons/io';
 
 import { BsArrowDownCircle } from 'react-icons/bs';
+import Button from '@/components/button/button';
 
 export default function PDFItem({ title, date, download, link }) {
 	const { blue } = getColors;
 	const nameVariants = {
 		rest: {
+			opacity: 1,
 			x: '0rem',
 		},
 		hover: {
+			opacity: 0.5,
+
 			x: '2rem',
 		},
 	};
 
 	const detailsVariants = {
 		rest: {
+			opacity: 1,
 			x: '0rem',
 		},
 		hover: {
+			opacity: 1,
 			x: '-2rem',
 		},
 	};
 
 	const buttonVariants = {
 		rest: {
-			color: '#ffffff',
+			opacity: 1,
+			color: blue,
+			backgroundColor: '#ffffff00',
 		},
 		hover: {
-			color: blue,
+			opacity: 1,
+			color: '#ffffff',
+			backgroundColor: blue,
 		},
 	};
 
@@ -52,42 +66,23 @@ export default function PDFItem({ title, date, download, link }) {
 			className='pdf-item size-limit'
 			inital='rest'
 			whileHover='hover'>
+			<a
+				target='_blank'
+				href={link}
+				rel='noopener noreferrer'
+				className='pdf-link link-cover'></a>
 			<motion.div className='pdf-name' variants={nameVariants}>
-				<a
-					target='_blank'
-					href={link}
-					rel='noopener noreferrer'
-					className='pdf-link'>
-					{title}
-				</a>
+				{title}
 			</motion.div>
 			<motion.div className='pdf-details' variants={detailsVariants}>
 				{date && <span className='small'>{date}</span>}
 				{download ? (
-					<motion.div
-						variants={buttonVariants}
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-						}}>
-						<a
-							target='_blank'
-							href={link}
-							rel='noopener noreferrer'
-							className='pdf-link'>
-							<BsArrowDownCircle size={`2rem`} fill='currentColor' />
-							<span className='small'>Download</span>
-						</a>
+					<motion.div className='pdf-button' variants={buttonVariants}>
+						<PiArrowRightBold size={`1.25rem`} fill='currentColor' />
 					</motion.div>
 				) : (
-					<motion.div variants={buttonVariants}>
-						<a
-							target='_blank'
-							href={link}
-							rel='noopener noreferrer'
-							className='pdf-link'>
-							<IoIosArrowDropright size={`2rem`} />
-						</a>
+					<motion.div className='pdf-button' variants={buttonVariants}>
+						<PiArrowRightBold size={`1.25rem`} />
 					</motion.div>
 				)}
 			</motion.div>

@@ -4,17 +4,27 @@
 	z-index: 10;
 	position: relative;
 	background-color: #fffbf2;
+	height: 350vh;
+	min-height: 800px;
+	.pin {
+		height: 100vh;
+		width: 100%;
+		position: sticky;
+		top: 0;
+		left: 0;
+	}
 }
 
 .ourbusinesses-container {
 	display: grid;
 	padding: var(--section-padding);
-	grid-template-columns: 0.85fr 1.3fr 0.85fr;
+	grid-template-columns: 0.9fr 1.2fr 0.8fr;
 	grid-template-rows: 100px auto;
 	gap: 0 var(--gap);
 	overflow: hidden;
 	border: 10px solid white;
 	position: relative;
+
 	z-index: 1;
 	min-height: calc(100vh - 8rem);
 }
@@ -39,7 +49,7 @@
 }
 
 .ourbusinesses-section .container-fluid-width {
-	padding: var(--section-padding);
+	padding: 3rem;
 }
 
 .ourbusinesses-section h2 {
@@ -172,6 +182,7 @@
 	width: var(--selected-size);
 	overflow: hidden;
 	border-radius: 100%;
+	flex: 0 0 var(--selected-size);
 }
 
 .inner-img img {

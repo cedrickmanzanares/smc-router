@@ -29,7 +29,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { pageTranslate } from '@/hooks/pageAnim';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function News() {
 	const parent1 = useRef(null);

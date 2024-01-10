@@ -32,7 +32,7 @@ const theme = extendTheme({
 		bodyBg: '#fffbf2',
 	},
 	lineHeights: {
-		base: '1.75',
+		base: '2',
 	},
 });
 

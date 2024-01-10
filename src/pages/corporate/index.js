@@ -14,9 +14,9 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { AspectRatio } from '@chakra-ui/layout';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
-import { basePath } from '/next.config';
 import Button from '@/components/button/button';
 
+import { basePath } from '@/hooks/use-basepath';
 export default function Corporate() {
 	return (
 		<Curve>

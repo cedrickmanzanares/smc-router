@@ -25,7 +25,7 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurHistory() {
 	const parent1 = useRef(null);
@@ -43,19 +43,9 @@ export default function OurHistory() {
 	// 	restDelta: 0.001,
 	// });
 
-	const xVal = useTransform(
-		scrollYProgress_start1,
-		[0, 1],
-		['0vw', `-100vw`],
-		'anticipate'
-	);
+	const xVal = useTransform(scrollYProgress_start1, [0, 1], ['0vw', `-100vw`]);
 
-	const xVal2 = useTransform(
-		scrollYProgress_start1,
-		[0, 1],
-		['-100vw', `0vw`],
-		'anticipate'
-	);
+	const xVal2 = useTransform(scrollYProgress_start1, [0, 1], ['-100vw', `0vw`]);
 
 	return (
 		<>
@@ -77,7 +67,11 @@ export default function OurHistory() {
 								initial={{
 									x: 0,
 								}}
-								style={{ x: xVal }}>
+								// style={{ x: xVal }}
+								animate={{
+									x: '-100vw',
+								}}
+								transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}>
 								<div
 									className='grid'
 									style={{
@@ -117,31 +111,31 @@ export default function OurHistory() {
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/16.jpg`} />
+											<img src={`${basePath}/images/OurHistory/11.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/17.jpg`} />
+											<img src={`${basePath}/images/OurHistory/12.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/18.jpg`} />
+											<img src={`${basePath}/images/OurHistory/13.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/19.jpg`} />
+											<img src={`${basePath}/images/OurHistory/14.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/20.jpg`} />
+											<img src={`${basePath}/images/OurHistory/15.jpg`} />
 										</SingleParallax>
 									</div>
 								</div>
@@ -153,7 +147,10 @@ export default function OurHistory() {
 								initial={{
 									x: '-100vw',
 								}}
-								style={{ x: xVal2 }}>
+								animate={{
+									x: '0vw',
+								}}
+								transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}>
 								<div
 									className='grid'
 									style={{
@@ -193,31 +190,31 @@ export default function OurHistory() {
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/6.jpg`} />
+											<img src={`${basePath}/images/OurHistory/1.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/7.jpg`} />
+											<img src={`${basePath}/images/OurHistory/2.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/8.jpg`} />
+											<img src={`${basePath}/images/OurHistory/3.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/9.jpg`} />
+											<img src={`${basePath}/images/OurHistory/4.jpg`} />
 										</SingleParallax>
 									</div>
 									<div>
 										<SingleParallax
 											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/10.jpg`} />
+											<img src={`${basePath}/images/OurHistory/5.jpg`} />
 										</SingleParallax>
 									</div>
 								</div>
@@ -225,14 +222,17 @@ export default function OurHistory() {
 						</div>
 					</div>
 				</motion.div>
-
-				<TextGradient
-					classes='heading-4'
-					paragraph='Established in 1890, La Fabrica de Cerveza de San Miguel, Southeast Asia’s first brewery produced and bottled what would eventually become one of the bestselling beers in the region. Within the span of a generation, San Miguel Beer would become an icon among beer drinkers.'>
-					<h3 className='heading-5 split-color'>
-						Proud <b>Beginnings</b>
-					</h3>
-				</TextGradient>
+				<div className='section-content'>
+					<div className='container-fluid-width small'>
+						<TextGradient
+							classes='heading-4'
+							paragraph='Established in 1890, La Fabrica de Cerveza de San Miguel, Southeast Asia’s first brewery produced and bottled what would eventually become one of the bestselling beers in the region. Within the span of a generation, San Miguel Beer would become an icon among beer drinkers.'>
+							<h3 className='heading-5 split-color'>
+								Proud <b>Beginnings</b>
+							</h3>
+						</TextGradient>
+					</div>
+				</div>
 
 				<FullPageBanner>
 					<video

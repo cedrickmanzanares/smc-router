@@ -31,7 +31,7 @@ import { pageTranslate } from '@/hooks/pageAnim';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function WalangIwanan() {
 	const parent1 = useRef(null);

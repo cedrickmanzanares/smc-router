@@ -18,37 +18,16 @@ export default function PageCTA() {
 	];
 
 	let yValues = [
-		useTransform(
-			scrollYProgress,
-			[0, 1],
-			['0%', `${(0 * 25) / 2}%`],
-			'anticipate'
-		),
-		useTransform(
-			scrollYProgress,
-			[0, 1],
-			['0%', `${(1 * 25) / 2}%`],
-			'anticipate'
-		),
-		useTransform(
-			scrollYProgress,
-			[0, 1],
-			['0%', `${(2 * 25) / 2}%`],
-			'anticipate'
-		),
-		useTransform(
-			scrollYProgress,
-			[0, 1],
-			['0%', `${(3 * 25) / 2}%`],
-			'anticipate'
-		),
+		useTransform(scrollYProgress, [0, 1], ['0%', `${(0 * 25) / 2}%`]),
+		useTransform(scrollYProgress, [0, 1], ['0%', `${(1 * 25) / 2}%`]),
+		useTransform(scrollYProgress, [0, 1], ['0%', `${(2 * 25) / 2}%`]),
+		useTransform(scrollYProgress, [0, 1], ['0%', `${(3 * 25) / 2}%`]),
 	];
 
 	let yTextValues = useTransform(
 		scrollYProgress,
 		[0, 0.5, 1],
-		['-50%', `0%`, `200%`],
-		'anticipate'
+		['-50%', `0%`, `200%`]
 	);
 
 	return (
@@ -73,9 +52,14 @@ export default function PageCTA() {
 						}}>
 						At vero eos et accusamus
 					</motion.h2>
-					<Button href='/' className='btn-bordered white' link='/'>
-						Visit our sustainability report
-					</Button>
+					<div className='pageCTA-btn'>
+						<Button
+							href='/'
+							className='btn-bordered white size-inherit'
+							link='/'>
+							Visit our sustainability report
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>

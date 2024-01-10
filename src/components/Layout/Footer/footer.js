@@ -27,7 +27,7 @@ import {
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function Footer() {
 	const year = new Date().getFullYear();

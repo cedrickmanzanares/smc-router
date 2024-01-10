@@ -1,0 +1,32 @@
+.pdf-widget {
+  background-color: white;
+  border: 1px solid var(--gray-3);
+  padding: 2rem;
+  position: relative;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: flex-end;
+}
+
+.pdf-widget-title {
+  color: inherit;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+}
+.pdf-widget-title a {
+  display: block;
+  color: inherit;
+}
+
+.pdf-widget-title span {
+  font-size: 0.65em;
+  font-weight: normal;
+}
+
+.pdf-widget-link {
+  color: white;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}/*# sourceMappingURL=pdfwidget.css.map */

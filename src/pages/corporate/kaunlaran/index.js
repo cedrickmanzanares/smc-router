@@ -30,7 +30,7 @@ import gsap from 'gsap';
 import { pageTranslate } from '@/hooks/pageAnim';
 import { AspectRatio, Badge, Flex } from '@chakra-ui/layout';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function Kaunlaran() {
 	const kol = useRef(null);

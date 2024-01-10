@@ -1,0 +1,49 @@
+.pageCTA {
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.pageCTA .heading-2 {
+  position: absolute;
+  color: white;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pageCTA .container-fluid-width {
+  padding: 0;
+  width: 100%;
+}
+
+.cta-images {
+  position: relative;
+  min-height: 600px;
+  height: 50vh;
+  z-index: 1;
+}
+
+.cta-images img {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform-origin: center bottom;
+}
+
+.pageCTA .btn {
+  font-size: 1.3rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=pagecta.css.map */

@@ -29,7 +29,7 @@ import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 import { AspectRatio } from '@chakra-ui/react';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function CSR() {
 	const images = [
@@ -69,17 +69,16 @@ export default function CSR() {
 					<img src={`${basePath}/images/CSR/60dc13a6f26d5.png`} />
 				</FullPageBanner>
 
-				<TextGradient
-					anim={{ ...useAnim(pageTranslate(2)) }}
-					classes='heading-2'
-					paddingBottom={'unset'}
-					paragraph={
-						"More than a slogan, it's a calling to our better selves. It's a credo rooted in hope and action."
-					}
-				/>
-
 				<ColumnSection>
 					<>
+						<TextGradient
+							anim={{ ...useAnim(pageTranslate(2)) }}
+							classes='heading-3'
+							paddingBottom={'unset'}
+							paragraph={
+								"More than a slogan, it's a calling to our better selves. It's a credo rooted in hope and action."
+							}
+						/>
 						<p>
 							As a company, San Miguel Corporation invests in social projects
 							not only because it makes good business sense, but because we

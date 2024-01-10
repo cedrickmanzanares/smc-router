@@ -27,7 +27,7 @@ import ParallaxGrid from '@/cms-components/ParallaxGrid/ParallaxGrid';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 import Link from 'next/link';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurBusinesses() {
 	const { red, yellow } = getColors;

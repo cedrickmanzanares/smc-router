@@ -1,0 +1,50 @@
+.page-banner {
+  height: calc(100dvh - var(--nav-height) + var(--section-padding));
+}
+.page-banner .container-fluid-width {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+.page-banner .desc-container {
+  flex: 0 1 50%;
+}
+.page-banner .img-container {
+  position: relative;
+  flex: 0 1 50%;
+  align-self: stretch;
+}
+.page-banner .img-container .img-item {
+  position: absolute;
+  height: auto;
+  width: auto;
+  bottom: 0;
+}
+.page-banner .img-container .img-item {
+  z-index: 2;
+}
+.page-banner .img-container .img-item:first-child {
+  position: relative;
+  width: auto;
+  height: 100%;
+  z-index: 0;
+}
+.page-banner .img-container .img-item:nth-child(2) {
+  width: 100%;
+  height: auto;
+}
+.page-banner .img-container .img-item:nth-child(3) {
+  right: 40%;
+  width: 18vw;
+}
+.page-banner .img-container .img-item:nth-child(4) {
+  right: 0%;
+  width: 20vw;
+}
+.page-banner .img-container .img-item:last-child {
+  bottom: 55%;
+  height: auto;
+  z-index: 1;
+  width: 12vw;
+}/*# sourceMappingURL=pagebanner.css.map */

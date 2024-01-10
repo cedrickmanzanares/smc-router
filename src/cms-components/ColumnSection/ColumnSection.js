@@ -11,25 +11,26 @@ export default function ColumnSection({
 	direction,
 	images,
 	conClass = '',
+	imageSetting,
 }) {
 	const column = useRef(null);
 
 	const { scrollYProgress: column_scroll } = useScroll({
 		target: column,
-		offset: ['start end', 'end 0.5'],
+		offset: ['start end', 'end start'],
 	});
 
 	const { scrollYProgress: column_scroll_images } = useScroll({
 		target: column,
-		offset: ['start end', 'end 0.5'],
+		offset: ['start end', 'end start'],
 	});
 
-	const imageY = useTransform(
-		column_scroll_images,
-		[0, 1],
-		['-25%', `35%`],
-		'anticipate'
-	);
+	const imageY = useTransform(column_scroll_images, [0, 1], ['0', `-100%`]);
+
+	const top = imageSetting ? imageSetting.t : ['0%', `100%`];
+
+	console.log(top);
+	const imageT = useTransform(column_scroll_images, [0, 1], top);
 
 	return (
 		<motion.div
@@ -67,10 +68,11 @@ export default function ColumnSection({
 					)}
 					{!images && (
 						<motion.div
-							className='img-container'
 							style={{
 								y: imageY,
-							}}>
+								top: imageT,
+							}}
+							className='img-container'>
 							{children[1]}
 						</motion.div>
 					)}

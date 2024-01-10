@@ -1,0 +1,19 @@
+.textgradient-section + div {
+  padding-top: unset;
+}
+
+.text-gradient {
+  display: flex;
+  line-height: 1;
+  flex-wrap: wrap;
+  width: 75%;
+}
+.text-gradient .word {
+  position: relative;
+  margin-right: 0.75rem;
+  margin-top: 1rem;
+}
+.text-gradient .word .shadow {
+  position: absolute;
+  opacity: 20%;
+}/*# sourceMappingURL=TextGradient.css.map */

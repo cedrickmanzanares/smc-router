@@ -4,7 +4,12 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { useEffect, useRef } from 'react';
 
-export default function FloatingImages({ children, images, direction = '' }) {
+export default function FloatingImages({
+	children,
+	images,
+	direction = '',
+	rounded = false,
+}) {
 	const floatingImages = useRef(null);
 	const baseImage = useRef(null);
 
@@ -16,13 +21,16 @@ export default function FloatingImages({ children, images, direction = '' }) {
 		offset: ['start end', 'end start'],
 	});
 
-	let y = [useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])];
+	let y = [
+		useTransform(scrollYProgress, [0, 1], ['0%', '-100%']),
+		useTransform(scrollYProgress, [0, 1], ['-100%', '0%']),
+	];
 
 	let t = [
-		useTransform(scrollYProgress, [0, 1], ['-10%', '90%']),
+		useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
 		// useTransform(scrollYProgress, [0, 1], ['-25cqh', '75cqh']),
-		useTransform(scrollYProgress, [0, 1], ['0%', '90%']),
-		useTransform(scrollYProgress, [0, 1], ['-10%', '100%']),
+		useTransform(scrollYProgress, [0, 1], ['100%', '20%']),
+		useTransform(scrollYProgress, [0, 1], ['120%', '-20%']),
 	];
 
 	useEffect(() => {
@@ -44,13 +52,14 @@ export default function FloatingImages({ children, images, direction = '' }) {
 			<div className='container-fluid-width medium'>
 				{children}
 
-				<div className='img-container'>
+				<div className={`${rounded && 'rounded'} img-container`}>
 					{images.map((images, index) => {
+						let yNew = index === 0 ? y[0] : y[1];
 						return (
 							<motion.div
 								key={`floating-elements_img` + index}
 								className='floating-img'
-								style={{ x: '-50%', y: y[0], top: t[index] }}
+								style={{ x: '-50%', y: yNew, top: t[index] }}
 								ref={baseImage}>
 								<SingleParallax scrollYProgress_start={scrollYProgress}>
 									<img src={images}></img>

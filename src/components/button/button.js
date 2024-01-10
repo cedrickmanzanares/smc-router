@@ -16,15 +16,18 @@ export default function Button({ className, link, children }) {
 	const [button, { width, height }] = useMeasure();
 	const { blue } = getColors;
 	const buttonVariants = {
-		hover: {
-			scale: 1.1,
+		initial: {
+			scale: 1,
+		},
+		enter: {
+			scale: 1.05,
 			transition: {
 				type: 'spring',
 				stiffness: 350,
 			},
 		},
 		tap: {
-			scale: 0.95,
+			scale: 0.98,
 			transition: {
 				type: 'spring',
 				stiffness: 350,
@@ -44,9 +47,9 @@ export default function Button({ className, link, children }) {
 	return (
 		<motion.span
 			ref={button}
+			whileTap='tap'
 			initial='initial'
 			whileHover='enter'
-			// whileTap='enter'
 			onHoverEnd={(event, info) => {
 				animate(event.target.querySelector('.btn-bg'), {
 					top: '-200%',
@@ -61,7 +64,7 @@ export default function Button({ className, link, children }) {
 			}}
 			variants={buttonVariants}
 			className={`btn size-limit${className ? ` ${className}` : ''}`}>
-			<Link className='link-cover' href={link}></Link>
+			{link && <Link className='link-cover' href={link}></Link>}
 			<motion.span variants={textVariants} className='btn-label'>
 				{children}
 			</motion.span>

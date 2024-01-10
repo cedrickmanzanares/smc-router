@@ -16,7 +16,7 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Button from '@/components/button/button';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 export default function Careers() {
 	return (

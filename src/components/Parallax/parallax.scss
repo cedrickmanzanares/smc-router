@@ -31,9 +31,10 @@
 	text-align: center;
 	text-transform: uppercase;
 	width: 600px;
-	color: black;
+	color: var(--base-black);
 	height: auto;
 	margin: 0;
+	opacity: 0;
 }
 
 .parallax h1 span {

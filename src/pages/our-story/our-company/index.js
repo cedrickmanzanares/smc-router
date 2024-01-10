@@ -26,7 +26,7 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurCompany() {
 	const { gray2, red } = getColors;
@@ -45,16 +45,18 @@ export default function OurCompany() {
 
 			<Curve>
 				<PageTitle title='Our' split='Company' />
-				<TextGradient
-					anim={{ ...useAnim(pageTranslate(2)) }}
-					classes='heading-5'
-					paddingBottom={'unset'}
-					paragraph={
-						'San Miguel Corporation, together with its subsidiaries, is one of the largest and most diversified conglomerates in the Philippines by revenues and total assets—with sales equivalent to approximately 6.8% of the Philippine GDP in 2022.'
-					}
-				/>
-				<ColumnSection>
+
+				<ColumnSection
+					imageSetting={{
+						t: ['-30%', '100%'],
+					}}>
 					<>
+						<TextGradient
+							classes='heading-5'
+							paragraph={
+								'San Miguel Corporation, together with its subsidiaries, is one of the largest and most diversified conglomerates in the Philippines by revenues and total assets—with sales equivalent to approximately 6.8% of the Philippine GDP in 2022.'
+							}
+						/>
 						<p>
 							Originally founded in 1890 as a single product brewery in the
 							Philippines, SMC today owns market-leading businesses and
@@ -79,7 +81,7 @@ export default function OurCompany() {
 						</p>
 					</>
 					<>
-						<AspectRatio ratio={1}>
+						<AspectRatio ratio={3 / 4}>
 							<img src={basePath + '/images/OurCompany/s1.png'}></img>
 						</AspectRatio>
 					</>
@@ -115,7 +117,9 @@ export default function OurCompany() {
 						</AspectRatio>
 					</>
 				</ColumnSection>
+
 				<FloatingImages
+					rounded={true}
 					direction='reverse'
 					images={[
 						basePath + '/images/OurCompany/s3-1.png',
@@ -146,6 +150,7 @@ export default function OurCompany() {
 				</FloatingImages>
 
 				<FloatingImages
+					rounded={true}
 					images={[
 						basePath + '/images/OurCompany/s4-1.png',
 						basePath + '/images/OurCompany/s4-2.png',
@@ -267,34 +272,32 @@ export default function OurCompany() {
 						</p>
 					</div>
 				</FloatingImages>
-				<FloatingImages
-					images={[
-						basePath + '/images/OurCompany/s8-1.png',
-						basePath + '/images/OurCompany/s8-2.png',
-						basePath + '/images/OurCompany/s8-3.png',
-					]}>
-					<div className='desc-container'>
-						<h3 className='heading-5'>Cement</h3>
-						<p>
-							The cement business is conducted under SMEII, which owns 100% of
-							the issued and outstanding common stock of Northern Cement
-							Corporation (NCC) and Southern Concrete Industries Inc. [formerly,
-							Oro Cemento Industries Corporation] (SCII) and 99.96% of newly
-							acquired Eagle Cement Corporation (Eagle) as of end December 2022.
-							As of December 31, 2022, SMC owns 100% of SMEII.
-						</p>
-						<p>
-							It is a strong player in the cement industry with an established
-							reputation and with long experience in cement production and
-							domestic sales. It has a leading and contemporary cement plants
-							with new integrated production line showcasing sustainable,
-							environment-friendly, world-class and state-of-the art equipment
-							capable of producing high quality cement products with
-							comprehensive strength above and beyond the prescribed
-							specifications.
-						</p>
+
+				<div className='section-content'>
+					<div className='container-fluid-width medium'>
+						<div className='desc-container'>
+							<h3 className='heading-5'>Cement</h3>
+							<p>
+								The cement business is conducted under SMEII, which owns 100% of
+								the issued and outstanding common stock of Northern Cement
+								Corporation (NCC) and Southern Concrete Industries Inc.
+								[formerly, Oro Cemento Industries Corporation] (SCII) and 99.96%
+								of newly acquired Eagle Cement Corporation (Eagle) as of end
+								December 2022. As of December 31, 2022, SMC owns 100% of SMEII.
+							</p>
+							<p>
+								It is a strong player in the cement industry with an established
+								reputation and with long experience in cement production and
+								domestic sales. It has a leading and contemporary cement plants
+								with new integrated production line showcasing sustainable,
+								environment-friendly, world-class and state-of-the art equipment
+								capable of producing high quality cement products with
+								comprehensive strength above and beyond the prescribed
+								specifications.
+							</p>
+						</div>
 					</div>
-				</FloatingImages>
+				</div>
 			</Curve>
 		</>
 	);

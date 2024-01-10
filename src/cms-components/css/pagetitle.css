@@ -1,0 +1,23 @@
+.page-title {
+  padding-bottom: unset;
+}
+.page-title .container-fluid-width {
+  padding-bottom: 0;
+}
+.page-title h1 {
+  margin-top: 0;
+  position: relative;
+  margin-bottom: 0;
+}
+.page-title h1 span {
+  display: inline-block;
+}
+
+.page-title.center {
+  text-align: center;
+}
+.page-title.center h1 {
+  max-width: 550px;
+  margin: auto;
+  text-align: center;
+}/*# sourceMappingURL=pagetitle.css.map */

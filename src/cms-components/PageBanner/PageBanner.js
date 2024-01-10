@@ -7,7 +7,8 @@ import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
 import { useRef } from 'react';
 
-import { basePath } from '/next.config';
+import { basePath } from '@/hooks/use-basepath';
+
 export default function PageBanner({ images, children }) {
 	const careers = useRef(null);
 	const { scrollYProgress } = useScroll({

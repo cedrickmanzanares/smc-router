@@ -29,209 +29,297 @@ export default function ShapeBg({ daya }) {
 	const { red, yellow, blue } = getColors;
 
 	const [animating, setAnimating] = useState(false);
+
+	useEffect(() => {
+		console.log(
+			JSON.stringify([
+				{
+					ph: {
+						d: `M${199 + 25} ${185 + 25}  L${288 + 25}   ${96 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${172 + 25} ${71 + 25}  L${208 + 25}    ${35 + 25}`,
+						strokeWidth: 0,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${257 + 25} ${373 + 25}  L${351 + 25}    ${281 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${270 + 25} ${278 + 25}  L${308 + 25}    ${240 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${187 + 25} ${154 + 25}  L${187 + 25}    ${154 + 25}`,
+						strokeWidth: 105,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${257 + 25} ${373 + 25}  L${159 + 25}    ${273 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${391 + 25} ${312 + 25}  L${303 + 25}    ${400 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${461 + 25} ${411 + 25}  L${49 + 25}  ${232 + 25}`,
+						strokeWidth: 95,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${252 + 25} ${464 + 25}  L${47 + 25}    ${255 + 25}`,
+						strokeWidth: 0,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${347 + 25} ${507 + 25}  L${239 + 25}    ${614 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${467 + 25} ${244 + 25}  L${47 + 25}     ${404 + 25}`,
+						strokeWidth: 95,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${257 + 25} ${373 + 25}  L${159 + 25}    ${273 + 25}`,
+						strokeWidth: 0,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${341 + 25} ${513 + 25}  L${448 + 25}    ${406 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${163 + 25} ${529 + 25}  L${346 + 25}    ${118 + 25}`,
+						strokeWidth: 95,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${252 + 25} ${464 + 25}  L${47 + 25}    ${255 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${172 + 25} ${71 + 25}  L${208 + 25}    ${35 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${288 + 25} ${96 + 25}  L${288 + 25}    ${96 + 25}`,
+						strokeWidth: 0,
+						// rotate: '360deg',
+					},
+					puso: {
+						//red
+						d: `M${253 + 25} ${466 + 25}  L${469 + 25}    ${255 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${35 + 25} ${510 + 25}   L${152 + 25}    ${394 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${152 + 25} ${394 + 25}  L${152 + 25}    ${394 + 25}`,
+						strokeWidth: 0,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${152 + 25} ${394 + 25}  L${152 + 25}    ${394 + 25}`,
+						strokeWidth: 0,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${394 + 25} ${598 + 25}  L${480 + 25}    ${513 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${480 + 25} ${513 + 25}  L${480 + 25}    ${513 + 25}`,
+						strokeWidth: 0,
+						// rotate: '360deg',
+					},
+					puso: {
+						//red
+						d: `M${257 + 25} ${277 + 25}  L${159 + 25}    ${177 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+				{
+					ph: {
+						d: `M${151 + 25} ${395 + 25}  L${202 + 25}    ${344 + 25}`,
+						strokeWidth: 75,
+						// rotate: '0deg',
+					},
+					tao: {
+						d: `M${202 + 25} ${344 + 25}  L${202 + 25}    ${344 + 25}`,
+						strokeWidth: 0,
+						// rotate: '360deg',
+					},
+					puso: {
+						d: `M${257 + 25} ${277 + 25}  L${351 + 25}    ${185 + 25}`,
+						strokeWidth: 90,
+						// rotate: '720deg',
+					},
+				},
+			])
+		);
+	}, []);
+
 	const controlVariants = [
 		{
-			ph: {
-				d: 'M199 185 L288 96',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M172 71  L208 35',
-				strokeWidth: 0,
-				// rotate: '360deg',
-			},
-			puso: {
-				//yellow
-				d: 'M257 373 L351 281',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M224 210  L313   121', strokeWidth: 75 },
+			tao: { d: 'M197 96  L233    60', strokeWidth: 0 },
+			puso: { d: 'M282 398  L376    306', strokeWidth: 90 },
 		},
 		{
-			ph: {
-				d: 'M270 278 L308 240',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M187.094 154.329 L187.234 154.001',
-				strokeWidth: 105,
-				// rotate: '360deg',
-			},
-			puso: {
-				//blue
-				d: 'M257 373 L159 273',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M295 303  L333    265', strokeWidth: 75 },
+			tao: { d: 'M212 179  L212    179', strokeWidth: 105 },
+			puso: { d: 'M282 398  L184    298', strokeWidth: 90 },
 		},
 		{
-			ph: {
-				d: 'M391 312 L303 400',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M461.039 411.933 L49.1902 232.574',
-				strokeWidth: 95,
-				// rotate: '360deg',
-			},
-			puso: {
-				//red
-				d: 'M252 464 L47 255',
-				strokeWidth: 0,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M416 337  L328    425', strokeWidth: 75 },
+			tao: { d: 'M486 436  L74  257', strokeWidth: 95 },
+			puso: { d: 'M277 489  L72    280', strokeWidth: 0 },
 		},
 		{
-			ph: {
-				d: 'M347 507 L239 614',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M467.045 244.399 L47.1859 404.109',
-				strokeWidth: 95,
-				// rotate: '360deg',
-			},
-			puso: {
-				//blue
-				d: 'M257 373 L159 273',
-				strokeWidth: 0,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M372 532  L264    639', strokeWidth: 75 },
+			tao: { d: 'M492 269  L72     429', strokeWidth: 95 },
+			puso: { d: 'M282 398  L184    298', strokeWidth: 0 },
 		},
 		{
-			ph: {
-				d: 'M341 513 L448 406',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M163.013 529.75  L346.371 118.32',
-				strokeWidth: 95,
-				// rotate: '360deg',
-			},
-			puso: {
-				//yellow
-				d: 'M252 464 L47 255',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M366 538  L473    431', strokeWidth: 75 },
+			tao: { d: 'M188 554  L371    143', strokeWidth: 95 },
+			puso: { d: 'M277 489  L72    280', strokeWidth: 90 },
 		},
 		{
-			ph: {
-				d: 'M172 71  L208 35',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M288.905 96.6035 L288.905 96.6035',
-				strokeWidth: 0,
-				// rotate: '360deg',
-			},
-			puso: {
-				//red
-				d: 'M253 466 L469 255',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M197 96  L233    60', strokeWidth: 75 },
+			tao: { d: 'M313 121  L313    121', strokeWidth: 0 },
+			puso: { d: 'M278 491  L494    280', strokeWidth: 90 },
 		},
 		{
-			ph: {
-				d: 'M35 510 L152 394',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M152.26 394.768 L152.26 394.768',
-				strokeWidth: 0,
-				// rotate: '360deg',
-			},
-			puso: {
-				//yellow
-				d: 'M152.26 394.768 L152.26 394.768',
-				strokeWidth: 0,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M60 535   L177    419', strokeWidth: 75 },
+			tao: { d: 'M177 419  L177    419', strokeWidth: 0 },
+			puso: { d: 'M177 419  L177    419', strokeWidth: 0 },
 		},
 		{
-			ph: {
-				d: 'M394.75 598 L480.207 513.066',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M480.207 513.066 L480.207 513.066',
-				strokeWidth: 0,
-				// rotate: '360deg',
-			},
-			puso: {
-				//red
-				d: 'M257 277 L159 177',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M419 623  L505    538', strokeWidth: 75 },
+			tao: { d: 'M505 538  L505    538', strokeWidth: 0 },
+			puso: { d: 'M282 302  L184    202', strokeWidth: 90 },
 		},
 		{
-			ph: {
-				d: 'M151.395 395.634  L202.582 344.934',
-				strokeWidth: 75,
-				// rotate: '0deg',
-			},
-			tao: {
-				d: 'M202.582 344.934  L202.582 344.934',
-				strokeWidth: 0,
-				// rotate: '360deg',
-			},
-			puso: {
-				//blue
-				d: 'M257 277 L351 185',
-				strokeWidth: 90,
-				// rotate: '720deg',
-			},
+			ph: { d: 'M176 420  L227    369', strokeWidth: 75 },
+			tao: { d: 'M227 369  L227    369', strokeWidth: 0 },
+			puso: { d: 'M282 302  L376    210', strokeWidth: 90 },
 		},
 	];
 
 	const colors = [yellow, blue, red, blue, yellow, red, yellow, red, blue];
+
+	// 	console.log(`
+	// {
+	// 	d: 'M${172 + 25} ${71 + 25} L${208 + 25} ${35 + 25}'
+	// 	s: 0,
+	// },
+
+	// {
+	// 	d: 'M${187 + 25} ${154 + 25} L${187 + 25} ${154 + 25}'
+	// 	s: 105,
+	// },
+	// {
+	// 	d: 'M${461 + 25} ${411 + 25} L${49 + 25} ${232 + 25}'
+	// 	s: 95,
+	// },
+	// {
+	// 	d: 'M${467 + 25} ${244 + 25} L${47 + 25} ${404 + 25}'
+	// 	s: 95,
+	// },
+	// {
+	// 	d: 'M${163 + 25} ${529 + 25} L${346 + 25} ${118 + 25}'
+	// 	s: 95,
+	// },
+	// {
+	// 	d: 'M${288 + 25} ${96 + 25} L${288 + 25} ${96 + 25}'
+	// 	s: 0,
+	// },
+	// {
+	// 	d: 'M${152 + 25} ${394 + 25} L${152 + 25} ${394 + 25}'
+	// 	s: 0,
+	// },
+	// {
+	// 	d: 'M${480 + 25} ${513 + 25} L${480 + 25} ${513 + 25}'
+	// 	s: 0,
+	// },
+	// {
+	// 	d: 'M${202 + 25} ${344 + 25} L${202 + 25} ${344 + 25}'
+	// 	s: 0,
+	// },
+
+	// `);
+
 	const controledMVS = [
 		[
 			{
-				d: 'M199 185 L288 96',
+				d: 'M224 210 L313 121',
 				s: 75,
 			},
 
 			{
-				d: 'M270 278 L308 240',
+				d: 'M295 303 L333 265',
 				s: 75,
 			},
 			{
-				d: 'M391 312 L303 400',
+				d: 'M416 337 L328 425',
 				s: 75,
 			},
 			{
-				d: 'M347 507 L239 614',
+				d: 'M372 532 L264 639',
 				s: 75,
 			},
 			{
-				d: 'M341 513 L448 406',
+				d: 'M366 538 L473 431',
 				s: 75,
 			},
 			{
-				d: 'M172 71  L208 35',
+				d: 'M197 96 L233 60',
 				s: 75,
 			},
 			{
-				d: 'M35 510 L152 394',
+				d: 'M60 535 L177 419',
 				s: 75,
 			},
 			{
-				d: 'M394.75 598 L480.207 513.066',
+				d: 'M419 623 L505 538',
 				s: 75,
 			},
 			{
-				d: 'M151.395 395.634  L202.582 344.934',
+				d: 'M176 420 L227 369',
 				s: 75,
 			},
 
@@ -240,40 +328,40 @@ export default function ShapeBg({ daya }) {
 		],
 		[
 			{
-				d: 'M172 71  L208 35',
+				d: 'M197 96 L233 60',
 				s: 0,
 			},
 
 			{
-				d: 'M187.094 154.329 L187.234 154.001',
+				d: 'M212 179 L212 179',
 				s: 105,
 			},
 			{
-				d: 'M461.039 411.933 L49.1902 232.574',
+				d: 'M486 436 L74 257',
 				s: 95,
 			},
 			{
-				d: 'M467.045 244.399 L47.1859 404.109',
+				d: 'M492 269 L72 429',
 				s: 95,
 			},
 			{
-				d: 'M163.013 529.75  L346.371 118.32',
+				d: 'M188 554 L371 143',
 				s: 95,
 			},
 			{
-				d: 'M288.905 96.6035 L288.905 96.6035',
+				d: 'M313 121 L313 121',
 				s: 0,
 			},
 			{
-				d: 'M152.26 394.768 L152.26 394.768',
+				d: 'M177 419 L177 419',
 				s: 0,
 			},
 			{
-				d: 'M480.207 513.066 L480.207 513.066',
+				d: 'M505 538 L505 538',
 				s: 0,
 			},
 			{
-				d: 'M202.582 344.934  L202.582 344.934',
+				d: 'M227 369 L227 369',
 				s: 0,
 			},
 		],
@@ -455,7 +543,7 @@ export default function ShapeBg({ daya }) {
 	const xValues3 = useTransform(springScroll, [0, 1], ['-10%', `10%`]);
 
 	const startVal = 150;
-	const multilper = 16;
+	const multilper = 10;
 
 	useEffect(() => {
 		const mvs = document.querySelector('.mvs-shapes');
@@ -529,9 +617,9 @@ export default function ShapeBg({ daya }) {
 					x: xValues3,
 				}}>
 				<svg
-					width='516'
-					height='650'
-					viewBox='0 0 516 650'
+					width='616'
+					height='750'
+					viewBox='0 0 616 750'
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'>
 					{controlVariants.map((variants, index) => {

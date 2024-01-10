@@ -14,15 +14,15 @@ export default function Image3D({ children, scrollYProgress_start, images }) {
 
 	const multiplier = 20;
 
-	let yBg_scale = useTransform(springValue, [0, 0.45], [1.25, 1], 'anticipate');
+	let yBg_scale = useTransform(springValue, [0, 0.45], [1.25, 1]);
 
-	let yCon = useTransform(springValue, [0, 1], [`-5%`, `15%`], 'anticipate');
+	let yCon = useTransform(springValue, [0, 1], [`-5%`, `15%`]);
 
-	// let yBg = useTransform(springValue, [0, 1], ['0cqh', '30cqh'], 'anticipate');
+	// let yBg = useTransform(springValue, [0, 1], ['0cqh', '30cqh'], );
 	let y = [
-		useTransform(springValue, [0, 1], ['0cqh', '3cqh'], 'anticipate'),
-		useTransform(springValue, [0, 1], ['0cqh', '6cqh'], 'anticipate'),
-		useTransform(springValue, [0, 1], ['0cqh', '12cqh'], 'anticipate'),
+		useTransform(springValue, [0, 1], ['0cqh', '3cqh']),
+		useTransform(springValue, [0, 1], ['0cqh', '6cqh']),
+		useTransform(springValue, [0, 1], ['0cqh', '12cqh']),
 	];
 
 	return (

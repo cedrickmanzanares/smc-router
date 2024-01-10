@@ -2,7 +2,7 @@
 	padding: 1rem 1rem;
 	border-top: 1px solid var(--gray-3);
 	display: flex;
-	gap: calc(var(--gap-padding) * 2);
+	gap: 6rem;
 	color: var(--base-black);
 	position: relative;
 	overflow: hidden;
@@ -39,6 +39,12 @@
 	z-index: 1;
 }
 
+.pdf-details {
+	span {
+		white-space: nowrap;
+	}
+}
+
 .pdf-bg {
 	position: absolute;
 	top: 0;
@@ -46,4 +52,14 @@
 	right: 0;
 	bottom: 0;
 	background-color: var(--yellow-1);
+}
+
+.pdf-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1 / 1;
+	border: 2px solid var(--base-blue);
+	border-radius: 100%;
+	padding: 5px;
 }
