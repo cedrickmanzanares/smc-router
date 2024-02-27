@@ -173,6 +173,23 @@ main > :first-child:not(.parallax-container) {
 	// border: 2px solid black;
 }
 
+.section-content.text-center {
+	h2,
+	h2 + p {
+		width: 600px;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	h2 {
+		margin-bottom: 1rem;
+		+ p {
+			margin-bottom: 3rem;
+			line-height: 1.5;
+		}
+	}
+}
+
 .container-fluid-width {
 	width: 100%;
 	padding-left: var(--container-padding);
@@ -396,6 +413,7 @@ a {
 
 @import '../components/button/button.scss';
 @import '../components/Parallax/parallax.scss';
+@import '../cms-components/MainBanner/MainBanner.scss';
 @import '../components/SampleVideo/sample-video.scss';
 // @import '../components/Accordion/accordion.scss';
 @import '../components/modal/modal.scss';
@@ -403,6 +421,7 @@ a {
 @import '../components/single-parallax/single-parallax.scss';
 
 @import '../cms-components/OurBusinesses/ourbusinesses.scss';
+@import '../cms-components/OurProject/OurProject.scss';
 @import '../cms-components/Image3D/Image3D.scss';
 @import '../cms-components/PageCTA/pagecta.scss';
 
@@ -412,6 +431,7 @@ a {
 
 @import '../cms-components/TextGradient/TextGradient.scss';
 @import '../cms-components/ParallaxGrid/parallaxgrid.scss';
+@import '../cms-components/Pillar//Pillar.scss';
 
 .marquee {
 	overflow: hidden;

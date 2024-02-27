@@ -43,12 +43,18 @@ import {
 import Image from 'next/image';
 
 import { basePath } from '@/hooks/use-basepath';
+import { useRouter } from 'next/router';
 
-export default function Nav() {
+export default function Nav({}) {
+	const router = useRouter();
+	const className = router.route === '/' ? 'home' : 'inner';
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
 	const [isOpen, toggle] = useCycle(false, true);
 
+	useEffect(() => {
+		console.log(router);
+	}, [router]);
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		if (latest < 100) {
 			navShow(true);
@@ -60,7 +66,7 @@ export default function Nav() {
 	return (
 		<>
 			<motion.div
-				className='nav-container size-limit'
+				className={`${className} nav-container size-limit`}
 				animate={navOpen ? 'open' : 'closed'}
 				variants={navContainer_variants}>
 				<div className='container-fluid-width large'>

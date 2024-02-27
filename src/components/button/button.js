@@ -14,7 +14,7 @@ import { getColors } from '@/hooks/use-color';
 
 export default function Button({ className, link, children }) {
 	const [button, { width, height }] = useMeasure();
-	const { blue } = getColors;
+	const { blue, red } = getColors;
 	const buttonVariants = {
 		initial: {
 			scale: 1,
@@ -35,12 +35,22 @@ export default function Button({ className, link, children }) {
 		},
 	};
 
+	const getColor = (className) => {
+		if (className.includes('pri')) return blue;
+		if (className.includes('white')) return '#ffffff';
+	};
+
+	const getHoverColor = (className) => {
+		if (className.includes('pri')) return '#ffffff';
+		if (className.includes('white')) return blue;
+	};
+
 	const textVariants = {
 		initial: {
-			color: className.includes('pri') ? blue : '#ffffff',
+			color: getColor(className),
 		},
 		enter: {
-			color: className.includes('pri') ? '#ffffff' : blue,
+			color: getHoverColor(className),
 		},
 	};
 

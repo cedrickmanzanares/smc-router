@@ -5,6 +5,16 @@
 	height: var(--nav-height);
 	top: 0;
 	font-family: var(--font-mw_sans);
+	&.home {
+		color: white;
+		.main-nav a {
+			color: white;
+		}
+
+		.nav-dropdown a {
+			color: var(--base-black);
+		}
+	}
 }
 
 .nav-container .container-fluid-width {
@@ -40,7 +50,7 @@
 }
 
 .main-nav a {
-	color: black;
+	color: var(--base-black);
 	text-decoration: none;
 	padding: 1rem;
 }
@@ -154,6 +164,7 @@ a.nav-item,
 .nav-dropdown a {
 	display: block;
 	padding: 2px 0;
+	color: var(--base-black);
 }
 
 .inner-dropdown {

@@ -153,7 +153,7 @@ export default function SampleVideo() {
 				<motion.div
 					className='video-container'
 					style={{
-						backgroundColor: 'black',
+						backgroundImage: 'linear-gradient(#748089, #898a8a)',
 					}}
 					initial={{
 						// position: 'fixed',

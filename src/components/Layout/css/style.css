@@ -1,36 +1,36 @@
 .curve {
-  position: relative;
+	position: relative;
 }
 .curve > *:last-child:not(.pageCTA):not(.fullbanner-section) {
-  padding-bottom: 25vh;
+	padding-bottom: 25vh;
 }
 .curve .route-transition {
-  position: fixed;
-  height: calc(100vh + 600px);
-  width: 100vw;
-  pointer-events: none;
-  left: 0;
-  top: 0;
-  pointer-events: none;
+	position: fixed;
+	height: calc(100vh + 600px);
+	width: 100vw;
+	pointer-events: none;
+	left: 0;
+	top: 0;
+	pointer-events: none;
 }
 .curve .route-transition + *:not(.parallax-container) {
-  padding-top: calc(var(--nav-height) + var(--section-padding));
+	padding-top: calc(var(--nav-height) + var(--section-padding));
 }
 .curve .route {
-  pointer-events: none;
-  position: fixed;
-  left: 50%;
-  top: 40%;
-  color: white;
-  font-weight: bold;
-  z-index: 3;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 2001;
+	pointer-events: none;
+	position: fixed;
+	left: 50%;
+	top: 40%;
+	color: white;
+	font-weight: bold;
+	z-index: 3;
+	transform: translateX(-50%);
+	text-align: center;
+	z-index: 2001;
 }
 .curve .route-transition {
-  z-index: 2000;
+	z-index: 2000;
 }
 .curve .route-transition path {
-  fill: var(--base-red);
-}/*# sourceMappingURL=style.css.map */
+	fill: var(--base-red);
+} /*# sourceMappingURL=style.css.map */

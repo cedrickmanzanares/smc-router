@@ -13,38 +13,36 @@ import PageCTA from '@/cms-components/PageCTA/PageCTA';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
 import { basePath } from '@/hooks/use-basepath';
+import MainBanner from '@/cms-components/MainBanner/MainBanner';
+import Pillar from '@/cms-components/Pillar/Pillar';
+import OurProject from '@/cms-components/OurProject/OurProject';
 
 export default function Home() {
-	const images1 = [
-		`${basePath}/images/Image3D/image3d1-1.png`,
-		`${basePath}/images/Image3D/image3d1-2.png`,
-	];
+	const pillar_content1 = {
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-1-focus-min.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-1-bg-min.png`,
+		text1: 'The San Miguel Group Vision',
+		text2: 'A resilient and globally competitive Philippines',
+		text3: 'where everyone can enrich and enjoy their lives.',
+	};
 
-	const images2 = [
-		`${basePath}/images/Image3D/image3d2-1.png`,
-		`${basePath}/images/Image3D/image3d2-2.png`,
-		`${basePath}/images/Image3D/image3d2-3.png`,
-	];
+	const pillar_content2 = {
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-2-focus-min.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-2-bg-min.png`,
+		text1: 'Our Core Purpose',
+		text2:
+			'To lead in nation-building by creating opportunities that will uplift generation of Filipinoes,',
+		text3:
+			'allowing all to share in the rewards of sustainable development and prosperity.',
+	};
 
-	const images3 = [
-		`${basePath}/images/Image3D/image3d3-1.png`,
-		`${basePath}/images/Image3D/image3d3-2.png`,
-	];
-
-	const images4 = [
-		`${basePath}/images/Image3D/image3d4-1.png`,
-		`${basePath}/images/Image3D/image3d4-2.png`,
-	];
-
-	const images5 = [
-		`${basePath}/images/Image3D/image3d5-1.png`,
-		`${basePath}/images/Image3D/image3d5-2.png`,
-	];
-
-	const images6 = [
-		`${basePath}/images/Image3D/image3d6-1.png`,
-		`${basePath}/images/Image3D/image3d6-2.png`,
-	];
+	const pillar_content3 = {
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-3-focus-min.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-3-bg-min.png`,
+		text1: 'Our Core Value',
+		text2: 'Malasakit is at the core of who we are as a company.',
+		text3: 'EXELLENCE ACCOUNTABILITY SUSTAINABILITY',
+	};
 
 	return (
 		<>
@@ -55,98 +53,52 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<Parallax />
+				<MainBanner />
 				<SampleVideo />
-				<ColumnSection
-					conClass='ph-trigger'
-					images={images1}
-					direction='reverse'>
-					<>
-						<h2 className='heading-4'>
-							A resilient and globally competitive Philippines
-						</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-							ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-							accumsan lacus vel facilisis.
-						</p>
-					</>
-					<></>
-				</ColumnSection>
-				<ColumnSection conClass='tao-trigger' images={images2}>
-					<>
-						<h2 className='heading-4'>
-							A resilient and globally competitive Philippines
-						</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-							ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-							accumsan lacus vel facilisis.
-						</p>
-					</>
-					<></>
-				</ColumnSection>
-				<OurBusinesses />
-				<div className='heart-trigger'>
-					<div className='section-content'>
-						<div className='container-fuild-width small text-center'>
-							<h2 className='heading-3'>
-								World We Want aut officiis debitis <br />
-								aut rerum
-							</h2>
-						</div>
+				<Pillar content={pillar_content1} position={'right'}>
+					<div>
+						<p></p>
 					</div>
-					<ColumnSection images={images3} direction='reverse'>
-						<>
-							<h2 className='heading-4'>Economic</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-								ipsum suspendisse ultrices gravida. Risus commodo viverra
-								maecenas accumsan lacus vel facilisis.
-							</p>
-						</>
-						<></>
-					</ColumnSection>
-					<ColumnSection images={images4} direction=''>
-						<>
-							<h2 className='heading-4'>Environmental</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-								ipsum suspendisse ultrices gravida. Risus commodo viverra
-								maecenas accumsan lacus vel facilisis.
-							</p>
-						</>
-						<></>
-					</ColumnSection>
-					<ColumnSection images={images5} direction='reverse'>
-						<>
-							<h2 className='heading-4'>Governance</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-								ipsum suspendisse ultrices gravida. Risus commodo viverra
-								maecenas accumsan lacus vel facilisis.
-							</p>
-						</>
-						<></>
-					</ColumnSection>
-					<ColumnSection images={images6} direction=''>
-						<>
-							<h2 className='heading-4'>Social</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-								ipsum suspendisse ultrices gravida. Risus commodo viverra
-								maecenas accumsan lacus vel facilisis.
-							</p>
-						</>
-						<></>
-					</ColumnSection>
-				</div>
+				</Pillar>
+				<Pillar content={pillar_content2} position={'left'} simple={true} />
+				<Pillar content={pillar_content3} position={'right'} />
+
+				<OurBusinesses />
+				<OurProject />
+				<motion.div
+					className='section-content text-center'
+					style={{
+						color: 'white',
+						minHeight: '100vh',
+						alignItems: 'flex-start',
+						backgroundImage: `url(${basePath}/images/Homepage-1/Malasakit-bg.png), linear-gradient(#3883ac, #aabf6b, #b58282)`,
+						backgroundSize: 'cover',
+					}}>
+					<div className='container-fluid-width'>
+						<h2 className='heading-3'>
+							<i>Malasakit</i>
+						</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+						<p>
+							<Button link='/our-business/inner' className='btn-bordered white'>
+								Read More
+							</Button>
+						</p>
+						<img
+							src={`${basePath}/images/Homepage-1/Malasakit.png`}
+							style={{
+								display: 'block',
+								width: '100%',
+								marginTop: '5rem',
+								marginBottom: '-6rem',
+							}}
+						/>
+					</div>
+				</motion.div>
+
 				<PageCTA />
 			</Curve>
 		</>

@@ -6,7 +6,7 @@ import useAnim from '@/hooks/use-anim';
 import Lenis from '@studio-freight/lenis';
 
 const routes = {
-	'/': 'Ready For Tomorrow',
+	'/': 'Your World Made Better',
 	'/disclosures': 'Disclosures',
 	'/disclosures/inner': 'Disclosures Inner',
 	'/contact': 'Contact',

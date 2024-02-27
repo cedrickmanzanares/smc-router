@@ -137,9 +137,7 @@ export default function OurBusinesses({ className, link, children }) {
 							<h3 className='heading-5'>{data[selected].title}</h3>
 							<p>{data[selected].description}</p>
 							<p>
-								<Button
-									link='/our-business/inner'
-									className={'btn-bordered pri'}>
+								<Button link='/our-business/inner' className={'pri white'}>
 									Read More
 								</Button>
 							</p>
@@ -171,7 +169,7 @@ export default function OurBusinesses({ className, link, children }) {
 													duration: 0.5,
 												}}
 												animate={{
-													scale: index == selected ? 0.85 : 0.5,
+													scale: index == selected ? 0.9 : 0.6,
 												}}
 												src={val.img}
 											/>
