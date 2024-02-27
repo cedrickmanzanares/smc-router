@@ -181,7 +181,7 @@ export default function OurProject({ className, link, children }) {
 										animate={{
 											zIndex: zindex[getDistance(index, selected)],
 											z: z[getDistance(index, selected)],
-											rotate: rotate,
+											// rotate: rotate,
 
 											x: `${-selected * 100}%`,
 											// y: `${selected * index * 5}%`,

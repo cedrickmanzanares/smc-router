@@ -19,16 +19,16 @@ import OurProject from '@/cms-components/OurProject/OurProject';
 
 export default function Home() {
 	const pillar_content1 = {
-		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-1-focus-min.png`,
-		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-1-bg-min.png`,
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-1-focus.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-1-bg.png`,
 		text1: 'The San Miguel Group Vision',
 		text2: 'A resilient and globally competitive Philippines',
 		text3: 'where everyone can enrich and enjoy their lives.',
 	};
 
 	const pillar_content2 = {
-		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-2-focus-min.png`,
-		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-2-bg-min.png`,
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-2-focus.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-2-bg.png`,
 		text1: 'Our Core Purpose',
 		text2:
 			'To lead in nation-building by creating opportunities that will uplift generation of Filipinoes,',
@@ -37,8 +37,8 @@ export default function Home() {
 	};
 
 	const pillar_content3 = {
-		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-3-focus-min.png`,
-		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-3-bg-min.png`,
+		focus: `${basePath}/images/Homepage-1/Pillars/Pillar-3-focus.png`,
+		bg: `${basePath}/images/Homepage-1/Pillars/Pillar-3-bg.png`,
 		text1: 'Our Core Value',
 		text2: 'Malasakit is at the core of who we are as a company.',
 		text3: 'EXELLENCE ACCOUNTABILITY SUSTAINABILITY',

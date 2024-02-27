@@ -134,6 +134,7 @@ export default function OurBusinesses({ className, link, children }) {
 						</div>
 
 						<div className='ring-description'>
+							<div></div>
 							<h3 className='heading-5'>{data[selected].title}</h3>
 							<p>{data[selected].description}</p>
 							<p>
