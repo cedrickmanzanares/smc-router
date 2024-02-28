@@ -269,7 +269,9 @@ export default function Pillar({ content, position, children, simple }) {
 				<motion.div
 					className='pillar-clip'
 					style={{
-						clipPath: !simple && sticky[0],
+						clipPath: !simple
+							? sticky[0]
+							: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
 					}}>
 					<motion.div
 						className='pillar-bg pillar-img'
@@ -308,7 +310,6 @@ export default function Pillar({ content, position, children, simple }) {
 						style={{
 							x: position === 'left' ? paths_x_left[0] : paths_x[0],
 							y: position === 'left' ? paths_y_left[0] : paths_y[0],
-							// z: z[2],
 						}}
 						className='path-con'>
 						<div className='path path-1'></div>
@@ -317,7 +318,6 @@ export default function Pillar({ content, position, children, simple }) {
 						style={{
 							x: position === 'left' ? paths_x_left[0] : paths_x[1],
 							y: position === 'left' ? paths_y_left[0] : paths_y[1],
-							// z: z[3],
 						}}
 						className='path-con'>
 						<div className='path path-2'></div>
@@ -326,7 +326,6 @@ export default function Pillar({ content, position, children, simple }) {
 						style={{
 							x: position === 'left' ? paths_x_left[0] : paths_x[2],
 							y: position === 'left' ? paths_y_left[0] : paths_y[2],
-							// z: z[4],
 						}}
 						className='path-con'>
 						<div className='path path-3'></div>

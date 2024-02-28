@@ -63,7 +63,6 @@ export default function MainBanner() {
 				enter: {
 					transition: {
 						staggerChildren: 1,
-						// delayChildren: 0.5,
 					},
 				},
 			}}>
@@ -102,9 +101,7 @@ export default function MainBanner() {
 								y: yValues[index],
 								z: zValues[index],
 								backgroundImage: `url(${val})`,
-							}}>
-							{/* <Image img src={val} fill={true} /> */}
-						</motion.div>
+							}}></motion.div>
 					);
 				})}
 				<motion.h1

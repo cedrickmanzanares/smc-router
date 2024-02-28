@@ -485,7 +485,7 @@ export default function Footer() {
 								<AccordionPanel>
 									<div className='privacy-flex'>
 										<img
-											src='/storage/images/extra/SMC_SOR.png'
+											src={`${basePath}/images/SMC_SOR.png`}
 											alt='Seal of Registration'
 											className='dpo'
 											data-filename='SMC_SOR.png'
