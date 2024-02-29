@@ -41,7 +41,7 @@ export default function Home() {
 		bg: `${basePath}/images/Homepage-1/test/test-3-1.png`,
 		text1: 'Our Core Value',
 		text2: 'Malasakit is at the core of who we are as a company.',
-		text3: 'EXELLENCE ACCOUNTABILITY SUSTAINABILITY',
+		text3: 'Exellence, accountability and sustainability.',
 	};
 
 	return (
@@ -55,6 +55,7 @@ export default function Home() {
 			<Curve>
 				<MainBanner />
 				<SampleVideo />
+
 				<Pillar content={pillar_content1} position={'right'}>
 					<div>
 						<p></p>

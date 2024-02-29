@@ -45,7 +45,8 @@ body {
 	left: 50%;
 	top: 40%;
 	color: white;
-	font-weight: bold;
+	font-weight: 700;
+	line-height: 1.35;
 	z-index: 3;
 	transform: translateX(-50%);
 	text-align: center;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import {
 	motion,
@@ -12,12 +12,14 @@ import {
 import Button from '@/components/button/button';
 
 import { basePath } from '@/hooks/use-basepath';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function OurBusinesses({ className, link, children }) {
+	const { height } = useWindowSize;
 	const business = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: business,
-		offset: ['start end', 'end start'],
+		offset: ['start start', 'end end'],
 	});
 
 	const [selected, setSelected] = useState(0);
@@ -73,14 +75,19 @@ export default function OurBusinesses({ className, link, children }) {
 		},
 	];
 
+	useEffect(() => {
+		console.log(selected);
+	}, [selected]);
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
 		// console.log(latest);
-		let mod = 0.7 / (data.length - 1);
+		let mod = 1 / data.length;
 
-		let index = ~~(latest / mod) > 0 ? ~~(latest / mod) : 0;
+		// console.log(~~(latest / mod));
+		let index =
+			~~(latest / mod) == data.length ? data.length - 1 : ~~(latest / mod);
 
 		// console.log(latest / mod);
-		index = index >= data.length ? data.length - 1 : index;
+		// index = index >= data.length ? data.length - 1 : index;
 		console.log(index);
 		setSelected(index);
 	});
@@ -92,7 +99,9 @@ export default function OurBusinesses({ className, link, children }) {
 	return (
 		<motion.div
 			className='ourbusinesses-section'
-			style={{}}
+			style={{
+				height: `${data.length * 50}vh`,
+			}}
 			initial='initial'
 			whileInView='visible'
 			ref={business}>
@@ -161,6 +170,19 @@ export default function OurBusinesses({ className, link, children }) {
 											duration: 0.5,
 										}}
 										onTap={(event, info) => {
+											console.log(business);
+											console.log(business.current.offsetTop);
+											console.log(window.outerHeight);
+											console.log(
+												business.current.offsetTop + window.outerHeight
+											);
+											// window.scrollTo({
+											// 	top:
+											// 		business.current.offsetTop +
+											// 		window.outerHeight +
+											// 		index * (window.outerHeight / 2),
+											// 	behavior: 'smooth',
+											// });
 											innerItem_click(event, info);
 										}}>
 										<div className='inner-img'>

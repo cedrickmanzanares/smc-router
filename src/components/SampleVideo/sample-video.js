@@ -148,6 +148,11 @@ export default function SampleVideo() {
 							aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
 							eos qui ratione voluptatem sequi nesciunt.
 						</motion.p>
+						<p>
+							<Button link='/our-business/inner' className='btn-bordered white'>
+								Read More
+							</Button>
+						</p>
 					</div>
 				</motion.div>
 				<motion.div

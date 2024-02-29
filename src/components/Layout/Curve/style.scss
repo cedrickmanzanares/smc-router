@@ -22,16 +22,17 @@
 		pointer-events: none;
 		position: fixed;
 		left: 50%;
-		top: 25%;
+		top: 40vh;
 		color: white;
 		font-weight: bold;
 		z-index: 3;
 		transform: translateX(-50%);
 		text-align: center;
 		z-index: 2001;
-		line-height: 1.5;
-		font-weight: 600;
+		line-height: 1.25;
+		font-weight: 700;
 		width: 600px;
+		margin: 0;
 	}
 
 	.route-transition {

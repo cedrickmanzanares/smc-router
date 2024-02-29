@@ -26,6 +26,12 @@ const routes = {
 export default function Curve({ children, backgroundColor }) {
 	const router = useRouter();
 
+	let text_altered = text;
+	text_altered.enter.top = router.route == '/' ? '40vh' : -100;
+	// text_altered.exit.transitionEnd = router.route == '/' ? '40vh' : '47.5%';
+
+	// console.log(text_altered);
+	// console.log(router.route);
 	const [dimensions, setDimensions] = useState({
 		width: null,
 		height: null,
@@ -62,9 +68,10 @@ export default function Curve({ children, backgroundColor }) {
 				className='background'
 			/>
 
-			<motion.h6 className='route heading-1' {...useAnim(text)}>
+			<motion.h6 className='route heading-1' {...useAnim(text_altered)}>
 				{routes[router.route]}
 			</motion.h6>
+
 			{dimensions.width != null && <SVG {...dimensions} />}
 			{dimensions.width == null && <div className='cheat-cover'></div>}
 			{children}

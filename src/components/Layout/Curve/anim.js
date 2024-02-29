@@ -5,12 +5,12 @@ export const text = {
 	enter: {
 		opacity: 0,
 		top: -100,
-		transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
+		transition: { duration: 0.65, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
 		transitionEnd: { top: '47.5%' },
 	},
 	exit: {
 		opacity: 1,
-		top: '40%',
+		top: '40vh',
 		transition: { duration: 0.5, delay: 0.4, ease: [0.33, 1, 0.68, 1] },
 	},
 };

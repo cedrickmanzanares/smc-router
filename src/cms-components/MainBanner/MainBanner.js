@@ -62,7 +62,7 @@ export default function MainBanner() {
 			variants={{
 				enter: {
 					transition: {
-						staggerChildren: 1,
+						staggerChildren: 0.2,
 					},
 				},
 			}}>
@@ -73,10 +73,12 @@ export default function MainBanner() {
 							variants={{
 								initial: {
 									y: '15vh',
+									scale: 1.2,
 									opacity: 0,
 								},
 								enter: {
 									y: '0vh',
+									scale: 1,
 									opacity: 1,
 									transition: {
 										duration: 0.75,
@@ -108,37 +110,83 @@ export default function MainBanner() {
 					className='heading-1'
 					style={{
 						x: '-50%',
-						opacity: 0,
-						zIndex: Math.floor(imageSrc.length / 2),
+						opacity: 1,
 						y: textValue,
 					}}
-					variants={{
-						initial: {
-							y: '15vh',
-							opacity: 0,
-						},
-						enter: {
-							y: '0vh',
-							opacity: 1,
-							transition: {
-								duration: 0.35,
-								delay: 0.5,
-								ease: [0.76, 0, 0.24, 1],
-							},
-						},
-						exit: {
-							y: '-15vh',
-							opacity: 0,
-							transition: {
-								duration: 0.75,
-								delay: 0,
-								ease: [0.76, 0, 0.24, 1],
-							},
-						},
-					}}>
-					{text.map((val, index) => (
-						<span key={`text_${index}`}>{val}</span>
-					))}
+					// variants={{
+					// 	initial: {
+					// 		y: '15vh',
+					// 		opacity: 0,
+					// 	},
+					// 	enter: {
+					// 		y: '0vh',
+					// 		opacity: 1,
+					// 		transition: {
+					// 			duration: 0.35,
+					// 			delay: 0.5,
+					// 			ease: [0.76, 0, 0.24, 1],
+					// 		},
+					// 	},
+					// 	exit: {
+					// 		y: '-15vh',
+					// 		opacity: 0,
+					// 		transition: {
+					// 			duration: 0.75,
+					// 			delay: 0,
+					// 			ease: [0.76, 0, 0.24, 1],
+					// 		},
+					// 	},
+					// }}
+				>
+					{text.map((val, index) => {
+						return <motion.span>{val}</motion.span>;
+					})}
+
+					{/* {text.map((val, index_p) => (
+						<motion.span
+							className='word'
+							key={`text_${index_p}`}
+							variants={{
+								enter: {
+									transition: {
+										staggerChildren: 0.1,
+									},
+								},
+							}}>
+							{val.split('').map((char, index) => {
+								return (
+									<motion.span
+										className='char-con'
+										style={{ display: /\s/.test(char) && 'inline' }}
+										variants={{
+											initial: {
+												y: 200,
+												width: 0,
+												opacity: 0,
+											},
+											enter: {
+												y: 0,
+												opacity: 1,
+												width: 'auto',
+												transition: {
+													delay: !(index == 0)
+														? 1 + index_p * 0.05
+														: 1 + index_p * 0.05,
+													type: 'spring',
+													duration: 0.75,
+													bounce: '0.1',
+												},
+											},
+											exit: {
+												width: 0,
+											},
+										}}>
+										<span className='char'>{char}</span>
+									</motion.span>
+								);
+							})}
+						</motion.span>
+					))} */}
 				</motion.h1>
 			</motion.div>
 		</motion.section>
