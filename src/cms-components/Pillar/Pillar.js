@@ -355,9 +355,8 @@ export default function Pillar({ content, position, children, simple }) {
 					<motion.p
 						className='pillar-text'
 						style={{ opacity: text3[0], y: text3[1] }}
-						data-text={content.text3}>
-						{content.text3}
-					</motion.p>
+						data-text={content.text3}
+						dangerouslySetInnerHTML={{ __html: content.text3 }}></motion.p>
 					<div className='line-con' style={{}}>
 						<motion.div
 							className='line'

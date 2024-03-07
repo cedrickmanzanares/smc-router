@@ -139,7 +139,7 @@ export default function MainBanner() {
 					// }}
 				>
 					{text.map((val, index) => {
-						return <motion.span>{val}</motion.span>;
+						return <motion.span key={`text_${index}`}>{val}</motion.span>;
 					})}
 
 					{/* {text.map((val, index_p) => (

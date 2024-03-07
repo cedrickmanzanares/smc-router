@@ -123,20 +123,22 @@ export default function OurBusinesses({ className, link, children }) {
 				<div className='container-fluid-width large'>
 					<div className='ourbusinesses-container'>
 						<h2 className='heading-3'>Our Businesses</h2>
-						<div className='outer-ring'>
-							<div className='ring'></div>
-							{data.map((val, index) => {
-								return (
-									<motion.img
-										animate={{
-											opacity: index == selected ? 1 : 0,
-										}}
-										data-index={index}
-										key={`outer-ring-img_${index}`}
-										src={val.img}
-									/>
-								);
-							})}
+						<div className='outer-ring-container'>
+							<div className='outer-ring'>
+								<div className='ring'></div>
+								{data.map((val, index) => {
+									return (
+										<motion.img
+											animate={{
+												opacity: index == selected ? 1 : 0,
+											}}
+											data-index={index}
+											key={`outer-ring-img_${index}`}
+											src={val.img}
+										/>
+									);
+								})}
+							</div>
 							<div className='ring-selected'>
 								<div className='ring'></div>
 							</div>
