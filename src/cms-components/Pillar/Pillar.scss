@@ -68,12 +68,6 @@
 		// }
 	}
 
-	> *:first-child,
-	> *:last-child {
-		&:before {
-			text-shadow: #04145f 0px 3px 5px;
-		}
-	}
 	.pillar-text {
 		font-family: 'Merriweather', sans-serif;
 		line-height: 1.5;
@@ -165,18 +159,18 @@
 }
 
 .pillar-section.left {
+	.pillar-clip {
+		&:before {
+			right: auto;
+			left: 0;
+			background-image: linear-gradient(90deg, #00000066, #00000000 90%);
+		}
+	}
 	.pillar-desc {
 		margin-right: auto;
 		margin-left: 10vw;
 		> * {
 			position: relative;
-			&:before {
-				content: attr(data-text);
-				color: white;
-				position: absolute;
-				text-shadow: #313237cc 0px 5px 15px;
-				mix-blend-mode: multiply;
-			}
 		}
 		.line-con {
 			position: absolute;

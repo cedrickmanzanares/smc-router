@@ -18,9 +18,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import ReactPlayer from 'react-player';
 
-import { stiffness } from '@/hooks/use-stiffness';
-
 import { useWindowSize } from '@uidotdev/usehooks';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function SampleVideo() {
 	const ref = useRef(null);
@@ -31,18 +30,13 @@ export default function SampleVideo() {
 	const [activate, setActivate] = useState(false);
 	const [activateEnd, setActivateEnd] = useState(false);
 
-	const src = '/videos/sample-video.mp4';
+	const src = `${basePath}/videos/sample-video.mp4`;
 
 	const { width: wWidth, height: wHeight } = useWindowSize();
 
-	let pinAmount = wHeight;
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		offset: ['start start', 'end start'],
-	});
-
-	const springScroll = useSpring(scrollYProgress, {
-		...stiffness,
 	});
 
 	const start = wHeight / (wHeight * 2.5);
@@ -72,47 +66,10 @@ export default function SampleVideo() {
 		// }
 	});
 
-	const yValue = useTransform(scrollYProgress, [0, 0.5], ['50%', '0%']);
-
-	const containerOpacityValue = useTransform(
-		springScroll,
-		[0, 0.01, 1],
-		[0, 1, 1],
-		{
-			duration: 0.15,
-		}
-	);
-
-	const positionValue = useTransform(
-		scrollYProgress,
-		[0, 0.6, 1],
-		['fixed', 'absolute', '#absolute']
-	);
-	const bgValue = useTransform(
-		springScroll,
-		[0, start, 1],
-		['#00000000', '#000000FF', '#000000FF']
-	);
-
-	const blurValue = useTransform(springScroll, [0, start, 1], [50, 0, 0]);
-	const pinValue = useTransform(
-		scrollYProgress,
-		[0, start, 1],
-		['0px', `${pinAmount * start}px`, `${pinAmount}px`],
-		{ ease: linear, duration: 0 }
-	);
-	const isInView = useInView(ref, {
-		margin: `0px 0% -100% 0%`,
-	});
-
 	return (
 		<motion.div
 			className='section-content fullscreen sample-video'
 			ref={ref}
-			transition={{
-				type: 'spring',
-				...stiffness,
-			}}
 			animate={{
 				opacity: activate ? 1 : 0,
 			}}
@@ -165,13 +122,6 @@ export default function SampleVideo() {
 						x: '-50%',
 						y: '-50%',
 					}}
-					transition={{
-						type: 'spring',
-
-						stiffness: 200,
-						damping: 30,
-						restDelta: 0.001,
-					}}
 					animate={{
 						scale: activateEnd ? 0.85 : 1,
 					}}
@@ -186,7 +136,7 @@ export default function SampleVideo() {
 						autoPlay={true}
 						loop={true}
 						playsInline
-						src='/revamp/videos/sample-video.mp4'></video>
+						src={src}></video>
 				</motion.div>
 			</motion.div>
 		</motion.div>

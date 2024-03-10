@@ -1,38 +1,39 @@
 {
-  "name": "smc-router",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/layout": "^2.3.1",
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@radix-ui/react-accordion": "^1.1.2",
-    "@studio-freight/lenis": "^1.0.33",
-    "@uidotdev/usehooks": "^2.4.1",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "framer-motion": "^10.17.9",
-    "gsap": "^3.12.4",
-    "lucide-react": "^0.306.0",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^4.12.0",
-    "react-player": "^2.14.1",
-    "sass": "^1.69.7",
-    "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4"
-  }
+	"name": "smc-router",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@chakra-ui/layout": "^2.3.1",
+		"@chakra-ui/next-js": "^2.2.0",
+		"@chakra-ui/react": "^2.8.2",
+		"@emotion/react": "^11.11.3",
+		"@emotion/styled": "^11.11.0",
+		"@radix-ui/react-accordion": "^1.1.2",
+		"@studio-freight/lenis": "^1.0.33",
+		"@uidotdev/usehooks": "^2.4.1",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.0",
+		"framer-motion": "^10.17.9",
+		"gsap": "^3.12.4",
+		"lucide-react": "^0.306.0",
+		"next": "14.0.4",
+		"node-sass": "^9.0.0",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-icons": "^4.12.0",
+		"react-player": "^2.14.1",
+		"sass": "^1.71.1",
+		"tailwind-merge": "^2.2.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"eslint": "^8",
+		"eslint-config-next": "14.0.4"
+	}
 }

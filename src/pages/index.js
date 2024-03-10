@@ -31,7 +31,7 @@ export default function Home() {
 		bg: `${basePath}/images/Homepage-1/test/test-2-1.png`,
 		text1: 'Our Core Purpose',
 		text2:
-			'To lead in nation-building by creating opportunities that will uplift generation of Filipinoes,',
+			'To lead in nation-building by creating opportunities that will uplift generation of Filipinos,',
 		text3:
 			'allowing all to share in the rewards of sustainable development and prosperity.',
 	};

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import {
+	animate,
 	motion,
 	useMotionValueEvent,
 	useScroll,
@@ -15,7 +16,8 @@ import { basePath } from '@/hooks/use-basepath';
 import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function OurBusinesses({ className, link, children }) {
-	const { height } = useWindowSize;
+	const { height } = useWindowSize();
+
 	const business = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: business,
@@ -86,15 +88,27 @@ export default function OurBusinesses({ className, link, children }) {
 		let index =
 			~~(latest / mod) == data.length ? data.length - 1 : ~~(latest / mod);
 
-		// console.log(latest / mod);
-		// index = index >= data.length ? data.length - 1 : index;
-		console.log(index);
-		setSelected(index);
+		// setSelected(index);
 	});
 	const innerItem_click = (event, info) => {
 		setSelected((prev) => event.target.closest('.inner-item').dataset.index);
+	};
 
-		console.log(info);
+	let descriptionTransition = {
+		initial: {
+			opacity: 0,
+		},
+		enter: {
+			opacity: 1,
+		},
+	};
+
+	const getDescriptionProps = (index) => {
+		return {
+			initial: 'initial',
+			animate: selected === index ? 'animate' : 'initial',
+			exit: 'exit',
+		};
 	};
 	return (
 		<motion.div
@@ -106,7 +120,7 @@ export default function OurBusinesses({ className, link, children }) {
 			whileInView='visible'
 			ref={business}>
 			<div className='pin'>
-				<div className='ourbusinesses-bg'>
+				<div className='ourbusinesses-bg' style={{ display: 'none' }}>
 					{data.map((val, index) => {
 						return (
 							<motion.img
@@ -144,16 +158,80 @@ export default function OurBusinesses({ className, link, children }) {
 							</div>
 						</div>
 
-						<div className='ring-description'>
-							<div></div>
-							<h3 className='heading-5'>{data[selected].title}</h3>
-							<p>{data[selected].description}</p>
-							<p>
-								<Button link='/our-business/inner' className={'pri white'}>
-									Read More
-								</Button>
-							</p>
-						</div>
+						<motion.div
+							className='ring-description'
+							initial='initial'
+							animate='enter'
+							variants={{
+								animate: {
+									transition: {
+										staggerChildren: 1,
+									},
+								},
+							}}
+							exit='exit'>
+							{data.map((val, index) => {
+								return (
+									<motion.div
+										className='descriptions'
+										key={`description_${index}`}>
+										<motion.h3
+											// {...getDescriptionProps(index)}
+											animate={selected === index ? 'enter' : 'initial'}
+											variants={{
+												initial: {
+													opacity: 0,
+												},
+												enter: {
+													opacity: 1,
+													transition: {
+														delay: 0,
+													},
+												},
+											}}
+											className='heading-5'>
+											{val.title}
+										</motion.h3>
+										<motion.p
+											// {...getDescriptionProps(index)}
+											animate={selected === index ? 'enter' : 'initial'}
+											variants={{
+												initial: {
+													opacity: 0,
+												},
+												enter: {
+													opacity: 1,
+													transition: {
+														delay: 0.1,
+													},
+												},
+											}}>
+											{val.description}
+										</motion.p>
+										<motion.p
+											// {...getDescriptionProps(index)}
+											animate={selected === index ? 'enter' : 'initial'}
+											variants={{
+												initial: {
+													opacity: 0,
+												},
+												enter: {
+													opacity: 1,
+													transition: {
+														delay: 0.2,
+													},
+												},
+											}}>
+											<Button
+												link='/our-business/inner'
+												className={'pri white'}>
+												Read More
+											</Button>
+										</motion.p>
+									</motion.div>
+								);
+							})}
+						</motion.div>
 						<motion.div className='inner-ring'>
 							{data.map((val, index) => {
 								return (
@@ -172,20 +250,16 @@ export default function OurBusinesses({ className, link, children }) {
 											duration: 0.5,
 										}}
 										onTap={(event, info) => {
-											console.log(business);
-											console.log(business.current.offsetTop);
-											console.log(window.outerHeight);
-											console.log(
-												business.current.offsetTop + window.outerHeight
-											);
-											// window.scrollTo({
-											// 	top:
-											// 		business.current.offsetTop +
-											// 		window.outerHeight +
-											// 		index * (window.outerHeight / 2),
-											// 	behavior: 'smooth',
-											// });
-											innerItem_click(event, info);
+											let test = document.querySelectorAll('.test2');
+											console.log(height);
+											window.scrollTo({
+												top:
+													business.current.offsetTop +
+													test[index].offsetTop -
+													height / 2,
+												behavior: 'smooth',
+											});
+											// innerItem_click(event, info);
 										}}>
 										<div className='inner-img'>
 											<motion.img
@@ -212,6 +286,37 @@ export default function OurBusinesses({ className, link, children }) {
 						</motion.div>
 					</div>
 				</div>
+			</div>
+			<div
+				className='test'
+				style={{
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					paddingTop: '50vh',
+					paddingBottom: '50vh',
+					height: '100%',
+					zIndex: 0,
+				}}>
+				{data.map((val, index) => {
+					return (
+						<motion.div
+							key={`control_${index}`}
+							className='test2'
+							whileInView={() => {
+								setSelected(index);
+							}}
+							viewport={{
+								amount: 'all',
+							}}
+							style={{
+								height: `${100 / data.length}%`,
+							}}>
+							{val.title}
+						</motion.div>
+					);
+				})}
+				<div></div>
 			</div>
 		</motion.div>
 	);

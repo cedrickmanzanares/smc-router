@@ -33,18 +33,6 @@ export default function FloatingImages({
 		useTransform(scrollYProgress, [0, 1], ['120%', '-20%']),
 	];
 
-	useEffect(() => {
-		console.log(containerDimension.height);
-		console.log(imageDimension.height);
-
-		console.log(
-			`${-imageDimension.height / 4}px`,
-			`${containerDimension.height - imageDimension.height}px`
-		);
-
-		console.log(y[0]);
-	}, [containerDimension, imageDimension, y[0]]);
-
 	return (
 		<div
 			className={`${direction} section-content floating-elements`}
