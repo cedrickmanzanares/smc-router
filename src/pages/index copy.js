@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 import Parallax from '@/components/Parallax/parallax';
 import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
+import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
 import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';

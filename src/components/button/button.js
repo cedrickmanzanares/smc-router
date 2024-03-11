@@ -16,17 +16,21 @@ export default function Button({ className, link, children }) {
 	const [button, { width, height }] = useMeasure();
 	const { blue, red } = getColors;
 	const buttonVariants = {
-		initial: {
+		buttonInitial: {
 			scale: 1,
+			transition: {
+				type: 'spring',
+				stiffness: 350,
+			},
 		},
-		enter: {
+		buttonEnter: {
 			scale: 1.05,
 			transition: {
 				type: 'spring',
 				stiffness: 350,
 			},
 		},
-		tap: {
+		buttonTap: {
 			scale: 0.98,
 			transition: {
 				type: 'spring',
@@ -37,19 +41,19 @@ export default function Button({ className, link, children }) {
 
 	const getColor = (className) => {
 		if (className.includes('pri')) return blue;
-		if (className.includes('white')) return '#ffffff';
+		if (className.includes('white')) return blue;
 	};
 
 	const getHoverColor = (className) => {
 		if (className.includes('pri')) return '#ffffff';
-		if (className.includes('white')) return blue;
+		if (className.includes('white')) return '#ffffff';
 	};
 
 	const textVariants = {
-		initial: {
+		buttonInitial: {
 			color: getColor(className),
 		},
-		enter: {
+		buttonEnter: {
 			color: getHoverColor(className),
 		},
 	};
@@ -57,9 +61,9 @@ export default function Button({ className, link, children }) {
 	return (
 		<motion.span
 			ref={button}
-			whileTap='tap'
-			initial='initial'
-			whileHover='enter'
+			whileTap='buttonTap'
+			initial='buttonInitial'
+			whileHover='buttonEnter'
 			onHoverEnd={(event, info) => {
 				animate(event.target.querySelector('.btn-bg'), {
 					top: '-200%',
@@ -81,13 +85,13 @@ export default function Button({ className, link, children }) {
 			<motion.span
 				className='btn-bg'
 				variants={{
-					initial: {
+					buttonInitial: {
 						top: '100%',
 						transition: {
 							duration: 0.4,
 						},
 					},
-					enter: {
+					buttonEnter: {
 						top: '-50%',
 						transition: {
 							duration: 0.4,

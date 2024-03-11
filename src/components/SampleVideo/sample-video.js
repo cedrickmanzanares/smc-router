@@ -106,7 +106,7 @@ export default function SampleVideo() {
 							eos qui ratione voluptatem sequi nesciunt.
 						</motion.p>
 						<p>
-							<Button link='/our-business/inner' className='btn-bordered white'>
+							<Button link='/our-business/inner' className='btn white'>
 								Read More
 							</Button>
 						</p>

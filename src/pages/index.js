@@ -44,6 +44,58 @@ export default function Home() {
 		text3: 'EXELLENCE <br/>ACCOUNTABILITY <br/>SUSTAINABILITY.',
 	};
 
+	const data = [
+		{
+			img: basePath + '/images/OurBusinesses/food.jpg',
+			title: 'Food and Beverage',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/oil.jpg',
+			title: 'Oil Refining and Marketing',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/packaging.jpg',
+			title: 'Packaging',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/properties.jpg',
+			title: 'Properties',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/power.jpg',
+			title: 'Power and Energy',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/infrastructure.jpg',
+			title: 'Infrastructure',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+		{
+			img: basePath + '/images/OurBusinesses/other.jpg',
+			title: 'Other Businsesses',
+			description:
+				'San Miguel Brewery Inc. (SMB) is the largest producer of beer in the Philippines, with nine out of ten beer drinkers preferring its brands.',
+			link: '//our-business/inner',
+		},
+	];
+
 	return (
 		<>
 			<Head>
@@ -54,7 +106,7 @@ export default function Home() {
 			</Head>
 			<Curve>
 				<MainBanner />
-				<SampleVideo />
+				{/* <SampleVideo />
 
 				<Pillar content={pillar_content1} position={'right'}>
 					<div>
@@ -62,7 +114,7 @@ export default function Home() {
 					</div>
 				</Pillar>
 				<Pillar content={pillar_content2} position={'left'} simple={true} />
-				<Pillar content={pillar_content3} position={'right'} />
+				<Pillar content={pillar_content3} position={'right'} /> */}
 
 				<OurBusinesses />
 				<OurProject />

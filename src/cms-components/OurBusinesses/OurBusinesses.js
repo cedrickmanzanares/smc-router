@@ -174,6 +174,9 @@ export default function OurBusinesses({ className, link, children }) {
 								return (
 									<motion.div
 										className='descriptions'
+										style={{
+											pointerEvents: index == selected ? 'all' : 'none',
+										}}
 										key={`description_${index}`}>
 										<motion.h3
 											// {...getDescriptionProps(index)}
