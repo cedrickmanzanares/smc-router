@@ -11,7 +11,7 @@ import {
 import { animate, stagger } from 'framer-motion/dom';
 import { IoIosSearch } from 'react-icons/io';
 import { useCycle } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import {
 	Box,
@@ -26,17 +26,13 @@ import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
 import { useWindowSize } from '@uidotdev/usehooks';
 import {
-	big_1_variants,
-	circleBg_variants,
 	circle_variants,
 	floatingNavContent_variants,
 	hover_animation,
-	navContainer_variants,
 	navItem_variants,
 	path1_variants,
 	path2_variants,
 	path3_variants,
-	path_variants,
 	toggleSettings,
 	transitionSettings,
 } from './anim';
@@ -44,17 +40,18 @@ import Image from 'next/image';
 
 import { basePath } from '@/hooks/use-basepath';
 import { useRouter } from 'next/router';
+import { getMenu } from '@/data/data';
+import { MenuContext, ThemeContext } from '@/pages/_app';
 
 export default function Nav({}) {
 	const router = useRouter();
+	const smcTheme = useContext(ThemeContext);
 	const className = router.route === '/' ? 'home' : 'inner';
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
 	const [isOpen, toggle] = useCycle(false, true);
+	const { red, blue, yellow } = getColors;
 
-	useEffect(() => {
-		console.log(router);
-	}, [router]);
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		if (latest < 100) {
 			navShow(true);
@@ -62,6 +59,44 @@ export default function Nav({}) {
 			navShow(false);
 		}
 	});
+
+	const getBackground = () => {
+		switch (smcTheme) {
+			case 'smc-red':
+				return red;
+			case 'smc-blue':
+				return blue;
+			case 'smc-yellow':
+				return yellow;
+			default:
+				return '#ffffff00';
+		}
+	};
+
+	const navContainer_variants = {
+		open: {
+			opacity: 1,
+			y: '0%',
+			transition: {
+				duration: 0.35,
+				ease: [0.76, 0, 0.24, 1],
+				backgroundColor: {
+					delay: 0.75,
+				},
+			},
+			backgroundColor: getBackground(smcTheme),
+		},
+
+		closed: {
+			opacity: 0,
+			y: '-100%',
+			transition: {
+				duration: 0.35,
+				ease: [0.76, 0, 0.24, 1],
+			},
+			backgroundColor: getBackground(smcTheme),
+		},
+	};
 
 	return (
 		<>
@@ -72,7 +107,22 @@ export default function Nav({}) {
 				<div className='container-fluid-width large'>
 					<Link href='/' className='brand-logo'>
 						<figure>
-							<img src={`${basePath}/images/smc-logo.svg`} alt='SMC Logo' />
+							<motion.img
+								animate={{
+									opacity: smcTheme === '' ? 1 : 0,
+								}}
+								transition={{ delay: 0.75 }}
+								src={`${basePath}/images/smc-logo.svg`}
+								alt='SMC Logo'
+							/>
+							<motion.img
+								animate={{
+									opacity: smcTheme === '' ? 0 : 1,
+								}}
+								transition={{ delay: 0.75 }}
+								src={`${basePath}/images/smc-logo-white.svg`}
+								alt='SMC Logo White'
+							/>
 						</figure>
 					</Link>
 					<MainNav />
@@ -92,6 +142,9 @@ function MainNav({
 	animation = false,
 	toggle,
 }) {
+	const menu = useContext(MenuContext);
+	const { theme } = useContext(ThemeContext);
+
 	return (
 		<motion.nav
 			variants={{
@@ -103,309 +156,129 @@ function MainNav({
 					},
 				},
 			}}
-			className={`main-nav ${c && c}`}>
-			<NavItem
-				label='Our Story'
-				link={'/our-story'}
-				animation={animation}
-				toggle={toggle}
-				navItem_variants={navItem_variants}>
-				<motion.div
-					className='nav-dropdown'
-					initial={hover_animation.closed}
-					variants={hover_animation}>
-					<Accordion defaultIndex={defaultOpen && [0]} allowMultiple={false}>
-						<AccordionItem>
-							<AccordionButton>
-								<Box as='span' flex='1' textAlign='left'>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-company'>
-											<b>Our Company</b>
-										</Link>
-									</motion.div>
-								</Box>
-								<AccordionIcon />
-							</AccordionButton>
-							<AccordionPanel>
-								<div className='inner-dropdown'>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-values'>Our Values</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-strategy'>Our Strategy</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-history'>Our History</Link>
-									</motion.div>
+			className={`main-nav ${c && c} ${theme}`}>
+			{menu.length !== 0 &&
+				menu.map((item, index) => {
+					let key = `menuItem_lvl1_${item.id}`;
 
-									<Accordion>
-										<AccordionItem>
-											<AccordionButton>
-												<Box as='span' flex='1' textAlign='left'>
-													<motion.div onTap={toggle}>
-														<Link href='/our-story/corporate-social-responsibility'>
-															Corporate Social Responsibility
-														</Link>
-													</motion.div>
-												</Box>
+					let link = item.page.length ? `/${item.page[0].slug}` : `${item.url}`;
+					let parent_slug = link;
 
-												<AccordionIcon />
-											</AccordionButton>
-											<AccordionPanel>
-												<div className='inner-dropdown'>
-													<motion.div onTap={toggle}>
-														<Link href='/our-story/environmental-and-other-programs'>
-															Environmental and Other Programs
-														</Link>
-													</motion.div>
-													<a href='https://worldwewant.ph/' target='_blank'>
-														World We Want
-													</a>
-												</div>
-											</AccordionPanel>
-										</AccordionItem>
+					if (item.children.length)
+						return (
+							<NavItem
+								key={key}
+								label={item.title}
+								link={link}
+								animation={animation}
+								toggle={toggle}
+								navItem_variants={navItem_variants}>
+								<motion.div
+									className='nav-dropdown'
+									initial={hover_animation.closed}
+									variants={hover_animation}>
+									<Accordion
+										defaultIndex={defaultOpen && [0]}
+										allowMultiple={false}>
+										{item.children.map((item) => {
+											let key = `menuItem_lvl2_${item.id}`;
+											let link = parent_slug;
+											link = item.page.length
+												? (link += `/${item.page[0].slug}`)
+												: `${item.url}`;
+
+											return (
+												<AccordionItem key={key}>
+													<AccordionButton>
+														<Box as='span' flex='1' textAlign='left'>
+															<motion.div onTap={toggle}>
+																<Link href={link}>
+																	<b>{item.title}</b>
+																</Link>
+															</motion.div>
+														</Box>
+														<AccordionIcon />
+													</AccordionButton>
+													<AccordionPanel>
+														<div className='inner-dropdown'>
+															{item.children.map((item) => {
+																let key = `menuItem_lvl3_${item.id}`;
+																let link = parent_slug;
+																link = item.page.length
+																	? (link += `/${item.page[0].slug}`)
+																	: `${item.url}`;
+
+																if (item.children.length === 0) {
+																	return (
+																		<motion.div onTap={toggle} key={key}>
+																			<Link href={link}>{item.title}</Link>
+																		</motion.div>
+																	);
+																} else {
+																	return (
+																		<Accordion key={key}>
+																			<AccordionItem>
+																				<AccordionButton>
+																					<Box
+																						as='span'
+																						flex='1'
+																						textAlign='left'>
+																						<motion.div onTap={toggle}>
+																							<Link href={link}>
+																								{item.title}
+																							</Link>
+																						</motion.div>
+																					</Box>
+
+																					<AccordionIcon />
+																				</AccordionButton>
+																				<AccordionPanel>
+																					<div className='inner-dropdown'>
+																						{item.children.map((item) => {
+																							let key = `menuItem_lvl4_${item.id}`;
+																							let link = parent_slug;
+																							link = item.page.length
+																								? (link += `/${item.page[0].slug}`)
+																								: `${item.url}`;
+
+																							return (
+																								<motion.div
+																									onTap={toggle}
+																									key={key}>
+																									<Link href={link}>
+																										{item.title}
+																									</Link>
+																								</motion.div>
+																							);
+																						})}
+																					</div>
+																				</AccordionPanel>
+																			</AccordionItem>
+																		</Accordion>
+																	);
+																}
+															})}
+														</div>
+													</AccordionPanel>
+												</AccordionItem>
+											);
+										})}
 									</Accordion>
-									<a>Our Vision and Core Purpose</a>
-									<a>Board of Directors</a>
-									<a>Company Officers</a>
-									<a>Organizational Chart</a>
-								</div>
-							</AccordionPanel>
-						</AccordionItem>
-
-						<AccordionItem>
-							<AccordionButton>
-								<Box as='span' flex='1' textAlign='left'>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business'>
-											<b>Our Businesses</b>
-										</Link>
-									</motion.div>
-								</Box>
-								<AccordionIcon />
-							</AccordionButton>
-							<AccordionPanel>
-								<div className='inner-dropdown'>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>
-											Food and Beverage
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>
-											Oil Refining & Marketing
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>Cement</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>Packaging</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>Properties</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>
-											Power & Energy
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>
-											Infrastructure
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/our-story/our-business/inner'>
-											Other Businesses
-										</Link>
-									</motion.div>
-								</div>
-							</AccordionPanel>
-						</AccordionItem>
-					</Accordion>
-				</motion.div>
-			</NavItem>
-			<Link className='nav-item' href='/sustainability'>
-				<motion.span
-					onTap={toggle}
-					variants={animation ? navItem_variants : undefined}>
-					Sustainability
-				</motion.span>
-			</Link>
-			<NavItem
-				toggle={toggle}
-				label='Corporate'
-				link={'/corporate'}
-				animation={animation}
-				navItem_variants={navItem_variants}>
-				<motion.div
-					className='nav-dropdown'
-					initial={hover_animation.closed}
-					variants={hover_animation}>
-					<Accordion
-						defaultIndex={defaultOpen && [0]}
-						allowMultiple={false}
-						color={color}>
-						<AccordionItem>
-							<AccordionButton>
-								<Box as='span' flex='1' textAlign='left'>
-									<motion.div onTap={toggle}>
-										<Link href='/corporate/corporate-governance'>
-											<b>Corporate Governance</b>
-										</Link>
-									</motion.div>
-								</Box>
-								<AccordionIcon />
-							</AccordionButton>
-							<AccordionPanel>
-								<div className='inner-dropdown'>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>
-											Manual of Corporate Governance
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>
-											Annual Corporate Governance Report
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>
-											Amended Articles of Incorporation and By-laws
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>Board Committees</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>
-											Company&apos;s Policies
-										</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>Corporate Structure</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>SMC Privacy Statement</Link>
-									</motion.div>
-									<motion.div onTap={toggle}>
-										<Link href='/disclosures/inner'>
-											Enterprise Risk Management
-										</Link>
-									</motion.div>
-								</div>
-							</AccordionPanel>
-						</AccordionItem>
-
-						<AccordionItem>
-							<AccordionButton>
-								<Box as='span' flex='1' textAlign='left'>
-									<motion.div onTap={toggle}>
-										<Link href='/corporate'>
-											<b>Investor Relations</b>
-										</Link>
-									</motion.div>
-								</Box>
-								<AccordionIcon />
-							</AccordionButton>
-							<AccordionPanel>
-								<div className='inner-dropdown'>
-									<Accordion allowToggle={true}>
-										<AccordionItem>
-											<AccordionButton>
-												<Box as='span' flex='1' textAlign='left'>
-													<motion.div onTap={toggle}>
-														<Link href='/our-story/corporate-social-responsibility'>
-															Shareholder Information
-														</Link>
-													</motion.div>
-												</Box>
-
-												<AccordionIcon />
-											</AccordionButton>
-											<AccordionPanel>
-												<div className='inner-dropdown'>
-													<a>President&apos;s Message</a>
-													<a>Share Prices</a>
-													<a>Dividend History</a>
-													<a>Analyst Coverage</a>
-													<a>Total Outstanding Shares</a>
-													<a>Top 20 Stockholders</a>
-													<a>Exchange Where Listed</a>
-													<a>Company Ownership Report</a>
-												</div>
-											</AccordionPanel>
-										</AccordionItem>
-										<Link href='/disclosures'>Company Disclosures</Link>
-										<AccordionItem>
-											<AccordionButton>
-												<Box as='span' flex='1' textAlign='left'>
-													<motion.div onTap={toggle}>
-														<Link href='/our-story/corporate-social-responsibility'>
-															Financial Performance
-														</Link>
-													</motion.div>
-												</Box>
-
-												<AccordionIcon />
-											</AccordionButton>
-											<AccordionPanel>
-												<div className='inner-dropdown'>
-													<a>Annual Reports</a>
-													<a>Financial Statements</a>
-													<a>IR Presentations</a>
-													<a>Financial Highlights</a>
-													<a>
-														Shelf Registration and Public Offering of Series 2
-														Preferred Shares&apos;
-													</a>
-													<a>Corporate Notes</a>
-												</div>
-											</AccordionPanel>
-										</AccordionItem>
-										<a>Investor Contact</a>
-									</Accordion>
-								</div>
-							</AccordionPanel>
-						</AccordionItem>
-
-						<motion.div onTap={toggle}>
-							<Link href='/news'>
-								<b>Public Offering of Securities</b>
+								</motion.div>
+							</NavItem>
+						);
+					else {
+						return (
+							<Link key={key} className='nav-item' href={link}>
+								<motion.span
+									onTap={toggle}
+									variants={animation ? navItem_variants : undefined}>
+									{item.title}
+								</motion.span>
 							</Link>
-						</motion.div>
-						<motion.div onTap={toggle}>
-							<Link href='/news'>
-								<b>News</b>
-							</Link>
-						</motion.div>
-						<motion.div onTap={toggle}>
-							<Link href='/corporate/kaunlaran'>
-								<b>Kaunlaran</b>
-							</Link>
-						</motion.div>
-						<motion.div onTap={toggle}>
-							<Link href='/corporate/walang-iwanan'>
-								<b>Walang Iwanan SMC&apos;s COVID-19 Efforts</b>
-							</Link>
-						</motion.div>
-						<motion.div onTap={toggle}>
-							<Link href='/news'>
-								<b>Find us on social media</b>
-							</Link>
-						</motion.div>
-					</Accordion>
-				</motion.div>
-			</NavItem>
-
-			<Link className='nav-item' href={`/careers`}>
-				<motion.span
-					onTap={toggle}
-					variants={animation ? navItem_variants : undefined}>
-					Careers
-				</motion.span>
-			</Link>
+						);
+					}
+				})}
 		</motion.nav>
 	);
 }

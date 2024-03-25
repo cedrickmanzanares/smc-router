@@ -1,35 +1,25 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
-import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
-import {
-	animate,
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-} from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
+
 import Button from '@/components/button/button';
-import PageCTA from '@/cms-components/PageCTA/PageCTA';
+
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import div from '@/components/single-parallax/single-parallax';
-import { useDimensions } from '@/hooks/use-dimension';
+
 import useAnim from '@/hooks/use-anim';
 
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import gsap from 'gsap';
 import { pageTranslate } from '@/hooks/pageAnim';
 
 import { basePath } from '@/hooks/use-basepath';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
 
 export default function News() {
 	const parent1 = useRef(null);
@@ -97,27 +87,23 @@ export default function News() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageTitle title='News' />
+				<PageBanner title='News' noBg={true} />
 
-				<motion.div
-					className='section-content news-section'
-					{...useAnim(pageTranslate(1))}>
-					<div className='container-fluid-width medium'>
-						<div className='news-featured' ref={parent1}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'flex-start' }}>
+					<div className='column news-column'>
+						<div
+							className='news-featured'
+							ref={parent1}
+							style={{ backgroundImage: `url(${newsItems[0].img})` }}>
 							<div className='desc-container'>
 								<div className='news-date small'>{newsItems[0].date}</div>
-								<h2 className='heading-4 news-title'>{newsItems[0].title}</h2>
-								<p>{newsItems[0].desc}</p>
+								<h2 className='heading-5 news-title'>{newsItems[0].title}</h2>
+								{/* <p>{newsItems[0].desc}</p> */}
 								<p>
 									<Button link='/news/inner' className={'btn-bordered pri'}>
 										Read More
 									</Button>
 								</p>
-							</div>
-							<div className='img-container'>
-								<SingleParallax scrollYProgress_start={scrollYProgress_start1}>
-									<img src={newsItems[0].img} />
-								</SingleParallax>
 							</div>
 						</div>
 						<div className='news-list'>
@@ -129,162 +115,53 @@ export default function News() {
 										title={news.title}
 										date={news.date}
 										img={news.img}
-										setModal={setModal}
+										// setModal={setModal}
 										key={`NewsItem_` + index}
 									/>
 								);
 							})}
 						</div>
-						<NewsModal modal={modal} newsItems={newsItems} />
 					</div>
-				</motion.div>
+					<div className='column news-column'>
+						<div className='other-news'>
+							<h3 className='heading-4'>Other News</h3>
+							{newsItems.map((news, index) => {
+								return (
+									<NewsItem
+										link={news.link}
+										index={index}
+										title={news.title}
+										date={news.date}
+										img={news.img}
+										// setModal={setModal}
+										key={`NewsItem_` + index}
+									/>
+								);
+							})}
+						</div>
+					</div>
+				</Section>
 			</Curve>
 		</>
 	);
 }
 
-function NewsItem({ index, title, date, img, link, setModal }) {
+export function NewsItem({ index, title, date, img, link, setModal }) {
 	return (
-		<div
-			className='news-item'
-			onMouseEnter={() => {
-				setModal({ active: true, index, link });
-			}}
-			onMouseLeave={() => {
-				setModal({ active: false, index, link: '' });
-			}}>
+		<div className='news-item'>
 			<div className='img-container'>
 				<Link href={link}>
 					<img src={img} />
 				</Link>
 			</div>
-			<h3 className='news-title heading-6'>
-				<Link href={link}>{title}</Link>
-			</h3>
-
-			<div className='news-date size-limit'>{date}</div>
-		</div>
-	);
-}
-
-function NewsModal({ modal, newsItems }) {
-	const { active, index } = modal;
-	const modalContainer = useRef(null);
-	const cursor = useRef(null);
-	const cursorLabel = useRef(null);
-
-	const { red, yellow, blue } = getColors;
-	const colors = [red, yellow, blue];
-
-	const scaleAnimation = {
-		initial: { scale: 0, x: '-50%', y: '-50%' },
-		enter: {
-			scale: 1,
-			x: '-50%',
-			y: '-50%',
-			transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-		},
-		closed: {
-			scale: 0,
-			x: '-50%',
-			y: '-50%',
-			transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
-		},
-	};
-
-	useEffect(() => {
-		//Move Container
-
-		let xMoveContainer = gsap.quickTo(modalContainer.current, 'left', {
-			duration: 0.8,
-			ease: 'power3',
-		});
-
-		let yMoveContainer = gsap.quickTo(modalContainer.current, 'top', {
-			duration: 0.8,
-			ease: 'power3',
-		});
-
-		//Move cursor
-
-		let xMoveCursor = gsap.quickTo(cursor.current, 'left', {
-			duration: 0.5,
-			ease: 'power3',
-		});
-
-		let yMoveCursor = gsap.quickTo(cursor.current, 'top', {
-			duration: 0.5,
-			ease: 'power3',
-		});
-
-		//Move cursor label
-
-		let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, 'left', {
-			duration: 0.45,
-			ease: 'power3',
-		});
-
-		let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, 'top', {
-			duration: 0.45,
-			ease: 'power3',
-		});
-
-		let top_adjustment =
-			document.querySelector('.news-section').getBoundingClientRect().top - 55;
-		window.addEventListener('mousemove', (e) => {
-			const { pageX, pageY } = e;
-			console.log(pageY);
-			xMoveContainer(pageX);
-
-			yMoveContainer(pageY - top_adjustment);
-
-			xMoveCursor(pageX);
-
-			yMoveCursor(pageY - top_adjustment);
-
-			xMoveCursorLabel(pageX);
-
-			yMoveCursorLabel(pageY - top_adjustment);
-		});
-	}, []);
-
-	return (
-		<>
-			<motion.div
-				ref={modalContainer}
-				variants={scaleAnimation}
-				initial='initial'
-				animate={active ? 'enter' : 'closed'}
-				className='modalContainer'>
-				<div style={{ top: index * -100 + '%' }} className='modalSlider'>
-					{newsItems.map((news, index) => {
-						const { src, color } = news;
-						console.log(news.img);
-						return (
-							<div
-								className='modal-news'
-								style={{ backgroundColor: colors[index % colors.length] }}
-								key={`modal_${index}`}>
-								<img src={news.img} />
-							</div>
-						);
-					})}
+			<div className='desc-container'>
+				<div className='news-date'>
+					<small className='small'>{date}</small>
 				</div>
-			</motion.div>
-			<motion.div
-				ref={cursor}
-				className='cursor'
-				variants={scaleAnimation}
-				initial='initial'
-				animate={active ? 'enter' : 'closed'}></motion.div>
-			<motion.div
-				ref={cursorLabel}
-				className='cursorLabel'
-				variants={scaleAnimation}
-				initial='initial'
-				animate={active ? 'enter' : 'closed'}>
-				<Link href={modal.link}>View</Link>
-			</motion.div>
-		</>
+				<h3 className='news-title heading-6'>
+					<Link href={link}>{title}</Link>
+				</h3>
+			</div>
+		</div>
 	);
 }

@@ -5,21 +5,12 @@
 	padding-top: 0 !important;
 }
 
-// .parallax-container {
-// 	height: 120svh;
-// 	position: relative;
-// 	z-index: 1;
-// }
-
 .banner-parallax {
 	height: 175%;
 	position: relative;
 	overflow: hidden;
 	perspective: 100px;
 	perspective-origin: 50% 100%;
-}
-
-.banner-parallax {
 	> * {
 		position: absolute;
 		left: -10px;
@@ -37,11 +28,11 @@
 			left: -50px;
 		}
 	}
+	img {
+		object-fit: cover;
+	}
 }
 
-.banner-parallax img {
-	object-fit: cover;
-}
 .banner-parallax h1 {
 	position: fixed;
 	top: 40vh;

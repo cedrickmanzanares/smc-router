@@ -6,8 +6,9 @@
 	aspect-ratio: 4/3;
 	display: flex;
 	align-items: flex-end;
-	border-radius: var(--border-radius);
+	border-radius: 10px;
 	overflow: hidden;
+	background-color: #fafafa;
 }
 
 .pdf-widget-title {

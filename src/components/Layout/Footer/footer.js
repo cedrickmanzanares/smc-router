@@ -50,6 +50,12 @@ export default function Footer() {
 		<footer className='section-content main-footer' ref={footer}>
 			<motion.div className='container-fluid-width medium' style={{ y: y }}>
 				<div className='footer-logo'>
+					<figure>
+						<img
+							src={`${basePath}/images/footer-other-logo.png`}
+							alt={"World's Best Companies 2023, World's Best Employers 2023"}
+						/>
+					</figure>
 					<Link href='/' className='brand-logo'>
 						<figure>
 							<img

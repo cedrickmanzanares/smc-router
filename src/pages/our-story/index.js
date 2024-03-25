@@ -1,34 +1,27 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
-import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
-import {
-	animate,
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
+
 import Button from '@/components/button/button';
-import PageCTA from '@/cms-components/PageCTA/PageCTA';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import div from '@/components/single-parallax/single-parallax';
-import { useDimensions } from '@/hooks/use-dimension';
-import useAnim from '@/hooks/use-anim';
-import { pageTranslate } from '@/hooks/pageAnim';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
+
 import SingleParallax from '@/components/single-parallax/single-parallax';
-import Image3D from '@/cms-components/Image3D/Image3D';
+
 import { AspectRatio, Box, Flex, Grid } from '@chakra-ui/react';
 
 import { basePath } from '@/hooks/use-basepath';
+import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
 
 export default function OurStory() {
+	const router = useRouter();
+	const params = useParams();
+
+	// console.log(router);
+	// console.log(params);
 	const grid = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -62,6 +55,13 @@ export default function OurStory() {
 		),
 	];
 
+	const settings = {
+		title: 'Our Story',
+		subtitle:
+			'Proin auctor euismod nisl, at fringilla arcu. Proin consectetur sem ac magna cursus, congue venenatis augue maximus.',
+		image: `${basePath}/images/OurStory/Banner-OurStory.png`,
+	};
+
 	return (
 		<>
 			<Head>
@@ -71,172 +71,43 @@ export default function OurStory() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<div className='page-title clipped-title text-center'>
-					<div className='container-fluid-width medium'>
-						<h1
-							className='heading-1'
-							style={{
-								background: `url(${basePath}/images/OurStory/1.jpg)`,
-								backgroundSize: 'cover',
-								backgroundAttachment: 'fixed',
-								webkitBackgroundClip: 'text',
-								backgroundClip: 'text',
-								color: 'transparent',
-							}}>
-							Our Story
-						</h1>
-					</div>
-				</div>
+				<PageBanner title={settings.title} image={settings.image} />
+				<Section columnCount={2}>
+					<div className='column'>
+						<h2 className='heading-4'>Neque dictumst eget.</h2>
+						<p>Purus varius elit morbi diam varius integer.</p>
+						<p>
+							Velit morbi consequat laoreet hendrerit purus ornare ante tempor
+							nibh. Purus pellentesque feugiat vestibulum enim tortor orci
+							sodales hendrerit nascetur.
+						</p>
+						<p>
+							Mauris sed morbi pretium ullamcorper morbi adipiscing fringilla.
+							Dictumst et turpis urna accumsan ornare. Volutpat amet enim
+							aliquam magnis. Felis viverra ornare elit feugiat dictumst. Velit
+							nisl arcu.
+						</p>
 
-				<div className='section-content '>
-					<div className='container-fluid-width small'>
-						<div className='text-center'>
-							<h3 className='heading-4 split-color'>
-								<b>Purus varius elit morbi</b> diam varius integer ullamcorper
-							</h3>
-							<p>
-								Mi ullamcorper diam et est in. Massa arcu massa fermentum sed
-								viverra eu. Maecenas sit ac sed elementum. Amet diam lobortis
-								nisl nunc. Vivamus nibh augue pellentesque venenatis. Ut gravida
-								vestibulum nulla suspendisse sit neque nunc malesuada felis.
-							</p>
+						<Button
+							link='/our-story/our-company'
+							className={'btn-bordered white'}>
+							Learn more
+						</Button>
+					</div>
+					<div className='column'>
+						<div className='image-content stacked'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div
-					className='section-content no-padding walaakongmaipangalan'
-					ref={grid}
-					style={{
-						paddingTop: 'calc(var(--section-padding) * 2)',
-						paddingBottom: 'calc(var(--section-padding) * 2)',
-					}}>
-					<div className='container-fluid-width medium'>
-						<div className='grid by-2' style={{ gap: '4rem' }}>
-							<motion.div
-								className='img-container'
-								style={{
-									y: y[0],
-								}}>
-								<motion.div
-									className='label'
-									style={{
-										y: y2[0],
-									}}>
-									<h2 className='heading-4'>Our Company</h2>
-									<p>
-										<Button
-											link='/our-story/our-company'
-											className={'btn-bordered white'}>
-											Learn more
-										</Button>
-									</p>
-								</motion.div>
-								<AspectRatio ratio={1}>
-									<SingleParallax scrollYProgress_start={scrollYProgress}>
-										<img src={`${basePath}/images/OurStory/1.jpg`} />
-									</SingleParallax>
-								</AspectRatio>
-							</motion.div>
-							<motion.div
-								className='img-container'
-								style={{
-									y: y[1],
-								}}>
-								<motion.div
-									className='label'
-									style={{
-										y: y2[1],
-									}}>
-									<h2 className='heading-4'>Our Strategy</h2>
-
-									<p>
-										<Button
-											link='/our-story/our-strategy'
-											className={'btn-bordered white'}>
-											Learn more
-										</Button>
-									</p>
-								</motion.div>
-								<AspectRatio ratio={1}>
-									<SingleParallax scrollYProgress_start={scrollYProgress}>
-										<img src={`${basePath}/images/OurStory/2.jpg`} />
-									</SingleParallax>
-								</AspectRatio>
-							</motion.div>
-						</div>
-					</div>
-				</div>
-
-				<div className='section-content'>
-					<div className='container-fluid-width small'>
-						<div className='grid by-2' style={{ gap: '2rem' }}>
-							<h3 className='heading-4 split-color'>
-								<b>Purus varius elit morbi</b> diam varius integer ullamcorper
-							</h3>
-							<p>
-								Mi ullamcorper diam et est in. Massa arcu massa fermentum sed
-								viverra eu. Maecenas sit ac sed elementum. Amet diam lobortis
-								nisl nunc. Vivamus nibh augue pellentesque venenatis. Ut gravida
-								vestibulum nulla suspendisse sit neque nunc malesuada felis.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div className='section-content'>
-					<div className='container-fluid-width small'>
-						<Flex justify={'space-between'} gap={16}>
-							<Box flex='1' className='mvs-item'>
-								<div className='img-container'>
-									<AspectRatio ratio={1}>
-										<img src={`${basePath}/images/OurStory/1.svg`} />
-									</AspectRatio>
-								</div>
-								<div className='desc-container'>
-									<h4 className='heading-6'>
-										A resilient and globally competitive Philippines
-									</h4>
-									<p>where everyone can enrich and enjoy their lives.</p>
-								</div>
-							</Box>
-							<Box flex='1' className='mvs-item'>
-								<div className='img-container'>
-									<AspectRatio ratio={1}>
-										<img src={`${basePath}/images/OurStory/2.svg`} />
-									</AspectRatio>
-								</div>
-								<div className='desc-container'>
-									<h4 className='heading-6'>
-										To lead in nation-building by creating opportunities that
-										will uplift generations of Filipinos,
-									</h4>
-									<p>
-										allowing all to share in the rewards of sustainable
-										development and prosperity.
-									</p>
-								</div>
-							</Box>
-							<Box flex='1' className='mvs-item'>
-								<div className='img-container'>
-									<AspectRatio ratio={1}>
-										<img src={`${basePath}/images/OurStory/3.svg`} />
-									</AspectRatio>
-								</div>
-								<div className='desc-container'>
-									<h4 className='heading-6'>
-										Malasakit is at the core of who we are as a company.
-									</h4>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-										do eiusmod tempor incididunt ut labore et dolore magna
-										aliqua. Quis
-									</p>
-								</div>
-							</Box>
-						</Flex>
-					</div>
-				</div>
+				</Section>
 			</Curve>
 		</>
 	);

@@ -5,7 +5,7 @@ import SampleVideo from '@/components/SampleVideo/sample-video';
 import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
 
 import { motion, useScroll } from 'framer-motion';
-import { useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { getColors } from '@/hooks/use-color';
 import Card from '@/components/card/card';
 import Button from '@/components/button/button';
@@ -17,7 +17,11 @@ import MainBanner from '@/cms-components/MainBanner/MainBanner';
 import Pillar from '@/cms-components/Pillar/Pillar';
 import OurProject from '@/cms-components/OurProject/OurProject';
 
+import { TokenContext } from './_app.js';
+
 export default function Home() {
+	const token = useContext(TokenContext);
+
 	const pillar_content1 = {
 		focus: `${basePath}/images/Homepage-1/test/test-1-2.png`,
 		bg: `${basePath}/images/Homepage-1/test/test-1-1.png`,
@@ -106,16 +110,14 @@ export default function Home() {
 			</Head>
 			<Curve>
 				<MainBanner />
-				{/* <SampleVideo />
-
+				<SampleVideo />
 				<Pillar content={pillar_content1} position={'right'}>
 					<div>
 						<p></p>
 					</div>
 				</Pillar>
 				<Pillar content={pillar_content2} position={'left'} simple={true} />
-				<Pillar content={pillar_content3} position={'right'} /> */}
-
+				<Pillar content={pillar_content3} position={'right'} />
 				<OurBusinesses />
 				<OurProject />
 				<motion.div
@@ -136,7 +138,7 @@ export default function Home() {
 							eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</p>
 						<p>
-							<Button link='/our-business/inner' className='btn-bordered white'>
+							<Button link='/our-business/inner' className='white'>
 								Read More
 							</Button>
 						</p>
@@ -151,7 +153,6 @@ export default function Home() {
 						/>
 					</div>
 				</motion.div>
-
 				<PageCTA />
 			</Curve>
 		</>

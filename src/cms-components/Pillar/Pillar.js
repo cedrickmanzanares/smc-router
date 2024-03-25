@@ -280,57 +280,62 @@ export default function Pillar({ content, position, children, simple }) {
 							y: y[0],
 							z: z[0],
 							backgroundImage: `url(${content.bg})`,
-						}}></motion.div>
-					<motion.div
-						className='pillar-bg pillar-blur pillar-img'
-						style={{
-							opacity: blurOpacity,
-							x: x[0],
-							y: y[0],
-							z: z[0],
-							backgroundImage: `url(${content.bg})`,
-						}}></motion.div>
-					<motion.div
-						className='pillar-path over'
-						style={{ opacity: path_con[2] }}>
-						<motion.div className='path-con'>
+						}}>
+						<motion.div
+							style={{
+								x: position === 'left' ? paths_x_left[0] : paths_x[0],
+								y: position === 'left' ? paths_y_left[0] : paths_y[0],
+							}}
+							className='path-con'>
 							<div className='path path-1'></div>
 						</motion.div>
-						<motion.div className='path-con'>
+						<motion.div
+							style={{
+								x: position === 'left' ? paths_x_left[0] : paths_x[1],
+								y: position === 'left' ? paths_y_left[0] : paths_y[1],
+							}}
+							className='path-con'>
 							<div className='path path-2'></div>
 						</motion.div>
-						<motion.div className='path-con'>
+						<motion.div
+							style={{
+								x: position === 'left' ? paths_x_left[0] : paths_x[2],
+								y: position === 'left' ? paths_y_left[0] : paths_y[2],
+							}}
+							className='path-con'>
 							<div className='path path-3'></div>
 						</motion.div>
+
+						<motion.div
+							className='path-con over'
+							style={{ opacity: path_con[2] }}>
+							<div className='path path-1'></div>
+						</motion.div>
+
+						<motion.div
+							className='path-con over'
+							style={{ opacity: path_con[2] }}>
+							<div className='path path-2'></div>
+						</motion.div>
+						{/* 
+						<motion.div
+							className='path-con over'
+							style={{ opacity: path_con[2] }}>
+							<div className='path path-3'></div>
+						</motion.div> */}
+
+						<motion.div
+							className='pillar-bg pillar-blur pillar-img'
+							style={{
+								opacity: blurOpacity,
+								x: x[0],
+								y: y[0],
+								z: z[0],
+								backgroundImage: `url(${content.bg})`,
+							}}></motion.div>
 					</motion.div>
 				</motion.div>
 
-				<div className='pillar-path'>
-					<motion.div
-						style={{
-							x: position === 'left' ? paths_x_left[0] : paths_x[0],
-							y: position === 'left' ? paths_y_left[0] : paths_y[0],
-						}}
-						className='path-con'>
-						<div className='path path-1'></div>
-					</motion.div>
-					<motion.div
-						style={{
-							x: position === 'left' ? paths_x_left[0] : paths_x[1],
-							y: position === 'left' ? paths_y_left[0] : paths_y[1],
-						}}
-						className='path-con'>
-						<div className='path path-2'></div>
-					</motion.div>
-					<motion.div
-						style={{
-							x: position === 'left' ? paths_x_left[0] : paths_x[2],
-							y: position === 'left' ? paths_y_left[0] : paths_y[2],
-						}}
-						className='path-con'>
-						<div className='path path-3'></div>
-					</motion.div>
-				</div>
 				<motion.div
 					className='pillar-focus pillar-img'
 					style={{

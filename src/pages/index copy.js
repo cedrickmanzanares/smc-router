@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 import Parallax from '@/components/Parallax/parallax';
 import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
 import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
@@ -13,6 +12,7 @@ import PageCTA from '@/cms-components/PageCTA/PageCTA';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
 import { basePath } from '@/hooks/use-basepath';
+import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
 
 export default function Home() {
 	const images1 = [

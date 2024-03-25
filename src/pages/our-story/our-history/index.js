@@ -1,31 +1,18 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
-import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
-import {
-	animate,
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-} from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
-import Button from '@/components/button/button';
-import PageCTA from '@/cms-components/PageCTA/PageCTA';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import div from '@/components/single-parallax/single-parallax';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
 import { useDimensions } from '@/hooks/use-dimension';
-import useAnim from '@/hooks/use-anim';
-import { pageTranslate } from '@/hooks/pageAnim';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
+
 import SingleParallax from '@/components/single-parallax/single-parallax';
-import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
 import { basePath } from '@/hooks/use-basepath';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
+
+import { CgPlayButtonO } from 'react-icons/cg';
 
 export default function OurHistory() {
 	const parent1 = useRef(null);
@@ -56,7 +43,37 @@ export default function OurHistory() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageTitle title='Our' split='History' horizontal='center' />
+				<PageBanner title={'Our History'} direction='center' />
+
+				<Section direction={'center'}>
+					<div className='column'>
+						<h2 className='heading-4'>Proud Beginnings</h2>
+					</div>
+					<div className='column'>
+						<motion.div className='video-content'>
+							<div className='video-play'>
+								<CgPlayButtonO size={'7rem'} color='white' />
+							</div>
+							<video
+								preload='auto'
+								playsInline
+								src={`${basePath}/videos/sample-video.mp4`}></video>
+						</motion.div>
+					</div>
+				</Section>
+
+				<Section containerSize={'small'} direction={'center'}>
+					<div className='column'>
+						<p>
+							Established in 1890, La Fabrica de Cerveza de San Miguel,
+							Southeast Asia’s first brewery produced and bottled what would
+							eventually become one of the bestselling beers in the region.
+							Within the span of a generation, San Miguel Beer would become an
+							icon among beer drinkers.
+						</p>
+					</div>
+				</Section>
+
 				<motion.div
 					className='section-content img-section full no-min-height'
 					ref={parent1}>
@@ -71,7 +88,7 @@ export default function OurHistory() {
 								animate={{
 									x: '-100vw',
 								}}
-								transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}>
+								transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}>
 								<div
 									className='grid'
 									style={{
@@ -150,7 +167,7 @@ export default function OurHistory() {
 								animate={{
 									x: '0vw',
 								}}
-								transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}>
+								transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}>
 								<div
 									className='grid'
 									style={{
@@ -222,30 +239,6 @@ export default function OurHistory() {
 						</div>
 					</div>
 				</motion.div>
-				<div className='section-content'>
-					<div className='container-fluid-width small'>
-						<TextGradient
-							classes='heading-4'
-							paragraph='Established in 1890, La Fabrica de Cerveza de San Miguel, Southeast Asia’s first brewery produced and bottled what would eventually become one of the bestselling beers in the region. Within the span of a generation, San Miguel Beer would become an icon among beer drinkers.'>
-							<h3 className='heading-5 split-color'>
-								Proud <b>Beginnings</b>
-							</h3>
-						</TextGradient>
-					</div>
-				</div>
-
-				<FullPageBanner>
-					<video
-						style={{
-							height: '100%',
-							width: '100%',
-						}}
-						preload='auto'
-						poster={`${basePath}/videos/615559faf380d-poster.png`}
-						playsInline
-						controls
-						src={`${basePath}/videos/615559faf380d.mp4`}></video>
-				</FullPageBanner>
 			</Curve>
 		</>
 	);

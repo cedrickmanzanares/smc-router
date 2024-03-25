@@ -27,6 +27,8 @@ import { pageTranslate } from '@/hooks/pageAnim';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
 import { basePath } from '@/hooks/use-basepath';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
 
 export default function OurCompany() {
 	const { gray2, red } = getColors;
@@ -44,8 +46,133 @@ export default function OurCompany() {
 			</Head>
 
 			<Curve>
-				<PageTitle title='Our' split='Company' />
+				<PageBanner noBg={true} title={'Our Company'} />
 
+				<Section columnCount={2}>
+					<div className='column'>
+						<div className='text-content'>
+							<p>
+								San Miguel Corporation, together with its subsidiaries, is one
+								of the largest and most diversified conglomerates in the
+								Philippines by revenues and total assets—with sales equivalent
+								to approximately 6.8% of the Philippine GDP in 2022.
+							</p>
+							<p>
+								Originally founded in 1890 as a single product brewery in the
+								Philippines, SMC today owns market-leading businesses and
+								investments in various sectors, including food and beverage,
+								packaging, energy, fuel and oil, infrastructure, cement,
+								property and banking services. SMC has a portfolio of companies
+								that is tightly interwoven into the economic fabric of the
+								Philippines, benefiting from, as well as contributing to the
+								development and economic progress of the country.
+							</p>
+						</div>
+					</div>
+					<div className='column'>
+						<div className='image-content'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+							</div>
+						</div>
+					</div>
+					<div className='column'>
+						<div className='text-content'>
+							<p>
+								Since adopting its business diversification program in 2007, SMC
+								has channeled its resources into what it believes are attractive
+								growth sectors, which are aligned with the development and
+								growth of the Philippine economy. SMC believes that continuing
+								this strategy and pursuing growth plans within each business
+								will achieve a more diverse mix of sales and operating income,
+								and better position SMC to access capital, present different
+								growth opportunities and mitigate the impact of downturns and
+								business cycles.
+							</p>
+							<p>
+								SMC is one of the nation’s largest employers, with a direct
+								workforce of 50,433 employees as of December 2022. For each job
+								created within the San Miguel ecosystem, many additional jobs
+								are generated through suppliers, distributors, retailers, and
+								other business partners. At present, we have more than 100 major
+								facilities in the Asia-Pacific region.
+							</p>
+							<p>
+								Through strategic partnerships forged with major international
+								companies, we have access to managerial expertise, international
+								practices and advanced technology. Our partners, notably Kirin
+								Brewery Co., Ltd., Nihon Yamamura Glass, U.S.-based Hormel Foods
+								Corporation, and Korea Water Resources Corporation, are world
+								leaders in their respective businesses.
+							</p>
+							<p>
+								SMC is listed on the Philippine Stock Exchange (PSE Ticker:
+								SMC). Publicly-listed subsidiaries include San Miguel Food and
+								Beverage, Inc., Ginebra San Miguel, Inc., and Petron
+								Corporation.
+							</p>
+						</div>
+					</div>
+				</Section>
+				<div className='section-content'>
+					<div className='container-fluid-width medium'>
+						<div className='column'>
+							<div className='text-content'>
+								<p>
+									San Miguel Corporation, together with its subsidiaries, is one
+									of the largest and most diversified conglomerates in the
+									Philippines by revenues and total assets—with sales equivalent
+									to approximately 6.8% of the Philippine GDP in 2022.
+								</p>
+								<p>
+									Originally founded in 1890 as a single product brewery in the
+									Philippines, SMC today owns market-leading businesses and
+									investments in various sectors, including food and beverage,
+									packaging, energy, fuel and oil, infrastructure, cement,
+									property and banking services. SMC has a portfolio of
+									companies that is tightly interwoven into the economic fabric
+									of the Philippines, benefiting from, as well as contributing
+									to the development and economic progress of the country.
+								</p>
+							</div>
+						</div>
+						<div className='column'></div>
+
+						<p>
+							Since adopting its business diversification program in 2007, SMC
+							has channeled its resources into what it believes are attractive
+							growth sectors, which are aligned with the development and growth
+							of the Philippine economy. SMC believes that continuing this
+							strategy and pursuing growth plans within each business will
+							achieve a more diverse mix of sales and operating income, and
+							better position SMC to access capital, present different growth
+							opportunities and mitigate the impact of downturns and business
+							cycles.
+						</p>
+						<p>
+							SMC is one of the nation’s largest employers, with a direct
+							workforce of 50,433 employees as of December 2022. For each job
+							created within the San Miguel ecosystem, many additional jobs are
+							generated through suppliers, distributors, retailers, and other
+							business partners. At present, we have more than 100 major
+							facilities in the Asia-Pacific region.
+						</p>
+
+						<p>
+							Through strategic partnerships forged with major international
+							companies, we have access to managerial expertise, international
+							practices and advanced technology. Our partners, notably Kirin
+							Brewery Co., Ltd., Nihon Yamamura Glass, U.S.-based Hormel Foods
+							Corporation, and Korea Water Resources Corporation, are world
+							leaders in their respective businesses.
+						</p>
+						<p>
+							SMC is listed on the Philippine Stock Exchange (PSE Ticker: SMC).
+							Publicly-listed subsidiaries include San Miguel Food and Beverage,
+							Inc., Ginebra San Miguel, Inc., and Petron Corporation.
+						</p>
+					</div>
+				</div>
 				<ColumnSection
 					imageSetting={{
 						t: ['-30%', '100%'],

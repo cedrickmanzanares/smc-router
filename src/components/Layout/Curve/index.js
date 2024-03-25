@@ -1,9 +1,14 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { text, curve, translate } from './anim';
 import useAnim from '@/hooks/use-anim';
 import Lenis from '@studio-freight/lenis';
+import { initializeToken } from '@/data/data';
+
+import { env } from '/next.config';
+
+import { MenuContext, ThemeContext } from '@/pages/_app';
 
 const routes = {
 	'/': 'Your World Made Better',
@@ -26,12 +31,11 @@ const routes = {
 export default function Curve({ children, backgroundColor }) {
 	const router = useRouter();
 
+	const theme = useContext(ThemeContext);
 	let text_altered = text;
 	text_altered.enter.top = router.route == '/' ? '40vh' : -100;
 	// text_altered.exit.transitionEnd = router.route == '/' ? '40vh' : '47.5%';
 
-	// console.log(text_altered);
-	// console.log(router.route);
 	const [dimensions, setDimensions] = useState({
 		width: null,
 		height: null,
@@ -62,7 +66,7 @@ export default function Curve({ children, backgroundColor }) {
 	}, []);
 
 	return (
-		<div className='page curve' style={{ backgroundColor }}>
+		<div className={`${theme} page curve`} style={{ backgroundColor }}>
 			<div
 				style={{ opacity: dimensions.width == null ? 1 : 0 }}
 				className='background'
@@ -80,7 +84,6 @@ export default function Curve({ children, backgroundColor }) {
 }
 
 const SVG = ({ height, width }) => {
-	console.log(height, width);
 	const initialPath = `
         M0 300 
         Q${width / 2} 0 ${width} 300

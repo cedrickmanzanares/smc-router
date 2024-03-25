@@ -18,63 +18,62 @@ import Button from '@/components/button/button';
 
 import { basePath } from '@/hooks/use-basepath';
 import SingleParallax from '@/components/single-parallax/single-parallax';
+import Section from '@/cms-components/Section/Section';
 export default function Careers() {
 	return (
 		<Curve>
 			<PageBanner
-				images={[
-					basePath + '/images/Careers/2.png',
-					basePath + '/images/Careers/3.png',
-					basePath + '/images/Careers/4.svg',
-				]}>
-				<div className='desc-container'>
-					<h1 className='heading-3 split-color'>
-						Careers at <b>San Miguel</b>
-					</h1>
-					<p>
-						Elit arcu nulla sed ac. Diam gravida tellus lorem turpis a quam
-						ornare sem leo. Malesuada semper in ut nisl morbi vitae tristique
-						in. Urna vel amet in adipiscing at. Magnis est id sollicitudin
-						imperdiet risus ornare ut massa.
-					</p>
+				title={'Careers at San Miguel'}
+				image={`${basePath}/images/Careers/Careers-Banner.png`}
+				size={'full'}
+				headingSize='heading-1'></PageBanner>
+
+			<Section containerSize={'small'}>
+				<div className='column'>
+					<div className='text-content center'>
+						<h2 className='heading-5'>
+							We are today in the midst of an unprecedented expansion program
+							that will weave our products and services even more tightly into
+							the fabric of everyday life. 
+						</h2>
+					</div>
+					<div>[-Video-]</div>
 				</div>
-			</PageBanner>
+			</Section>
 
-			{/* 
-			<TextGradient
-				anim={{ ...useAnim(pageTranslate(2)) }}
-				classes='heading-4'
-				paddingBottom={'unset'}
-				paragraph={
-					'We are today in the midst of an unprecedented expansion program that will weave our products and services even more tightly into the fabric of everyday life.'
-				}
-			/> */}
-
-			<ColumnSection direction='reverse'>
-				<>
-					<p>
-						We are looking for people who share our core values, who possess a
-						high level of initiative and responsibility to join us on this
-						journey. We offer attractive opportunities for career development.
-					</p>
-
-					<p>
-						<b>Corporate Human Resources (Talent Acquisition) San Miguel</b>{' '}
-						<br />
-						Corporation 40 San Miguel Avenue, Ortigas Center Mandaluyong City
-						1550
-					</p>
-
-					<Button link='/our-business/inner' className={'btn-bordered pri'}>
-						Read More
-					</Button>
-				</>
-				<>
-					<AspectRatio maxW='560px' ratio={1}>
-						<img src={basePath + '/images/Careers/b1.png'} />
-					</AspectRatio>
-				</>
-			</ColumnSection>
+			<Section columnCount={2} containerSize='small'>
+				<div className='column'>
+					<div className='image-content'>
+						<div className='img-container'>
+							<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+						</div>
+					</div>
+				</div>
+				<div className='column'>
+					<div className='text-content'>
+						<p>
+							We are looking for people who share our core values, who possess a
+							high level of initiative and responsibility to join us on this
+							journey. We offer attractive opportunities for career development.
+						</p>
+						<h2 className='heading-5'>
+							Corporate Human Resources (Talent Acquisition)
+						</h2>
+						<p>
+							San Miguel Corporation
+							<br />
+							40 San Miguel Avenue, Ortigas Center
+							<br />
+							Mandaluyong City 1550
+						</p>
+						<p>
+							<Button link='/our-business/inner' className={'pri white'}>
+								Read More
+							</Button>
+						</p>
+					</div>
+				</div>
+			</Section>
 		</Curve>
 	);
 }

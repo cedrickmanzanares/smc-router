@@ -1,56 +1,220 @@
+.smc-red .page-banner {
+	background-image: linear-gradient(90deg, var(--base-red), var(--base-yellow));
+	.banner-title {
+		color: var(--base-red);
+		&.white {
+			color: white;
+		}
+	}
+	&.white {
+		.banner-title {
+			color: white;
+		}
+	}
+}
+.smc-blue .page-banner {
+	background-image: linear-gradient(
+		90deg,
+		var(--base-blue),
+		var(--shade1-blue)
+	);
+	.banner-title {
+		color: var(--base-blue);
+		&.white {
+			color: white;
+		}
+	}
+	&.white {
+		.banner-title {
+			color: white;
+		}
+	}
+
+	.path {
+		background-image: linear-gradient(90deg, #04496c, #04496c);
+	}
+	.path-1 {
+	}
+	.path-2 {
+		background-image: linear-gradient(90deg, #fbe41600, #fbe416);
+	}
+	.path-2 {
+		background-image: linear-gradient(90deg, #fbe41600, #fbe416);
+	}
+	.path-4 {
+		background-image: linear-gradient(
+			90deg,
+			var(--base-yellow),
+			var(--shade1-blue)
+		);
+	}
+	.path-5 {
+		mix-blend-mode: overlay;
+	}
+}
+
+.smc-yellow .page-banner {
+	background-image: linear-gradient(
+		90deg,
+		var(--base-blue),
+		var(--shade1-blue)
+	);
+	.banner-title {
+		color: var(--base-blue);
+		&.white {
+			color: white;
+		}
+	}
+	&.white {
+		.banner-title {
+			color: white;
+		}
+	}
+
+	.path {
+		height: 15rem;
+		background-image: linear-gradient(90deg, #0b7bb5, #fcd71a);
+	}
+	.path-1 {
+		left: -10%;
+		mix-blend-mode: darken;
+		background-image: linear-gradient(90deg, #fcd71a, #0b7bb5);
+	}
+	.path-2 {
+		top: 10%;
+		left: 15%;
+		background-image: linear-gradient(90deg, #ccab00, #ffd038, #0b7bb5);
+	}
+	.path-3 {
+		display: none;
+	}
+	.path-4 {
+		opacity: 0.8;
+		background-image: linear-gradient(90deg, #0b7bb5, #fcd71a);
+		top: 75%;
+		right: 5%;
+		height: 30rem;
+	}
+	.path-5 {
+		mix-blend-mode: multiply;
+		background-image: linear-gradient(90deg, #0b7bb5, #fcd71a);
+		top: 75%;
+		right: 10%;
+	}
+}
+
 .page-banner {
-	height: calc(100dvh - var(--nav-height) + var(--section-padding));
+	position: relative;
 	overflow: hidden;
-	min-height: 800px;
+	margin-top: var(--nav-height);
+	padding: 13rem 0;
+	display: flex;
+	align-items: center;
 	.container-fluid-width {
-		display: flex;
-		align-items: center;
-		height: 100%;
-	}
-
-	.desc-container {
-		flex: 0 1 50%;
-	}
-
-	.img-container {
 		position: relative;
-		flex: 0 1 50%;
-		align-self: stretch;
-		.img-item {
-			position: absolute;
-			height: auto;
-			width: auto;
-			bottom: 0;
-		}
-		.img-item {
-			z-index: 2;
-		}
-		.img-item:first-child {
-			position: relative;
-			width: auto;
-			height: 100%;
-			z-index: 0;
-		}
-		.img-item:nth-child(2) {
-			width: 100%;
-			height: auto;
-		}
-
-		.img-item:nth-child(3) {
-			right: 40%;
-			width: 18vw;
-		}
-
-		.img-item:nth-child(4) {
-			right: 0%;
-			width: 20vw;
-		}
-
-		.img-item:last-child {
-			bottom: 55%;
-			height: auto;
-			z-index: 1;
-			width: 12vw;
+		z-index: 1;
+	}
+	.banner-title {
+		margin: 0;
+		max-width: 980px;
+	}
+	&.center {
+		text-align: center;
+		.banner-title {
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
+	&.no-image {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+
+	&.no-bg {
+		background-image: none;
+		padding: 5rem 0 0;
+		.banner-bg {
+			display: none;
+		}
+	}
+	&.full {
+		height: 100dvh;
+	}
+	.banner-subtitle {
+		max-width: 768px;
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+}
+
+.banner-img {
+	height: 110%;
+	width: 100%;
+}
+
+.banner-bg,
+.banner-shade {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	top: 0;
+	left: 0;
+}
+
+.banner-bg {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	perspective: 100px;
+	perspective-origin: 50% 100%;
+	.path {
+		border-radius: 10rem;
+		height: 10rem;
+		width: 75rem;
+		background-image: linear-gradient(
+			90deg,
+			var(--base-yellow),
+			var(--base-red)
+		);
+		position: absolute;
+		top: 50%;
+		left: 0;
+	}
+	.path-1 {
+		mix-blend-mode: multiply;
+	}
+	.path-2 {
+		opacity: 0.78;
+		mix-blend-mode: hard-light;
+		background-image: linear-gradient(
+			90deg,
+			var(--base-yellow) 80%,
+			var(--base-red)
+		);
+	}
+	.path-3 {
+		opacity: 0.41;
+		mix-blend-mode: hard-light;
+	}
+	.path-4,
+	.path-5 {
+		left: auto;
+		right: 0;
+	}
+	.path-4 {
+		opacity: 0.77;
+		height: 20rem;
+	}
+	.path-5 {
+		opacity: 0.75;
+		mix-blend-mode: multiply;
+	}
+}
+
+.banner-img {
+	background-size: cover;
+	background-position: center;
 }

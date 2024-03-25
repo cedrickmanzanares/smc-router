@@ -18,6 +18,10 @@ import {
 	AccordionPanel,
 	AccordionIcon,
 } from '@chakra-ui/react';
+import Section from '@/cms-components/Section/Section';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import { basePath } from '@/hooks/use-basepath';
+import ImageSlider from '@/cms-components/ImageSlider/ImageSlider';
 
 export default function NewsInner() {
 	const { gray2, red } = getColors;
@@ -25,6 +29,59 @@ export default function NewsInner() {
 	const icon = {
 		size: '1rem',
 	};
+
+	const slides = [
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
+			title: 'Lorem Ipsum Dolor',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+		{
+			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
+			title: 'New Manila International Airport',
+			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+		},
+	];
 	return (
 		<>
 			<Head>
@@ -35,187 +92,98 @@ export default function NewsInner() {
 			</Head>
 
 			<Curve>
-				<div className='section-content '>
-					<div className='article-content'>
-						<div className='article-social'>
-							<motion.div
-								className='social-icons'
-								initial={{
-									backgroundColor: gray2,
-								}}
-								whileHover={{
-									scale: 1.2,
-									color: '#ffffff',
-									backgroundColor: '#3975ea',
-								}}
-								whileTap={{ scale: 0.9 }}>
-								<Link href='/'>
-									<ImFacebook size={icon.size} />
-								</Link>
-							</motion.div>
-							<motion.div
-								className='social-icons'
-								initial={{
-									backgroundImage: `linear-gradient(45deg, ${gray2}, ${gray2})`,
-								}}
-								whileHover={{
-									scale: 1.2,
-									color: '#ffffff',
-									backgroundImage:
-										'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
-								}}
-								whileTap={{ scale: 0.9 }}>
-								<Link href='/'>
-									<LuInstagram size={icon.size} />
-								</Link>
-							</motion.div>
-
-							<motion.div
-								className='social-icons'
-								initial={{
-									backgroundColor: gray2,
-								}}
-								whileHover={{
-									scale: 1.2,
-									color: '#ffffff',
-									backgroundColor: '#ea3324',
-								}}
-								whileTap={{ scale: 0.9 }}>
-								<Link href='/'>
-									<ImYoutube size={icon.size} />
-								</Link>
-							</motion.div>
-
-							<motion.div
-								className='social-icons'
-								initial={{
-									backgroundColor: gray2,
-								}}
-								whileHover={{
-									scale: 1.2,
-									color: '#ffffff',
-									backgroundColor: '#2a6496',
-								}}
-								whileTap={{ scale: 0.9 }}>
-								<Link href='/'>
-									<ImLinkedin2 size={icon.size} />
-								</Link>
-							</motion.div>
-
-							<motion.div
-								className='social-icons'
-								initial={{
-									backgroundColor: gray2,
-								}}
-								whileHover={{
-									scale: 1.2,
-									color: '#ffffff',
-									backgroundColor: red,
-								}}
-								whileTap={{ scale: 0.9 }}>
-								<Link href='/'>
-									<ImSphere size={icon.size} />
-								</Link>
-							</motion.div>
-						</div>
-						<h1 className='heading-2'>
-							SMC, TESDA partner to start training Filipino workers for jobs at
-							NMIA, other major projects nationwide
-						</h1>
-
-						<h1 className='text-3xl font-bold underline'>Hello world!</h1>
-
-						<Accordion>
-							<AccordionItem>
-								<h2>
-									<AccordionButton>
-										<Box as='span' flex='1' textAlign='left'>
-											Section 1 title
-										</Box>
-										<AccordionIcon />
-									</AccordionButton>
-								</h2>
-								<AccordionPanel pb={4}>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Ut enim ad minim veniam, quis nostrud exercitation ullamco
-									laboris nisi ut aliquip ex ea commodo consequat.
-								</AccordionPanel>
-							</AccordionItem>
-
-							<AccordionItem>
-								<h2>
-									<AccordionButton>
-										<Box as='span' flex='1' textAlign='left'>
-											Section 2 title
-										</Box>
-										<AccordionIcon />
-									</AccordionButton>
-								</h2>
-								<AccordionPanel pb={4}>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Ut enim ad minim veniam, quis nostrud exercitation ullamco
-									laboris nisi ut aliquip ex ea commodo consequat.
-								</AccordionPanel>
-							</AccordionItem>
-						</Accordion>
-
-						<img className='feature' src={'/images/Homepage-1/1.png'} />
-						<p>
-							San Miguel Corporation (SMC) and the Technical Education Skills
-							and Development Authority (TESDA) are launching a skills training
-							program that will enable a greater number of Filipinos to
-							participate in opportunities at its New Manila International
-							Airport (NMIA) project as well as its various strategic
-							initiatives across the country.
-						</p>
-
-						<p className='heading-5 popout'>
-							&quot;San Miguel Corporation (SMC) and the Technical Education
-							Skills and Development Authority (TESDA) are launching a skills
-							training program that will enable a greater number of Filipinos to
-							participate in opportunities at its New Manila International
-							Airport (NMIA) project as well as its various strategic
-							initiatives across the country.&quot;
-						</p>
-						<p>
-							San Miguel Corporation (SMC) and the Technical Education Skills
-							and Development Authority (TESDA) are launching a skills training
-							program that will enable a greater number of Filipinos to
-							participate in opportunities at its New Manila International
-							Airport (NMIA) project as well as its various strategic
-							initiatives across the country.
-						</p>
-						<div className='popout'>
-							<p className='heading-4'>Highligt Content</p>
+				<PageBanner
+					noBg={true}
+					title={
+						'SMC, TESDA partner to start training Filipino workers for jobs at NMIA, other major projects nationwide'
+					}
+					containerSize='small'
+					subtitle={'Mar 01, 2024'}></PageBanner>
+				<Section containerSize='small'>
+					<div className='column'>
+						<ImageSlider
+							type='full'
+							gradient={false}
+							dots={true}
+							arrows={false}
+							captionPosition={'absolute'}
+						/>
+						<div className='text-content'>
 							<p>
-								San Miguel Corporation (SMC) and the Technical Education Skills
-								and Development Authority (TESDA) are launching a skills
-								training program that will enable a greater number of Filipinos
-								to participate in opportunities at its New Manila International
-								Airport (NMIA) project as well as its various strategic
-								initiatives across the country.
+								San Miguel Corporation’s (SMC) infrastructure arm officially
+								opened the new access ramp of the NAIA Expressway (NAIAx) at
+								Tramo in Pasay City. This is expected to ease traffic in the
+								area and provide seamless access to the country’s main
+								international gateway and other areas.
 							</p>
 							<p>
-								San Miguel Corporation (SMC) and the Technical Education Skills
-								and Development Authority (TESDA) are launching a skills
-								training program that will enable a greater number of Filipinos
-								to participate in opportunities at its New Manila International
-								Airport (NMIA) project as well as its various strategic
-								initiatives across the country.
+								Speaking at its ceremonial opening on March 1, 2024, SMC
+								President and CEO Ramon S. Ang explained the importance of the
+								800-meter access ramp for motorists, particularly for those
+								using EDSA southbound coming from Makati, or northbound, coming
+								from the Entertainment City.
+							</p>
+							<p>
+								“This is a great opportunity for many of our countrymen. The
+								airport project and all our other projects, will not just
+								generate jobs; more significantly, they will provide knowledge,
+								skills, and technology transfer in construction, engineering,
+								the operation of equipment and technologies, ground handling,
+								aircraft maintenance, and many other fields,” said Ang.
+							</p>
+							<p>
+								Public Works Secretary Manuel Bonoan led the inauguration of the
+								new access ramp and credited the company for supporting the
+								government’s efforts to build vital infrastructure to sustain
+								the country’s economic growth.
 							</p>
 						</div>
-						<p>
-							San Miguel Corporation (SMC) and the Technical Education Skills
-							and Development Authority (TESDA) are launching a skills training
-							program that will enable a greater number of Filipinos to
-							participate in opportunities at its New Manila International
-							Airport (NMIA) project as well as its various strategic
-							initiatives across the country.
-						</p>
+						<ImageSlider type='full' gradient={false} dots={false} />
+						<div className='text-content'>
+							<p>
+								“The Tramo access ramp has been in San Miguel’s drawing board
+								for a long, long time because they knew it would enhance the
+								efficiency of NAIA expressway, and improve the mobility of
+								motorists going to the airport,” Bonoan said.
+							</p>
+							<p>
+								Bonoan said further improvements on NAIAx are being studied by
+								their agency, as grantor of the concession, in partnership with
+								SMC, to improve the flow of traffic to airport terminals, given
+								growing demand.
+							</p>
+							<p>
+								“The Department of Public Works and Highways will always be
+								there to support and implement these projects to improve traffic
+								flow especially here in Metro Manila,” he added.
+							</p>
+							<p>
+								For his part, Ang remained firm in the company’s commitment to
+								work closely with the government, as it pursues infrastructure
+								projects that benefit Filipinos.
+							</p>
+						</div>
+						<ImageSlider type='full' gradient={false} dots={false} />
+						<div className='text-content'>
+							<p>
+								“San Miguel will continue to pursue these vital infrastructure
+								projects, in close coordination with our government, because of
+								their benefits to our people and economy. Through these
+								projects, we also create jobs, improve the mobility of goods and
+								services, and make our cities and regions more primed for
+								growth. All these serve to support and sustain our growing
+								economy,” Ang said.
+							</p>
+							<p>
+								The NAIA expressway is an 11-kilometer elevated toll road that
+								connects the Skyway System to the three passengers terminals of
+								NAIA, the country’s main international gateway, as well as to
+								Pasay’s Entertainment City, Macapagal Boulevard, Sucat Road in
+								Paranaque City, and the road network to Cavite province.
+							</p>
+						</div>
 					</div>
-				</div>
+				</Section>
 			</Curve>
 		</>
 	);

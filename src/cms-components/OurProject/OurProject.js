@@ -82,8 +82,6 @@ export default function OurProject({ className, link, children }) {
 
 	const innerItem_click = (event, info) => {
 		setSelected((prev) => event.target.closest('.inner-item').dataset.index);
-
-		console.log(info);
 	};
 
 	const getDistance = (index, current) => {
@@ -103,14 +101,12 @@ export default function OurProject({ className, link, children }) {
 	});
 
 	const o = slides.map((slide, index) => {
-		console.log(index);
 		if (index == -0) return 1;
 		if (index > 2) return 0;
 		return 1 - index / 3;
 	});
 
 	const x = slides.map((slide, index) => {
-		console.log(index);
 		if (index == -0) return 1;
 		if (index > 2) return 0;
 		return 1 - index / 3;
@@ -134,7 +130,6 @@ export default function OurProject({ className, link, children }) {
 		},
 	};
 
-	console.log(o);
 	return (
 		<motion.div
 			className='ourproject-section section-content text-center'

@@ -32,13 +32,19 @@
 	width: 3rem;
 	display: block;
 	padding: 1rem 0;
-}
-
-.brand-logo figure,
-.brand-logo img {
-	display: block;
-	width: 100%;
-	margin: 0;
+	position: relative;
+	figure {
+		padding-bottom: 158%;
+	}
+	figure,
+	img {
+		display: block;
+		width: 100%;
+		margin: 0;
+	}
+	img {
+		position: absolute;
+	}
 }
 
 .main-nav {
@@ -47,6 +53,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .main-nav a {
@@ -159,6 +166,7 @@ a.nav-item,
 	padding: 1rem;
 	box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
 	border-radius: 8px;
+	color: var(--base-black);
 }
 
 .nav-dropdown a {

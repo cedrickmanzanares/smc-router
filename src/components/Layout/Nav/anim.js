@@ -1,5 +1,7 @@
 import { getColors } from '@/hooks/use-color';
-const { red } = getColors;
+import { ThemeContext } from '@/pages/_app';
+import { useContext } from 'react';
+const { red, blue, yellow } = getColors;
 
 const ease = [0.76, 0, 0.24, 1];
 
@@ -17,19 +19,6 @@ export const transitionSettings = {
 };
 
 // main nav
-export const navContainer_variants = {
-	open: {
-		opacity: 1,
-		y: '0%',
-		transition: toggleSettings,
-	},
-
-	closed: {
-		opacity: 0,
-		y: '-100%',
-		transition: toggleSettings,
-	},
-};
 
 export const hover_animation = {
 	open: {

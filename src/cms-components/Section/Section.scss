@@ -1,0 +1,120 @@
+.smc-red .section-content {
+	h2 {
+		color: var(--base-red);
+	}
+}
+
+.smc-blue .section-content {
+	h2 {
+		color: var(--base-blue);
+	}
+}
+.section-content {
+	position: relative;
+	z-index: 2;
+	/* padding: 4rem; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: var(--section-padding);
+	padding-bottom: var(--section-padding);
+	// border: 2px solid black;
+	.container-fluid-width.flex-start {
+		align-items: flex-start;
+	}
+	&.column-2 {
+		.container-fluid-width {
+			display: flex;
+			column-gap: var(--section-padding);
+			flex-wrap: wrap;
+			.column {
+				flex: 1 1 15rem;
+			}
+
+			.news-column:first-child {
+				flex-basis: 600px;
+			}
+			.news-column:last-child {
+				flex-basis: 200px;
+				position: sticky;
+				top: 2rem;
+			}
+			&.small {
+				.column {
+					flex: 1 1 150px;
+				}
+			}
+		}
+	}
+}
+
+.section-content.center {
+	h2,
+	h2 + p {
+		width: 600px;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	h2 {
+		margin-bottom: 1rem;
+		+ p {
+			margin-bottom: 3rem;
+			line-height: 1.5;
+		}
+	}
+}
+
+.container-fluid-width {
+	width: 100%;
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+	margin: auto;
+}
+
+.container-fluid-width.full {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.container-fluid-width.large {
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+}
+
+.container-fluid-width.medium {
+	padding-left: calc(var(--container-padding) * 2);
+	padding-right: calc(var(--container-padding) * 2);
+}
+
+.container-fluid-width.small {
+	padding-left: calc(var(--container-padding) * 3);
+	padding-right: calc(var(--container-padding) * 3);
+}
+
+.container-fluid-width.no-padding {
+	padding-left: unset;
+	padding-right: unset;
+}
+
+.section-content.fullscreen {
+	height: 100vh;
+	padding: 0;
+}
+
+.section-content.full {
+	.container-fluid-width {
+		padding-left: unset;
+		padding-right: unset;
+	}
+}
+
+.section-content.no-min-height {
+	min-height: 0;
+}
+
+.section-content.no-padding {
+	padding-top: unset;
+	padding-bottom: unset;
+}

@@ -16,10 +16,22 @@ body {
 	--border-radius: 1rem;
 	color: var(--base-black);
 	font-size: 16px;
-	--section-padding: clamp(2.5em, 10vh, 8em);
+	--section-padding: clamp(2.25em, 10vh, 7em);
 	--container-padding: clamp(2.5em, 8vw, 8em);
 	--gap-padding: clamp(1.5em, 8vw, 8em);
+	background-color: black !important; 
 }
+
+.theme.smc-red {
+	--pri-color: #ed3223;
+}
+
+.theme.smc-blue {
+	--pri-color: #1384C0;
+}
+.theme.smc-blue {
+	--pri-color: #1384C0;
+
 
 .curve {
 	position: relative;

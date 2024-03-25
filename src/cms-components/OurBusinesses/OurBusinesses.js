@@ -77,9 +77,6 @@ export default function OurBusinesses({ className, link, children }) {
 		},
 	];
 
-	useEffect(() => {
-		console.log(selected);
-	}, [selected]);
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
 		// console.log(latest);
 		let mod = 1 / data.length;

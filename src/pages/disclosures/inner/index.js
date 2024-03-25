@@ -1,14 +1,16 @@
 'use client';
 
 import PDFItem from '@/cms-components/PDFItem/PDFItem';
-import PDFWidget from '@/cms-components/PDFWidget/PDFWidget';
 
 import { getColors } from '@/hooks/use-color';
-import { motion } from 'framer-motion';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
+
 import Curve from '@/components/Layout/Curve';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
+import { Flex } from '@chakra-ui/layout';
+import { FormControl, Input, Select } from '@chakra-ui/react';
 
 export default function InnerDisclosure() {
 	const { baseBlack, gray2, red } = getColors;
@@ -24,8 +26,65 @@ export default function InnerDisclosure() {
 	].reverse();
 	return (
 		<Curve>
-			<PageTitle title='Diclosures' />
+			<PageBanner title={'Diclosures'} noBg={true} />
+			<Section>
+				<Flex gap={5} mb={10}>
+					<FormControl ml={'auto'} w={'auto'}>
+						<Input placeholder='Enter Keyword' />
+					</FormControl>
+					<FormControl w={'auto'}>
+						<Select placeholder='Select Year'>
+							<option>United Arab Emirates</option>
+							<option>Nigeria</option>
+						</Select>
+					</FormControl>
+				</Flex>
+				<div className='pdf-listing'>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/pdf/test-pdf.pdf'}
+					/>
 
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+					<PDFItem
+						title={
+							'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
+						}
+						link={'/test'}
+					/>
+				</div>
+			</Section>
 			<div
 				className='section-content no-min-height'
 				{...useAnim(pageTranslate(1))}>

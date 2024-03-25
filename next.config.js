@@ -9,10 +9,13 @@ const nextConfig = {
 		// Enables the styled-components SWC transform
 		styledComponents: true,
 	},
-	trailingSlash: true,
-
 	images: {
 		unoptimized: true,
+	},
+	env: {
+		api_url: 'https://sxrtmwec.forapprovalonly.net/index.php/api',
+		api_uname: 'api@smc.com',
+		api_pass: 'smc_guest',
 	},
 };
 

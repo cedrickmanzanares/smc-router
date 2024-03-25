@@ -1,33 +1,13 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
-import SampleVideo from '@/components/SampleVideo/sample-video';
-import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses copy';
 
-import {
-	animate,
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-} from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
+import { motion, useScroll } from 'framer-motion';
+import { useRef } from 'react';
+
 import Button from '@/components/button/button';
-import PageCTA from '@/cms-components/PageCTA/PageCTA';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import div from '@/components/single-parallax/single-parallax';
-import { useDimensions } from '@/hooks/use-dimension';
-import useAnim from '@/hooks/use-anim';
 
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
-import SingleParallax from '@/components/single-parallax/single-parallax';
 import Link from 'next/link';
-import Image from 'next/image';
 
-import gsap from 'gsap';
-import { pageTranslate } from '@/hooks/pageAnim';
 import { AspectRatio, Badge, Flex } from '@chakra-ui/layout';
 
 import { basePath } from '@/hooks/use-basepath';
