@@ -1,6 +1,3 @@
-.pdf-listing {
-	margin: 2rem 0;
-}
 .pdf-item {
 	padding: 1rem 1rem;
 	border-top: 1px solid var(--gray-3);
@@ -58,11 +55,15 @@
 }
 
 .pdf-button {
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+	// aspect-ratio: 1 / 1;
+	// border: 2px solid var(--base-blue);
+	border-radius: 100%;
+}
+
+.pagination {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	aspect-ratio: 1 / 1;
-	border: 2px solid var(--base-blue);
-	border-radius: 100%;
-	padding: 5px;
 }

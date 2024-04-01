@@ -20,6 +20,8 @@ import { pageTranslate } from '@/hooks/pageAnim';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import { PiCaretCircleRight } from 'react-icons/pi';
+import { Flex } from '@chakra-ui/layout';
 
 export default function News() {
 	const parent1 = useRef(null);
@@ -122,7 +124,7 @@ export default function News() {
 							})}
 						</div>
 					</div>
-					<div className='column news-column'>
+					<div className='column news-column sticky'>
 						<div className='other-news'>
 							<h3 className='heading-4'>Other News</h3>
 							{newsItems.map((news, index) => {
@@ -146,9 +148,18 @@ export default function News() {
 	);
 }
 
-export function NewsItem({ index, title, date, img, link, setModal }) {
+export function NewsItem({
+	index,
+	title,
+	date,
+	img,
+	link,
+	setModal,
+	direction,
+}) {
+	const newsItemClass = `news-item ${direction ? direction : ''}`;
 	return (
-		<div className='news-item'>
+		<div className={newsItemClass}>
 			<div className='img-container'>
 				<Link href={link}>
 					<img src={img} />
@@ -161,6 +172,12 @@ export function NewsItem({ index, title, date, img, link, setModal }) {
 				<h3 className='news-title heading-6'>
 					<Link href={link}>{title}</Link>
 				</h3>
+				<p>
+					<Link href={link} className='news-link small'>
+						Learn More
+						<PiCaretCircleRight size={'1rem'} />
+					</Link>
+				</p>
 			</div>
 		</div>
 	);

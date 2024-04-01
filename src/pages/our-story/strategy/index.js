@@ -11,6 +11,8 @@ import { ImFacebook, ImLinkedin2, ImSphere, ImYoutube } from 'react-icons/im';
 import { LuInstagram } from 'react-icons/lu';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
+import Section from '@/cms-components/Section/Section';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 export default function OurStrategy() {
 	const { gray2, red } = getColors;
@@ -28,14 +30,9 @@ export default function OurStrategy() {
 			</Head>
 
 			<Curve>
-				<PageTitle title='Our' split='Strategy' horizontal='center' />
-
-				<div className='section-content'>
-					<div className='container-fluid-width small'>
-						<TextGradient
-							classes='heading-4'
-							paragraph='San Miguel’s goal is to help people enjoy and make progress in their lives through the many products and services that our company offers. We want to give every customer and consumer we touch access to the best we can offer—whether in terms of quality, affordability or choice.'
-						/>
+				<PageBanner title={'Our Strategy'} direction='center' />
+				<Section containerSize='small'>
+					<div className='column'>
 						<p>
 							Our strategy for achieving these goals has five major elements
 							which are common to both our traditional and new businesses:
@@ -105,7 +102,7 @@ export default function OurStrategy() {
 							opportunities.
 						</p>
 					</div>
-				</div>
+				</Section>
 			</Curve>
 		</>
 	);

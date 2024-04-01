@@ -1,3 +1,13 @@
+.smc-red {
+	.btn {
+		color: var(--base-red);
+	}
+
+	.btn.btn-bordered {
+		border-color: var(--base-red);
+	}
+}
+
 .btn {
 	border-radius: 2rem;
 	display: inline-flex;
@@ -11,7 +21,7 @@
 	overflow: hidden;
 	font-family: var(--font-mw_sans);
 	position: relative;
-	font-size: 0.85rem;
+	font-size: 1rem;
 }
 
 .btn.no-padding {
@@ -52,6 +62,17 @@
 	background-color: transparent;
 }
 
+.btn.btn-stacked {
+	border-color: transparent;
+	border-top-color: #cecece;
+	border-radius: 0;
+	width: 100%;
+	background-color: transparent;
+	padding: 2rem;
+	display: flex;
+	justify-content: space-between;
+}
+
 .btn.white {
 	background-color: white;
 	color: var(--base-red);
@@ -69,6 +90,19 @@
 	top: -50%;
 	left: -25%;
 	border-radius: 50%;
+}
+
+.btn.btn-icon {
+	padding: 0;
+}
+.btn.btn-text {
+	padding: 1rem;
+}
+
+.btn.btn-icon,
+.btn.btn-text {
+	height: 2rem;
+	background-color: transparent;
 }
 
 .link-cover {

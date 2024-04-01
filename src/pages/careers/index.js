@@ -19,6 +19,7 @@ import Button from '@/components/button/button';
 import { basePath } from '@/hooks/use-basepath';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import Section from '@/cms-components/Section/Section';
+import VideoContent from '@/cms-components/VideoContent/Video';
 export default function Careers() {
 	return (
 		<Curve>
@@ -28,24 +29,32 @@ export default function Careers() {
 				size={'full'}
 				headingSize='heading-1'></PageBanner>
 
-			<Section containerSize={'small'}>
+			<Section containerSize={'small'} direction={'center'}>
 				<div className='column'>
-					<div className='text-content center'>
-						<h2 className='heading-5'>
+					<p className='heading-5'>
+						<b>
 							We are today in the midst of an unprecedented expansion program
 							that will weave our products and services even more tightly into
 							the fabric of everyday life. 
-						</h2>
-					</div>
-					<div>[-Video-]</div>
+						</b>
+					</p>
+				</div>
+				<div className='column'>
+					<VideoContent />
 				</div>
 			</Section>
 
 			<Section columnCount={2} containerSize='small'>
 				<div className='column'>
-					<div className='image-content'>
+					<div className='image-content stacked'>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+							<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+						</div>
+						<div className='img-container'>
+							<img src={`${basePath}/images/ph.svg`} />
+						</div>
+						<div className='img-container'>
+							<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
 						</div>
 					</div>
 				</div>

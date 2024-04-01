@@ -11,6 +11,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { Flex } from '@chakra-ui/layout';
 import { FormControl, Input, Select } from '@chakra-ui/react';
+import { PiCaretCircleLeft, PiCaretCircleRight } from 'react-icons/pi';
 
 export default function InnerDisclosure() {
 	const { baseBlack, gray2, red } = getColors;
@@ -84,91 +85,21 @@ export default function InnerDisclosure() {
 						link={'/test'}
 					/>
 				</div>
-			</Section>
-			<div
-				className='section-content no-min-height'
-				{...useAnim(pageTranslate(1))}>
-				<div className='container-fluid-width medium'>
-					<div
-						className='pdf-filter'
-						style={{
-							display: 'none',
-						}}>
-						<label className='form-group'>
-							<span className='size-limit'>Keyword</span>
-							<input type='text' />
-						</label>
-						<label className='form-group'>
-							<span className='size-limit'>Year</span>
-							<input list='browsers' />
-							<datalist id='browsers'>
-								{years.map((year, index) => {
-									return <option key={`year_${index}`} value={year} />;
-								})}
-							</datalist>
-						</label>
-					</div>
-					<div className='pdf-listing'>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-						<PDFItem
-							title={
-								'SMC 65 Billion Shelf Registration and Public Offering of Series 2 Preferred Shares'
-							}
-							date={'April 18, 2023'}
-							download={true}
-							link={'/test'}
-						/>
-					</div>
+				<div className='pagination'>
+					<button className='btn btn-icon'>
+						<PiCaretCircleLeft size={'2rem'} />
+					</button>
+					<button className='btn btn-text'>1</button>
+					<button className='btn btn-text'>2</button>
+					<button className='btn btn-text'>3</button>
+					<button className='btn btn-text'>4</button>
+					<button className='btn btn-text'>...</button>
+					<button className='btn btn-text'>10</button>
+					<button className='btn btn-icon'>
+						<PiCaretCircleRight size={'2rem'} />
+					</button>
 				</div>
-			</div>
+			</Section>
 		</Curve>
 	);
 }

@@ -73,6 +73,19 @@ export default function Nav({}) {
 		}
 	};
 
+	const getNavColor = () => {
+		switch (smcTheme) {
+			case 'smc-red':
+				return '#ffffff';
+			case 'smc-blue':
+				return '#ffffff';
+			case 'smc-yellow':
+				return '#000000';
+			default:
+				return '#ffffff00';
+		}
+	};
+
 	const navContainer_variants = {
 		open: {
 			opacity: 1,
@@ -84,6 +97,7 @@ export default function Nav({}) {
 					delay: 0.75,
 				},
 			},
+			color: getNavColor(smcTheme),
 			backgroundColor: getBackground(smcTheme),
 		},
 
@@ -94,6 +108,7 @@ export default function Nav({}) {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
 			},
+			color: getNavColor(smcTheme),
 			backgroundColor: getBackground(smcTheme),
 		},
 	};

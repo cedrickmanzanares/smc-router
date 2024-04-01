@@ -6,6 +6,9 @@ import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
 import { basePath } from '@/hooks/use-basepath';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import VideoContent from '@/cms-components/VideoContent/Video';
+import Section from '@/cms-components/Section/Section';
 export default function OurValues() {
 	return (
 		<>
@@ -16,22 +19,13 @@ export default function OurValues() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageTitle title='Our' split='Values' horizontal='center' />
-				<FullPageBanner>
-					<video
-						style={{
-							height: '100%',
-							width: '100%',
-						}}
-						preload='auto'
-						poster={`${basePath}/videos/615559faf380d-poster.png`}
-						playsInline
-						controls
-						src={`${basePath}/videos/615559faf380d.mp4`}></video>
-				</FullPageBanner>
+				<PageBanner title={'Our Values'} direction='center' />
 
-				<div className='section-content'>
-					<div className='container-fluid-width small'>
+				<Section containerSize='small'>
+					<div className='column'>
+						<VideoContent />
+					</div>
+					<div className='column text-content'>
 						<h2 className='heading-4 split-color'>
 							Malasakit is at the core <b>of who we are as a company</b>
 						</h2>
@@ -84,6 +78,10 @@ export default function OurValues() {
 							priorities.
 						</p>
 					</div>
+				</Section>
+
+				<div className='section-content'>
+					<div className='container-fluid-width small'></div>
 				</div>
 			</Curve>
 		</>

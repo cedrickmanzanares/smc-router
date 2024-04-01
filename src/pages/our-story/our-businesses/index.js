@@ -168,7 +168,7 @@ function BusinessItem() {
 			</div>
 			<div className='desc-container'>
 				<div className='business-type small'>Food and Beverages</div>
-				<h3 className='business-name heading-6'>
+				<h3 className='business-name heading-5'>
 					<Link href='/our-business/inner'>San Miguel Foods</Link>
 				</h3>
 				<p>

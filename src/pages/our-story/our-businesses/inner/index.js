@@ -29,6 +29,8 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { Link } from 'lucide-react';
 
 import { basePath } from '@/hooks/use-basepath';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
 
 export default function OurBusinessesInner() {
 	const parallaxColumn = useRef(null);
@@ -72,15 +74,6 @@ export default function OurBusinessesInner() {
 		};
 	}, []);
 
-	const variants = {
-		initial: {
-			opacity: 0,
-		},
-		visible: {
-			opacity: 1,
-		},
-	};
-
 	return (
 		<>
 			<Head>
@@ -90,116 +83,117 @@ export default function OurBusinessesInner() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageTitle
-					title='Ginebra '
-					split='San Miguel Inc.'
-					horizontal='center'
-				/>
+				<PageBanner title={'Ginebra San Miguel'} direction='center' />
 
-				<FullPageBanner>
-					<img src={`${basePath}/images/OurBusinesses/1111.png`} />
-				</FullPageBanner>
+				<Section
+					columnCount={2}
+					containerSize='large'
+					containerStyle={{ flexDirection: 'row-reverse' }}>
+					<div className='column bussinesses-desc-column'>
+						<div className='text-content'>
+							<p className='heading-4'>
+								<b>
+									Ginebra San Miguel, Inc. is the world’s largest gin producer
+									by volume
+								</b>{' '}
+								as well as the market leader in the domestic hard liquor market,
+							</p>
+							<img src={`${basePath}/images/OurBusinesses/packaging.jpg`} />
+							<p>
+								SMC has a portfolio of companies that is interwoven into the
+								economic fabric of the Philippines, benefiting from, as well as
+								contributing to, the development and economic progress of the
+								nation.
+							</p>
 
-				<div
-					className='section-content img-section no-min-height'
-					{...useAnim(pageTranslate(2))}
-					ref={section2}>
-					<div className='container-fluid-width small'>
-						<div className='business-inner'>
-							<div className='desc-container'>
-								<p className='heading-4 split-color'>
-									<b>
-										Ginebra San Miguel, Inc. is the world’s largest gin producer
-										by volume
-									</b>{' '}
-									as well as the market leader in the domestic hard liquor
-									market,
+							<p>
+								SMC, through its subsidiaries and affiliates, has become a
+								market leader in its businesses in the Philippines with an
+								extensive portfolio of products that include beer, spirits,
+								non-alcoholic beverages, poultry, animal feeds, flour, fresh and
+								processed meats, dairy products, coffee, various packaging
+								products, and a full range of refined petroleum products, most
+								of which are leaders in their respective markets. In addition,
+								SMC contributes to the growth of downstream industries and
+								sustains a network of hundreds of third-party suppliers.
+							</p>
+						</div>
+					</div>
+					<div className='column bussinesses-opportunities-column sticky'>
+						<div className='text-content'>
+							<h3 className='heading-5'>Business Opportunities</h3>
+							<div className='opportunities-item'>
+								<p>
+									<b>Ginebra San Miguel, Inc.</b>
 								</p>
 
-								<p>
-									SMC has a portfolio of companies that is interwoven into the
-									economic fabric of the Philippines, benefiting from, as well
-									as contributing to, the development and economic progress of
-									the nation.
-								</p>
-
-								<p>
-									SMC, through its subsidiaries and affiliates, has become a
-									market leader in its businesses in the Philippines with an
-									extensive portfolio of products that include beer, spirits,
-									non-alcoholic beverages, poultry, animal feeds, flour, fresh
-									and processed meats, dairy products, coffee, various packaging
-									products, and a full range of refined petroleum products, most
-									of which are leaders in their respective markets. In addition,
-									SMC contributes to the growth of downstream industries and
-									sustains a network of hundreds of third-party suppliers.
+								<p className='small'>
+									Corporate Head Office 3rd, 5th & 6th
+									<br />
+									Floor, San Miguel Properties Centre, St. <br />
+									Francis Street, Mandaluyong City 1550
 								</p>
 							</div>
-							<div className='desc-container other-details'>
-								<h3 className='heading-6'>Business Opportunities</h3>
-								<div>
-									<p>Ginebra San Miguel, Inc.</p>
-									<p className='small'>
-										Corporate Head Office 3rd, 5th & 6th
-										<br />
-										Floor, San Miguel Properties Centre, St. <br />
-										Francis Street, Mandaluyong City 1550
-									</p>
-									<p>Customer Care</p>
-									<p className='small'>
-										For inquiries, orders and suggestions on our products and
-										services,
-										<br />
-										Tel no.: (632) 8632-2564
-										<br />
-										Fax no.: (632) 8632-3299
-										<br />
-										Mailbox No.: 2623
-										<br />
-									</p>
-									<p>Email and Social Media</p>
-									<p className='small'>customercare.gsmi@smg.sanmiguel</p>
-								</div>
-								<div></div>
+							<div className='opportunities-item'>
+								<p>
+									<b>Customer Care</b>
+								</p>
+								<p className='small'>
+									For inquiries, orders and suggestions on our products and
+									services,
+									<br />
+									Tel no.: (632) 8632-2564
+									<br />
+									Fax no.: (632) 8632-3299
+									<br />
+									Mailbox No.: 2623
+									<br />
+								</p>
+							</div>
+							<div className='opportunities-item'>
+								<p>
+									<b>Email and Social Media</b>
+								</p>
+								<p className='small'>customercare.gsmi@smg.sanmiguel</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<motion.div
-					className='section-content business-controls'
-					initial='initial'
-					whileInView='visible'
-					viewport={{
-						once: 'true',
-						amount: 'all',
-					}}>
-					<div className='controls'>
-						<motion.div className='control prev' variants={variants}>
-							<div className='arrow'>
-								<BsArrowLeftCircle size={'1.25rem'} />
-								Previous
-							</div>
-							<div className='control-details'>
-								<p className='label heading-5'>San Miguel Foods</p>
-								<div className='img-container'>
-									<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-								</div>
-							</div>
-						</motion.div>
+				</Section>
+				<motion.div className='page-controls'>
+					<motion.div className='control prev'>
+						<div className='img-container'>
+							<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+						</div>
 
-						<motion.div className='control next' variants={variants}>
+						<div className='control-details'>
 							<div className='arrow'>
-								Next
-								<BsArrowRightCircle size={'1.25rem'} />
+								<BsArrowLeftCircle size={'1.75rem'} />
 							</div>
-							<div className='control-details'>
+							<div>
+								<p>
+									<b>Previous Business</b>
+								</p>
 								<p className='label heading-5'>San Miguel Foods</p>
-								<div className='img-container'>
-									<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-								</div>
 							</div>
-						</motion.div>
-					</div>
+						</div>
+					</motion.div>
+
+					<motion.div className='control next'>
+						<div className='img-container'>
+							<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+						</div>
+						<div className='control-details'>
+							<div className='arrow'>
+								<BsArrowRightCircle size={'1.75rem'} />
+							</div>
+							<div>
+								<p>
+									<b>Previous Business</b>
+								</p>
+								<p className='label heading-5'>San Miguel Foods</p>
+							</div>
+						</div>
+					</motion.div>
 				</motion.div>
 			</Curve>
 		</>

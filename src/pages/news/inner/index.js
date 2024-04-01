@@ -22,6 +22,7 @@ import Section from '@/cms-components/Section/Section';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import { basePath } from '@/hooks/use-basepath';
 import ImageSlider from '@/cms-components/ImageSlider/ImageSlider';
+import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 
 export default function NewsInner() {
 	const { gray2, red } = getColors;
@@ -138,7 +139,12 @@ export default function NewsInner() {
 								the country’s economic growth.
 							</p>
 						</div>
-						<ImageSlider type='full' gradient={false} dots={false} />
+						<ImageSlider
+							adaptiveHeight={true}
+							type='full'
+							gradient={false}
+							dots={false}
+						/>
 						<div className='text-content'>
 							<p>
 								“The Tramo access ramp has been in San Miguel’s drawing board
@@ -163,7 +169,12 @@ export default function NewsInner() {
 								projects that benefit Filipinos.
 							</p>
 						</div>
-						<ImageSlider type='full' gradient={false} dots={false} />
+						<ImageSlider
+							adaptiveHeight={true}
+							type='full'
+							gradient={false}
+							dots={false}
+						/>
 						<div className='text-content'>
 							<p>
 								“San Miguel will continue to pursue these vital infrastructure
@@ -184,6 +195,44 @@ export default function NewsInner() {
 						</div>
 					</div>
 				</Section>
+
+				<motion.div className='page-controls'>
+					<motion.div className='control prev'>
+						<div className='control-details'>
+							<div className='arrow'>
+								<BsArrowLeftCircle size={'1.75rem'} />
+							</div>
+							<div>
+								<p>
+									<b>Previous Article</b>
+								</p>
+								<p className='label heading-5'>
+									Massa at pulvinar vestibulum feugiat. Et ac proin tempor id
+									nec.
+								</p>
+								<p className='date'>Sept. 20, 2023</p>
+							</div>
+						</div>
+					</motion.div>
+
+					<motion.div className='control next'>
+						<div className='control-details'>
+							<div className='arrow'>
+								<BsArrowRightCircle size={'1.75rem'} />
+							</div>
+							<div>
+								<p>
+									<b>Previous Article</b>
+								</p>
+								<p className='label heading-5'>San Miguel Foods</p>
+								<p className='date'>
+									Tortor sollicitudin lacinia nulla in lacus. Amet quam velit
+									aliquam.
+								</p>
+							</div>
+						</div>
+					</motion.div>
+				</motion.div>
 			</Curve>
 		</>
 	);

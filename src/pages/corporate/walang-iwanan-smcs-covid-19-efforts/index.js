@@ -23,6 +23,7 @@ import SingleParallax from '@/components/single-parallax/single-parallax';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { NewsItem } from '@/pages/news';
+import VideoContent from '@/cms-components/VideoContent/Video';
 
 export default function WalangIwanan() {
 	const parent1 = useRef(null);
@@ -88,8 +89,25 @@ export default function WalangIwanan() {
 					direction='center'
 				/>
 
-				<p>[_VIDEO_]</p>
+				<Section>
+					<div className='column'>
+						<VideoContent />
+					</div>
+				</Section>
 				<Section columnCount={2}>
+					<div className='column'>
+						<div className='image-content stacked'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							</div>
+						</div>
+					</div>
 					<div className='column'>
 						<div className='text-content'>
 							<h3 className='heading-4'>
@@ -115,60 +133,23 @@ export default function WalangIwanan() {
 							</p>
 						</div>
 					</div>
+				</Section>
+
+				<Section containerSize={'full'} columnCount={1}>
 					<div className='column'>
-						<div className='image-content'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-							</div>
-						</div>
+						<FullPageBanner
+							image={`${basePath}/images/CSR/60dc13a6f26d5.png`}
+							caption={'Our Efforts'}></FullPageBanner>
 					</div>
 				</Section>
 
-				<FullPageBanner>
-					<img src={`${basePath}/images/WalangIwanan/b1.png`} />
-				</FullPageBanner>
-
-				<FloatingImages
-					images={[
-						basePath + '/images/WalangIwanan/1.png',
-						basePath + '/images/WalangIwanan/2.png',
-						basePath + '/images/WalangIwanan/3.png',
-					]}>
-					<div className='desc-container'>
-						<p>
-							Our efforts in the wake of the global pandemic are guided by our
-							malasakit.
-						</p>
-						<p>
-							In the fight against Covid-19, we have mounted the largest private
-							sector response to the crisis. As of October 2020, we have
-							mobilized over P13 billion to help the country—specially
-							frontliners and the poorest communities.
-						</p>
-						<p>
-							Our contributions include hundreds of millions in food and medical
-							equipment, free fuel and waived toll fees for frontliners, and the
-							construction of quarantine facilities. We also repurposed our
-							liquor plants to manufacture disinfecting alcohol for hospitals
-							and clinics.
-						</p>
-						<p>
-							In 2021, our efforts continue to help the country recover from the
-							COVID-19 global pandemic.
-						</p>
-					</div>
-				</FloatingImages>
-
-				<FullPageBanner>
-					<img src={`${basePath}/images/WalangIwanan/b2.png`} />
-				</FullPageBanner>
-
-				<Section>
-					<div className='column'>
-						<div
-							className='news-featured'
-							ref={parent1}
-							style={{ backgroundImage: `url(${newsItems[0].img})` }}>
+				<Section></Section>
+				<Section columnCount={2}>
+					<div className='column' style={{ flex: '1 1 100%' }}>
+						<div className='news-featured column' ref={parent1}>
+							<div className='img-container'>
+								<img src={`${newsItems[0].img}`} />
+							</div>
 							<div className='desc-container'>
 								<div className='news-date small'>{newsItems[0].date}</div>
 								<h2 className='heading-5 news-title'>{newsItems[0].title}</h2>
@@ -181,8 +162,6 @@ export default function WalangIwanan() {
 							</div>
 						</div>
 					</div>
-				</Section>
-				<Section columnCount={2}>
 					{newsItems.map((news, index) => {
 						return (
 							<div className='column' key={`NewsItem_` + index}>
@@ -197,30 +176,6 @@ export default function WalangIwanan() {
 						);
 					})}
 				</Section>
-				<motion.div
-					className='section-content news-section'
-					{...useAnim(pageTranslate(1))}>
-					<div className='container-fluid-width medium'>
-						<div className='news-featured' ref={parent1}>
-							<div className='desc-container'>
-								<div className='news-date size-limit'>{newsItems[0].date}</div>
-								<h2 className='heading-3 news-title'>{newsItems[0].title}</h2>
-								<p>{newsItems[0].desc}</p>
-								<Button
-									link='/our-business/inner'
-									className={'btn-bordered pri'}>
-									Read More
-								</Button>
-							</div>
-							<div className='img-container'>
-								<SingleParallax scrollYProgress_start={scrollYProgress_start1}>
-									<img src={newsItems[0].img} />
-								</SingleParallax>
-							</div>
-						</div>
-						<div className='news-list'></div>
-					</div>
-				</motion.div>
 			</Curve>
 		</>
 	);

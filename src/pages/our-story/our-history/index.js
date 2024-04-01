@@ -13,6 +13,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 
 import { CgPlayButtonO } from 'react-icons/cg';
+import VideoContent from '@/cms-components/VideoContent/Video';
 
 export default function OurHistory() {
 	const parent1 = useRef(null);
@@ -50,19 +51,8 @@ export default function OurHistory() {
 						<h2 className='heading-4'>Proud Beginnings</h2>
 					</div>
 					<div className='column'>
-						<motion.div className='video-content'>
-							<div className='video-play'>
-								<CgPlayButtonO size={'7rem'} color='white' />
-							</div>
-							<video
-								preload='auto'
-								playsInline
-								src={`${basePath}/videos/sample-video.mp4`}></video>
-						</motion.div>
+						<VideoContent />
 					</div>
-				</Section>
-
-				<Section containerSize={'small'} direction={'center'}>
 					<div className='column'>
 						<p>
 							Established in 1890, La Fabrica de Cerveza de San Miguel,
@@ -75,9 +65,10 @@ export default function OurHistory() {
 				</Section>
 
 				<motion.div
+					style={{ paddingTop: 0 }}
 					className='section-content img-section full no-min-height'
 					ref={parent1}>
-					<div className='container-fluid-width'>
+					<div className='container-fluid-width' style={{ rowGap: 0 }}>
 						<div className='marquee'>
 							<motion.div
 								className='marquee-overflow'

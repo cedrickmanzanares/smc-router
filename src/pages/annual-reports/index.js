@@ -44,31 +44,24 @@ export default function AnnualReports() {
 
 	const newsItems = [
 		{
-			title:
-				'SMC bests other PH firms; jumps to 43rd in Forbes’ World’s Best Employers list—after ranking high in Time’s World’s Best Companies',
-			desc: 'Since 2013, in the aftermath of typhoons Sendong and Yolanda, San Miguel Corporation (SMC) has been at the forefront of building resilient housing communities nationwide.',
+			title: '2022 SMC Annual Reports',
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
 			date: 'November 28, 2023',
-			img: basePath + '/images/News/n1.png',
+			img: basePath + '/images/AnnualReports.png',
 			link: '/news/inner',
 		},
 		{
-			title:
-				'SMC, Ayala ink agreement to integrate Arca South to Skyway Stage 4 project',
+			title: '2022 SMC Annual Reports',
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
 			date: 'November 28, 2023',
-			img: basePath + '/images/News/n2.png',
+			img: basePath + '/images/AnnualReports.png',
 			link: '/news/inner',
 		},
 		{
-			title: "SMC's nine-month profit more than doubles to ₱31.2 billion",
+			title: '2022 SMC Annual Reports',
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
 			date: 'November 28, 2023',
-			img: '',
-			link: '/news/inner',
-		},
-		{
-			title:
-				'SMB delivers solid nine-month results amidst higher volumes, improved market conditions',
-			date: 'November 28, 2023',
-			img: basePath + '/images/News/n4.png',
+			img: basePath + '/images/AnnualReports.png',
 			link: '/news/inner',
 		},
 	];
@@ -93,7 +86,7 @@ export default function AnnualReports() {
 							</Select>
 						</FormControl>
 					</Flex>
-					<ImageSlider />
+					<ImageSlider captionPosition='annual-report' gradient='partial' />
 				</Section>
 			</Curve>
 		</>

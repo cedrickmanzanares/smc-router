@@ -36,7 +36,7 @@ export default function All() {
 		<Curve>
 			<PageBanner title={'Company Disclosures'} noBg={true} />
 			<Section>
-				<Flex gap={5} mb={10}>
+				<Flex gap={5} mb={0}>
 					<FormControl ml={'auto'} w={'auto'}>
 						<Input placeholder='Enter Keyword' />
 					</FormControl>
@@ -92,6 +92,7 @@ export default function All() {
 						link={'/test'}
 					/>
 				</div>
+				<div className='pdf-pagination'></div>
 				<h2 className='heading-4'>Sec Filings</h2>
 				<SimpleGrid columns={[2, 2, 4]} gap={[2, 3, 8]}>
 					<PDFWidget

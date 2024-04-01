@@ -5,6 +5,7 @@ const nextConfig = {
 	basePath: '/revamp',
 	reactStrictMode: true,
 	swcMinify: true,
+	trailingSlash: true,
 	compiler: {
 		// Enables the styled-components SWC transform
 		styledComponents: true,

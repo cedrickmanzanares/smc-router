@@ -11,6 +11,9 @@ import Link from 'next/link';
 import { AspectRatio, Badge, Flex } from '@chakra-ui/layout';
 
 import { basePath } from '@/hooks/use-basepath';
+import { NewsItem } from '@/pages/news';
+import Section from '@/cms-components/Section/Section';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 export default function Kaunlaran() {
 	const kol = useRef(null);
@@ -24,6 +27,7 @@ export default function Kaunlaran() {
 			link: '/',
 			img: basePath + '/images/CSR/www-1.jpg',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
+			desc: 'Non dapibus eget dictum congue neque nibh. Feugiat sapien cras felis tristique morbi sit sit vel. Dolor neque morbi tortor sit tincidunt semper.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
@@ -114,76 +118,43 @@ export default function Kaunlaran() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<motion.div
-					className='section-content news-section kaunlaran-section'
-					ref={kol}>
-					<div className='container-fluid-width large'>
-						<div
-							style={{
-								alignSelf: 'start',
-								position: 'sticky',
-								top: 'var(--nav-height)',
-								paddingTop: '10vh',
-							}}>
-							<h1 className='heading-3 split-color'>
-								<b>Kaunlaran</b> Online
-							</h1>
+				<PageBanner title={'Kaunlaran'} noBg={true} />
 
-							<p>
-								Ut gravida vestibulum nulla suspendisse sit neque nunc malesuada
-								felis.
-							</p>
-							<p>
-								Tincidunt lectus sollicitudin et sed egestas. Viverra cursus nam
-								dictumst egestas id. Euismod quis scelerisque mi porta.
-							</p>
-							<p>
-								Convallis adipiscing consectetur lobortis luctus vulputate nisi
-								nunc. Fames aliquet congue scelerisque lorem egestas dolor.
-								Accumsan nulla in volutpat eu pretium pharetra tristique sapien
-								duis.
-							</p>
-
-							<p>
-								<Button
-									link='/our-business/inner'
-									className={'btn-bordered pri'}>
-									Read More
-								</Button>
-							</p>
-						</div>
-						<div>
-							<div className='kaunlaran-featured'>
-								<div className='desc-container'>
-									<Badge px={6} py={3} fontFamily={'var(--font-mw_sans)'}>
-										Featured issue
-									</Badge>
-									<h2 className='heading-5 issue-title'>
-										Luctus fermentum interdum faucibus diam ut sit. Varius eget
-									</h2>
-								</div>
-								<div className='img-container'>
-									<img src={basePath + '/images/KOL/1.png'} />
-								</div>
+				<Section columnCount={3}>
+					<div className='column' style={{ flex: '1 1 60rem' }}>
+						<div className='news-featured column'>
+							<div className='img-container'>
+								<img src={`${kaunlaran_items[0].img}`} />
 							</div>
-							<div className='kaunlaran-list'>
-								{kaunlaran_items.map((kaunlaran, index) => {
-									return (
-										<KaunlaranItems
-											link={kaunlaran.link}
-											index={index}
-											title={kaunlaran.title}
-											date={kaunlaran.date}
-											vol={kaunlaran.vol}
-											img={kaunlaran.img}
-											key={`kaunlaranItem_` + index}
-										/>
-									);
-								})}
+							<div className='desc-container'>
+								<div className='news-date small'>{kaunlaran_items[0].date}</div>
+								<h2 className='heading-5 news-title'>
+									{kaunlaran_items[0].title}
+								</h2>
+								<p>{kaunlaran_items[0].desc}</p>
+								<p>
+									<Button link='/news/inner' className={'btn-bordered pri'}>
+										Read More
+									</Button>
+								</p>
 							</div>
 						</div>
 					</div>
-				</motion.div>
+					{kaunlaran_items.map((news, index) => {
+						return (
+							<div className='column' key={`NewsItem_` + index}>
+								<NewsItem
+									link={news.link}
+									index={index}
+									title={news.title}
+									date={news.date}
+									img={news.img}
+									direction={'horizontal'}
+								/>
+							</div>
+						);
+					})}
+				</Section>
 			</Curve>
 		</>
 	);

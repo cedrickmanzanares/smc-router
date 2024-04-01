@@ -6,15 +6,18 @@ import { animate } from 'framer-motion/dom';
 
 import useMousePosition from '@/hooks/use-mousepoition';
 import { useDimensions } from '@/hooks/use-dimension';
-import { useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { useMeasure, useWindowSize } from '@uidotdev/usehooks';
 import useAnim from '@/hooks/use-anim';
 import { curve } from '../Layout/Curve/anim';
 import { getColors } from '@/hooks/use-color';
+import { ThemeContext } from '@/pages/_app';
 
 export default function Button({ className, link, children }) {
+	const smcTheme = useContext(ThemeContext);
+
 	const [button, { width, height }] = useMeasure();
-	const { blue, red } = getColors;
+	const { blue, red, baseBlack } = getColors;
 	const buttonVariants = {
 		buttonInitial: {
 			scale: 1,
@@ -40,8 +43,12 @@ export default function Button({ className, link, children }) {
 	};
 
 	const getColor = (className) => {
-		if (className.includes('pri')) return blue;
-		if (className.includes('white')) return blue;
+		console.log(smcTheme);
+		if (smcTheme === 'smc-red') return red;
+		if (smcTheme === 'smc-blue') return blue;
+		return baseBlack;
+		// if (className.includes('pri')) return blue;
+		// if (className.includes('white')) return blue;
 	};
 
 	const getHoverColor = (className) => {
@@ -51,7 +58,7 @@ export default function Button({ className, link, children }) {
 
 	const textVariants = {
 		buttonInitial: {
-			color: getColor(className),
+			// color: getColor(className),
 		},
 		buttonEnter: {
 			color: getHoverColor(className),

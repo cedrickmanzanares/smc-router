@@ -1,9 +1,12 @@
-.fullbanner-section {
-	height: 100vh;
-	img,
-	video {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
+.fullbanner {
+	background-color: black;
+	.fullbanner-img {
+		height: 110%;
+		width: 110%;
+		background-size: cover;
+		top: -5%;
+		left: -5%;
+		position: absolute;
+		opacity: 0.7;
 	}
 }

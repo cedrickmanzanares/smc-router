@@ -15,6 +15,8 @@ import { useRouter } from 'next/router';
 import { useParams } from 'next/navigation';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Link from 'next/link';
+import { PiCaretCircleRight } from 'react-icons/pi';
 
 export default function OurStory() {
 	const router = useRouter();
@@ -87,12 +89,15 @@ export default function OurStory() {
 							aliquam magnis. Felis viverra ornare elit feugiat dictumst. Velit
 							nisl arcu.
 						</p>
-
-						<Button
-							link='/our-story/our-company'
-							className={'btn-bordered white'}>
-							Learn more
-						</Button>
+						<div className=''>
+							<Link href='/' className='btn pri-btn btn-stacked'>
+								President’s Message
+								<PiCaretCircleRight size={'1.75rem'} />
+							</Link>
+							<Link href='/' className='btn pri-btn btn-stacked'>
+								Share Prices <PiCaretCircleRight size={'1.75rem'} />
+							</Link>
+						</div>
 					</div>
 					<div className='column'>
 						<div className='image-content stacked'>
@@ -106,6 +111,17 @@ export default function OurStory() {
 								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
 							</div>
 						</div>
+					</div>
+				</Section>
+
+				<Section>
+					<div className='column'>
+						<h2 className='heading-3'>Lobortis purus at adipiscing aliquam</h2>
+						<p>
+							Eu phasellus nunc neque porta laoreet maecenas tortor in. Magnis
+							sit leo at a tortor. Quis massa tellus ut arcu sit sed sed. In
+							ultrices curabitur leo eu.
+						</p>
 					</div>
 				</Section>
 			</Curve>

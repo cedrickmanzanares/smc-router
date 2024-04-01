@@ -54,12 +54,10 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
-}
-
-.main-nav a {
-	color: var(--base-black);
-	text-decoration: none;
-	padding: 1rem;
+	a {
+		text-decoration: none;
+		padding: 1rem;
+	}
 }
 
 .nav-toggle {

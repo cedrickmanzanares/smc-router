@@ -17,6 +17,7 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import { NewsItem } from '@/pages/news';
 
 export default function CSR() {
 	const images = [
@@ -37,6 +38,38 @@ export default function CSR() {
 		`${basePath}/images/CSR/www-12.jpg`,
 	];
 
+	const newsItems = [
+		{
+			title:
+				'SMC bests other PH firms; jumps to 43rd in Forbes’ World’s Best Employers list—after ranking high in Time’s World’s Best Companies',
+			desc: 'Since 2013, in the aftermath of typhoons Sendong and Yolanda, San Miguel Corporation (SMC) has been at the forefront of building resilient housing communities nationwide.',
+			date: 'November 28, 2023',
+			img: basePath + '/images/News/n1.png',
+			link: '/news/inner',
+		},
+		{
+			title:
+				'SMC, Ayala ink agreement to integrate Arca South to Skyway Stage 4 project',
+			date: 'November 28, 2023',
+			img: basePath + '/images/News/n2.png',
+			link: '/news/inner',
+		},
+		{
+			title:
+				'SMB delivers solid nine-month results amidst higher volumes, improved market conditions',
+			date: 'November 28, 2023',
+			img: basePath + '/images/News/n4.png',
+			link: '/news/inner',
+		},
+		{
+			title:
+				'SMC, Pangasinan ink historic JVA for PLEX; to boost economy and connectivity in Central, Northern Luzon',
+			date: 'November 28, 2023',
+			img: basePath + '/images/News/n5.png',
+			link: '/news/inner',
+		},
+	];
+
 	return (
 		<>
 			<Head>
@@ -52,6 +85,13 @@ export default function CSR() {
 				/>
 
 				<Section columnCount={2}>
+					<div className='column'>
+						<div className='image-content'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+							</div>
+						</div>
+					</div>
 					<div className='column'>
 						<div className='text-content'>
 							<h2 className='heading-4'>
@@ -74,36 +114,17 @@ export default function CSR() {
 							</p>
 						</div>
 					</div>
-					<div className='column'>
-						<div className='image-content'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-							</div>
-						</div>
-					</div>
 				</Section>
 
 				<Section containerSize={'full'} columnCount={1}>
 					<div className='column'>
-						<div className='image-content'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-							</div>
-							<div className='image-caption'>
-								<h2 className='heading-3'>The world we want</h2>
-							</div>
-						</div>
+						<FullPageBanner
+							image={`${basePath}/images/CSR/60dc13a6f26d5.png`}
+							caption={'The world we want'}></FullPageBanner>
 					</div>
 				</Section>
 
 				<Section columnCount={2}>
-					<div className='column'>
-						<div className='image-content'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-							</div>
-						</div>
-					</div>
 					<div className='column'>
 						<div className='text-content'>
 							<h2 className='heading-4'>Environmental and Other Programs</h2>
@@ -132,116 +153,41 @@ export default function CSR() {
 							</p>
 						</div>
 					</div>
-				</Section>
-
-				<Section>
 					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-5'>
-								Pellentesque cras tortor viverra dui tempor semper cum sed.
-							</h2>
-							<p>
-								The environmental program of San Miguel Foundation Inc. covers
-								the protection of land, water, and air. On a smaller scale, the
-								Foundation conducts tree-planting projects on areas identified
-								by different San Miguel Corporation (SMC) plants. Tree-planting
-								projects are usually scheduled to coincide with plant
-								celebrations.
-							</p>
-							<p>
-								The Foundation advocates the protection of coastal waters
-								through its Coastal Resource Management, which engages in
-								mangrove reforestation, artificial reef installation and
-								regeneration of marine resources. Training on waste management
-								and donation of trash bins through plant facilities are also
-								conducted.
-							</p>
-							<p>
-								<Button
-									link='/our-business/inner'
-									className='pri-btn btn-bordered'>
-									Learn More
-								</Button>
-							</p>
+						<div className='image-content stacked'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							</div>
 						</div>
 					</div>
 				</Section>
 
-				<FullPageBanner>
-					<img src={`${basePath}/images/CSR/60dc13a6f26d5.png`} />
-				</FullPageBanner>
-
-				<ColumnSection>
-					<>
-						<TextGradient
-							anim={{ ...useAnim(pageTranslate(2)) }}
-							classes='heading-3'
-							paddingBottom={'unset'}
-							paragraph={
-								"More than a slogan, it's a calling to our better selves. It's a credo rooted in hope and action."
-							}
-						/>
-						<p>
-							As a company, San Miguel Corporation invests in social projects
-							not only because it makes good business sense, but because we
-							believe the private sector needs to do its part. If the cities and
-							communities we serve are thriving, San Miguel will thrive too.
-						</p>
-					</>
-					<>
-						<AspectRatio maxW='560px' ratio={1}>
-							<img src={`${basePath}/images/CSR/1.jpg`} />
-						</AspectRatio>
-					</>
-				</ColumnSection>
-
-				<ParallaxGrid images={images} anim={useAnim(pageTranslate(1))}>
-					<h2 className='heading-3'>The world we want</h2>
-					<p>
-						There’s a reason why poverty and income inequality are called wicked
-						problems, and even a company as large and as diverse as San Miguel
-						can’t solve it alone.
-					</p>
-					<p>
-						It takes everyone to come together to think about how we might solve
-						these problems together. The San Miguel Foundation works with our
-						partners to create solutions on the ground and at a people level.
-					</p>
-					<p>
-						<Button link='#' className={'btn-bordered white'}>
-							Read More
-						</Button>
-					</p>
-				</ParallaxGrid>
-
-				<ColumnSection direction={'reverse'}>
-					<>
-						<h2 className='heading-4 split-color'>
-							Environmental <b>and Other Programs</b>
-						</h2>
-						<p>
-							The environmental program of San Miguel Foundation Inc. covers the
-							protection of land, water, and air. On a smaller scale, the
-							Foundation conducts tree-planting projects on areas identified by
-							different San Miguel Corporation (SMC) plants. Tree-planting
-							projects are usually scheduled to coincide with plant
-							celebrations.
-						</p>
-
-						<p>
-							The Foundation advocates the protection of coastal waters through
-							its Coastal Resource Management, which engages in mangrove
-							reforestation, artificial reef installation and regeneration of
-							marine resources. Training on waste management and donation of
-							trash bins through plant facilities are also conducted.
-						</p>
-					</>
-					<>
-						<AspectRatio maxW='560px' ratio={1}>
-							<img src={`${basePath}/images/CSR/e-1.jpg`} />
-						</AspectRatio>
-					</>
-				</ColumnSection>
+				<Section columnCount={2}>
+					<div className='column' style={{ flex: '1 0 100%' }}>
+						<h3 className='heading-5'>
+							Pellentesque cras tortor viverra dui tempor semper cum sed.
+						</h3>
+					</div>
+					{newsItems.map((news, index) => {
+						return (
+							<div className='column' key={`NewsItem_` + index}>
+								<NewsItem
+									link={news.link}
+									index={index}
+									title={news.title}
+									date={news.date}
+									img={news.img}
+								/>
+							</div>
+						);
+					})}
+				</Section>
 			</Curve>
 		</>
 	);

@@ -50,6 +50,13 @@ export default function InvestorContact() {
 
 				<Section columnCount={2}>
 					<div className='column'>
+						<div className='image-content'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+							</div>
+						</div>
+					</div>
+					<div className='column'>
 						<div className='text-content'>
 							<h2 className='heading-5'>
 								<b>
@@ -72,13 +79,6 @@ export default function InvestorContact() {
 									SMCInvestorRelations@sanmiguel.com.ph
 								</a>
 							</p>
-						</div>
-					</div>
-					<div className='column'>
-						<div className='image-content'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-							</div>
 						</div>
 					</div>
 				</Section>

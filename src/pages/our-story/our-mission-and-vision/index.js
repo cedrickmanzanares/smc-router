@@ -5,6 +5,8 @@ import { getColors } from '@/hooks/use-color';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import VideoContent from '@/cms-components/VideoContent/Video';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurMissionAndVison() {
 	const { gray2, red } = getColors;
@@ -25,11 +27,61 @@ export default function OurMissionAndVison() {
 				<PageBanner title={'Our Mission & Vision'} direction='center' />
 				<Section>
 					<div className='column'>
-						<div className='text-content'>
-							<p>Test</p>
+						<VideoContent />
+					</div>
+					<div className='column'>
+						<div className='mv-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+
+							<div className='desc-container'>
+								<p className='heading-6 split-color'>
+									The San Miguel Group <b>Vision</b>
+								</p>
+								<p className='heading-5'>
+									A resilient and globally-competitive Philippines
+								</p>
+								<p>where everyone can enrich and enjoy their lives.</p>
+							</div>
+						</div>
+						<div className='mv-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/tao.svg`} />
+							</div>
+
+							<div className='desc-container'>
+								<p className='heading-6 split-color'>
+									Our Core <b>Purpose</b>
+								</p>
+								<p className='heading-5'>
+									To lead in nation-building by creating opportunities that will
+									uplift generations of Filipinos,
+								</p>
+								<p>
+									allowing all to share in the rewards of sustainable
+									development and prosperity.
+								</p>
+							</div>
+						</div>
+						<div className='mv-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/heart.svg`} />
+							</div>
+
+							<div className='desc-container'>
+								<p className='heading-6 split-color'>
+									Our Core <b>Value</b>
+								</p>
+								<p className='heading-5'>
+									Malasakit is at the core of who we are as a company.
+								</p>
+								<p>Excellence, Accountability, Sustainability</p>
+							</div>
 						</div>
 					</div>
 				</Section>
+				<Section containerSize='small'></Section>
 			</Curve>
 		</>
 	);

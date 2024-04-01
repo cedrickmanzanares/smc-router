@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { getColors } from '@/hooks/use-color';
 import Link from 'next/link';
 
-import { PiCaretRightBold } from 'react-icons/pi';
+import { PiCaretCircleRight, PiCaretRightBold } from 'react-icons/pi';
 import { PiArrowRightBold } from 'react-icons/pi';
 
 import { IoIosArrowDropright } from 'react-icons/io';
@@ -78,11 +78,11 @@ export default function PDFItem({ title, date, download, link }) {
 				{date && <span className='small'>{date}</span>}
 				{download ? (
 					<motion.div className='pdf-button' variants={buttonVariants}>
-						<PiArrowRightBold size={`1.25rem`} fill='currentColor' />
+						<PiCaretCircleRight size={'1.75rem'} />
 					</motion.div>
 				) : (
 					<motion.div className='pdf-button' variants={buttonVariants}>
-						<PiArrowRightBold size={`1.25rem`} />
+						<PiCaretCircleRight size={'1.75rem'} />
 					</motion.div>
 				)}
 			</motion.div>

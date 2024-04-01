@@ -1,23 +1,36 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { motion, useScroll } from 'framer-motion';
 
-import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
+import {
+	PiCaretCircleLeft,
+	PiCaretCircleRight,
+	PiCaretLeftBold,
+	PiCaretRightBold,
+} from 'react-icons/pi';
 
 import { basePath } from '@/hooks/use-basepath';
 import { getColors } from '@/hooks/use-color';
 
 export default function ImageSlider({
+	adaptiveHeight = false,
 	type,
 	gradient = true,
 	dots,
 	captionPosition = '',
 	arrows = true,
 }) {
+	const slider = useRef(null);
 	const { blue } = getColors;
+	const [sliderHeight, setSliderHeight] = useState(null);
+	const [sliderImageHeight, setSliderImageHeight] = useState(null);
+
 	const sliderClasses = `image-slider ${type} caption-${captionPosition}`;
+	const sliderContainerClasses = `image-slider-container ${
+		arrows ? 'has-arrows' : ''
+	}`;
 	const business = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: business,
@@ -26,47 +39,55 @@ export default function ImageSlider({
 
 	const [selected, setSelected] = useState(0);
 
+	useEffect(() => {
+		if (slider) {
+			setSliderHeight(
+				slider.current.querySelectorAll('.image-slide')[selected].offsetHeight
+			);
+		}
+
+		setSliderImageHeight(
+			slider.current
+				.querySelectorAll('.image-slide')
+				[selected].querySelector('.image-img').offsetHeight
+		);
+
+		console.log(
+			slider.current
+				.querySelectorAll('.image-slide')
+				[selected].querySelector('.image-img').offsetHeight
+		);
+	}, [selected]);
 	const slides = [
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
-			title: 'Lorem Ipsum Dolor',
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		},
-		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		},
-		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-2.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		},
-		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-		},
-		{
-			img: `${basePath}/images/Homepage-1/OurProjects/projects-1.png`,
-			desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+			img: `${basePath}/images/AnnualReports.png`,
+			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
+			title: '2022 SMC Annual Report',
 		},
 	];
 
@@ -86,6 +107,12 @@ export default function ImageSlider({
 		return `-${index * 100}px`;
 	});
 
+	const zAnnual = slides.map((slide, index) => {
+		return `-${index * 50}px`;
+	});
+
+	const zFinal = captionPosition === 'annual-report' ? zAnnual : z;
+
 	const rotate = slides.map((slide, index) => {
 		return `${index * 20}deg`;
 	});
@@ -100,8 +127,6 @@ export default function ImageSlider({
 			return 0;
 		}
 	});
-
-	console.log(o);
 
 	const x = slides.map((slide, index) => {
 		if (index == -0) return 1;
@@ -128,8 +153,11 @@ export default function ImageSlider({
 	};
 
 	return (
-		<div className={'image-slider-container'}>
-			<div className={sliderClasses}>
+		<div className={sliderContainerClasses}>
+			<div
+				className={sliderClasses}
+				ref={slider}
+				style={{ height: adaptiveHeight && sliderHeight }}>
 				<div className='image-slider-track'>
 					{slides.map((slide, index) => {
 						let x_test = gradient
@@ -140,12 +168,12 @@ export default function ImageSlider({
 							<motion.div
 								className='image-slide'
 								key={`image-slide_${index}`}
-								onTap={() => {
+								onTap={(event) => {
 									setSelected(index);
 								}}
 								animate={{
 									zIndex: zindex[getDistance(index, selected)],
-									z: z[getDistance(index, selected)],
+									z: zFinal[getDistance(index, selected)],
 									// rotate: rotate,
 
 									x: `${-selected * 100}%`,
@@ -155,7 +183,12 @@ export default function ImageSlider({
 								<motion.div
 									className='image-img'
 									animate={{
-										opacity: o[getDistance(index, selected)],
+										opacity:
+											gradient === 'partial'
+												? selected - index <= 0
+													? o[getDistance(index, selected)]
+													: 0
+												: o[getDistance(index, selected)],
 									}}>
 									<img src={slide.img} />
 								</motion.div>
@@ -193,19 +226,33 @@ export default function ImageSlider({
 					<div className='controls'>
 						<motion.button
 							className='button left'
-							onTap={() => {
+							style={{
+								top:
+									sliderImageHeight &&
+									adaptiveHeight &&
+									sliderImageHeight / 2 - 20,
+							}}
+							onTap={(event) => {
 								if (selected - 1 < 0) return;
+								console.log(event);
 								setSelected((prev) => prev - 1);
 							}}>
-							<PiCaretLeftBold />
+							<PiCaretCircleLeft size={'40px'} />
 						</motion.button>
 						<motion.button
 							className='button right'
-							onTap={() => {
+							style={{
+								top:
+									sliderImageHeight &&
+									adaptiveHeight &&
+									sliderImageHeight / 2 - 20,
+							}}
+							onTap={(event) => {
 								if (selected + 1 > slides.length - 1) return;
+
 								setSelected((prev) => prev + 1);
 							}}>
-							<PiCaretRightBold />
+							<PiCaretCircleRight size={'40px'} />
 						</motion.button>
 					</div>
 				)}
