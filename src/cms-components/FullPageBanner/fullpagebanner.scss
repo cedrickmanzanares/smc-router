@@ -1,5 +1,31 @@
 .fullbanner {
 	background-color: black;
+	height: 55vh;
+	overflow: hidden;
+	.fullbanner-title {
+		margin: 0;
+	}
+	.img-container {
+		height: 100%;
+		position: relative;
+		z-index: 0;
+		background-color: black;
+		img {
+			opacity: 0.7;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+	.image-caption {
+		z-index: 1;
+		position: absolute;
+
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+	}
 	.fullbanner-img {
 		height: 110%;
 		width: 110%;

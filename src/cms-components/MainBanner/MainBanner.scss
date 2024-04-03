@@ -49,6 +49,7 @@
 	line-height: 1.25;
 	font-weight: 700;
 	z-index: 30000 !important;
+	font-size: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
 	span {
 		display: inline-block;
 	}

@@ -31,7 +31,7 @@ export default function Careers() {
 
 			<Section containerSize={'small'} direction={'center'}>
 				<div className='column'>
-					<p className='heading-5'>
+					<p className='heading-3'>
 						<b>
 							We are today in the midst of an unprecedented expansion program
 							that will weave our products and services even more tightly into

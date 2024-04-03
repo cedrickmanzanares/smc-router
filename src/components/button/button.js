@@ -1,23 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { animate } from 'framer-motion/dom';
 
-import useMousePosition from '@/hooks/use-mousepoition';
-import { useDimensions } from '@/hooks/use-dimension';
-import { useContext, useEffect, useRef } from 'react';
-import { useMeasure, useWindowSize } from '@uidotdev/usehooks';
-import useAnim from '@/hooks/use-anim';
-import { curve } from '../Layout/Curve/anim';
+import { useContext } from 'react';
+import { useMeasure } from '@uidotdev/usehooks';
+
 import { getColors } from '@/hooks/use-color';
 import { ThemeContext } from '@/pages/_app';
+import { useGetButtonColor, useGetToggleFill } from '@/data/data';
 
 export default function Button({ className, link, children }) {
 	const smcTheme = useContext(ThemeContext);
 
 	const [button, { width, height }] = useMeasure();
 	const { blue, red, baseBlack } = getColors;
+	const { buttonColor } = useGetButtonColor();
+
 	const buttonVariants = {
 		buttonInitial: {
 			scale: 1,
@@ -43,7 +43,7 @@ export default function Button({ className, link, children }) {
 	};
 
 	const getColor = (className) => {
-		console.log(smcTheme);
+		if (className.includes('white')) return '#ffffff';
 		if (smcTheme === 'smc-red') return red;
 		if (smcTheme === 'smc-blue') return blue;
 		return baseBlack;
@@ -52,13 +52,21 @@ export default function Button({ className, link, children }) {
 	};
 
 	const getHoverColor = (className) => {
+		if (className.includes('btn-bordered')) {
+			if (className.includes('white')) {
+				if (smcTheme === 'smc-red') return red;
+				if (smcTheme === 'smc-blue') return blue;
+				console.log('test');
+				return baseBlack;
+			}
+		}
 		if (className.includes('pri')) return '#ffffff';
 		if (className.includes('white')) return '#ffffff';
 	};
 
 	const textVariants = {
 		buttonInitial: {
-			// color: getColor(className),
+			// color: buttonColor,
 		},
 		buttonEnter: {
 			color: getHoverColor(className),

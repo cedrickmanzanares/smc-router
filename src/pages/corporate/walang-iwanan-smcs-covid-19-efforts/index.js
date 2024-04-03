@@ -22,8 +22,9 @@ import { basePath } from '@/hooks/use-basepath';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
-import { NewsItem } from '@/pages/news';
+
 import VideoContent from '@/cms-components/VideoContent/Video';
+import { NewsItem } from '../news';
 
 export default function WalangIwanan() {
 	const parent1 = useRef(null);
@@ -151,7 +152,7 @@ export default function WalangIwanan() {
 								<img src={`${newsItems[0].img}`} />
 							</div>
 							<div className='desc-container'>
-								<div className='news-date small'>{newsItems[0].date}</div>
+								<div className='news-date small-text'>{newsItems[0].date}</div>
 								<h2 className='heading-5 news-title'>{newsItems[0].title}</h2>
 								{/* <p>{newsItems[0].desc}</p> */}
 								<p>

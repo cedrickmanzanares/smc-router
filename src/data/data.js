@@ -3,6 +3,7 @@ import { MenuContext, ThemeContext, TokenContext } from '@/pages/_app';
 
 import { env } from '/next.config';
 import { useRouter } from 'next/router.js';
+import { getColors } from '@/hooks/use-color';
 const { api_url, api_uname, api_pass } = env;
 export const useInitializeToken = async () => {
 	let request_data = new FormData();
@@ -56,14 +57,11 @@ export const useGetTheme = (menu) => {
 	const router = useRouter();
 
 	useEffect(() => {
-		console.log(smcTheme);
-	}, [smcTheme]);
-	useEffect(() => {
 		// if (router.route.split('/')[0] === )
 		let parentLinks = menu.map((item) => item.page[0].slug);
 
 		let index = parentLinks.indexOf(router.route.split('/')[1]);
-		console.log(index);
+
 		switch (index) {
 			case 0:
 				setsmcTheme('smc-red');
@@ -83,4 +81,35 @@ export const useGetTheme = (menu) => {
 	}, [router, menu]);
 
 	return { smcTheme };
+};
+
+export const useGetToggleFill = () => {
+	const { red, blue, yellow } = getColors;
+	const [toggleFill, setToggleFill] = useState(red);
+
+	const smcTheme = useContext(ThemeContext);
+
+	useEffect(() => {
+		if (smcTheme === 'smc-red') setToggleFill(red);
+		else if (smcTheme === 'smc-blue') setToggleFill(blue);
+		else if (smcTheme === 'smc-yellow') setToggleFill(yellow);
+		else setToggleFill(red);
+	}, [smcTheme]);
+
+	return { toggleFill };
+};
+
+export const useGetButtonColor = () => {
+	const { red, blue, yellow, baseBlack } = getColors;
+	const [buttonColor, setButtonColor] = useState(baseBlack);
+	const smcTheme = useContext(ThemeContext);
+
+	useEffect(() => {
+		if (smcTheme === 'smc-red') setButtonColor(red);
+		else if (smcTheme === 'smc-blue') setButtonColor(blue);
+		else if (smcTheme === 'smc-yellow') setButtonColor(baseBlack);
+		else setButtonColor(baseBlack);
+	}, [smcTheme]);
+
+	return { buttonColor };
 };

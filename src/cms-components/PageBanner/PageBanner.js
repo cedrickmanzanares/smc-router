@@ -5,9 +5,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { getColors } from '@/hooks/use-color';
 import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
-import { useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
+import { ThemeContext } from '@/pages/_app';
 
 export default function PageBanner({
 	title,
@@ -19,8 +20,10 @@ export default function PageBanner({
 
 	direction = 'left',
 	size = 'half',
-	headingSize = 'heading-3',
+	headingSize = 'heading-1',
 }) {
+	const smcTheme = useContext(ThemeContext);
+
 	const headingColor = noBg ? '' : 'white';
 	const bannerClasses = `page-banner ${size} ${direction} ${
 		!image ? 'no-image' : ''
@@ -28,6 +31,7 @@ export default function PageBanner({
 	const bannerContainerClasses = `container-fluid-width ${containerSize}`;
 	const bannerHeadingClasses = `banner-title ${headingSize} `;
 
+	const [rotate, setRotate] = useState(-30);
 	const careers = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: careers,
@@ -49,6 +53,12 @@ export default function PageBanner({
 		useTransform(scrollYProgress, [0, 1], ['0px', '15px']),
 	];
 
+	useEffect(() => {
+		if (smcTheme === 'smc-blue' && size === 'full') {
+			setRotate(45);
+		}
+	}, [smcTheme]);
+
 	const path_settings = {};
 	return (
 		<div className={bannerClasses} ref={careers}>
@@ -61,27 +71,34 @@ export default function PageBanner({
 					style={{
 						y: '-150%',
 						x: '-47%',
-						rotate: -30,
+						rotate: rotate,
 						z: z[0],
 					}}></motion.div>
 				<motion.div
 					className='path path-2'
-					style={{ y: '-10%', x: '-61%', rotate: -30, z: z[1] }}></motion.div>
+					style={{
+						y: '-10%',
+						x: '-61%',
+						rotate: rotate,
+						z: z[1],
+					}}></motion.div>
 				<motion.div
 					className='path path-3'
-					style={{ y: '35%', x: '-72%', rotate: -30, z: z[2] }}></motion.div>
+					style={{ y: '35%', x: '-72%', rotate: rotate, z: z[2] }}></motion.div>
 
 				<motion.div
 					className='path path-4'
-					style={{ x: '35%', rotate: -30, z: z[3] }}></motion.div>
+					style={{ x: '35%', rotate: rotate, z: z[3] }}></motion.div>
 				<motion.div
 					className='path path-5'
-					style={{ x: '55%', rotate: -30, z: z[4] }}></motion.div>
+					style={{ x: '55%', rotate: rotate, z: z[4] }}></motion.div>
 				<div className='banner-shade'></div>
 			</div>
 			<div className={bannerContainerClasses}>
-				<h1 className={bannerHeadingClasses}>{title}</h1>
-				{subtitle && <p className='banner-subtitle'>{subtitle}</p>}
+				<div className='banner-info'>
+					<h1 className={bannerHeadingClasses}>{title}</h1>
+					{subtitle && <p className='banner-subtitle heading-5'>{subtitle}</p>}
+				</div>
 			</div>
 		</div>
 	);

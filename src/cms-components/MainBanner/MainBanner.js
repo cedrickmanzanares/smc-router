@@ -53,19 +53,20 @@ export default function MainBanner() {
 	];
 
 	return (
-		<motion.section
-			className='main-banner'
-			ref={ref}
-			initial='initial'
-			animate='enter'
-			exit='exit'
-			variants={{
-				enter: {
-					transition: {
-						staggerChildren: 0.2,
-					},
-				},
-			}}>
+		// <motion.section
+		// 	className='main-banner'
+		// 	ref={ref}
+		// 	initial='initial'
+		// 	animate='enter'
+		// 	exit='exit'
+		// 	variants={{
+		// 		enter: {
+		// 			transition: {
+		// 				staggerChildren: 0.2,
+		// 			},
+		// 		},
+		// 	}}>
+		<motion.section className='main-banner' ref={ref}>
 			<motion.div className='banner-parallax'>
 				{imageSrc.map((val, index) => {
 					return (

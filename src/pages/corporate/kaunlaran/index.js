@@ -11,9 +11,10 @@ import Link from 'next/link';
 import { AspectRatio, Badge, Flex } from '@chakra-ui/layout';
 
 import { basePath } from '@/hooks/use-basepath';
-import { NewsItem } from '@/pages/news';
+
 import Section from '@/cms-components/Section/Section';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import { NewsItem } from '../news';
 
 export default function Kaunlaran() {
 	const kol = useRef(null);
@@ -127,7 +128,9 @@ export default function Kaunlaran() {
 								<img src={`${kaunlaran_items[0].img}`} />
 							</div>
 							<div className='desc-container'>
-								<div className='news-date small'>{kaunlaran_items[0].date}</div>
+								<div className='news-date small-text'>
+									{kaunlaran_items[0].date}
+								</div>
 								<h2 className='heading-5 news-title'>
 									{kaunlaran_items[0].title}
 								</h2>
@@ -175,8 +178,8 @@ function KaunlaranItems({ index, title, date, vol, img, link, setModal }) {
 					<Link href={link}>{title}</Link>
 				</h3>
 				<Flex justify={'space-between'} align={'center'}>
-					<div className='issue-date small'>{date}</div>
-					<div className='issue-vol small'>{vol}</div>
+					<div className='issue-date small-text'>{date}</div>
+					<div className='issue-vol small-text'>{vol}</div>
 				</Flex>
 			</div>
 		</div>

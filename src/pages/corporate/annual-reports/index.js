@@ -1,31 +1,17 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
-import { motion, useScroll } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { getColors } from '@/hooks/use-color';
-
-import Button from '@/components/button/button';
-
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-
-import useAnim from '@/hooks/use-anim';
-
-import Link from 'next/link';
-
-import gsap from 'gsap';
-import { pageTranslate } from '@/hooks/pageAnim';
-import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
-import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
+import { useScroll } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
-import SingleParallax from '@/components/single-parallax/single-parallax';
+
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
-import Section from '@/cms-components/Section/Section';
-import { NewsItem } from '@/pages/news';
+
 import { Flex } from '@chakra-ui/layout';
-import { FormControl, FormLabel, Input, Select } from '@chakra-ui/react';
+import { FormControl, FormLabel, Select } from '@chakra-ui/react';
 import ImageSlider from '@/cms-components/ImageSlider/ImageSlider';
+import Section from '@/cms-components/Section/Section';
 
 export default function AnnualReports() {
 	const parent1 = useRef(null);

@@ -25,22 +25,16 @@ export default function Corporate() {
 				size='full'
 				title='Corporate'
 				subtitle='Eu phasellus nunc neque porta laoreet maecenas tortor in. Magnis sit leo at a tortor. Quis massa tellus ut arcu sit sed sed. In ultrices curabitur leo eu.'
-				images={`${basePath} + '/images/Corporate/1.png',`}>
+				image={`${basePath}/images/Corporate/Corporate-Banner.png`}>
 				<div className='desc-container'>
-					<h1 className='heading-3 split-color'>
+					<h1 className='heading-1 split-color'>
 						<b>Corporate</b>
 					</h1>
-					<p>
-						San Miguel Corporation is committed to the highest standards of
-						corporate governance—critical in decision-making and corporate
-						strategies that create value for and safeguard the long-term
-						interests of its shareholders.
-					</p>
 				</div>
 			</PageBanner>
 			<Section columnCount={2}>
 				<div className='column'>
-					<h2 className='heading-4'>Tincidunt egestas phasellus sed ornare</h2>
+					<h2 className='heading-2'>Tincidunt egestas phasellus sed ornare</h2>
 					<p>
 						<b>
 							Pellentesque cras tortor viverra dui tempor semper cum sed. Sit
@@ -79,7 +73,7 @@ export default function Corporate() {
 							<img src={''} />
 						</div>
 						<div className='desc-container'>
-							<h2 className='heading-5'>Neque dictumst eget.</h2>
+							<h3 className='heading-3'>Neque dictumst eget.</h3>
 
 							<p>
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
@@ -101,7 +95,7 @@ export default function Corporate() {
 							<img src={''} />
 						</div>
 						<div className='desc-container'>
-							<h2 className='heading-5'>Neque dictumst eget.</h2>
+							<h3 className='heading-3'>Governance</h3>
 
 							<p>
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
@@ -123,7 +117,7 @@ export default function Corporate() {
 							<img src={''} />
 						</div>
 						<div className='desc-container'>
-							<h2 className='heading-5'>Neque dictumst eget.</h2>
+							<h3 className='heading-3'>Neque dictumst eget.</h3>
 
 							<p>
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
@@ -145,7 +139,7 @@ export default function Corporate() {
 							<img src={''} />
 						</div>
 						<div className='desc-container'>
-							<h2 className='heading-5'>Neque dictumst eget.</h2>
+							<h3 className='heading-3'>Neque dictumst eget.</h3>
 							<p>Purus varius elit morbi diam varius integer.</p>
 							<p>
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor

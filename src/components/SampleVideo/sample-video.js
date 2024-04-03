@@ -95,7 +95,7 @@ export default function SampleVideo() {
 					// }}
 				>
 					<div style={{ margin: 'auto' }}>
-						<motion.h2 className='heading-3'>
+						<motion.h2 className='heading-2'>
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem
 						</motion.h2>
 						<motion.p>
@@ -106,7 +106,9 @@ export default function SampleVideo() {
 							eos qui ratione voluptatem sequi nesciunt.
 						</motion.p>
 						<p>
-							<Button link='/our-business/inner' className='btn white'>
+							<Button
+								link='/our-business/inner'
+								className='btn btn-bordered white'>
 								Read More
 							</Button>
 						</p>

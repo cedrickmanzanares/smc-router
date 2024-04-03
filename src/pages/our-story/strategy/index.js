@@ -13,6 +13,7 @@ import PageTitle from '@/cms-components/PageTitle/PageTitle';
 import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import Section from '@/cms-components/Section/Section';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import { basePath } from '@/hooks/use-basepath';
 
 export default function OurStrategy() {
 	const { gray2, red } = getColors;
@@ -31,76 +32,143 @@ export default function OurStrategy() {
 
 			<Curve>
 				<PageBanner title={'Our Strategy'} direction='center' />
-				<Section containerSize='small'>
+				<Section columnCount={2}>
 					<div className='column'>
-						<p>
-							Our strategy for achieving these goals has five major elements
-							which are common to both our traditional and new businesses:
-						</p>
+						<div className='image-content'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+							</div>
+						</div>
+					</div>
+					<div className='column'>
+						<div className='text-content'>
+							<h2 className='heading-2'>
+								San Miguel’s goal is to help people enjoy and make progress in
+								their lives through the many products and services that our
+								company offers. 
+							</h2>
+							<p>
+								We want to give every customer and consumer we touch access to
+								the best we can offer—whether in terms of quality, affordability
+								or choice.
+							</p>
+							<p>
+								Our strategy for achieving these goals has five major elements
+								which are common to both our traditional and new businesses:
+							</p>
+						</div>
+					</div>
+				</Section>
+				<Section>
+					<div className='column'>
+						<div className='business-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
 
-						<h3 className='heading-6'>
-							Enhance value of our established businesses.
-						</h3>
-						<p>
-							We aim to enhance the value of our established businesses, ever
-							striving to achieve even greater efficiencies and operational
-							excellence. We will strengthen our brands by improving product
-							visibility and targeting areas where there is room for growth in
-							market share.
-						</p>
+							<div className='desc-container'>
+								<h2 className='heading-5'>
+									Enhance value of our established businesses.
+								</h2>
 
-						<h3 className='heading-6'>
-							Continue to diversify into industries that underpin the
-							development and growth of the Philippine economy.
-						</h3>
-						<p>
-							In addition to organic growth, we continue to seek strategic
-							acquisition and greenfield opportunities, positioning our
-							businesses in a way to best contribute to our country’s economic
-							growth and industrial development.
-						</p>
+								<p>
+									We aim to enhance the value of our established businesses,
+									ever striving to achieve even greater efficiencies and
+									operational excellence. We will strengthen our brands by
+									improving product visibility and targeting areas where there
+									is room for growth in market share.
+								</p>
+							</div>
+						</div>
+						<div className='business-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
 
-						<h3 className='heading-6'>
-							Identify and pursue synergies across businesses through vertical
-							integration, platform matching and channel management.
-						</h3>
-						<p>
-							We will create an even broader distribution network for our
-							products and expand our customer base by identifying synergies
-							across our various businesses. In addition, we are pursuing plans
-							to integrate our production and distribution facilities for both
-							our established and newly acquired businesses to generate
-							additional cost savings and efficiencies.
-						</p>
+							<div className='desc-container'>
+								<h2 className='heading-5'>
+									Continue to diversify into industries that underpin the
+									development and growth of the Philippine economy.
+								</h2>
 
-						<h3 className='heading-6'>
-							Invest in and develop businesses with market leading positions.
-						</h3>
-						<p>
-							San Miguel intends to further enhance our market position in the
-							Philippines by leveraging the company’s financial resources and
-							experience to allow it to continue to introduce new products and
-							services. Potential investments to develop or expand existing
-							businesses include building additional service and micro-filling
-							stations, constructing new power plants, expanding our power
-							generation and food portfolios. We believe our strong domestic
-							market position provides an effective platform to develop markets
-							for an expanding product availability and distribution. And we
-							will continue to invest in and develop businesses that have the
-							potential to gain leading positions in their respective markets
-							and industries.
-						</p>
+								<p>
+									We aim to enhance the value of our established businesses,
+									ever striving to achieve even greater efficiencies and
+									operational excellence. We will strengthen our brands by
+									improving product visibility and targeting areas where there
+									is room for growth in market share.
+								</p>
+							</div>
+						</div>
+						<div className='business-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
 
-						<h3 className='heading-6'>
-							Adopt world-leading practices and joint development of businesses.
-						</h3>
-						<p>
-							We will develop strategic partnerships with global industry
-							leaders, including Kirin in the beverages business, Nihon Yamamura
-							in our packaging business and Hormel in our food business. These
-							partnerships provide technical knowledge, marketing and expansion
-							opportunities.
-						</p>
+							<div className='desc-container'>
+								<h2 className='heading-5'>
+									Identify and pursue synergies across businesses through
+									vertical integration, platform matching and channel
+									management.
+								</h2>
+
+								<p>
+									We will create an even broader distribution network for our
+									products and expand our customer base by identifying synergies
+									across our various businesses. In addition, we are pursuing
+									plans to integrate our production and distribution facilities
+									for both our established and newly acquired businesses to
+									generate additional cost savings and efficiencies.
+								</p>
+							</div>
+						</div>
+						<div className='business-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+
+							<div className='desc-container'>
+								<h2 className='heading-5'>
+									Invest in and develop businesses with market leading
+									positions.
+								</h2>
+
+								<p>
+									San Miguel intends to further enhance our market position in
+									the Philippines by leveraging the company’s financial
+									resources and experience to allow it to continue to introduce
+									new products and services. Potential investments to develop or
+									expand existing businesses include building additional service
+									and micro-filling stations, constructing new power plants,
+									expanding our power generation and food portfolios. We believe
+									our strong domestic market position provides an effective
+									platform to develop markets for an expanding product
+									availability and distribution. And we will continue to invest
+									in and develop businesses that have the potential to gain
+									leading positions in their respective markets and industries.
+								</p>
+							</div>
+						</div>
+						<div className='business-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+
+							<div className='desc-container'>
+								<h2 className='heading-5'>
+									Adopt world-leading practices and joint development of
+									businesses.
+								</h2>
+
+								<p>
+									We will develop strategic partnerships with global industry
+									leaders, including Kirin in the beverages business, Nihon
+									Yamamura in our packaging business and Hormel in our food
+									business. These partnerships provide technical knowledge,
+									marketing and expansion opportunities.
+								</p>
+							</div>
+						</div>
 					</div>
 				</Section>
 			</Curve>

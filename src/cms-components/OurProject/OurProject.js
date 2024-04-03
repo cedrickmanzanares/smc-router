@@ -2,15 +2,7 @@
 
 import { useRef, useState } from 'react';
 
-import {
-	easeIn,
-	easeInOut,
-	easeOut,
-	motion,
-	useMotionValueEvent,
-	useScroll,
-	useTransform,
-} from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 
 import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
 
@@ -153,85 +145,87 @@ export default function OurProject({ className, link, children }) {
 					);
 				})}
 			</div>
-			<div className='container-fluid-width large'>
-				<h2 className='heading-3'>Our Projects</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				</p>
+			<div className='container-fluid-width medium'>
+				<div className='column'>
+					<h2 className='heading-2'>Our Projects</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
 
-				<div className='projects-slider-container'>
-					<div className='projects-slider'>
-						<div className='projects-slider-track'>
-							{slides.map((slide, index) => {
-								let x_test = `${25 * ((selected - index) * 2)}%`;
-								let rotate = `${-(selected - index) * 10}deg`;
-								return (
-									<motion.div
-										className='projects-slide'
-										key={`project-slide_${index}`}
-										onTap={() => {
-											setSelected(index);
-										}}
-										animate={{
-											zIndex: zindex[getDistance(index, selected)],
-											z: z[getDistance(index, selected)],
-											// rotate: rotate,
-
-											x: `${-selected * 100}%`,
-											// y: `${selected * index * 5}%`,
-										}}
-										transition={slider_transition}>
+					<div className='projects-slider-container'>
+						<div className='projects-slider'>
+							<div className='projects-slider-track'>
+								{slides.map((slide, index) => {
+									let x_test = `${25 * ((selected - index) * 2)}%`;
+									let rotate = `${-(selected - index) * 10}deg`;
+									return (
 										<motion.div
-											className='projects-img'
+											className='projects-slide'
+											key={`project-slide_${index}`}
+											onTap={() => {
+												setSelected(index);
+											}}
 											animate={{
-												opacity: o[getDistance(index, selected)],
-											}}>
-											<img src={slide.img} />
-										</motion.div>
-										<motion.div
-											className='projects-description'
-											initial='inital'
-											animate={selected === index ? 'selected' : 'initial'}
-											variants={{
-												selected: {
-													transition: {
-														staggerChildren: 0.05,
+												zIndex: zindex[getDistance(index, selected)],
+												z: z[getDistance(index, selected)],
+												// rotate: rotate,
+
+												x: `${-selected * 100}%`,
+												// y: `${selected * index * 5}%`,
+											}}
+											transition={slider_transition}>
+											<motion.div
+												className='projects-img'
+												animate={{
+													opacity: o[getDistance(index, selected)],
+												}}>
+												<img src={slide.img} />
+											</motion.div>
+											<motion.div
+												className='projects-description'
+												initial='inital'
+												animate={selected === index ? 'selected' : 'initial'}
+												variants={{
+													selected: {
+														transition: {
+															staggerChildren: 0.05,
+														},
 													},
-												},
-											}}>
-											<motion.h3
-												className='heading-5 project-title'
-												variants={desc_variants}>
-												{slide.title}
-											</motion.h3>
-											<motion.p
-												className='project-desc'
-												variants={desc_variants}>
-												{slide.desc}
-											</motion.p>
+												}}>
+												<motion.h3
+													className='heading-5 project-title'
+													variants={desc_variants}>
+													{slide.title}
+												</motion.h3>
+												<motion.p
+													className='project-desc'
+													variants={desc_variants}>
+													{slide.desc}
+												</motion.p>
+											</motion.div>
 										</motion.div>
-									</motion.div>
-								);
-							})}
-						</div>
-						<div className='controls'>
-							<motion.button
-								className='button left'
-								onTap={() => {
-									if (selected - 1 < 0) return;
-									setSelected((prev) => prev - 1);
-								}}>
-								<PiCaretLeftBold />
-							</motion.button>
-							<motion.button
-								className='button right'
-								onTap={() => {
-									if (selected + 1 > slides.length - 1) return;
-									setSelected((prev) => prev + 1);
-								}}>
-								<PiCaretRightBold />
-							</motion.button>
+									);
+								})}
+							</div>
+							<div className='controls'>
+								<motion.button
+									className='button left'
+									onTap={() => {
+										if (selected - 1 < 0) return;
+										setSelected((prev) => prev - 1);
+									}}>
+									<PiCaretLeftBold />
+								</motion.button>
+								<motion.button
+									className='button right'
+									onTap={() => {
+										if (selected + 1 > slides.length - 1) return;
+										setSelected((prev) => prev + 1);
+									}}>
+									<PiCaretRightBold />
+								</motion.button>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -28,10 +28,11 @@ const routes = {
 	'/corporate': 'Corporate',
 };
 
-export default function Curve({ children, backgroundColor }) {
+export default function Curve({ children }) {
 	const router = useRouter();
 
-	const theme = useContext(ThemeContext);
+	const smcTheme = useContext(ThemeContext);
+
 	let text_altered = text;
 	text_altered.enter.top = router.route == '/' ? '40vh' : -100;
 	// text_altered.exit.transitionEnd = router.route == '/' ? '40vh' : '47.5%';
@@ -66,7 +67,7 @@ export default function Curve({ children, backgroundColor }) {
 	}, []);
 
 	return (
-		<div className={`${theme} page curve`} style={{ backgroundColor }}>
+		<div className={`${smcTheme} page curve`}>
 			<div
 				style={{ opacity: dimensions.width == null ? 1 : 0 }}
 				className='background'
@@ -93,12 +94,12 @@ const SVG = ({ height, width }) => {
     `;
 
 	const targetPath = `
-        M0 300
-        Q${width / 2} 0 ${width} 300
-        L${width} ${height}
-        Q${width / 2} ${height} 0 ${height}
-        L0 0
-    `;
+	    M0 300
+	    Q${width / 2} 0 ${width} 300
+	    L${width} ${height}
+	    Q${width / 2} ${height} 0 ${height}
+	    L0 0
+	`;
 
 	return (
 		<motion.svg className='route-transition' {...useAnim(translate)}>

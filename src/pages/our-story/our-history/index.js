@@ -48,11 +48,14 @@ export default function OurHistory() {
 
 				<Section direction={'center'}>
 					<div className='column'>
-						<h2 className='heading-4'>Proud Beginnings</h2>
+						<h2 className='heading-2'>Proud Beginnings</h2>
 					</div>
+
 					<div className='column'>
 						<VideoContent />
 					</div>
+				</Section>
+				<Section direction={'center'} containerSize='small'>
 					<div className='column'>
 						<p>
 							Established in 1890, La Fabrica de Cerveza de San Miguel,
@@ -63,7 +66,6 @@ export default function OurHistory() {
 						</p>
 					</div>
 				</Section>
-
 				<motion.div
 					style={{ paddingTop: 0 }}
 					className='section-content img-section full no-min-height'

@@ -5,19 +5,12 @@ import { motion } from 'framer-motion';
 
 import Button from '@/components/button/button';
 
-import useAnim from '@/hooks/use-anim';
-import { pageTranslate } from '@/hooks/pageAnim';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
-
-import ParallaxGrid from '@/cms-components/ParallaxGrid/ParallaxGrid';
-import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
-import { AspectRatio } from '@chakra-ui/react';
 import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
-import { NewsItem } from '@/pages/news';
+import { NewsItem } from '@/pages/corporate/news';
 
 export default function CSR() {
 	const images = [
@@ -94,7 +87,7 @@ export default function CSR() {
 					</div>
 					<div className='column'>
 						<div className='text-content'>
-							<h2 className='heading-4'>
+							<h2 className='heading-2'>
 								More than a slogan, it’s a calling to our better selves. It’s a
 								credo rooted in hope and action.
 							</h2>
@@ -127,7 +120,7 @@ export default function CSR() {
 				<Section columnCount={2}>
 					<div className='column'>
 						<div className='text-content'>
-							<h2 className='heading-4'>Environmental and Other Programs</h2>
+							<h2 className='heading-2'>Environmental and Other Programs</h2>
 							<p>
 								The environmental program of San Miguel Foundation Inc. covers
 								the protection of land, water, and air. On a smaller scale, the
@@ -170,7 +163,7 @@ export default function CSR() {
 
 				<Section columnCount={2}>
 					<div className='column' style={{ flex: '1 0 100%' }}>
-						<h3 className='heading-5'>
+						<h3 className='heading-3'>
 							Pellentesque cras tortor viverra dui tempor semper cum sed.
 						</h3>
 					</div>

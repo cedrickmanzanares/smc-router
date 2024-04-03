@@ -365,7 +365,7 @@ export default function Footer() {
 									</div>
 								</AccordionButton>
 								<AccordionPanel>
-									<p className='small'>
+									<p className='small-text'>
 										SAN MIGUEL CORPORATION <br />
 										40 San Miguel Avenue, Mandaluyong City
 										<br />
@@ -388,7 +388,7 @@ export default function Footer() {
 									</div>
 								</AccordionButton>
 								<AccordionPanel>
-									<p className='small'>
+									<p className='small-text'>
 										Telephone: (+632) 8-632-2000
 										<br />
 										SAN MIGUEL CORPORATION
@@ -412,7 +412,7 @@ export default function Footer() {
 									</div>
 								</AccordionButton>
 								<AccordionPanel>
-									<p className='small'>
+									<p className='small-text'>
 										SMC STOCK TRANSFER SERVICE CORPORATION
 										<br />
 										40 San Miguel Avenue, Mandaluyong City
@@ -440,7 +440,7 @@ export default function Footer() {
 									</div>
 								</AccordionButton>
 								<AccordionPanel>
-									<p className='small'>
+									<p className='small-text'>
 										ATTY. NOEL D. BALSICAS
 										<br />
 										WHISTLEBLOWER RELATIONS
@@ -469,7 +469,7 @@ export default function Footer() {
 									</div>
 								</AccordionButton>
 								<AccordionPanel>
-									<p className='small'>
+									<p className='small-text'>
 										SAN MIGUEL CORPORATION
 										<br />
 										SMCInvestorRelations@sanmiguel.com.ph
@@ -496,7 +496,7 @@ export default function Footer() {
 											className='dpo'
 											data-filename='SMC_SOR.png'
 										/>
-										<p className='small'>
+										<p className='small-text'>
 											Telephone: (+632) 8-632-3007
 											<br />
 											Email: dpo@sanmiguel.com.ph
@@ -604,7 +604,7 @@ export default function Footer() {
 					</Accordion> */}
 				</div>
 
-				<p className='copy text-center small'>
+				<p className='copy text-center small-text'>
 					Copyright &copy; {year} San Miguel Corporation. All Rights Reserved.
 				</p>
 			</motion.div>

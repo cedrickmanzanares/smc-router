@@ -133,7 +133,7 @@ export default function OurBusinesses({ className, link, children }) {
 				</div>
 				<div className='container-fluid-width large'>
 					<div className='ourbusinesses-container'>
-						<h2 className='heading-3'>Our Businesses</h2>
+						<h2 className='heading-2'>Our Businesses</h2>
 						<div className='outer-ring-container'>
 							<div className='outer-ring'>
 								<div className='ring'></div>
@@ -189,7 +189,7 @@ export default function OurBusinesses({ className, link, children }) {
 													},
 												},
 											}}
-											className='heading-5'>
+											className='heading-3'>
 											{val.title}
 										</motion.h3>
 										<motion.p

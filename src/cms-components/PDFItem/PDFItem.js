@@ -62,10 +62,7 @@ export default function PDFItem({ title, date, download, link }) {
 		},
 	};
 	return (
-		<motion.div
-			className='pdf-item size-limit'
-			inital='rest'
-			whileHover='hover'>
+		<motion.div className='pdf-item' inital='rest' whileHover='hover'>
 			<a
 				target='_blank'
 				href={link}
@@ -75,7 +72,7 @@ export default function PDFItem({ title, date, download, link }) {
 				{title}
 			</motion.div>
 			<motion.div className='pdf-details' variants={detailsVariants}>
-				{date && <span className='small'>{date}</span>}
+				{date && <span className='small-text'>{date}</span>}
 				{download ? (
 					<motion.div className='pdf-button' variants={buttonVariants}>
 						<PiCaretCircleRight size={'1.75rem'} />

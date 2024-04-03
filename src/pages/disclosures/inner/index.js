@@ -13,7 +13,7 @@ import { Flex } from '@chakra-ui/layout';
 import { FormControl, Input, Select } from '@chakra-ui/react';
 import { PiCaretCircleLeft, PiCaretCircleRight } from 'react-icons/pi';
 
-export default function InnerDisclosure() {
+export default function InnerDisclosure({ title }) {
 	const { baseBlack, gray2, red } = getColors;
 
 	const footerIcon = {
@@ -27,7 +27,7 @@ export default function InnerDisclosure() {
 	].reverse();
 	return (
 		<Curve>
-			<PageBanner title={'Diclosures'} noBg={true} />
+			<PageBanner title={title} noBg={true} />
 			<Section>
 				<Flex gap={5} mb={10}>
 					<FormControl ml={'auto'} w={'auto'}>

@@ -87,7 +87,7 @@ export default function OurBusinessesInner() {
 
 				<Section
 					columnCount={2}
-					containerSize='large'
+					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
 						<div className='text-content'>
@@ -127,7 +127,7 @@ export default function OurBusinessesInner() {
 									<b>Ginebra San Miguel, Inc.</b>
 								</p>
 
-								<p className='small'>
+								<p className='small-text'>
 									Corporate Head Office 3rd, 5th & 6th
 									<br />
 									Floor, San Miguel Properties Centre, St. <br />
@@ -138,7 +138,7 @@ export default function OurBusinessesInner() {
 								<p>
 									<b>Customer Care</b>
 								</p>
-								<p className='small'>
+								<p className='small-text'>
 									For inquiries, orders and suggestions on our products and
 									services,
 									<br />
@@ -154,7 +154,7 @@ export default function OurBusinessesInner() {
 								<p>
 									<b>Email and Social Media</b>
 								</p>
-								<p className='small'>customercare.gsmi@smg.sanmiguel</p>
+								<p className='small-text'>customercare.gsmi@smg.sanmiguel</p>
 							</div>
 						</div>
 					</div>

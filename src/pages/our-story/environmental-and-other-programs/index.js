@@ -1,19 +1,9 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
-import { motion } from 'framer-motion';
+import PageBanner from '@/cms-components/PageBanner/PageBanner';
+import Section from '@/cms-components/Section/Section';
 
-import { getColors } from '@/hooks/use-color';
-
-import Link from 'next/link';
-
-import { ImFacebook, ImLinkedin2, ImSphere, ImYoutube } from 'react-icons/im';
-import { LuInstagram } from 'react-icons/lu';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
-import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
-
-import { basePath } from '@/hooks/use-basepath';
 export default function EnvironmenalProgram() {
 	return (
 		<>
@@ -25,20 +15,14 @@ export default function EnvironmenalProgram() {
 			</Head>
 
 			<Curve>
-				<PageTitle
-					title='Enviromental '
-					split='and other Programs'
-					horizontal='center'
+				<PageBanner
+					title={'Environment and Other Programs'}
+					direction='center'
 				/>
 
-				<FloatingImages
-					images={[
-						`${basePath}/images/Environmental/1.png`,
-						`${basePath}/images/Environmental/2.png`,
-						`${basePath}/images/Environmental/3.png`,
-					]}>
-					<div className='desc-container'>
-						<h3 className='heading-5'>Water for All</h3>
+				<Section containerSize='small'>
+					<div className='column'>
+						<h2 className='heading-3'>Water for All</h2>
 						<p>
 							In 2017, even as our water management efficiency levels were
 							already among the highest in the country, we chose to make our
@@ -71,17 +55,7 @@ export default function EnvironmenalProgram() {
 							continue to reduce groundwater use, even as we work with
 							communities to protect these water sources.
 						</p>
-					</div>
-				</FloatingImages>
-				<FloatingImages
-					images={[
-						`${basePath}/images/Environmental/4.png`,
-						`${basePath}/images/Environmental/5.png`,
-						`${basePath}/images/Environmental/6.png`,
-					]}
-					direction={'reverse'}>
-					<div className='desc-container'>
-						<h3 className='heading-5'>River cleanup initiative</h3>
+						<h2 className='heading-3'>River cleanup initiative</h2>
 						<p>
 							In August 2022, San Miguel Corporation completed the Tullahan
 							River cleanup initiative, after 27 months of operations. SMC was
@@ -124,16 +98,7 @@ export default function EnvironmenalProgram() {
 							daunting endeavor, taking the first steps toward restoration is a
 							crucial part and one that SMC is more than willing to take.
 						</p>
-					</div>
-				</FloatingImages>
-				<FloatingImages
-					images={[
-						`${basePath}/images/Environmental/7.png`,
-						`${basePath}/images/Environmental/8.png`,
-						`${basePath}/images/Environmental/9.png`,
-					]}>
-					<div className='desc-container'>
-						<h3 className='heading-5'>Waste-to-resource</h3>
+						<h2 className='heading-3'>Waste-to-resource</h2>
 						<p>
 							We make conscious and disciplined efforts to recycle coal
 							combustion residuals (CCR), mainly as an aggregate material for
@@ -167,11 +132,13 @@ export default function EnvironmenalProgram() {
 							covered in trees by the end of its 25-year lifespan.
 						</p>
 						<p>
-							<b>TO KNOW MORE, </b>
-							<a href='#'>DOWNLOAD OUR LATEST SUSTAINABILITY REPORT</a>
+							TO KNOW MORE,{' '}
+							<a href='/sustainability'>
+								DOWNLOAD OUR LATEST SUSTAINABILITY REPORT
+							</a>
 						</p>
 					</div>
-				</FloatingImages>
+				</Section>
 			</Curve>
 		</>
 	);

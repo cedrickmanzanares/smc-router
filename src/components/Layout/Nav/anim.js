@@ -149,13 +149,3 @@ export const path3_variants = {
 		transition: transitionSettings,
 	},
 };
-
-export const circle_variants = {
-	initial: {
-		cx: toggleSettings.size / 2,
-		cy: toggleSettings.size / 2,
-		r: 30,
-		fill: red,
-		transition: transitionSettings,
-	},
-};

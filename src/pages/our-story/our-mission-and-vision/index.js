@@ -36,10 +36,10 @@ export default function OurMissionAndVison() {
 							</div>
 
 							<div className='desc-container'>
-								<p className='heading-6 split-color'>
+								<p className='heading-4 split-color'>
 									The San Miguel Group <b>Vision</b>
 								</p>
-								<p className='heading-5'>
+								<p className='heading-3'>
 									A resilient and globally-competitive Philippines
 								</p>
 								<p>where everyone can enrich and enjoy their lives.</p>
@@ -51,10 +51,10 @@ export default function OurMissionAndVison() {
 							</div>
 
 							<div className='desc-container'>
-								<p className='heading-6 split-color'>
+								<p className='heading-4 split-color'>
 									Our Core <b>Purpose</b>
 								</p>
-								<p className='heading-5'>
+								<p className='heading-3'>
 									To lead in nation-building by creating opportunities that will
 									uplift generations of Filipinos,
 								</p>
@@ -70,10 +70,10 @@ export default function OurMissionAndVison() {
 							</div>
 
 							<div className='desc-container'>
-								<p className='heading-6 split-color'>
+								<p className='heading-4 split-color'>
 									Our Core <b>Value</b>
 								</p>
-								<p className='heading-5'>
+								<p className='heading-3'>
 									Malasakit is at the core of who we are as a company.
 								</p>
 								<p>Excellence, Accountability, Sustainability</p>

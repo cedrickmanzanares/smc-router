@@ -130,7 +130,7 @@ export default function Home() {
 						backgroundSize: 'cover',
 					}}>
 					<div className='container-fluid-width'>
-						<h2 className='heading-3'>
+						<h2 className='heading-2'>
 							<i>Malasakit</i>
 						</h2>
 						<p>

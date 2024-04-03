@@ -76,7 +76,7 @@ export default function OurStory() {
 				<PageBanner title={settings.title} image={settings.image} />
 				<Section columnCount={2}>
 					<div className='column'>
-						<h2 className='heading-4'>Neque dictumst eget.</h2>
+						<h3 className='heading-3'>Neque dictumst eget.</h3>
 						<p>Purus varius elit morbi diam varius integer.</p>
 						<p>
 							Velit morbi consequat laoreet hendrerit purus ornare ante tempor

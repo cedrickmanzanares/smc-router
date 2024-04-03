@@ -26,7 +26,6 @@ import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
 import { useWindowSize } from '@uidotdev/usehooks';
 import {
-	circle_variants,
 	floatingNavContent_variants,
 	hover_animation,
 	navItem_variants,
@@ -40,7 +39,7 @@ import Image from 'next/image';
 
 import { basePath } from '@/hooks/use-basepath';
 import { useRouter } from 'next/router';
-import { getMenu } from '@/data/data';
+import { getMenu, useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
 
 export default function Nav({}) {
@@ -116,7 +115,7 @@ export default function Nav({}) {
 	return (
 		<>
 			<motion.div
-				className={`${className} nav-container size-limit`}
+				className={`${className} nav-container`}
 				animate={navOpen ? 'open' : 'closed'}
 				variants={navContainer_variants}>
 				<div className='container-fluid-width large'>
@@ -158,7 +157,7 @@ function MainNav({
 	toggle,
 }) {
 	const menu = useContext(MenuContext);
-	const { theme } = useContext(ThemeContext);
+	const { smcTheme } = useContext(ThemeContext);
 
 	return (
 		<motion.nav
@@ -171,7 +170,7 @@ function MainNav({
 					},
 				},
 			}}
-			className={`main-nav ${c && c} ${theme}`}>
+			className={`main-nav ${c && c} ${smcTheme}`}>
 			{menu.length !== 0 &&
 				menu.map((item, index) => {
 					let key = `menuItem_lvl1_${item.id}`;
@@ -336,8 +335,21 @@ function NavItem({
 }
 
 function FloatingNav({ navOpen, isOpen, toggle }) {
-	const { baseBlack, red } = getColors;
+	const { baseBlack, red, blue, yellow } = getColors;
+	const { toggleFill } = useGetToggleFill();
+
+	const theme = useContext(ThemeContext);
+
 	// const [isOpen, toggle] = useCycle(true, true);
+
+	const circle_variants = {
+		initial: {
+			cx: toggleSettings.size / 2,
+			cy: toggleSettings.size / 2,
+			r: 30,
+			transition: transitionSettings,
+		},
+	};
 
 	const toggleDefaults = {
 		stroke: '#ffffff',
@@ -347,7 +359,7 @@ function FloatingNav({ navOpen, isOpen, toggle }) {
 
 	return (
 		<motion.div
-			className='nav-toggle'
+			className={`nav-toggle ${theme}`}
 			initial='initial'
 			variants={{
 				open: {

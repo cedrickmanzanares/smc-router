@@ -29,7 +29,7 @@ export default function FullPageBanner({ image, caption, children }) {
 				{/* </SingleParallax> */}
 			</div>
 			<div className='image-caption'>
-				<h3 className='heading-2'>{caption}</h3>
+				<h3 className='fullbanner-title heading-1'>{caption}</h3>
 			</div>
 		</motion.div>
 	);

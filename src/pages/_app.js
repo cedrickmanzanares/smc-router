@@ -64,9 +64,6 @@ export default function App({ Component, pageProps, router }) {
 	const { smcTheme } = useGetTheme(menu);
 
 	useEffect(() => {
-		console.log(smcTheme);
-	}, [smcTheme]);
-	useEffect(() => {
 		if (!token) {
 			let request_data = new FormData();
 			request_data.append('email', api_uname);

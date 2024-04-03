@@ -353,7 +353,7 @@ export default function Pillar({ content, position, children, simple }) {
 					</motion.p>
 					<motion.h2
 						style={{ opacity: text2[0], y: text2[1] }}
-						className='heading-4'
+						className='heading-2'
 						data-text={content.text2}>
 						{content.text2}
 					</motion.h2>

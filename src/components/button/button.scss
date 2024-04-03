@@ -8,6 +8,16 @@
 	}
 }
 
+.smc-blue {
+	.btn {
+		color: var(--base-blue);
+	}
+
+	.btn.btn-bordered {
+		border-color: var(--base-blue);
+	}
+}
+
 .btn {
 	border-radius: 2rem;
 	display: inline-flex;

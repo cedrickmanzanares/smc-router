@@ -1,27 +1,17 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
-import { motion, useScroll } from 'framer-motion';
+import { useScroll } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { getColors } from '@/hooks/use-color';
 
 import Button from '@/components/button/button';
 
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-
-import useAnim from '@/hooks/use-anim';
-
-import SingleParallax from '@/components/single-parallax/single-parallax';
 import Link from 'next/link';
-
-import gsap from 'gsap';
-import { pageTranslate } from '@/hooks/pageAnim';
 
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { PiCaretCircleRight } from 'react-icons/pi';
-import { Flex } from '@chakra-ui/layout';
 
 export default function News() {
 	const parent1 = useRef(null);
@@ -98,13 +88,16 @@ export default function News() {
 							ref={parent1}
 							style={{ backgroundImage: `url(${newsItems[0].img})` }}>
 							<div className='desc-container'>
-								<div className='news-date small'>{newsItems[0].date}</div>
-								<h2 className='heading-5 news-title'>{newsItems[0].title}</h2>
+								<div className='news-date small-text'>{newsItems[0].date}</div>
+								<h2 className='heading-3 news-title'>
+									<Link href='/'>{newsItems[0].title}</Link>
+								</h2>
 								{/* <p>{newsItems[0].desc}</p> */}
 								<p>
-									<Button link='/news/inner' className={'btn-bordered pri'}>
-										Read More
-									</Button>
+									<Link href={'/'} className='news-link small-text'>
+										Learn More
+										<PiCaretCircleRight size={'1rem'} />
+									</Link>
 								</p>
 							</div>
 						</div>
@@ -126,7 +119,7 @@ export default function News() {
 					</div>
 					<div className='column news-column sticky'>
 						<div className='other-news'>
-							<h3 className='heading-4'>Other News</h3>
+							<h3 className='heading-3'>Other News</h3>
 							{newsItems.map((news, index) => {
 								return (
 									<NewsItem
@@ -167,13 +160,13 @@ export function NewsItem({
 			</div>
 			<div className='desc-container'>
 				<div className='news-date'>
-					<small className='small'>{date}</small>
+					<small className='small-text'>{date}</small>
 				</div>
-				<h3 className='news-title heading-6'>
+				<h3 className='news-title heading-5'>
 					<Link href={link}>{title}</Link>
 				</h3>
 				<p>
-					<Link href={link} className='news-link small'>
+					<Link href={link} className='news-link small-text'>
 						Learn More
 						<PiCaretCircleRight size={'1rem'} />
 					</Link>

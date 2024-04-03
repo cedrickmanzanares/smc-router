@@ -1,3 +1,57 @@
+.smc-red {
+	.nav-toggle-trigger {
+		circle {
+			fill: var(--base-red);
+		}
+		path {
+			stroke: white;
+		}
+	}
+	.nav-toggle-content {
+		circle {
+			fill: var(--base-red);
+		}
+	}
+}
+.smc-blue {
+	.nav-toggle-trigger {
+		circle {
+			fill: var(--base-blue);
+		}
+		path {
+			stroke: white;
+		}
+	}
+	.nav-toggle-content {
+		circle {
+			fill: var(--base-blue);
+		}
+	}
+}
+.smc-yellow {
+	.nav-toggle-trigger {
+		circle {
+			fill: var(--base-yellow);
+		}
+		path {
+			stroke: black;
+		}
+	}
+	.nav-toggle-content {
+		circle {
+			fill: var(--base-yellow);
+		}
+	}
+	.main-nav.toggle-nav a.nav-item,
+	.main-nav.toggle-nav .nav-item > a,
+	.main-nav.toggle-nav .nav-item > div:first-child a {
+		color: var(--base-black);
+	}
+	.main-nav.toggle-nav .nav-dropdown a {
+		color: var(--base-black);
+	}
+}
+
 .nav-container {
 	position: fixed;
 	width: 100%;
@@ -29,7 +83,7 @@
 	width: 3rem;
 }
 .brand-logo {
-	width: 3rem;
+	width: 2.5rem;
 	display: block;
 	padding: 1rem 0;
 	position: relative;
@@ -69,6 +123,9 @@
 	top: 2rem;
 	right: 2rem;
 	z-index: 1001;
+	circle {
+		fill: var(--base-red);
+	}
 }
 
 .nav-toggle-content {

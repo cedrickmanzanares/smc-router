@@ -43,7 +43,8 @@
 	.path-2 {
 		background-image: linear-gradient(90deg, #fbe41600, #fbe416);
 	}
-	.path-2 {
+	.path-3 {
+		opacity: 1;
 		background-image: linear-gradient(90deg, #fbe41600, #fbe416);
 	}
 	.path-4 {
@@ -55,6 +56,32 @@
 	}
 	.path-5 {
 		mix-blend-mode: overlay;
+	}
+}
+.smc-blue .page-banner.full {
+	.path {
+		width: 100vw;
+		height: 25rem;
+		border-radius: 25rem;
+	}
+	.path-1 {
+		height: 20rem;
+		mix-blend-mode: normal;
+		top: 84%;
+		left: 11.25%;
+	}
+	.path-2 {
+		top: 40%;
+		left: 18%;
+		height: 20rem;
+	}
+	.path-3 {
+		top: 40%;
+		left: 25%;
+	}
+	.path-4,
+	.path-5 {
+		display: none;
 	}
 }
 
@@ -119,12 +146,23 @@
 		position: relative;
 		z-index: 1;
 	}
+	.banner-info {
+		width: 550px;
+		max-width: 100%;
+		p {
+			font-weight: normal;
+		}
+	}
 	.banner-title {
 		margin: 0;
 		max-width: 980px;
 	}
 	&.center {
 		text-align: center;
+		.banner-info {
+			width: 750px;
+		}
+		.banner-info,
 		.banner-title {
 			margin-left: auto;
 			margin-right: auto;
@@ -137,7 +175,7 @@
 
 	&.no-bg {
 		background-image: none;
-		padding: 5rem 0 0;
+		padding: 7rem 0 3rem;
 		+ .section-content {
 			padding-top: 3rem;
 		}
@@ -146,7 +184,7 @@
 		}
 	}
 	&.full {
-		height: 100dvh;
+		height: calc(100dvh - var(--nav-height));
 	}
 	.banner-subtitle {
 		max-width: 768px;
@@ -180,7 +218,7 @@
 	perspective-origin: 50% 100%;
 	.path {
 		border-radius: 10rem;
-		height: 10rem;
+		height: 15rem;
 		width: 75rem;
 		background-image: linear-gradient(
 			90deg,

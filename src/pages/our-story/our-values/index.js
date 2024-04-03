@@ -20,29 +20,30 @@ export default function OurValues() {
 			</Head>
 			<Curve>
 				<PageBanner title={'Our Values'} direction='center' />
-
-				<Section containerSize='small'>
+				<Section>
 					<div className='column'>
 						<VideoContent />
 					</div>
+				</Section>
+				<Section containerSize='small'>
 					<div className='column text-content'>
-						<h2 className='heading-4 split-color'>
+						<h2 className='heading-2 split-color'>
 							Malasakit is at the core <b>of who we are as a company</b>
 						</h2>
-						<h3 className='heading-6'>We do what is right</h3>
+						<h3 className='heading-5'>We do what is right</h3>
 						<p>
 							We believe in profit with honor. For us, this simply means doing
 							what we’ll say we’ll do and acting with honesty, fairness and
 							integrity.
 						</p>
 
-						<h3 className='heading-6'>We believe in doing our best</h3>
+						<h3 className='heading-5'>We believe in doing our best</h3>
 						<p>
 							We will give every single person we touch the best we can offer.
 							We are passionate about our brands, products and services.
 						</p>
 
-						<h3 className='heading-6'>
+						<h3 className='heading-5'>
 							We take accountability for our decisions
 						</h3>
 						<p>
@@ -50,13 +51,13 @@ export default function OurValues() {
 							our commitments and we take responsibility for our actions.
 						</p>
 
-						<h3 className='heading-6'>We think innovation</h3>
+						<h3 className='heading-5'>We think innovation</h3>
 						<p>
 							Our innovation lends us agility and is driven by our understanding
 							of what our customers and stakeholders need.
 						</p>
 
-						<h3 className='heading-6'>We help our people succeed</h3>
+						<h3 className='heading-5'>We help our people succeed</h3>
 						<p>
 							We believe in treating each other with respect. We cultivate a
 							culture that recognizes the individuality and contributions of
@@ -64,13 +65,13 @@ export default function OurValues() {
 							responsible members of society.
 						</p>
 
-						<h3 className='heading-6'>We are a good neighbor</h3>
+						<h3 className='heading-5'>We are a good neighbor</h3>
 						<p>
 							We are a positive force in our communities. We believe in doing
 							what is good for the greatest number of people.
 						</p>
 
-						<h3 className='heading-6'>We advocate sustainable development</h3>
+						<h3 className='heading-5'>We advocate sustainable development</h3>
 						<p>
 							We believe in using only what we need and integrating
 							sustainability practices into our operations. Water stewardship,
