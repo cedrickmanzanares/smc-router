@@ -26,7 +26,7 @@ export default function Kaunlaran() {
 	const kaunlaran_items = [
 		{
 			link: '/',
-			img: basePath + '/images/CSR/www-1.jpg',
+			img: basePath + '/images/News/n1.png',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			desc: 'Non dapibus eget dictum congue neque nibh. Feugiat sapien cras felis tristique morbi sit sit vel. Dolor neque morbi tortor sit tincidunt semper.',
 			date: 'Jan-Mar 2023',
@@ -34,77 +34,28 @@ export default function Kaunlaran() {
 		},
 		{
 			link: '/',
-			img: basePath + '/images/CSR/www-2.jpg',
+			img: basePath + '/images/News/n2.png',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: basePath + '/images/CSR/www-3.jpg',
+			img: basePath + '/images/News/n3.png',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: basePath + '/images/CSR/www-4.jpg',
+			img: basePath + '/images/News/n4.png',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
 		{
 			link: '/',
-			img: basePath + '/images/CSR/www-5.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-6.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-7.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-8.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-9.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-10.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-11.jpg',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
-		{
-			link: '/',
-			img: basePath + '/images/CSR/www-12.jpg',
+			img: basePath + '/images/News/n5.png',
 			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
@@ -119,7 +70,7 @@ export default function Kaunlaran() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner title={'Kaunlaran'} noBg={true} />
+				<PageBanner title={'Kaunlaran Online'} noBg={true} />
 
 				<Section columnCount={3}>
 					<div className='column' style={{ flex: '1 1 60rem' }}>
@@ -131,7 +82,7 @@ export default function Kaunlaran() {
 								<div className='news-date small-text'>
 									{kaunlaran_items[0].date}
 								</div>
-								<h2 className='heading-5 news-title'>
+								<h2 className='heading-3 news-title'>
 									{kaunlaran_items[0].title}
 								</h2>
 								<p>{kaunlaran_items[0].desc}</p>
@@ -145,7 +96,7 @@ export default function Kaunlaran() {
 					</div>
 					{kaunlaran_items.map((news, index) => {
 						return (
-							<div className='column' key={`NewsItem_` + index}>
+							<div className='column grow-limit' key={`NewsItem_` + index}>
 								<NewsItem
 									link={news.link}
 									index={index}
@@ -160,28 +111,5 @@ export default function Kaunlaran() {
 				</Section>
 			</Curve>
 		</>
-	);
-}
-
-function KaunlaranItems({ index, title, date, vol, img, link, setModal }) {
-	return (
-		<div className='issue-item'>
-			<div className='img-container'>
-				<Link href={link}>
-					<AspectRatio ratio={1}>
-						<img src={img} />
-					</AspectRatio>
-				</Link>
-			</div>
-			<div className='desc-container'>
-				<h3 className='issue-title heading-6'>
-					<Link href={link}>{title}</Link>
-				</h3>
-				<Flex justify={'space-between'} align={'center'}>
-					<div className='issue-date small-text'>{date}</div>
-					<div className='issue-vol small-text'>{vol}</div>
-				</Flex>
-			</div>
-		</div>
 	);
 }

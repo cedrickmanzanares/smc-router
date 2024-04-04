@@ -15,6 +15,7 @@ import { basePath } from '@/hooks/use-basepath';
 import { getColors } from '@/hooks/use-color';
 
 export default function ImageSlider({
+	slides,
 	adaptiveHeight = false,
 	type,
 	gradient = true,
@@ -58,38 +59,6 @@ export default function ImageSlider({
 				[selected].querySelector('.image-img').offsetHeight
 		);
 	}, [selected]);
-	const slides = [
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-		{
-			img: `${basePath}/images/AnnualReports.png`,
-			desc: 'With the COVID-19 pandemic in retreat, the Philippine economy is back on track. At San Miguel, our highest-ever revenues in 2022 reflect continuously growing demand for our products and services. Yet significant headwinds persist. Food insecurity, the power crisis, high prices of goods, and lack of opportunity remain major challenges for many Filipinos. ',
-			title: '2022 SMC Annual Report',
-		},
-	];
 
 	const innerItem_click = (event, info) => {
 		setSelected((prev) => event.target.closest('.inner-item').dataset.index);

@@ -119,9 +119,18 @@ export default function OurBusinesses() {
 						</div>
 					</div>
 					<div className='column'>
-						<div className='image-content'>
+						<div className='image-content stacked'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+								<img src={`${basePath}/images/CSR/EOP-1.svg`} />
+							</div>
+							<div className='img-container'>
+								<img
+									src={`${basePath}/images/ph.svg`}
+									style={{ display: 'none' }}
+								/>
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurBusinesses-1.png`} />
 							</div>
 						</div>
 					</div>

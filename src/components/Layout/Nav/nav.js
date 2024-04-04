@@ -41,6 +41,7 @@ import { basePath } from '@/hooks/use-basepath';
 import { useRouter } from 'next/router';
 import { getMenu, useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
+import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
 
 export default function Nav({}) {
 	const router = useRouter();
@@ -131,10 +132,19 @@ export default function Nav({}) {
 							/>
 							<motion.img
 								animate={{
-									opacity: smcTheme === '' ? 0 : 1,
+									opacity:
+										smcTheme === 'smc-red' || smcTheme === 'smc-blue' ? 1 : 0,
 								}}
 								transition={{ delay: 0.75 }}
 								src={`${basePath}/images/smc-logo-white.svg`}
+								alt='SMC Logo White'
+							/>
+							<motion.img
+								animate={{
+									opacity: smcTheme === 'smc-yellow' ? 1 : 0,
+								}}
+								transition={{ delay: 0.75 }}
+								src={`${basePath}/images/smc-logo-gray.svg`}
 								alt='SMC Logo White'
 							/>
 						</figure>
@@ -157,7 +167,22 @@ function MainNav({
 	toggle,
 }) {
 	const menu = useContext(MenuContext);
-	const { smcTheme } = useContext(ThemeContext);
+	const smcTheme = useContext(ThemeContext);
+
+	useEffect(() => {
+		let navItem = document.querySelectorAll('.nav-item');
+		navItem.forEach((item) => {
+			let height = 0;
+			let dropdown = item.querySelector('.inner-dropdown');
+			if (dropdown) {
+				height = dropdown.offsetHeight;
+				dropdown.classList.add('active');
+			}
+
+			let navDropdown = item.querySelector('.nav-dropdown');
+			if (navDropdown) navDropdown.style.height = `${height}px`;
+		});
+	}, [menu]);
 
 	return (
 		<motion.nav
@@ -172,17 +197,19 @@ function MainNav({
 			}}
 			className={`main-nav ${c && c} ${smcTheme}`}>
 			{menu.length !== 0 &&
-				menu.map((item, index) => {
-					let key = `menuItem_lvl1_${item.id}`;
+				menu.map((item_lvl1, index) => {
+					let key = `menuItem_lvl1_${item_lvl1.id}`;
 
-					let link = item.page.length ? `/${item.page[0].slug}` : `${item.url}`;
+					let link = item_lvl1.page.length
+						? `/${item_lvl1.page[0].slug}`
+						: `${item_lvl1.url}`;
 					let parent_slug = link;
 
-					if (item.children.length)
+					if (item_lvl1.children.length)
 						return (
 							<NavItem
 								key={key}
-								label={item.title}
+								label={item_lvl1.title}
 								link={link}
 								animation={animation}
 								toggle={toggle}
@@ -191,93 +218,99 @@ function MainNav({
 									className='nav-dropdown'
 									initial={hover_animation.closed}
 									variants={hover_animation}>
-									<Accordion
-										defaultIndex={defaultOpen && [0]}
-										allowMultiple={false}>
-										{item.children.map((item) => {
-											let key = `menuItem_lvl2_${item.id}`;
-											let link = parent_slug;
-											link = item.page.length
-												? (link += `/${item.page[0].slug}`)
-												: `${item.url}`;
+									{item_lvl1.children.map((item) => {
+										let key = `menuItem_lvl2_${item.id}`;
+										let link = parent_slug;
+										link = item.page.length
+											? (link += `/${item.page[0].slug}`)
+											: `${item.url}`;
 
-											return (
-												<AccordionItem key={key}>
-													<AccordionButton>
-														<Box as='span' flex='1' textAlign='left'>
-															<motion.div onTap={toggle}>
-																<Link href={link}>
-																	<b>{item.title}</b>
-																</Link>
-															</motion.div>
-														</Box>
-														<AccordionIcon />
-													</AccordionButton>
-													<AccordionPanel>
-														<div className='inner-dropdown'>
-															{item.children.map((item) => {
-																let key = `menuItem_lvl3_${item.id}`;
-																let link = parent_slug;
-																link = item.page.length
-																	? (link += `/${item.page[0].slug}`)
-																	: `${item.url}`;
+										// let defaultheight = height;
+										return (
+											<motion.div
+												key={key}
+												className='nav-dropdown-item'
+												onMouseEnter={(event) => {
+													let dropdownItem =
+														event.target.closest('.nav-dropdown-item');
+													dropdownItem
+														.closest('.nav-item')
+														.querySelectorAll('.inner-dropdown')
+														.forEach((dropdown) => {
+															dropdown.classList.remove('active');
+														});
 
-																if (item.children.length === 0) {
-																	return (
-																		<motion.div onTap={toggle} key={key}>
+													let innerDropdown =
+														dropdownItem.querySelector('.inner-dropdown');
+
+													if (innerDropdown) {
+														innerDropdown.classList.add('active');
+
+														let navDropdown =
+															innerDropdown.closest('.nav-dropdown');
+														if (navDropdown) {
+															navDropdown.style.height = `${innerDropdown.offsetHeight}px`;
+														}
+													}
+												}}
+												onMouseLeave={() => {
+													// setHeight(innerDropdown.offsetHeight);
+												}}>
+												<motion.div onTap={toggle}>
+													<Link href={link}>
+														<b>{item.title}</b>
+														{item.children.length !== 0 && <PiCaretDown />}
+													</Link>
+												</motion.div>
+
+												{item.children.length !== 0 && (
+													<div className={`inner-dropdown `}>
+														{item.children.map((item) => {
+															let key = `menuItem_lvl3_${item.id}`;
+															let link = parent_slug;
+															link = item.page.length
+																? (link += `/${item.page[0].slug}`)
+																: `${item.url}`;
+
+															if (item.children.length === 0) {
+																return (
+																	<motion.div onTap={toggle} key={key}>
+																		<Link href={link}>{item.title}</Link>
+																	</motion.div>
+																);
+															} else {
+																return (
+																	<div key={key}>
+																		<motion.div onTap={toggle}>
 																			<Link href={link}>{item.title}</Link>
 																		</motion.div>
-																	);
-																} else {
-																	return (
-																		<Accordion key={key}>
-																			<AccordionItem>
-																				<AccordionButton>
-																					<Box
-																						as='span'
-																						flex='1'
-																						textAlign='left'>
-																						<motion.div onTap={toggle}>
-																							<Link href={link}>
-																								{item.title}
-																							</Link>
-																						</motion.div>
-																					</Box>
 
-																					<AccordionIcon />
-																				</AccordionButton>
-																				<AccordionPanel>
-																					<div className='inner-dropdown'>
-																						{item.children.map((item) => {
-																							let key = `menuItem_lvl4_${item.id}`;
-																							let link = parent_slug;
-																							link = item.page.length
-																								? (link += `/${item.page[0].slug}`)
-																								: `${item.url}`;
+																		<div className='inner-dropdown'>
+																			{item.children.map((item) => {
+																				let key = `menuItem_lvl4_${item.id}`;
+																				let link = parent_slug;
+																				link = item.page.length
+																					? (link += `/${item.page[0].slug}`)
+																					: `${item.url}`;
 
-																							return (
-																								<motion.div
-																									onTap={toggle}
-																									key={key}>
-																									<Link href={link}>
-																										{item.title}
-																									</Link>
-																								</motion.div>
-																							);
-																						})}
-																					</div>
-																				</AccordionPanel>
-																			</AccordionItem>
-																		</Accordion>
-																	);
-																}
-															})}
-														</div>
-													</AccordionPanel>
-												</AccordionItem>
-											);
-										})}
-									</Accordion>
+																				return (
+																					<motion.div onTap={toggle} key={key}>
+																						<Link href={link}>
+																							{item.title}
+																						</Link>
+																					</motion.div>
+																				);
+																			})}
+																		</div>
+																	</div>
+																);
+															}
+														})}
+													</div>
+												)}
+											</motion.div>
+										);
+									})}
 								</motion.div>
 							</NavItem>
 						);
@@ -287,7 +320,7 @@ function MainNav({
 								<motion.span
 									onTap={toggle}
 									variants={animation ? navItem_variants : undefined}>
-									{item.title}
+									{item_lvl1.title}
 								</motion.span>
 							</Link>
 						);
@@ -473,15 +506,16 @@ function FloatingNavContent({ isOpen, toggle }) {
 
 	const circleBg_variants = {
 		initial: {
-			r: 0,
+			opacity: 0,
+			r:
+				windowDimensions.height > windowDimensions.width
+					? windowDimensions.height
+					: windowDimensions.width,
 			fill: red,
 			transition: transitionSettings,
 		},
 		open: {
-			r:
-				windowDimensions.height > windowDimensions.width
-					? windowDimensions.height * 1.5
-					: windowDimensions.width * 1.5,
+			opacity: 1,
 			transition: transitionSettings,
 		},
 	};
@@ -504,16 +538,7 @@ function FloatingNavContent({ isOpen, toggle }) {
 					viewBox={`0 0 ${windowDimensions.width} ${windowDimensions.height}`}>
 					<motion.circle
 						className='circle-bg'
-						variants={circleBg_variants}
-						animate={{
-							cx: mouseX,
-							cy: mouseY,
-
-							// r:
-							// 	windowDimensions.height > windowDimensions.width
-							// 		? windowDimensions.height
-							// 		: windowDimensions.width,
-						}}></motion.circle>
+						variants={circleBg_variants}></motion.circle>
 					{/* <motion.path
 						className='big_1'
 						d={`M${

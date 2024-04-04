@@ -22,6 +22,19 @@
 		}
 	}
 }
+
+.page-banner.full {
+	.path {
+		left: -10%;
+	}
+
+	.path-4,
+	.path-5 {
+		left: auto;
+		right: -4%;
+	}
+}
+
 .smc-blue .page-banner {
 	background-image: linear-gradient(
 		90deg,
@@ -68,16 +81,16 @@
 		height: 20rem;
 		mix-blend-mode: normal;
 		top: 84%;
-		left: 11.25%;
+		left: 22.5%;
 	}
 	.path-2 {
 		top: 40%;
-		left: 18%;
+		left: -30%;
 		height: 20rem;
 	}
 	.path-3 {
 		top: 40%;
-		left: 25%;
+		left: 5%;
 	}
 	.path-4,
 	.path-5 {
@@ -109,12 +122,13 @@
 	}
 	.path-1 {
 		left: -10%;
+		top: 40%;
 		mix-blend-mode: darken;
 		background-image: linear-gradient(90deg, #fcd71a, #0b7bb5);
 	}
 	.path-2 {
-		top: 10%;
-		left: 15%;
+		top: 20%;
+		left: -5%;
 		background-image: linear-gradient(90deg, #ccab00, #ffd038, #0b7bb5);
 	}
 	.path-3 {
@@ -139,7 +153,7 @@
 	position: relative;
 	overflow: hidden;
 	margin-top: var(--nav-height);
-	padding: 13rem 0;
+	padding: 9rem 0;
 	display: flex;
 	align-items: center;
 	.container-fluid-width {
@@ -147,7 +161,7 @@
 		z-index: 1;
 	}
 	.banner-info {
-		width: 550px;
+		width: 768px;
 		max-width: 100%;
 		p {
 			font-weight: normal;
@@ -184,7 +198,7 @@
 		}
 	}
 	&.full {
-		height: calc(100dvh - var(--nav-height));
+		height: calc(70dvh - var(--nav-height));
 	}
 	.banner-subtitle {
 		max-width: 768px;
@@ -218,7 +232,7 @@
 	perspective-origin: 50% 100%;
 	.path {
 		border-radius: 10rem;
-		height: 15rem;
+		height: 20rem;
 		width: 75rem;
 		background-image: linear-gradient(
 			90deg,
@@ -231,19 +245,29 @@
 	}
 	.path-1 {
 		mix-blend-mode: multiply;
+		background-image: linear-gradient(
+			90deg,
+			var(--base-yellow),
+			var(--base-red) 25%
+		);
 	}
 	.path-2 {
 		opacity: 0.78;
 		mix-blend-mode: hard-light;
 		background-image: linear-gradient(
 			90deg,
-			var(--base-yellow) 80%,
+			var(--base-yellow) 25%,
 			var(--base-red)
 		);
 	}
 	.path-3 {
 		opacity: 0.41;
 		mix-blend-mode: hard-light;
+		background-image: linear-gradient(
+			90deg,
+			var(--base-yellow),
+			var(--base-red)
+		);
 	}
 	.path-4,
 	.path-5 {

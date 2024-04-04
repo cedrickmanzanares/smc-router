@@ -1,16 +1,14 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
+
 import SampleVideo from '@/components/SampleVideo/sample-video';
 import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
 
-import { motion, useScroll } from 'framer-motion';
-import { useContext, useEffect, useRef } from 'react';
-import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
+
 import Button from '@/components/button/button';
 import PageCTA from '@/cms-components/PageCTA/PageCTA';
-import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
 
 import { basePath } from '@/hooks/use-basepath';
 import MainBanner from '@/cms-components/MainBanner/MainBanner';
@@ -129,28 +127,36 @@ export default function Home() {
 						backgroundImage: `url("${basePath}/images/Homepage-1/Malasakit-bg.png"), linear-gradient(#3883ac, #aabf6b, #b58282)`,
 						backgroundSize: 'cover',
 					}}>
-					<div className='container-fluid-width'>
-						<h2 className='heading-2'>
-							<i>Malasakit</i>
-						</h2>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua.
-						</p>
-						<p>
-							<Button link='/our-business/inner' className='white'>
-								Read More
-							</Button>
-						</p>
-						<img
-							src={`${basePath}/images/Homepage-1/Malasakit.png`}
-							style={{
-								display: 'block',
-								width: '100%',
-								marginTop: '5rem',
-								marginBottom: '-6rem',
-							}}
-						/>
+					<div
+						className='container-fluid-width'
+						style={{
+							justifyContent: 'center',
+						}}>
+						<div className='column'>
+							<h2 className='heading-2'>
+								<i>Malasakit</i>
+							</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+								eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</p>
+							<p>
+								<Button
+									link='/our-business/inner'
+									className='btn-bordered white'>
+									Read More
+								</Button>
+							</p>
+							<img
+								src={`${basePath}/images/Homepage-1/Malasakit.png`}
+								style={{
+									display: 'block',
+									width: '100%',
+									marginTop: '5rem',
+									marginBottom: '-6rem',
+								}}
+							/>
+						</div>
 					</div>
 				</motion.div>
 				<PageCTA />

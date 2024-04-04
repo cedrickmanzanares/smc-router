@@ -14,13 +14,9 @@ export default function TotalOutstandingShares() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner
-					title={'Total Outstanding Shares'}
-					noBg='true'
-					containerSize='small'
-				/>
+				<PageBanner title={'Total Outstanding Shares'} noBg='true' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content'>
 						<p>
 							Latest data: As of June 30, 2023

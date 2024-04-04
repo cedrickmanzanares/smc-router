@@ -13,6 +13,7 @@ import { ThemeContext } from '@/pages/_app';
 export default function PageBanner({
 	title,
 	subtitle,
+	subtitleClasses,
 	image,
 	containerSize = 'medium',
 
@@ -31,6 +32,7 @@ export default function PageBanner({
 	const bannerContainerClasses = `container-fluid-width ${containerSize}`;
 	const bannerHeadingClasses = `banner-title ${headingSize} `;
 
+	const bannerSubtitleClasses = `banner-subtitle heading-5 ${subtitleClasses}`;
 	const [rotate, setRotate] = useState(-30);
 	const careers = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -69,22 +71,22 @@ export default function PageBanner({
 				<motion.div
 					className='path path-1'
 					style={{
-						y: '-150%',
-						x: '-47%',
+						y: '-70%',
+						x: '-40%',
 						rotate: rotate,
 						z: z[0],
 					}}></motion.div>
 				<motion.div
 					className='path path-2'
 					style={{
-						y: '-10%',
-						x: '-61%',
+						y: '-70%',
+						x: '-15%',
 						rotate: rotate,
 						z: z[1],
 					}}></motion.div>
 				<motion.div
 					className='path path-3'
-					style={{ y: '35%', x: '-72%', rotate: rotate, z: z[2] }}></motion.div>
+					style={{ y: '2%', x: '-48%', rotate: rotate, z: z[2] }}></motion.div>
 
 				<motion.div
 					className='path path-4'
@@ -97,7 +99,7 @@ export default function PageBanner({
 			<div className={bannerContainerClasses}>
 				<div className='banner-info'>
 					<h1 className={bannerHeadingClasses}>{title}</h1>
-					{subtitle && <p className='banner-subtitle heading-5'>{subtitle}</p>}
+					{subtitle && <p className={bannerSubtitleClasses}>{subtitle}</p>}
 				</div>
 			</div>
 		</div>

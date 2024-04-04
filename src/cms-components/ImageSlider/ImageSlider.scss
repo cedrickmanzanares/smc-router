@@ -85,6 +85,7 @@
 }
 .image-slider.caption-absolute {
 	.image-description {
+		width: 100%;
 		color: white;
 		position: absolute;
 		bottom: 0;
@@ -105,5 +106,52 @@
 		width: 12px;
 		background-color: #d9d9d9;
 		border-radius: 100%;
+	}
+}
+
+.annual-desc {
+	position: relative;
+	flex-grow: 0 !important;
+	margin-top: 6rem;
+	div {
+		width: 100%;
+		position: absolute;
+	}
+}
+.annual-image {
+	position: relative;
+	// overflow: hidden;
+	flex: 0 1 25rem !important;
+	.slider {
+		perspective: 125px;
+		perspective-origin: 50% 50%;
+		white-space: nowrap;
+		position: relative;
+		z-index: 0;
+	}
+
+	.slide {
+		position: relative;
+		display: inline-block;
+	}
+	img {
+		margin: auto;
+	}
+
+	.controls {
+		z-index: 2;
+		top: 50%;
+		left: 0;
+		.button {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+		.button.left {
+			left: 0;
+		}
+		.button.right {
+			right: 0;
+		}
 	}
 }

@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 import { getColors } from '@/hooks/use-color';
 import Link from 'next/link';
 
-import { PiCaretCircleRight, PiCaretRightBold } from 'react-icons/pi';
+import {
+	PiCaretCircleRight,
+	PiCaretRight,
+	PiCaretRightBold,
+} from 'react-icons/pi';
 import { PiArrowRightBold } from 'react-icons/pi';
 
 import { IoIosArrowDropright } from 'react-icons/io';
@@ -21,7 +25,7 @@ export default function PDFItem({ title, date, download, link }) {
 			x: '0rem',
 		},
 		hover: {
-			opacity: 0.5,
+			opacity: 1,
 
 			x: '2rem',
 		},
@@ -42,11 +46,13 @@ export default function PDFItem({ title, date, download, link }) {
 		rest: {
 			opacity: 1,
 			color: blue,
+			borderColor: '#CBCBCB',
 			backgroundColor: '#ffffff00',
 		},
 		hover: {
 			opacity: 1,
 			color: '#ffffff',
+			backgroundColor: blue,
 			backgroundColor: blue,
 		},
 	};
@@ -54,11 +60,11 @@ export default function PDFItem({ title, date, download, link }) {
 	const bgVariants = {
 		rest: {
 			opacity: 0,
-			x: 100,
+			// x: 100,
 		},
 		hover: {
 			opacity: 1,
-			x: 0,
+			// x: 0,
 		},
 	};
 	return (
@@ -75,11 +81,11 @@ export default function PDFItem({ title, date, download, link }) {
 				{date && <span className='small-text'>{date}</span>}
 				{download ? (
 					<motion.div className='pdf-button' variants={buttonVariants}>
-						<PiCaretCircleRight size={'1.75rem'} />
+						<PiCaretRightBold size={'1.25rem'} color='currentColor' />
 					</motion.div>
 				) : (
 					<motion.div className='pdf-button' variants={buttonVariants}>
-						<PiCaretCircleRight size={'1.75rem'} />
+						<PiCaretRightBold size={'1.25rem'} color='currentColor' />
 					</motion.div>
 				)}
 			</motion.div>

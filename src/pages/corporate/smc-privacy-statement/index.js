@@ -19,9 +19,9 @@ export default function SMCPrivacy() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner title={'Board Committees'} direction='center' />
+				<PageBanner title={'SMC Privacy Statement'} direction='center' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content'>
 						<p>Updated: 20 September 2017</p>
 						<p>

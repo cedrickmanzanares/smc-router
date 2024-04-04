@@ -99,22 +99,26 @@ export default function WalangIwanan() {
 					<div className='column'>
 						<div className='image-content stacked'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+								<img
+									src={`${basePath}/images/WalangIwanan/WalangIwanan-1.svg`}
+								/>
 							</div>
 							<div className='img-container'>
 								<img src={`${basePath}/images/ph.svg`} />
 							</div>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+								<img
+									src={`${basePath}/images/WalangIwanan/WalangIwanan-2.png`}
+								/>
 							</div>
 						</div>
 					</div>
 					<div className='column'>
 						<div className='text-content'>
-							<h3 className='heading-4'>
+							<h2 className='heading-2'>
 								Our efforts in the wake of the global pandemic are guided by our
 								malasakit.
-							</h3>
+							</h2>
 							<p>
 								In the fight against Covid-19, we have mounted the largest
 								private sector response to the crisis. As of October 2020, we
@@ -139,7 +143,7 @@ export default function WalangIwanan() {
 				<Section containerSize={'full'} columnCount={1}>
 					<div className='column'>
 						<FullPageBanner
-							image={`${basePath}/images/CSR/60dc13a6f26d5.png`}
+							image={`${basePath}/images/WalangIwanan/WalangIwanan-3.png`}
 							caption={'Our Efforts'}></FullPageBanner>
 					</div>
 				</Section>
@@ -153,7 +157,7 @@ export default function WalangIwanan() {
 							</div>
 							<div className='desc-container'>
 								<div className='news-date small-text'>{newsItems[0].date}</div>
-								<h2 className='heading-5 news-title'>{newsItems[0].title}</h2>
+								<h2 className='heading-3 news-title'>{newsItems[0].title}</h2>
 								{/* <p>{newsItems[0].desc}</p> */}
 								<p>
 									<Button link='/news/inner' className={'btn-bordered pri'}>

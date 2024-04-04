@@ -14,13 +14,9 @@ export default function Top20Stockholders() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner
-					title={'Exchange Where Listed'}
-					noBg='true'
-					containerSize='small'
-				/>
+				<PageBanner title={'Exchange Where Listed'} noBg='true' />
 
-				<Section columnCount={3} containerSize='small'>
+				<Section columnCount={3}>
 					<div className='column text-content'></div>
 				</Section>
 			</Curve>

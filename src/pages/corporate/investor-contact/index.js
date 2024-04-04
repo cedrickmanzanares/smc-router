@@ -1,30 +1,7 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
-import { motion } from 'framer-motion';
-
 import { getColors } from '@/hooks/use-color';
-
-import Link from 'next/link';
-
-import { ImFacebook, ImLinkedin2, ImSphere, ImYoutube } from 'react-icons/im';
-import { LuInstagram } from 'react-icons/lu';
-
-import {
-	Box,
-	Accordion,
-	AccordionItem,
-	AccordionButton,
-	AccordionPanel,
-	AccordionIcon,
-	AspectRatio,
-} from '@chakra-ui/react';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
-import useAnim from '@/hooks/use-anim';
-import { pageTranslate } from '@/hooks/pageAnim';
-import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
@@ -48,11 +25,21 @@ export default function InvestorContact() {
 			<Curve>
 				<PageBanner title={'Investor Contact'} direction={'center'} />
 
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
-						<div className='image-content'>
+						<div className='image-content stacked'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+								<img
+									src={`${basePath}/images/InvestorContact/InvestorContact-1.svg`}
+								/>
+							</div>
+							<div className='img-container'>
+								<img src={`${basePath}/images/ph.svg`} />
+							</div>
+							<div className='img-container'>
+								<img
+									src={`${basePath}/images/InvestorContact/InvestorContact-2.png`}
+								/>
 							</div>
 						</div>
 					</div>

@@ -18,6 +18,16 @@
 	}
 }
 
+.smc-yellow {
+	.btn {
+		color: var(--base-black);
+	}
+
+	.btn.btn-bordered {
+		border-color: var(--base-black);
+	}
+}
+
 .btn {
 	border-radius: 2rem;
 	display: inline-flex;

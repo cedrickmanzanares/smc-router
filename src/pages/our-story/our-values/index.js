@@ -80,10 +80,6 @@ export default function OurValues() {
 						</p>
 					</div>
 				</Section>
-
-				<div className='section-content'>
-					<div className='container-fluid-width small'></div>
-				</div>
 			</Curve>
 		</>
 	);

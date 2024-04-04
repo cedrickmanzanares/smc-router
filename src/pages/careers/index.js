@@ -29,7 +29,7 @@ export default function Careers() {
 				size={'full'}
 				headingSize='heading-1'></PageBanner>
 
-			<Section containerSize={'small'} direction={'center'}>
+			<Section direction={'center'}>
 				<div className='column'>
 					<p className='heading-3'>
 						<b>
@@ -44,17 +44,17 @@ export default function Careers() {
 				</div>
 			</Section>
 
-			<Section columnCount={2} containerSize='small'>
+			<Section columnCount={2}>
 				<div className='column'>
 					<div className='image-content stacked'>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							<img src={`${basePath}/images/Careers/Careers-1.svg`} />
 						</div>
 						<div className='img-container'>
 							<img src={`${basePath}/images/ph.svg`} />
 						</div>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							<img src={`${basePath}/images/Careers/Careers-2.png`} />
 						</div>
 					</div>
 				</div>
@@ -76,7 +76,9 @@ export default function Careers() {
 							Mandaluyong City 1550
 						</p>
 						<p>
-							<Button link='/our-business/inner' className={'pri white'}>
+							<Button
+								link='/our-business/inner'
+								className={'pri-btn btn-bordered'}>
 								Read More
 							</Button>
 						</p>

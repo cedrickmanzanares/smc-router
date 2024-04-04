@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/button/button';
 
@@ -19,6 +19,7 @@ import Link from 'next/link';
 import { PiCaretCircleRight } from 'react-icons/pi';
 
 export default function OurStory() {
+	const [selected, setSelected] = useState(0);
 	const router = useRouter();
 	const params = useParams();
 
@@ -73,10 +74,14 @@ export default function OurStory() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner title={settings.title} image={settings.image} />
+				<PageBanner
+					title={settings.title}
+					size={'full'}
+					image={settings.image}
+				/>
 				<Section columnCount={2}>
 					<div className='column'>
-						<h3 className='heading-3'>Neque dictumst eget.</h3>
+						<h2 className='heading-2'>Neque dictumst eget.</h2>
 						<p>Purus varius elit morbi diam varius integer.</p>
 						<p>
 							Velit morbi consequat laoreet hendrerit purus ornare ante tempor
@@ -116,12 +121,102 @@ export default function OurStory() {
 
 				<Section>
 					<div className='column'>
-						<h2 className='heading-3'>Lobortis purus at adipiscing aliquam</h2>
+						<h2 className='heading-2'>Lobortis purus at adipiscing aliquam</h2>
 						<p>
 							Eu phasellus nunc neque porta laoreet maecenas tortor in. Magnis
 							sit leo at a tortor. Quis massa tellus ut arcu sit sed sed. In
 							ultrices curabitur leo eu.
 						</p>
+					</div>
+					<div
+						className='column'
+						style={{
+							display: 'flex',
+							gap: '5rem',
+						}}>
+						<div
+							className=''
+							style={{
+								flex: '1 1 47%',
+							}}>
+							<h3>
+								Pellentesque cras tortor viverra dui tempor semper cum sed. Sit
+								ut.
+							</h3>
+
+							<div className='tab-source tabsource-ourstory'>
+								<motion.button
+									className={`tab-links ${selected === 0 ? 'active' : ''}`}
+									onTap={() => {
+										setSelected(0);
+									}}>
+									<h3 className='heading-3'>Vision</h3>
+									<motion.div
+										className='ourstory-accordion'
+										animate={{
+											height: selected === 0 ? 'auto' : 0,
+										}}>
+										<div>
+											<p>
+												A resilient and globally-competitive Philippines where
+												everyone can enrich and enjoy their lives.
+											</p>
+										</div>
+									</motion.div>
+								</motion.button>
+								<motion.button
+									className={`tab-links ${selected === 1 ? 'active' : ''}`}
+									onTap={() => {
+										setSelected(1);
+									}}>
+									<h3 className='heading-3'>Purpose</h3>
+									<motion.div
+										className='ourstory-accordion'
+										animate={{
+											height: selected === 1 ? 'auto' : 0,
+										}}>
+										<div>
+											<p>
+												To lead in nation-building by creating opportunities
+												that will uplift generations of Filipinos,
+											</p>
+										</div>
+									</motion.div>
+								</motion.button>
+								<motion.button
+									className={`tab-links ${selected === 2 ? 'active' : ''}`}
+									onTap={() => {
+										setSelected(2);
+									}}>
+									<h3 className='heading-3'>Value</h3>
+									<motion.div
+										className='ourstory-accordion'
+										animate={{
+											height: selected === 2 ? 'auto' : 0,
+										}}>
+										<div>
+											<p>
+												<b>
+													<i>Malasakit</i>
+												</b>{' '}
+												is at the core of who we are as a company.
+											</p>
+											<ul>
+												<li>Excellence</li>
+												<li>Accountability</li>
+												<li>Sustainability</li>
+											</ul>
+										</div>
+									</motion.div>
+								</motion.button>
+							</div>
+						</div>
+						<div
+							style={{
+								flex: '1 1 47%',
+							}}>
+							<div className='tab-target'></div>
+						</div>
 					</div>
 				</Section>
 			</Curve>

@@ -1,32 +1,10 @@
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
-import Parallax from '@/components/Parallax/parallax';
-import SampleVideo from '@/components/SampleVideo/sample-video';
 
-import {
-	animate,
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { getColors } from '@/hooks/use-color';
-import Card from '@/components/card/card';
-import Button from '@/components/button/button';
-import PageCTA from '@/cms-components/PageCTA/PageCTA';
-import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import div from '@/components/single-parallax/single-parallax';
-import { useDimensions } from '@/hooks/use-dimension';
-import useAnim from '@/hooks/use-anim';
-import { pageTranslate } from '@/hooks/pageAnim';
-import TextGradient from '@/cms-components/TextGradient/TextGradient';
-import SingleParallax from '@/components/single-parallax/single-parallax';
-import Image from 'next/image';
-import ParallaxGrid from '@/cms-components/ParallaxGrid/ParallaxGrid';
-import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
+
 import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
-import { Link } from 'lucide-react';
 
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
@@ -122,7 +100,7 @@ export default function OurBusinessesInner() {
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
-							<div className='opportunities-item'>
+							<div className='opportunities-item small-text'>
 								<p>
 									<b>Ginebra San Miguel, Inc.</b>
 								</p>
@@ -130,11 +108,11 @@ export default function OurBusinessesInner() {
 								<p className='small-text'>
 									Corporate Head Office 3rd, 5th & 6th
 									<br />
-									Floor, San Miguel Properties Centre, St. <br />
-									Francis Street, Mandaluyong City 1550
+									Floor, San Miguel Properties Centre,
+									<br /> St. Francis Street, Mandaluyong City 1550
 								</p>
 							</div>
-							<div className='opportunities-item'>
+							<div className='opportunities-item small-text'>
 								<p>
 									<b>Customer Care</b>
 								</p>
@@ -150,7 +128,7 @@ export default function OurBusinessesInner() {
 									<br />
 								</p>
 							</div>
-							<div className='opportunities-item'>
+							<div className='opportunities-item small-text'>
 								<p>
 									<b>Email and Social Media</b>
 								</p>
@@ -159,42 +137,44 @@ export default function OurBusinessesInner() {
 						</div>
 					</div>
 				</Section>
-				<motion.div className='page-controls'>
-					<motion.div className='control prev'>
-						<div className='img-container'>
-							<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-						</div>
+				<Section>
+					<motion.div className='page-controls'>
+						<motion.div className='control prev'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+							</div>
 
-						<div className='control-details'>
-							<div className='arrow'>
-								<BsArrowLeftCircle size={'1.75rem'} />
+							<div className='control-details'>
+								<div className='arrow'>
+									<BsArrowLeftCircle size={'1.75rem'} />
+								</div>
+								<div>
+									<p>
+										<b>Previous Business</b>
+									</p>
+									<p className='label heading-5'>San Miguel Foods</p>
+								</div>
 							</div>
-							<div>
-								<p>
-									<b>Previous Business</b>
-								</p>
-								<p className='label heading-5'>San Miguel Foods</p>
-							</div>
-						</div>
-					</motion.div>
+						</motion.div>
 
-					<motion.div className='control next'>
-						<div className='img-container'>
-							<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-						</div>
-						<div className='control-details'>
-							<div className='arrow'>
-								<BsArrowRightCircle size={'1.75rem'} />
+						<motion.div className='control next'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
 							</div>
-							<div>
-								<p>
-									<b>Previous Business</b>
-								</p>
-								<p className='label heading-5'>San Miguel Foods</p>
+							<div className='control-details'>
+								<div className='arrow'>
+									<BsArrowRightCircle size={'1.75rem'} />
+								</div>
+								<div>
+									<p>
+										<b>Next Business</b>
+									</p>
+									<p className='label heading-5'>San Miguel Foods</p>
+								</div>
 							</div>
-						</div>
+						</motion.div>
 					</motion.div>
-				</motion.div>
+				</Section>
 			</Curve>
 		</>
 	);

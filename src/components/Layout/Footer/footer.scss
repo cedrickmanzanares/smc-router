@@ -6,9 +6,12 @@
 }
 
 .main-footer .container-fluid-width {
-	max-width: 100%;
 	margin: auto;
 	position: relative;
+	gap: 0 !important;
+	> * {
+		flex: 1 1 100%;
+	}
 }
 
 .footer-links {
@@ -41,7 +44,10 @@
 .footer-logo {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
+	figure {
+		margin-right: 2rem;
+	}
 }
 
 .footer-logo .brand-logo {
@@ -74,4 +80,13 @@
 .privacy-flex img {
 	width: 4rem;
 	height: auto;
+}
+
+.footer-logo {
+}
+
+@media only screen and (max-width: 450px) {
+	.footer-links-col {
+		flex: 0 1 100%;
+	}
 }

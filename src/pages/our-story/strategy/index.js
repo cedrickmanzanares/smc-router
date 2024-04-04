@@ -36,13 +36,13 @@ export default function OurStrategy() {
 					<div className='column'>
 						<div className='image-content'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+								<img src={`${basePath}/images/OurStrategy/OurStrategy-1.png`} />
 							</div>
 						</div>
 					</div>
 					<div className='column'>
 						<div className='text-content'>
-							<h2 className='heading-2'>
+							<h2 className='heading-3'>
 								San Miguel’s goal is to help people enjoy and make progress in
 								their lives through the many products and services that our
 								company offers. 
@@ -63,11 +63,11 @@ export default function OurStrategy() {
 					<div className='column'>
 						<div className='business-item'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img src={`${basePath}/images/OurStrategy/our-strat-1.png`} />
 							</div>
 
 							<div className='desc-container'>
-								<h2 className='heading-5'>
+								<h2 className='heading-4'>
 									Enhance value of our established businesses.
 								</h2>
 
@@ -82,11 +82,11 @@ export default function OurStrategy() {
 						</div>
 						<div className='business-item'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img src={`${basePath}/images/OurStrategy/our-strat-2.png`} />
 							</div>
 
 							<div className='desc-container'>
-								<h2 className='heading-5'>
+								<h2 className='heading-4'>
 									Continue to diversify into industries that underpin the
 									development and growth of the Philippine economy.
 								</h2>
@@ -102,11 +102,11 @@ export default function OurStrategy() {
 						</div>
 						<div className='business-item'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img src={`${basePath}/images/OurStrategy/our-strat-3.png`} />
 							</div>
 
 							<div className='desc-container'>
-								<h2 className='heading-5'>
+								<h2 className='heading-4'>
 									Identify and pursue synergies across businesses through
 									vertical integration, platform matching and channel
 									management.
@@ -124,11 +124,11 @@ export default function OurStrategy() {
 						</div>
 						<div className='business-item'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img src={`${basePath}/images/OurStrategy/our-strat-4.png`} />
 							</div>
 
 							<div className='desc-container'>
-								<h2 className='heading-5'>
+								<h2 className='heading-4'>
 									Invest in and develop businesses with market leading
 									positions.
 								</h2>
@@ -151,11 +151,11 @@ export default function OurStrategy() {
 						</div>
 						<div className='business-item'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img src={`${basePath}/images/OurStrategy/our-strat-5.png`} />
 							</div>
 
 							<div className='desc-container'>
-								<h2 className='heading-5'>
+								<h2 className='heading-4'>
 									Adopt world-leading practices and joint development of
 									businesses.
 								</h2>

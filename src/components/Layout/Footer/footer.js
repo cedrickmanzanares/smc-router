@@ -23,6 +23,7 @@ import {
 	AccordionButton,
 	AccordionPanel,
 	AccordionIcon,
+	Flex,
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
@@ -56,96 +57,87 @@ export default function Footer() {
 							alt={"World's Best Companies 2023, World's Best Employers 2023"}
 						/>
 					</figure>
-					<Link href='/' className='brand-logo'>
-						<figure>
-							<img
-								src={`${basePath}/images/escudo-gray.png`}
-								width={95}
-								height={147}
-								alt={'SMC Escudo'}
-							/>
-						</figure>
-					</Link>
-					<motion.div
-						className='social-icons'
-						initial={{
-							backgroundColor: gray2,
-						}}
-						whileHover={{
-							scale: 1.2,
-							color: '#ffffff',
-							backgroundColor: '#3975ea',
-						}}
-						whileTap={{ scale: 0.9 }}>
-						<Link href='/'>
-							<ImFacebook size={footerIcon.size} />
-						</Link>
-					</motion.div>
-					<motion.div
-						className='social-icons'
-						initial={{
-							backgroundImage: `linear-gradient(45deg, ${gray2}, ${gray2})`,
-						}}
-						whileHover={{
-							scale: 1.2,
-							color: '#ffffff',
-							backgroundImage:
-								'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
-						}}
-						whileTap={{ scale: 0.9 }}>
-						<Link href='/'>
-							<LuInstagram size={footerIcon.size} />
-						</Link>
-					</motion.div>
+					<Flex gap={2} className='social-icon'>
+						<motion.div
+							className='social-icons'
+							initial={{
+								backgroundColor: gray2,
+							}}
+							whileHover={{
+								scale: 1.2,
+								color: '#ffffff',
+								backgroundColor: '#3975ea',
+							}}
+							whileTap={{ scale: 0.9 }}>
+							<Link href='/'>
+								<ImFacebook size={footerIcon.size} />
+							</Link>
+						</motion.div>
+						<motion.div
+							className='social-icons'
+							initial={{
+								backgroundImage: `linear-gradient(45deg, ${gray2}, ${gray2})`,
+							}}
+							whileHover={{
+								scale: 1.2,
+								color: '#ffffff',
+								backgroundImage:
+									'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
+							}}
+							whileTap={{ scale: 0.9 }}>
+							<Link href='/'>
+								<LuInstagram size={footerIcon.size} />
+							</Link>
+						</motion.div>
 
-					<motion.div
-						className='social-icons'
-						initial={{
-							backgroundColor: gray2,
-						}}
-						whileHover={{
-							scale: 1.2,
-							color: '#ffffff',
-							backgroundColor: '#ea3324',
-						}}
-						whileTap={{ scale: 0.9 }}>
-						<Link href='/'>
-							<ImYoutube size={footerIcon.size} />
-						</Link>
-					</motion.div>
+						<motion.div
+							className='social-icons'
+							initial={{
+								backgroundColor: gray2,
+							}}
+							whileHover={{
+								scale: 1.2,
+								color: '#ffffff',
+								backgroundColor: '#ea3324',
+							}}
+							whileTap={{ scale: 0.9 }}>
+							<Link href='/'>
+								<ImYoutube size={footerIcon.size} />
+							</Link>
+						</motion.div>
 
-					<motion.div
-						className='social-icons'
-						initial={{
-							backgroundColor: gray2,
-						}}
-						whileHover={{
-							scale: 1.2,
-							color: '#ffffff',
-							backgroundColor: '#2a6496',
-						}}
-						whileTap={{ scale: 0.9 }}>
-						<Link href='/'>
-							<ImLinkedin2 size={footerIcon.size} />
-						</Link>
-					</motion.div>
+						<motion.div
+							className='social-icons'
+							initial={{
+								backgroundColor: gray2,
+							}}
+							whileHover={{
+								scale: 1.2,
+								color: '#ffffff',
+								backgroundColor: '#2a6496',
+							}}
+							whileTap={{ scale: 0.9 }}>
+							<Link href='/'>
+								<ImLinkedin2 size={footerIcon.size} />
+							</Link>
+						</motion.div>
 
-					<motion.div
-						className='social-icons'
-						initial={{
-							backgroundColor: gray2,
-						}}
-						whileHover={{
-							scale: 1.2,
-							color: '#ffffff',
-							backgroundColor: red,
-						}}
-						whileTap={{ scale: 0.9 }}>
-						<Link href='/'>
-							<ImSphere size={footerIcon.size} />
-						</Link>
-					</motion.div>
-
+						<motion.div
+							className='social-icons'
+							initial={{
+								backgroundColor: gray2,
+							}}
+							whileHover={{
+								scale: 1.2,
+								color: '#ffffff',
+								backgroundColor: red,
+							}}
+							whileTap={{ scale: 0.9 }}>
+							<Link href='/'>
+								<ImSphere size={footerIcon.size} />
+							</Link>
+						</motion.div>
+					</Flex>
 					<Modal
 						header={{
 							label: 'Subsidiary Websites',

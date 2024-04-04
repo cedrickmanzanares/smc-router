@@ -3,6 +3,7 @@
 	.container-fluid-width {
 		position: relative;
 		z-index: 1;
+		justify-content: center;
 	}
 }
 .projects-bgs {
@@ -28,7 +29,7 @@
 .projects-slider {
 	width: 35rem;
 
-	margin: auto;
+	margin: 3rem auto;
 	position: relative;
 	.button {
 		position: absolute;

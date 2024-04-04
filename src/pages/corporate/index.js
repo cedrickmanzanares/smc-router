@@ -35,7 +35,7 @@ export default function Corporate() {
 			<Section columnCount={2}>
 				<div className='column'>
 					<h2 className='heading-2'>Tincidunt egestas phasellus sed ornare</h2>
-					<p>
+					<p className='heading-5'>
 						<b>
 							Pellentesque cras tortor viverra dui tempor semper cum sed. Sit
 							ut.
@@ -55,13 +55,13 @@ export default function Corporate() {
 				<div className='column'>
 					<div className='image-content stacked'>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							<img src={`${basePath}/images/Corporate/Corporate-1.svg`} />
 						</div>
-						<div className='img-container'>
+						<div className='img-container' style={{ display: 'none' }}>
 							<img src={`${basePath}/images/ph.svg`} />
 						</div>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							<img src={`${basePath}/images/Corporate/Corporate-2.png`} />
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@ export default function Corporate() {
 				<div className='column'>
 					<div className='news-item'>
 						<div className='img-container'>
-							<img src={''} />
+							<img src={`${basePath}/images/Corporate/governance.png`} />
 						</div>
 						<div className='desc-container'>
 							<h3 className='heading-3'>Neque dictumst eget.</h3>
@@ -92,15 +92,22 @@ export default function Corporate() {
 				<div className='column'>
 					<div className='news-item'>
 						<div className='img-container'>
-							<img src={''} />
+							<img
+								src={`${basePath}/images/ph.svg`}
+								style={{
+									objectFit: 'contain',
+								}}
+							/>
 						</div>
 						<div className='desc-container'>
-							<h3 className='heading-3'>Governance</h3>
+							<p>
+								Sodales tempus at lorem magna tempus vitae turpis egestas. Ac
+								nam tortor maecenas pellentesque.
+							</p>
 
 							<p>
-								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
-								nibh. Purus pellentesque feugiat vestibulum enim tortor orci
-								sodales hendrerit nascetur.
+								Ultricies eget tincidunt viverra enim malesuada. Eget velit
+								aenean posuere lacus. Tempus nulla sed vel.
 							</p>
 
 							<Button
@@ -114,15 +121,23 @@ export default function Corporate() {
 				<div className='column'>
 					<div className='news-item'>
 						<div className='img-container'>
-							<img src={''} />
+							<img
+								src={`${basePath}/images/heart.svg`}
+								style={{
+									objectFit: 'contain',
+								}}
+							/>
 						</div>
+
 						<div className='desc-container'>
-							<h3 className='heading-3'>Neque dictumst eget.</h3>
+							<p>
+								Sodales tempus at lorem magna tempus vitae turpis egestas. Ac
+								nam tortor maecenas pellentesque.
+							</p>
 
 							<p>
-								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
-								nibh. Purus pellentesque feugiat vestibulum enim tortor orci
-								sodales hendrerit nascetur.
+								Ultricies eget tincidunt viverra enim malesuada. Eget velit
+								aenean posuere lacus. Tempus nulla sed vel.
 							</p>
 
 							<Button
@@ -136,22 +151,15 @@ export default function Corporate() {
 				<div className='column'>
 					<div className='news-item'>
 						<div className='img-container'>
-							<img src={''} />
+							<img src={`${basePath}/images/OurStrategy/our-strat-4.png`} />
 						</div>
 						<div className='desc-container'>
-							<h3 className='heading-3'>Neque dictumst eget.</h3>
-							<p>Purus varius elit morbi diam varius integer.</p>
+							<h3 className='heading-3'>Investor Relations</h3>
+
 							<p>
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
-								nibh. Purus pellentesque feugiat vestibulum enim tortor orci
-								sodales hendrerit nascetur.
+								nibh.
 							</p>
-
-							<Button
-								link='/our-story/our-company'
-								className={'btn-bordered white'}>
-								Learn more
-							</Button>
 						</div>
 					</div>
 				</div>

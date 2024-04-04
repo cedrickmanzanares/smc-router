@@ -21,36 +21,32 @@ export default function PresidentsMessage() {
 			<Curve>
 				<PageBanner title={"President's Message"} direction='center' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content'>
-						<div class='chairman-img'>
-							<div
-								class='img-slide'
-								style={{ float: 'left', paddingRight: '2rem' }}>
-								<div class='img-container'>
-									<img
-										src='https://www.sanmiguel.com.ph/storage/images/extra/22061502304262a97c92e7a96-smc.webp'
-										data-filename='SMC President and CAO Ramon S Ang.jpg'
-										style={{ width: '370px' }}
-									/>
-								</div>
-								<div class='caption' style={{ textAlign: 'center' }}>
-									<p style={{ margin: '1rem 0 0 0' }}>
-										<b>Ramon S. Ang</b>&nbsp;
-									</p>
-									<p className='small-text' style={{ marginTop: '0' }}>
-										<i>President and Chief Operating Officer</i>
-									</p>
-								</div>
+						<div class='float float-left'>
+							<div class='img-container'>
+								<img
+									src={`${basePath}/images/Corporate/RSA.jpg`}
+									data-filename='SMC President and CAO Ramon S Ang.jpg'
+								/>
+							</div>
+							<div class='caption' style={{ textAlign: 'center' }}>
+								<p style={{ margin: '1rem 0 0 0' }}>
+									<b>Ramon S. Ang</b>&nbsp;
+								</p>
+								<p className='small-text' style={{ marginTop: '0' }}>
+									<i>President and Chief Operating Officer</i>
+								</p>
 							</div>
 						</div>
+
 						<h2>
 							<b>WE DO WHAT IT TAKES</b>
 						</h2>
-						<h3>
+						<h4>
 							<b>Message from our President and CEO</b>
 							<br />
-						</h3>
+						</h4>
 						<p>
 							In our recent history, no period has been more challenging than
 							these last three years. Like the rest of the world, we have been

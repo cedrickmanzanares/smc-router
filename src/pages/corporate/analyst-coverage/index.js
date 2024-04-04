@@ -14,13 +14,9 @@ export default function BoardCommittees() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner
-					title={'Analyst Coverage'}
-					noBg='true'
-					containerSize='small'
-				/>
+				<PageBanner title={'Analyst Coverage'} noBg='true' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content'>
 						<table class='table text-center'>
 							<tbody>

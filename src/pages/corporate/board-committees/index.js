@@ -21,7 +21,7 @@ export default function BoardCommittees() {
 			<Curve>
 				<PageBanner title={'Board Committees'} direction='center' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content'>
 						<p class='heading-5'>
 							<b>EXECUTIVE COMMITTEE</b>

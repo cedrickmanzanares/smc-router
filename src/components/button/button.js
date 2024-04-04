@@ -56,7 +56,7 @@ export default function Button({ className, link, children }) {
 			if (className.includes('white')) {
 				if (smcTheme === 'smc-red') return red;
 				if (smcTheme === 'smc-blue') return blue;
-				console.log('test');
+
 				return baseBlack;
 			}
 		}
@@ -89,7 +89,6 @@ export default function Button({ className, link, children }) {
 						top: '100%',
 					},
 				});
-				console.log(event, info);
 			}}
 			variants={buttonVariants}
 			className={`btn size-limit${className ? ` ${className}` : ''}`}>

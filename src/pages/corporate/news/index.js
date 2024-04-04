@@ -94,9 +94,9 @@ export default function News() {
 								</h2>
 								{/* <p>{newsItems[0].desc}</p> */}
 								<p>
-									<Link href={'/'} className='news-link small-text'>
+									<Link href={'/'} className='news-link'>
 										Learn More
-										<PiCaretCircleRight size={'1rem'} />
+										<PiCaretCircleRight size={'1.5rem'} />
 									</Link>
 								</p>
 							</div>
@@ -166,9 +166,9 @@ export function NewsItem({
 					<Link href={link}>{title}</Link>
 				</h3>
 				<p>
-					<Link href={link} className='news-link small-text'>
+					<Link href={link} className='news-link'>
 						Learn More
-						<PiCaretCircleRight size={'1rem'} />
+						<PiCaretCircleRight size={'1.5rem'} />
 					</Link>
 				</p>
 			</div>

@@ -21,7 +21,7 @@ export default function BoardOfDirectors() {
 			<Curve>
 				<PageBanner title={'Board of Directors'} direction='center' />
 
-				<Section containerSize='small' columnCount={3}>
+				<Section columnCount={3}>
 					<div className='column text-content full'>
 						<p>
 							<b>Ramon S. Ang</b>

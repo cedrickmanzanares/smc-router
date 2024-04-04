@@ -95,12 +95,13 @@ export default function NewsInner() {
 			<Curve>
 				<PageBanner
 					noBg={true}
+					headingSize='heading-2'
 					title={
 						'SMC, TESDA partner to start training Filipino workers for jobs at NMIA, other major projects nationwide'
 					}
-					containerSize='small'
-					subtitle={'Mar 01, 2024'}></PageBanner>
-				<Section containerSize='small'>
+					subtitle={'Mar 01, 2024'}
+					subtitleClasses={'small-text'}></PageBanner>
+				<Section>
 					<div className='column'>
 						<ImageSlider
 							type='full'
@@ -108,6 +109,7 @@ export default function NewsInner() {
 							dots={true}
 							arrows={false}
 							captionPosition={'absolute'}
+							slides={slides}
 						/>
 						<div className='text-content'>
 							<p>
@@ -144,6 +146,7 @@ export default function NewsInner() {
 							type='full'
 							gradient={false}
 							dots={false}
+							slides={slides}
 						/>
 						<div className='text-content'>
 							<p>
@@ -174,6 +177,7 @@ export default function NewsInner() {
 							type='full'
 							gradient={false}
 							dots={false}
+							slides={slides}
 						/>
 						<div className='text-content'>
 							<p>
@@ -196,43 +200,45 @@ export default function NewsInner() {
 					</div>
 				</Section>
 
-				<motion.div className='page-controls'>
-					<motion.div className='control prev'>
-						<div className='control-details'>
-							<div className='arrow'>
-								<BsArrowLeftCircle size={'1.75rem'} />
+				<Section>
+					<motion.div className='page-controls'>
+						<motion.div className='control prev'>
+							<div className='control-details'>
+								<div className='arrow'>
+									<BsArrowLeftCircle size={'1.75rem'} />
+								</div>
+								<div>
+									<p>
+										<b>Previous Article</b>
+									</p>
+									<p className='label heading-5'>
+										Massa at pulvinar vestibulum feugiat. Et ac proin tempor id
+										nec.
+									</p>
+									<p className='date'>Sept. 20, 2023</p>
+								</div>
 							</div>
-							<div>
-								<p>
-									<b>Previous Article</b>
-								</p>
-								<p className='label heading-5'>
-									Massa at pulvinar vestibulum feugiat. Et ac proin tempor id
-									nec.
-								</p>
-								<p className='date'>Sept. 20, 2023</p>
-							</div>
-						</div>
-					</motion.div>
+						</motion.div>
 
-					<motion.div className='control next'>
-						<div className='control-details'>
-							<div className='arrow'>
-								<BsArrowRightCircle size={'1.75rem'} />
+						<motion.div className='control next'>
+							<div className='control-details'>
+								<div className='arrow'>
+									<BsArrowRightCircle size={'1.75rem'} />
+								</div>
+								<div>
+									<p>
+										<b>Next Article</b>
+									</p>
+									<p className='label heading-5'>
+										Massa at pulvinar vestibulum feugiat. Et ac proin tempor id
+										nec.
+									</p>
+									<p className='date'>Sept. 20, 2023</p>
+								</div>
 							</div>
-							<div>
-								<p>
-									<b>Previous Article</b>
-								</p>
-								<p className='label heading-5'>San Miguel Foods</p>
-								<p className='date'>
-									Tortor sollicitudin lacinia nulla in lacus. Amet quam velit
-									aliquam.
-								</p>
-							</div>
-						</div>
+						</motion.div>
 					</motion.div>
-				</motion.div>
+				</Section>
 			</Curve>
 		</>
 	);

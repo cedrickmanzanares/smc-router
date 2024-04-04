@@ -81,7 +81,7 @@ export default function CSR() {
 					<div className='column'>
 						<div className='image-content'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
+								<img src={`${basePath}/images/CSR/CSR-1.png`} />
 							</div>
 						</div>
 					</div>
@@ -112,7 +112,7 @@ export default function CSR() {
 				<Section containerSize={'full'} columnCount={1}>
 					<div className='column'>
 						<FullPageBanner
-							image={`${basePath}/images/CSR/60dc13a6f26d5.png`}
+							image={`${basePath}/images/CSR/WWW.png`}
 							caption={'The world we want'}></FullPageBanner>
 					</div>
 				</Section>
@@ -149,13 +149,16 @@ export default function CSR() {
 					<div className='column'>
 						<div className='image-content stacked'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+								<img src={`${basePath}/images/CSR/EOP-1.svg`} />
 							</div>
 							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+								<img
+									src={`${basePath}/images/ph.svg`}
+									style={{ display: 'none' }}
+								/>
 							</div>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+								<img src={`${basePath}/images/CSR/EOP-2.png`} />
 							</div>
 						</div>
 					</div>

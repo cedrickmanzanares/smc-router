@@ -13,18 +13,22 @@ import Link from 'next/link';
 export default function FinancialInformation() {
 	return (
 		<Curve>
-			<PageBanner title='Financial Information' direction='center'></PageBanner>
+			<PageBanner title='Financial Performance' direction='center'></PageBanner>
 			<Section columnCount={2}>
 				<div className='column'>
 					<div className='image-content stacked'>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
+							<img
+								src={`${basePath}/images/ShareholderInformation/ShareholderInformation-1.svg`}
+							/>
 						</div>
 						<div className='img-container'>
 							<img src={`${basePath}/images/ph.svg`} />
 						</div>
 						<div className='img-container'>
-							<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
+							<img
+								src={`${basePath}/images/ShareholderInformation/ShareholderInformation-2.png`}
+							/>
 						</div>
 					</div>
 				</div>

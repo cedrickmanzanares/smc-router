@@ -57,11 +57,13 @@ export const fonts = {
 export const TokenContext = createContext('');
 export const MenuContext = createContext([]);
 export const ThemeContext = createContext();
+export const PreloadContext = createContext({});
 
 export default function App({ Component, pageProps, router }) {
 	const [token, setToken] = useState('');
 	const { menu } = useGetMenu();
 	const { smcTheme } = useGetTheme(menu);
+	const { preload, setPreload } = useState(true);
 
 	useEffect(() => {
 		if (!token) {
@@ -104,17 +106,19 @@ export default function App({ Component, pageProps, router }) {
 					position: 'relative',
 				}}>
 				<ChakraProvider theme={theme}>
-					<ThemeContext.Provider value={smcTheme}>
-						<MenuContext.Provider value={menu}>
-							<TokenContext.Provider value={token}>
-								<Nav />
-								<AnimatePresence mode='wait'>
-									<Component key={router.route} {...pageProps} />
-								</AnimatePresence>
-								<Footer></Footer>
-							</TokenContext.Provider>
-						</MenuContext.Provider>
-					</ThemeContext.Provider>
+					<PreloadContext.Provider value={{ preload, setPreload }}>
+						<ThemeContext.Provider value={smcTheme}>
+							<MenuContext.Provider value={menu}>
+								<TokenContext.Provider value={token}>
+									<Nav />
+									<AnimatePresence mode='wait'>
+										<Component key={router.route} {...pageProps} />
+									</AnimatePresence>
+									<Footer></Footer>
+								</TokenContext.Provider>
+							</MenuContext.Provider>
+						</ThemeContext.Provider>
+					</PreloadContext.Provider>
 				</ChakraProvider>
 
 				{/* <ShapeBg /> */}
