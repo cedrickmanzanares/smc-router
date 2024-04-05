@@ -54,7 +54,7 @@ export default function PageCTA() {
 					</motion.h2>
 					<div className='pageCTA-btn'>
 						<Button href='/' className='white size-inherit' link='/'>
-							Visit our sustainability report
+							Visit our sustainability site
 						</Button>
 					</div>
 				</div>

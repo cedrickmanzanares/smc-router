@@ -148,8 +148,7 @@ export default function WalangIwanan() {
 					</div>
 				</Section>
 
-				<Section></Section>
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ rowGap: 0 }}>
 					<div className='column' style={{ flex: '1 1 100%' }}>
 						<div className='news-featured column' ref={parent1}>
 							<div className='img-container'>

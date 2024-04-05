@@ -1,5 +1,6 @@
 .image-slider-container {
 	overflow: hidden;
+	margin: 2rem auto;
 	&.has-arrows {
 		padding: 2rem 4rem;
 	}
@@ -7,7 +8,6 @@
 .image-slider {
 	width: 35rem;
 	position: relative;
-	margin: 2rem auto;
 
 	&.full {
 		width: 100%;

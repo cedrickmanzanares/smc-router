@@ -42,6 +42,7 @@ import { useRouter } from 'next/router';
 import { getMenu, useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
 import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
+import { enterDuration } from '../Curve/anim';
 
 export default function Nav({}) {
 	const router = useRouter();
@@ -50,7 +51,8 @@ export default function Nav({}) {
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
 	const [isOpen, toggle] = useCycle(false, true);
-	const { red, blue, yellow } = getColors;
+	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
+		getColors;
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		if (latest < 100) {
@@ -80,7 +82,7 @@ export default function Nav({}) {
 			case 'smc-blue':
 				return '#ffffff';
 			case 'smc-yellow':
-				return '#000000';
+				return baseBlack;
 			default:
 				return '#ffffff00';
 		}
@@ -90,15 +92,18 @@ export default function Nav({}) {
 		open: {
 			opacity: 1,
 			y: '0%',
+			color: getNavColor(smcTheme),
+			backgroundColor: getBackground(smcTheme),
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
 				backgroundColor: {
-					delay: 0.75,
+					delay: enterDuration - 0.75,
+				},
+				color: {
+					delay: enterDuration - 0.75,
 				},
 			},
-			color: getNavColor(smcTheme),
-			backgroundColor: getBackground(smcTheme),
 		},
 
 		closed: {
@@ -168,7 +173,8 @@ function MainNav({
 }) {
 	const menu = useContext(MenuContext);
 	const smcTheme = useContext(ThemeContext);
-
+	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
+		getColors;
 	useEffect(() => {
 		let navItem = document.querySelectorAll('.nav-item');
 		navItem.forEach((item) => {
@@ -184,6 +190,17 @@ function MainNav({
 		});
 	}, [menu]);
 
+	const innerDropdown_variants = {
+		'smc-red': {
+			backgroundImage: `linear-gradient(90deg, ${redShade1}, ${red})`,
+		},
+		'smc-blue': {
+			backgroundImage: `linear-gradient(90deg, ${blueShade1}, ${blue})`,
+		},
+		'smc-yellow': {
+			backgroundImage: `linear-gradient(90deg, ${yellow}, ${yellowShade1})`,
+		},
+	};
 	return (
 		<motion.nav
 			variants={{
@@ -264,7 +281,13 @@ function MainNav({
 												</motion.div>
 
 												{item.children.length !== 0 && (
-													<div className={`inner-dropdown `}>
+													<motion.div
+														animate={smcTheme}
+														variants={innerDropdown_variants}
+														className={`inner-dropdown`}
+														transition={{
+															delay: enterDuration,
+														}}>
 														{item.children.map((item) => {
 															let key = `menuItem_lvl3_${item.id}`;
 															let link = parent_slug;
@@ -285,7 +308,7 @@ function MainNav({
 																			<Link href={link}>{item.title}</Link>
 																		</motion.div>
 
-																		<div className='inner-dropdown'>
+																		<ul className='inner-dropdown'>
 																			{item.children.map((item) => {
 																				let key = `menuItem_lvl4_${item.id}`;
 																				let link = parent_slug;
@@ -294,19 +317,19 @@ function MainNav({
 																					: `${item.url}`;
 
 																				return (
-																					<motion.div onTap={toggle} key={key}>
+																					<motion.li onTap={toggle} key={key}>
 																						<Link href={link}>
 																							{item.title}
 																						</Link>
-																					</motion.div>
+																					</motion.li>
 																				);
 																			})}
-																		</div>
+																		</ul>
 																	</div>
 																);
 															}
 														})}
-													</div>
+													</motion.div>
 												)}
 											</motion.div>
 										);

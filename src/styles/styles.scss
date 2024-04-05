@@ -6,10 +6,10 @@ body {
 	--base-red: #f25a38;
 	--shade1-red: #b44026;
 	--base-yellow: #ffd038;
+	--shade1-yellow: #edb501;
 	--yellow-1: #f8eebb;
 	--base-blue: #1484c0;
 	--shade1-blue: #269edc;
-	--shade1-yellow: #edb501;
 
 	--gray-2: #e6e6e6;
 	--gray-3: #c9c9c9;
@@ -146,6 +146,13 @@ h6,
 }
 
 p {
+	&:first-of-type {
+		margin-top: 0;
+	}
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
 	font-size: 1rem;
 	margin: 2rem 0;
 }
@@ -454,7 +461,7 @@ a {
 	aspect-ratio: 4/3;
 	background-size: cover;
 	display: flex;
-
+	margin-bottom: var(--section-padding);
 	.news-title {
 		margin: 1rem 0;
 		a {
@@ -698,14 +705,14 @@ a {
 }
 .business-item {
 	display: grid;
-	align-items: flex-start;
+	align-items: center;
 	grid-template-columns: 10rem auto;
 	gap: var(--gap-padding);
 
 	border-top: 1px solid var(--gray-3);
 	padding: var(--gap-padding) 0;
 	.business-name {
-		margin: 0;
+		margin: 0 0 0.5rem;
 		color: var(--base-red);
 	}
 
@@ -740,12 +747,8 @@ a {
 	justify-content: flex-start;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 4rem;
-
 	.control {
 		flex: 1 1 50%;
-		padding-top: 2rem;
-		padding-bottom: 2rem;
 	}
 	.prev {
 		padding-right: 5rem;
@@ -817,13 +820,11 @@ a {
 @import '../cms-components/FloatingImages/floatingimages.scss';
 
 .accordion-item {
-	margin: 1rem 0;
-	border-top: 0;
-	border-bottom: 0;
+	button {
+		padding: 1rem;
+	}
 }
 .accordion-header {
-	padding-bottom: 10px;
-	border-bottom: 1px solid var(--gray-3);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -915,7 +916,7 @@ a {
 }
 
 .bussinesses-desc-column {
-	flex: 1 1 800px !important;
+	flex: 1 1 500px !important;
 }
 .bussinesses-opportunities-column {
 	flex: 0 1 250px !important;

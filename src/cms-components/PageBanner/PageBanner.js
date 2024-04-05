@@ -34,9 +34,9 @@ export default function PageBanner({
 
 	const bannerSubtitleClasses = `banner-subtitle heading-5 ${subtitleClasses}`;
 	const [rotate, setRotate] = useState(-30);
-	const careers = useRef(null);
+	const banner = useRef(null);
 	const { scrollYProgress } = useScroll({
-		target: careers,
+		target: banner,
 		offset: ['start start', 'end start'],
 	});
 
@@ -61,9 +61,48 @@ export default function PageBanner({
 		}
 	}, [smcTheme]);
 
-	const path_settings = {};
+	const banner_anim = {
+		initial: {
+			y: 100,
+			opacity: 0,
+		},
+		enter: {
+			y: 0,
+			opacity: 1,
+			transition: {
+				duration: 0.5,
+				delay: 1,
+				ease: [0.76, 0, 0.24, 1],
+			},
+		},
+		exit: {
+			y: -100,
+			opacity: 0,
+			transition: {
+				duration: 0.5,
+				delay: 0.1,
+				ease: [0.76, 0, 0.24, 1],
+			},
+		},
+	};
+
+	const path_anim = {
+		initial: {},
+		enter: {},
+		exit: {},
+	};
+
+	const bg_anim = {
+		initial: {},
+		enter: {},
+		exit: {},
+	};
+
 	return (
-		<div className={bannerClasses} ref={careers}>
+		<motion.div
+			className={bannerClasses}
+			{...useAnim(banner_anim)}
+			ref={banner}>
 			<div className='banner-bg'>
 				<motion.div
 					className='banner-img'
@@ -102,6 +141,6 @@ export default function PageBanner({
 					{subtitle && <p className={bannerSubtitleClasses}>{subtitle}</p>}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

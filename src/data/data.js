@@ -55,13 +55,15 @@ export const useGetMenu = () => {
 export const useGetTheme = (menu) => {
 	const [smcTheme, setsmcTheme] = useState('');
 	const router = useRouter();
-
+	useEffect(() => {
+		console.log(smcTheme);
+	}, [smcTheme]);
 	useEffect(() => {
 		// if (router.route.split('/')[0] === )
 		let parentLinks = menu.map((item) => item.page[0].slug);
 
 		let index = parentLinks.indexOf(router.route.split('/')[1]);
-
+		console.log(router.route);
 		switch (index) {
 			case 0:
 				setsmcTheme('smc-red');
@@ -91,7 +93,7 @@ export const useGetToggleFill = () => {
 
 	useEffect(() => {
 		if (smcTheme === 'smc-red') setToggleFill(red);
-		else if (smcTheme === 'smc-blue') setToggleFill(blue);
+		if (smcTheme === 'smc-blue') setToggleFill(blue);
 		else if (smcTheme === 'smc-yellow') setToggleFill(yellow);
 		else setToggleFill(red);
 	}, [smcTheme]);

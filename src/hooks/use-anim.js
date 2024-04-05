@@ -1,8 +1,10 @@
-const useAnim = (variants) => {
+import { useEffect } from 'react';
+
+const useAnim = (variants, preload) => {
 	return {
 		variants,
 		initial: 'initial',
-		animate: 'enter',
+		animate: !preload ? 'enter' : 'initial',
 		exit: 'exit',
 	};
 };

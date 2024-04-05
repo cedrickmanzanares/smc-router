@@ -35,10 +35,6 @@
 
 	.route-transition {
 		z-index: 2000;
-
-		path {
-			fill: var(--base-red);
-		}
 	}
 
 	.cheat-cover {
@@ -51,41 +47,5 @@
 		top: 0;
 		pointer-events: none;
 		z-index: 2001;
-	}
-}
-
-.smc-red {
-	.route-transition {
-		path {
-			fill: var(--base-red);
-		}
-	}
-	.curve .cheat-cover {
-		background-color: var(--base-red);
-		position: fixed;
-	}
-}
-
-.smc-blue {
-	.route-transition {
-		path {
-			fill: var(--base-blue);
-		}
-	}
-	.curve .cheat-cover {
-		background-color: var(--base-blue);
-		position: fixed;
-	}
-}
-
-.smc-yellow {
-	.route-transition {
-		path {
-			fill: var(--base-yellow);
-		}
-	}
-	.curve .cheat-cover {
-		background-color: var(--base-yellow);
-		position: fixed;
 	}
 }

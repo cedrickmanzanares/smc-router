@@ -10,6 +10,7 @@ export default function Section({
 	children,
 	columnCount = 1,
 	containerSize = 'medium',
+	sectionStyle,
 	containerStyle,
 	direction,
 }) {
@@ -35,6 +36,7 @@ export default function Section({
 			className={sectionClasses}
 			initial='initial'
 			whileInView='visible'
+			style={sectionStyle}
 			viewport={{
 				// once: true,
 				amount: 0.5,

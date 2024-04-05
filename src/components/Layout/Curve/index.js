@@ -4,11 +4,12 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { text, curve, translate } from './anim';
 import useAnim from '@/hooks/use-anim';
 import Lenis from '@studio-freight/lenis';
-import { initializeToken } from '@/data/data';
+import { initializeToken, useGetToggleFill } from '@/data/data';
 
 import { env } from '/next.config';
 
-import { MenuContext, ThemeContext } from '@/pages/_app';
+import { MenuContext, PreloadContext, ThemeContext } from '@/pages/_app';
+import { getColors } from '@/hooks/use-color';
 
 const routes = {
 	'/': 'Your World Made Better',
@@ -30,8 +31,9 @@ const routes = {
 
 export default function Curve({ children }) {
 	const router = useRouter();
-
+	const { red, blue, yellow } = getColors;
 	const smcTheme = useContext(ThemeContext);
+	const preload = useContext(PreloadContext);
 
 	let text_altered = text;
 	text_altered.enter.top = router.route == '/' ? '40vh' : -100;
@@ -73,7 +75,9 @@ export default function Curve({ children }) {
 				className='background'
 			/>
 
-			<motion.h6 className='route heading-1' {...useAnim(text_altered)}>
+			<motion.h6
+				className='route heading-1'
+				{...useAnim(text_altered, preload)}>
 				{routes[router.route]}
 			</motion.h6>
 
@@ -85,6 +89,17 @@ export default function Curve({ children }) {
 }
 
 const SVG = ({ height, width }) => {
+	const smcTheme = useContext(ThemeContext);
+	const { red, blue, yellow } = getColors;
+
+	const [color, setColor] = useState(red);
+	useEffect(() => {
+		if (smcTheme === 'smc-red') setColor(red);
+		if (smcTheme === 'smc-blue') setColor(blue);
+		if (smcTheme === 'smc-yellow') setColor(yellow);
+	}, [smcTheme]);
+
+	const preload = useContext(PreloadContext);
 	const initialPath = `
         M0 300 
         Q${width / 2} 0 ${width} 300
@@ -102,8 +117,12 @@ const SVG = ({ height, width }) => {
 	`;
 
 	return (
-		<motion.svg className='route-transition' {...useAnim(translate)}>
-			<motion.path {...useAnim(curve(initialPath, targetPath))} />
+		<motion.svg className='route-transition' {...useAnim(translate, preload)}>
+			<motion.path
+				// animate={{ fill: color }}
+				fill={color}
+				{...useAnim(curve(initialPath, targetPath, color), preload)}
+			/>
 		</motion.svg>
 	);
 };

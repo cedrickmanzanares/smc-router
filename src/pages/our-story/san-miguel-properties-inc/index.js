@@ -152,7 +152,7 @@ export default function FoodAndBeverages() {
 					</div>
 				</Section>
 
-				<Section>
+				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
 						<motion.div className='control prev'>
 							<div className='img-container'>

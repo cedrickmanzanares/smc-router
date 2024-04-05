@@ -174,26 +174,6 @@ export default function CompanyOfficers() {
 						</p>
 						<p>President</p>
 					</div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
-					<div className='column'></div>
 				</Section>
 			</Curve>
 		</>

@@ -145,7 +145,7 @@ export default function OurCompany() {
 					</div>
 				</Section>
 
-				<Section columnCount={2}>
+				<Section columnCount={2} sectionStyle={{ paddingTop: 0 }}>
 					<div className='column sticky tab-source tabsource-ourcompany'>
 						<motion.button
 							class={`tab-links ${selected === 0 ? 'active' : ''}`}

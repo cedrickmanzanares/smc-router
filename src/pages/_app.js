@@ -63,10 +63,11 @@ export default function App({ Component, pageProps, router }) {
 	const [token, setToken] = useState('');
 	const { menu } = useGetMenu();
 	const { smcTheme } = useGetTheme(menu);
-	const { preload, setPreload } = useState(true);
+	const [preload, setPreload] = useState(true);
 
 	useEffect(() => {
 		if (!token) {
+			setPreload(true);
 			let request_data = new FormData();
 			request_data.append('email', api_uname);
 			request_data.append('password', api_pass);
@@ -85,6 +86,7 @@ export default function App({ Component, pageProps, router }) {
 					return res.json();
 				})
 				.then((data) => {
+					setPreload(false);
 					setToken(data.token);
 				});
 		}
@@ -106,7 +108,7 @@ export default function App({ Component, pageProps, router }) {
 					position: 'relative',
 				}}>
 				<ChakraProvider theme={theme}>
-					<PreloadContext.Provider value={{ preload, setPreload }}>
+					<PreloadContext.Provider value={preload}>
 						<ThemeContext.Provider value={smcTheme}>
 							<MenuContext.Provider value={menu}>
 								<TokenContext.Provider value={token}>

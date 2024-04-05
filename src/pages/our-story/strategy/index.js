@@ -32,7 +32,7 @@ export default function OurStrategy() {
 
 			<Curve>
 				<PageBanner title={'Our Strategy'} direction='center' />
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
 						<div className='image-content'>
 							<div className='img-container'>
