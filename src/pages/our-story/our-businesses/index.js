@@ -82,7 +82,7 @@ export default function OurBusinesses() {
 			</Head>
 			<Curve>
 				<PageBanner title={'Our Businesses'} direction='center' />
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
 						<div className='text-content'>
 							<p>
@@ -136,7 +136,7 @@ export default function OurBusinesses() {
 					</div>
 				</Section>
 
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ rowGap: 0 }}>
 					<div className='column'>
 						<BusinessItem />
 					</div>

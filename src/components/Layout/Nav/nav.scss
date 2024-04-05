@@ -36,6 +36,15 @@
 			);
 		}
 	}
+	.nav-container .nav-dropdown .nav-dropdown-item:hover {
+		color: var(--base-blue);
+		a {
+			color: var(--base-blue);
+		}
+		.inner-dropdown a {
+			color: white;
+		}
+	}
 }
 .smc-yellow {
 	.nav-toggle-trigger {
@@ -58,6 +67,24 @@
 	}
 	.main-nav.toggle-nav .nav-dropdown a {
 		color: var(--base-black);
+	}
+	&.main-nav {
+		.nav-item {
+			color: var(--base-black);
+			a {
+				color: var(--base-black);
+			}
+			.nav-dropdown > div > .inner-dropdown {
+				background-image: linear-gradient(
+					90deg,
+					var(--base-yellow),
+					var(--shade1-yellow)
+				);
+				a {
+					color: var(--base-black);
+				}
+			}
+		}
 	}
 }
 
@@ -83,6 +110,42 @@
 				a {
 					color: white;
 				}
+			}
+		}
+	}
+
+	.nav-dropdown .nav-dropdown-item:hover {
+		color: var(--base-red);
+		a {
+			color: var(--base-red);
+		}
+		.inner-dropdown a {
+			color: white;
+		}
+		svg {
+			rotate: -90deg;
+		}
+	}
+
+	.smc-blue {
+		.nav-dropdown .nav-dropdown-item:hover {
+			color: var(--base-blue);
+			a {
+				color: var(--base-blue);
+			}
+			.inner-dropdown a {
+				color: white;
+			}
+		}
+	}
+	.smc-yellow {
+		.nav-dropdown .nav-dropdown-item:hover {
+			color: var(--base-yellow);
+			a {
+				color: var(--base-yellow);
+			}
+			.inner-dropdown a {
+				color: var(--base-black);
 			}
 		}
 	}
@@ -171,8 +234,8 @@
 
 				background-image: linear-gradient(
 					90deg,
-					var(--base-red),
-					var(--shade1-red)
+					var(--shade1-red),
+					var(--base-red)
 				);
 			}
 		}

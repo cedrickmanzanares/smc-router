@@ -20,7 +20,7 @@ export default function EnvironmenalProgram() {
 					direction='center'
 				/>
 
-				<Section containerSize='small'>
+				<Section>
 					<div className='column'>
 						<h2 className='heading-3'>Water for All</h2>
 						<p>

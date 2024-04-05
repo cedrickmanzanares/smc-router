@@ -9,6 +9,7 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Button from '@/components/button/button';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -106,14 +107,15 @@ export default function FoodAndBeverages() {
 								creating a sustainable competitive advantage.
 							</p>
 							<p>
-								<a
+								<Button
 									href='http://smypc.com/'
-									target='_blank'
-									class='btn btn-bordered pri'
 									without='true'
-									rel='noreferrer'>
-									<span class='btn-label'>Learn More</span>
-								</a>
+									rel='noreferrer'
+									target='_blank'
+									link='/our-business/inner'
+									className={'pri-btn btn-bordered'}>
+									Read More
+								</Button>
 							</p>
 						</div>
 					</div>

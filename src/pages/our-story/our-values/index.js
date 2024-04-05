@@ -25,7 +25,7 @@ export default function OurValues() {
 						<VideoContent />
 					</div>
 				</Section>
-				<Section containerSize='small'>
+				<Section>
 					<div className='column text-content'>
 						<h2 className='heading-2 split-color'>
 							Malasakit is at the core <b>of who we are as a company</b>

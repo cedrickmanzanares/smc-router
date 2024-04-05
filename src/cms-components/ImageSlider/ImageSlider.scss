@@ -146,6 +146,11 @@
 			position: absolute;
 			top: 50%;
 			transform: translate(0, -50%);
+			background-color: white;
+			border-radius: 100%;
+			svg {
+				transform: scale(1.2);
+			}
 		}
 		.button.left {
 			left: 0;

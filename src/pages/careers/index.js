@@ -44,7 +44,7 @@ export default function Careers() {
 				</div>
 			</Section>
 
-			<Section columnCount={2}>
+			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 				<div className='column'>
 					<div className='image-content stacked'>
 						<div className='img-container'>

@@ -9,6 +9,7 @@ body {
 	--yellow-1: #f8eebb;
 	--base-blue: #1484c0;
 	--shade1-blue: #269edc;
+	--shade1-yellow: #edb501;
 
 	--gray-2: #e6e6e6;
 	--gray-3: #c9c9c9;
@@ -183,8 +184,8 @@ b {
 	padding-bottom: var(--container-padding);
 }
 
-.float img {
-	width: 450px;
+.float {
+	width: 50%;
 	max-width: 100%;
 }
 .progress circle {
@@ -817,6 +818,8 @@ a {
 
 .accordion-item {
 	margin: 1rem 0;
+	border-top: 0;
+	border-bottom: 0;
 }
 .accordion-header {
 	padding-bottom: 10px;
@@ -915,7 +918,7 @@ a {
 	flex: 1 1 800px !important;
 }
 .bussinesses-opportunities-column {
-	flex: 1 1 150px !important;
+	flex: 0 1 250px !important;
 }
 
 .opportunities-item {
@@ -1057,6 +1060,22 @@ table {
 .tab-target {
 	> div {
 		display: none;
+	}
+}
+
+.chakra-form-control {
+	height: 3.5rem;
+	.chakra-select,
+	.chakra-input {
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		height: 100%;
+	}
+
+	.chakra-select__wrapper,
+	.chakra-select,
+	.chakra-input {
+		height: 100%;
 	}
 }
 

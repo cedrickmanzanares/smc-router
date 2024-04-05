@@ -35,35 +35,35 @@ export default function OurCompany() {
 	];
 	const fo = [
 		{
-			img: `${basePath}/images/OurCompany/fo-1.png`,
+			img: `${basePath}/images/OurCompany/FO-1.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/fo-2.png`,
+			img: `${basePath}/images/OurCompany/FO-2.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/fo-3.png`,
+			img: `${basePath}/images/OurCompany/FO-3.png`,
 		},
 	];
 	const power = [
 		{
-			img: `${basePath}/images/OurCompany/power-1.png`,
+			img: `${basePath}/images/OurCompany/Power-1.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/power-2.png`,
+			img: `${basePath}/images/OurCompany/Power-2.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/power-3.png`,
+			img: `${basePath}/images/OurCompany/Power-3.png`,
 		},
 	];
 	const infra = [
 		{
-			img: `${basePath}/images/OurCompany/infra-1.png`,
+			img: `${basePath}/images/OurCompany/Infra-1.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/infra-2.png`,
+			img: `${basePath}/images/OurCompany/Infra-2.png`,
 		},
 		{
-			img: `${basePath}/images/OurCompany/infra-3.png`,
+			img: `${basePath}/images/OurCompany/Infra-3.png`,
 		},
 	];
 	const cem = [

@@ -34,7 +34,7 @@ export default function PresidentsMessage() {
 								<p style={{ margin: '1rem 0 0 0' }}>
 									<b>Ramon S. Ang</b>&nbsp;
 								</p>
-								<p className='small-text' style={{ marginTop: '0' }}>
+								<p className='small-text' style={{ margin: '0' }}>
 									<i>President and Chief Operating Officer</i>
 								</p>
 							</div>

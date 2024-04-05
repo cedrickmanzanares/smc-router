@@ -83,7 +83,7 @@ export default function Corporate() {
 
 							<Button
 								link='/our-story/our-company'
-								className={'btn-bordered white'}>
+								className={'btn-bordered pri-btn'}>
 								Learn more
 							</Button>
 						</div>
@@ -109,10 +109,9 @@ export default function Corporate() {
 								Ultricies eget tincidunt viverra enim malesuada. Eget velit
 								aenean posuere lacus. Tempus nulla sed vel.
 							</p>
-
 							<Button
 								link='/our-story/our-company'
-								className={'btn-bordered white'}>
+								className={'btn-bordered pri-btn'}>
 								Learn more
 							</Button>
 						</div>
@@ -142,7 +141,7 @@ export default function Corporate() {
 
 							<Button
 								link='/our-story/our-company'
-								className={'btn-bordered white'}>
+								className={'btn-bordered pri-btn'}>
 								Learn more
 							</Button>
 						</div>
@@ -160,6 +159,11 @@ export default function Corporate() {
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
 								nibh.
 							</p>
+							<Button
+								link='/our-story/our-company'
+								className={'btn-bordered pri-btn'}>
+								Learn more
+							</Button>
 						</div>
 					</div>
 				</div>

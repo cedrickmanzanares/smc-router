@@ -9,6 +9,7 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Button from '@/components/button/button';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -69,7 +70,7 @@ export default function FoodAndBeverages() {
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
 						<div className='text-content'>
-							<p className='heading-5'>
+							<p>
 								SMC Infrastructure, our infrastructure arm handles the
 								construction, management, and operation of the country’s largest
 								infrastructure network. Its current portfolio includes: the
@@ -265,14 +266,15 @@ export default function FoodAndBeverages() {
 							</p>
 
 							<p>
-								<a
+								<Button
 									href='https://www.sanmiguel.com.ph/page/san-miguel-aerocity-inc'
-									target='_blank'
-									class='btn btn-bordered pri'
 									without='true'
-									rel='noreferrer'>
-									<span class='btn-label'>Learn More</span>
-								</a>
+									rel='noreferrer'
+									target='_blank'
+									link='/our-business/inner'
+									className={'pri-btn btn-bordered'}>
+									Read More
+								</Button>
 							</p>
 						</div>
 					</div>

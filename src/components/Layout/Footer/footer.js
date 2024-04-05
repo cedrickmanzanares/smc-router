@@ -24,6 +24,14 @@ import {
 	AccordionPanel,
 	AccordionIcon,
 	Flex,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalCloseButton,
+	ModalBody,
+	ModalFooter,
+	Button,
+	useDisclosure,
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
@@ -31,6 +39,8 @@ import Image from 'next/image';
 import { basePath } from '@/hooks/use-basepath';
 
 export default function Footer() {
+	const { isOpen, onOpen, onClose } = useDisclosure();
+
 	const year = new Date().getFullYear();
 	const { baseBlack, gray2, red } = getColors;
 	const footerIcon = {
@@ -51,6 +61,37 @@ export default function Footer() {
 		<footer className='section-content main-footer' ref={footer}>
 			<motion.div className='container-fluid-width medium' style={{ y: y }}>
 				<div className='footer-logo'>
+					<Button onClick={onOpen}>Open Modal</Button>
+
+					<Modal isOpen={isOpen} onClose={onClose}>
+						<ModalOverlay />
+						<ModalContent>
+							<ModalHeader>Modal Title</ModalHeader>
+							<ModalCloseButton />
+							<ModalBody>
+								<p>
+									asdasdasdasdasdasd asdalk sjdjlkas jdlkasjdlaksjd
+									lkjasldjalskj
+								</p>
+								<p>
+									asdasdasdasdasdasd asdalk sjdjlkas jdlkasjdlaksjd
+									lkjasldjalskj
+								</p>
+								<p>
+									asdasdasdasdasdasd asdalk sjdjlkas jdlkasjdlaksjd
+									lkjasldjalskj
+								</p>
+							</ModalBody>
+
+							<ModalFooter>
+								<Button colorScheme='blue' mr={3} onClick={onClose}>
+									Close
+								</Button>
+								<Button variant='ghost'>Secondary Action</Button>
+							</ModalFooter>
+						</ModalContent>
+					</Modal>
+
 					<figure>
 						<img
 							src={`${basePath}/images/footer-other-logo.png`}
