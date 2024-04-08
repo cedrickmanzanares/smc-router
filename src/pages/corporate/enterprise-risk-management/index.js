@@ -28,10 +28,10 @@ export default function SMCPrivacy() {
 							Governance, adopted on May 10, 2017, contains the Company’s policy
 							on Enterprise Risk Management. The Board of Directors of the
 							Company shall oversee that a sound enterprise risk management
-							("ERM") framework is in place to effectively identify, monitor,
-							assess and manage key business risks, which will guide the Board
-							in identifying units/business lines and enterprise-level risk
-							exposures, as well as the effectiveness of risk management
+							(&quot;ERM&quot;) framework is in place to effectively identify,
+							monitor, assess and manage key business risks, which will guide
+							the Board in identifying units/business lines and enterprise-level
+							risk exposures, as well as the effectiveness of risk management
 							strategies.
 						</p>
 						<p>
@@ -63,15 +63,15 @@ export default function SMCPrivacy() {
 							In 2017, the Company’s Board of Directors reorganized the Audit
 							Committee to become the Audit and Risk Oversight Committee
 							additional function toe to be responsible for the oversight of the
-							Company's enterprise risk management (ERM) system to ensure its
-							functionality and effectiveness. In addition, the Audit and Risk
-							Oversight Committee is assisted in its oversight role by the Group
-							Internal Audit which oversees the internal audit functions of the
-							Company’s subsidiaries. The respective Internal Audit Groups of
-							the Company’s subsidiaries undertake both regular and ad hoc
-							reviews of the risk management controls and procedures of these
-							subsidiaries, the results of which are reported to the Audit and
-							Risk Oversight Committee.
+							Company&apos;s enterprise risk management (ERM) system to ensure
+							its functionality and effectiveness. In addition, the Audit and
+							Risk Oversight Committee is assisted in its oversight role by the
+							Group Internal Audit which oversees the internal audit functions
+							of the Company’s subsidiaries. The respective Internal Audit
+							Groups of the Company’s subsidiaries undertake both regular and ad
+							hoc reviews of the risk management controls and procedures of
+							these subsidiaries, the results of which are reported to the Audit
+							and Risk Oversight Committee.
 						</p>
 						<p>
 							The ERM functions of the Board of Directors are exercised by the
@@ -86,11 +86,11 @@ export default function SMCPrivacy() {
 							<li>
 								Identifying and analyzing key risks exposure relating to
 								economic, environmental, social and governance factors and the
-								achievement of the organization's strategic objectives;
+								achievement of the organization&apos;s strategic objectives;
 							</li>
 							<li>
 								Evaluating and categorizing each identified risk using the
-								Corporation's predefined risk categories and parameters;
+								Corporation&apos;s predefined risk categories and parameters;
 							</li>
 							<li>
 								Establishing a risk register with clearly defined, prioritized
@@ -108,7 +108,7 @@ export default function SMCPrivacy() {
 							</li>
 							<li>
 								Monitoring and evaluating the effectiveness of the
-								organization's risk management processes.
+								organization&apos;s risk management processes.
 							</li>
 						</ol>
 						<p>
