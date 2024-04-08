@@ -165,14 +165,14 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
-			['0vh', '0vh', '45vh', '2vh'],
+			['0vh', '0vh', '60vh', '2vh'],
 			{ ease: easing }
 		),
 
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + 0.3, 1],
-			['0vh', '0vh', '0', '45vh'],
+			['0vh', '0vh', '0', '60vh'],
 			{ ease: easing }
 		),
 	];

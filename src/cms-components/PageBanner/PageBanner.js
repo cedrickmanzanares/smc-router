@@ -32,7 +32,9 @@ export default function PageBanner({
 	const bannerContainerClasses = `container-fluid-width ${containerSize}`;
 	const bannerHeadingClasses = `banner-title ${headingSize} `;
 
-	const bannerSubtitleClasses = `banner-subtitle heading-5 ${subtitleClasses}`;
+	const bannerSubtitleClasses = `banner-subtitle heading-5 ${
+		subtitleClasses ? subtitleClasses : ''
+	}`;
 	const [rotate, setRotate] = useState(-30);
 	const banner = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -71,7 +73,7 @@ export default function PageBanner({
 			opacity: 1,
 			transition: {
 				duration: 0.5,
-				delay: 1,
+				delay: 0.85,
 				ease: [0.76, 0, 0.24, 1],
 			},
 		},
@@ -93,9 +95,45 @@ export default function PageBanner({
 	};
 
 	const bg_anim = {
-		initial: {},
-		enter: {},
-		exit: {},
+		initial: {
+			scale: 1.2,
+		},
+		enter: {
+			scale: 1,
+			transition: {
+				duration: 0.5,
+				delay: 0.8,
+				ease: [0.76, 0, 0.24, 1],
+			},
+		},
+		exit: {
+			scale: 1,
+		},
+	};
+
+	const text_anim = {
+		initial: {
+			x: 100,
+			opacity: 0,
+		},
+		enter: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				duration: 0.5,
+				delay: 1,
+				ease: [0.76, 0, 0.24, 1],
+			},
+		},
+		exit: {
+			x: -100,
+			opacity: 0,
+			transition: {
+				duration: 0.5,
+				delay: 0.1,
+				ease: [0.76, 0, 0.24, 1],
+			},
+		},
 	};
 
 	return (
@@ -106,7 +144,9 @@ export default function PageBanner({
 			<div className='banner-bg'>
 				<motion.div
 					className='banner-img'
-					style={{ backgroundImage: `url(${image})`, y: y[0] }}></motion.div>
+					style={{ backgroundImage: `url(${image})`, y: y[0] }}
+					variants={bg_anim}></motion.div>
+
 				<motion.div
 					className='path path-1'
 					style={{
@@ -135,12 +175,33 @@ export default function PageBanner({
 					style={{ x: '55%', rotate: rotate, z: z[4] }}></motion.div>
 				<div className='banner-shade'></div>
 			</div>
-			<div className={bannerContainerClasses}>
-				<div className='banner-info'>
-					<h1 className={bannerHeadingClasses}>{title}</h1>
-					{subtitle && <p className={bannerSubtitleClasses}>{subtitle}</p>}
-				</div>
-			</div>
+			<motion.div className={bannerContainerClasses}>
+				<motion.div
+					className='banner-info'
+					variants={{
+						initial: {
+							opacity: 1,
+						},
+						enter: {
+							opacity: 1,
+							transition: {
+								staggerChildren: 0.05,
+							},
+						},
+						exit: {
+							opacity: 1,
+						},
+					}}>
+					<motion.h1 className={bannerHeadingClasses} variants={text_anim}>
+						{title}
+					</motion.h1>
+					{subtitle && (
+						<motion.p className={bannerSubtitleClasses} variants={text_anim}>
+							{subtitle}
+						</motion.p>
+					)}
+				</motion.div>
+			</motion.div>
 		</motion.div>
 	);
 }

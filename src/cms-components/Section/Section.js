@@ -1,15 +1,14 @@
 'use client';
-import SingleParallax from '@/components/single-parallax/single-parallax';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+
+import { motion, useAnimate, usePresence } from 'framer-motion';
 
 import { useRef } from 'react';
-import Image3D from '../Image3D/Image3D';
-import Image from 'next/image';
 
 export default function Section({
 	children,
 	columnCount = 1,
 	containerSize = 'medium',
+	containerClass,
 	sectionStyle,
 	containerStyle,
 	direction,
@@ -17,19 +16,14 @@ export default function Section({
 	const sectionClasses = `section-content column-${columnCount} ${
 		direction ? direction : ''
 	}`;
-	const sectionContainerClasses = `container-fluid-width ${containerSize}`;
+	const sectionContainerClasses = `container-fluid-width ${containerSize} ${
+		containerClass ? containerClass : ''
+	}`;
 
 	const column = useRef(null);
 
-	const { scrollYProgress: column_scroll } = useScroll({
-		target: column,
-		offset: ['start end', 'end start'],
-	});
-
-	const { scrollYProgress: column_scroll_images } = useScroll({
-		target: column,
-		offset: ['start end', 'end start'],
-	});
+	// const [isPresent, safeToRemove] = usePresence();
+	// const [scope, animate] = useAnimate();
 
 	return (
 		<motion.div
@@ -40,8 +34,7 @@ export default function Section({
 			viewport={{
 				// once: true,
 				amount: 0.5,
-			}}
-			ref={column}>
+			}}>
 			<div className={sectionContainerClasses} style={containerStyle}>
 				{children}
 			</div>

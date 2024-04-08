@@ -94,7 +94,7 @@ export default function All() {
 				</div>
 				<div className='pdf-pagination'></div>
 				<h2 className='heading-4'>Sec Filings</h2>
-				<SimpleGrid columns={[2, 2, 4]} gap={[2, 3, 8]}>
+				<SimpleGrid columns={[1, 2, 4]} gap={[8, 8, 8]}>
 					<PDFWidget
 						title={'17-A'}
 						subtitle={'Annual Reports'}

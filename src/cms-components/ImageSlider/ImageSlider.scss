@@ -160,3 +160,27 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 980px) {
+	.annual-container {
+		display: grid !important;
+	}
+
+	.annual-image {
+		grid-row: 2 / span 1;
+	}
+	.annual-desc {
+		margin-top: 0;
+		grid-row: 3 / span 1;
+		> div {
+			position: static;
+		}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.btn.btn-stacked {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

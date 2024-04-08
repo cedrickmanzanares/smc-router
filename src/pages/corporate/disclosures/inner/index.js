@@ -29,7 +29,7 @@ export default function InnerDisclosure({ title }) {
 		<Curve>
 			<PageBanner title={title} noBg={true} />
 			<Section>
-				<Flex gap={5} mb={10}>
+				<Flex gap={5} mb={0}>
 					<FormControl ml={'auto'} w={'auto'}>
 						<Input placeholder='Enter Keyword' />
 					</FormControl>

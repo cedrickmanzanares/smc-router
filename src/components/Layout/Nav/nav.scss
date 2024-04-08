@@ -189,7 +189,7 @@
 	}
 	.nav-dropdown {
 		overflow: hidden;
-		font-size: 0.9rem;
+		// font-size: 0.9rem;
 		width: 40rem;
 		position: absolute;
 		left: 50%;
@@ -273,6 +273,8 @@
 	font-family: var(--font-mw_sans);
 	height: 100%;
 	overflow: auto;
+	max-width: 100%;
+	width: 768px;
 	a {
 		padding: 0;
 	}
@@ -292,6 +294,7 @@
 		color: white;
 		height: auto !important;
 		padding: 1rem;
+		width: 100%;
 		> div {
 			width: 100%;
 			.inner-dropdown {
@@ -360,5 +363,59 @@ a.nav-item,
 		font-size: 0.85rem;
 		font-weight: 300;
 		line-height: 1.5;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.main-nav.toggle-nav {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.main-nav {
+		display: none;
+	}
+	.brand-logo {
+		margin-right: auto;
+	}
+	.nav-search {
+		margin-right: 4rem;
+	}
+	.nav-toggle-trigger {
+		top: 0.75rem;
+		transform: scale(1) !important;
+		right: 1rem;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.nav-toggle-bg-elements {
+		path {
+			display: none;
+		}
+	}
+
+	.main-nav.toggle-nav {
+		padding: 2rem;
+		.nav-item {
+			padding: 0;
+		}
+		a.nav-item,
+		.nav-item > a,
+		.nav-item > div:first-child a {
+			font-size: 1.75rem;
+			font-weight: 800;
+		}
+		.nav-dropdown {
+			font-size: 1.25rem;
+			padding: 0;
+		}
+		.inner-dropdown {
+			width: 100%;
+			.inner-dropdown {
+				font-size: 1.25rem;
+			}
+		}
 	}
 }

@@ -32,7 +32,7 @@ export default function Corporate() {
 					</h1>
 				</div>
 			</PageBanner>
-			<Section columnCount={2}>
+			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 				<div className='column'>
 					<h2 className='heading-2'>Tincidunt egestas phasellus sed ornare</h2>
 					<p className='heading-5'>
@@ -80,12 +80,13 @@ export default function Corporate() {
 								nibh. Purus pellentesque feugiat vestibulum enim tortor orci
 								sodales hendrerit nascetur.
 							</p>
-
-							<Button
-								link='/our-story/our-company'
-								className={'btn-bordered pri-btn'}>
-								Learn more
-							</Button>
+							<p>
+								<Button
+									link='/our-story/our-company'
+									className={'btn-bordered pri-btn'}>
+									Learn more
+								</Button>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -109,11 +110,13 @@ export default function Corporate() {
 								Ultricies eget tincidunt viverra enim malesuada. Eget velit
 								aenean posuere lacus. Tempus nulla sed vel.
 							</p>
-							<Button
-								link='/our-story/our-company'
-								className={'btn-bordered pri-btn'}>
-								Learn more
-							</Button>
+							<p>
+								<Button
+									link='/our-story/our-company'
+									className={'btn-bordered pri-btn'}>
+									Learn more
+								</Button>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -138,12 +141,13 @@ export default function Corporate() {
 								Ultricies eget tincidunt viverra enim malesuada. Eget velit
 								aenean posuere lacus. Tempus nulla sed vel.
 							</p>
-
-							<Button
-								link='/our-story/our-company'
-								className={'btn-bordered pri-btn'}>
-								Learn more
-							</Button>
+							<p>
+								<Button
+									link='/our-story/our-company'
+									className={'btn-bordered pri-btn'}>
+									Learn more
+								</Button>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -159,11 +163,13 @@ export default function Corporate() {
 								Velit morbi consequat laoreet hendrerit purus ornare ante tempor
 								nibh.
 							</p>
-							<Button
-								link='/our-story/our-company'
-								className={'btn-bordered pri-btn'}>
-								Learn more
-							</Button>
+							<p>
+								<Button
+									link='/our-story/our-company'
+									className={'btn-bordered pri-btn'}>
+									Learn more
+								</Button>
+							</p>
 						</div>
 					</div>
 				</div>

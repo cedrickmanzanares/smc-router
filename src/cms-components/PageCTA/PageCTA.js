@@ -53,7 +53,7 @@ export default function PageCTA() {
 						At vero eos et accusamus
 					</motion.h2>
 					<div className='pageCTA-btn'>
-						<Button href='/' className='white size-inherit' link='/'>
+						<Button href='/' className='btn btn-bordered white' link='/'>
 							Visit our sustainability site
 						</Button>
 					</div>

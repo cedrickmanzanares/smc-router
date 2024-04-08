@@ -94,7 +94,7 @@ export default function OurStory() {
 							aliquam magnis. Felis viverra ornare elit feugiat dictumst. Velit
 							nisl arcu.
 						</p>
-						<div className=''>
+						<p>
 							<Link href='/' className='btn pri-btn btn-stacked'>
 								President’s Message
 								<PiCaretCircleRight size={'1.75rem'} />
@@ -102,7 +102,7 @@ export default function OurStory() {
 							<Link href='/' className='btn pri-btn btn-stacked'>
 								Share Prices <PiCaretCircleRight size={'1.75rem'} />
 							</Link>
-						</div>
+						</p>
 					</div>
 					<div className='column'>
 						<div className='image-content stacked'>

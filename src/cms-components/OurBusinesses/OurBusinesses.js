@@ -8,12 +8,14 @@ import {
 	useMotionValueEvent,
 	useScroll,
 	useTransform,
+	AnimatePresence,
 } from 'framer-motion';
 
 import Button from '@/components/button/button';
 
 import { basePath } from '@/hooks/use-basepath';
 import { useWindowSize } from '@uidotdev/usehooks';
+import useAnim from '@/hooks/use-anim';
 
 export default function OurBusinesses({ className, link, children }) {
 	const { height } = useWindowSize();
@@ -107,6 +109,24 @@ export default function OurBusinesses({ className, link, children }) {
 			exit: 'exit',
 		};
 	};
+
+	const text_variants = {
+		initial: {
+			x: '150px',
+			opacity: 0,
+			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+		},
+		enter: {
+			x: '0',
+			opacity: 1,
+			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+		},
+		exit: {
+			x: '-150px',
+			opacity: 0,
+			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+		},
+	};
 	return (
 		<motion.div
 			className='ourbusinesses-section'
@@ -117,7 +137,7 @@ export default function OurBusinesses({ className, link, children }) {
 			whileInView='visible'
 			ref={business}>
 			<div className='pin'>
-				<div className='ourbusinesses-bg' style={{ display: 'none' }}>
+				<div className='ourbusinesses-bg'>
 					{data.map((val, index) => {
 						return (
 							<motion.img
@@ -155,23 +175,39 @@ export default function OurBusinesses({ className, link, children }) {
 							</div>
 						</div>
 
-						<motion.div
-							className='ring-description'
-							initial='initial'
-							animate='enter'
-							variants={{
-								animate: {
-									transition: {
-										staggerChildren: 1,
-									},
-								},
-							}}
-							exit='exit'>
-							{data.map((val, index) => {
+						<motion.div className='ring-description'>
+							<AnimatePresence>
+								<motion.div
+									className='descriptions'
+									initial='initial'
+									exit='exit'
+									animate='enter'
+									transition={{
+										staggerChildren: 0.015,
+									}}
+									key={`ob_description_${selected}`}>
+									<motion.h3 variants={text_variants}>
+										{data[selected].title}
+									</motion.h3>
+									<motion.p variants={text_variants}>
+										{data[selected].description}
+									</motion.p>
+									<motion.p variants={text_variants}>
+										<Button
+											link='/our-business/inner'
+											className='btn btn-bordered white'>
+											Read More
+										</Button>
+									</motion.p>
+								</motion.div>
+							</AnimatePresence>
+
+							{/* {data.map((val, index) => {
 								return (
 									<motion.div
 										className='descriptions'
 										style={{
+											display: 'none',
 											pointerEvents: index == selected ? 'all' : 'none',
 										}}
 										key={`description_${index}`}>
@@ -230,7 +266,7 @@ export default function OurBusinesses({ className, link, children }) {
 										</motion.p>
 									</motion.div>
 								);
-							})}
+							})} */}
 						</motion.div>
 						<motion.div className='inner-ring'>
 							{data.map((val, index) => {

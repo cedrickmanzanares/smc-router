@@ -53,7 +53,7 @@ export const useGetMenu = () => {
 };
 
 export const useGetTheme = (menu) => {
-	const [smcTheme, setsmcTheme] = useState('');
+	const [smcTheme, setsmcTheme] = useState('smc-default');
 	const router = useRouter();
 	useEffect(() => {
 		console.log(smcTheme);
@@ -78,7 +78,7 @@ export const useGetTheme = (menu) => {
 				setsmcTheme('smc-yellow');
 				break;
 			default:
-				setsmcTheme('');
+				setsmcTheme('smc-default');
 		}
 	}, [router, menu]);
 

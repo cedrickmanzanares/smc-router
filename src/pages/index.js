@@ -16,6 +16,7 @@ import Pillar from '@/cms-components/Pillar/Pillar';
 import OurProject from '@/cms-components/OurProject/OurProject';
 
 import { TokenContext } from './_app.js';
+import Section from '@/cms-components/Section/Section.js';
 
 export default function Home() {
 	const token = useContext(TokenContext);
@@ -118,20 +119,16 @@ export default function Home() {
 				<Pillar content={pillar_content3} position={'right'} />
 				<OurBusinesses />
 				<OurProject />
-				<motion.div
-					className='section-content text-center'
-					style={{
+				<Section
+					containerClass='malasakit-container'
+					sectionStyle={{
+						textAlign: 'center',
 						color: 'white',
-						minHeight: '100vh',
 						alignItems: 'flex-start',
 						backgroundImage: `url("${basePath}/images/Homepage-1/Malasakit-bg.png"), linear-gradient(#3883ac, #aabf6b, #b58282)`,
 						backgroundSize: 'cover',
 					}}>
-					<div
-						className='container-fluid-width'
-						style={{
-							justifyContent: 'center',
-						}}>
+					<div className='column'>
 						<div className='column'>
 							<h2 className='heading-2'>
 								<i>Malasakit</i>
@@ -149,16 +146,12 @@ export default function Home() {
 							</p>
 							<img
 								src={`${basePath}/images/Homepage-1/Malasakit.png`}
-								style={{
-									display: 'block',
-									width: '100%',
-									marginTop: '5rem',
-									marginBottom: '-6rem',
-								}}
+								style={{}}
 							/>
 						</div>
 					</div>
-				</motion.div>
+				</Section>
+
 				<PageCTA />
 			</Curve>
 		</>

@@ -129,7 +129,7 @@ export default function Nav({}) {
 						<figure>
 							<motion.img
 								animate={{
-									opacity: smcTheme === '' ? 1 : 0,
+									opacity: smcTheme === 'smc-default' ? 1 : 0,
 								}}
 								transition={{ delay: 0.75 }}
 								src={`${basePath}/images/smc-logo.svg`}
@@ -191,6 +191,9 @@ function MainNav({
 	}, [menu]);
 
 	const innerDropdown_variants = {
+		'smc-default': {
+			backgroundImage: `linear-gradient(90deg, ${redShade1}, ${red})`,
+		},
 		'smc-red': {
 			backgroundImage: `linear-gradient(90deg, ${redShade1}, ${red})`,
 		},
@@ -521,8 +524,8 @@ function FloatingNavContent({ isOpen, toggle }) {
 		},
 		initial: {
 			opacity: 0,
-			x: `-${windowDimensions.height}px`,
-			y: `${windowDimensions.height}px`,
+			x: `-${windowDimensions.height / 6}px`,
+			y: `${windowDimensions.height / 6}px`,
 			transition: transitionSettings,
 		},
 	};
@@ -532,13 +535,17 @@ function FloatingNavContent({ isOpen, toggle }) {
 			opacity: 0,
 			r:
 				windowDimensions.height > windowDimensions.width
-					? windowDimensions.height
-					: windowDimensions.width,
+					? windowDimensions.height * 1.5
+					: windowDimensions.width * 1.5,
 			fill: red,
 			transition: transitionSettings,
 		},
 		open: {
 			opacity: 1,
+			r:
+				windowDimensions.height > windowDimensions.width
+					? windowDimensions.height * 1.5
+					: windowDimensions.width * 1.5,
 			transition: transitionSettings,
 		},
 	};

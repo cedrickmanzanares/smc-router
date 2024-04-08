@@ -147,7 +147,10 @@ export default function AnnualReports() {
 			</Head>
 			<Curve>
 				<PageBanner title={'Annual Reports'} direction='center' />
-				<Section columnCount={2} containerStyle={{ overflow: 'hidden' }}>
+				<Section
+					columnCount={2}
+					containerStyle={{ overflow: 'hidden' }}
+					containerClass='annual-container'>
 					<div className='column full'>
 						<Flex gap={5} className='full'>
 							<FormLabel>Select a year for quick search</FormLabel>

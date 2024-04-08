@@ -29,6 +29,7 @@
 		line-height: 1.25;
 		font-weight: 700;
 		width: 600px;
+		max-width: 100%;
 		margin: 0;
 		font-size: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
 	}
@@ -47,5 +48,13 @@
 		top: 0;
 		pointer-events: none;
 		z-index: 2001;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.curve {
+		.route {
+			padding: 2rem;
+		}
 	}
 }

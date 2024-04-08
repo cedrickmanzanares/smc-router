@@ -58,7 +58,7 @@ export default function OurHistory() {
 				<Section
 					direction={'center'}
 					containerSize='small'
-					style={{ minHeight: '0' }}>
+					sectionStyle={{ minHeight: '0', paddingTop: 0 }}>
 					<div className='column'>
 						<p>
 							Established in 1890, La Fabrica de Cerveza de San Miguel,

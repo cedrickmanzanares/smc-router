@@ -15,7 +15,7 @@ export default function FinancialInformation() {
 		<Curve>
 			<PageBanner title='Financial Performance' direction='center'></PageBanner>
 			<Section columnCount={2}>
-				<div className='column'>
+				<div className='column mobile-hide'>
 					<div className='image-content stacked'>
 						<div className='img-container'>
 							<img

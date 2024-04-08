@@ -71,7 +71,9 @@ export default function FoodAndBeverages() {
 					<div className='column bussinesses-desc-column'>
 						<div className='text-content'>
 							<h2 className='heading-2'>Petron Corporation</h2>
-							<img src={`${basePath}/images/OurBusinesses/oil.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/oil.png`} />
+							</p>
 							<p className='heading-5'>
 								Petron Corporation is the largest oil refining and marketing
 								company in the Philippines and is a leading player in the

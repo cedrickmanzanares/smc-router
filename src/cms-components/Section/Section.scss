@@ -25,7 +25,12 @@
 	justify-content: center;
 	padding-top: var(--section-padding);
 	padding-bottom: var(--section-padding);
-
+	.column {
+		container-type: inline-size;
+	}
+	.column:only-child {
+		width: 100%;
+	}
 	// border: 2px solid black;
 	.container-fluid-width {
 		display: flex;
@@ -46,6 +51,11 @@
 		> * {
 			padding-bottom: 4rem;
 		}
+	}
+
+	h2 {
+		transition-property: color;
+		transition-delay: 1s;
 	}
 	&.column-2 {
 		.container-fluid-width {
@@ -180,9 +190,38 @@
 	padding-bottom: unset;
 }
 
+.malasakit-container {
+	img {
+		display: block;
+		width: 100%;
+		margin-top: 5rem;
+		margin-bottom: calc(var(--section-padding) * -1);
+	}
+}
+
 @media only screen and (max-width: 980px) {
 	.container-fluid-width.medium {
 		width: 100%;
 		min-width: 100%;
+	}
+
+	.container-fluid-width.small {
+		width: 100%;
+		min-width: 100%;
+		min-width: 0;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.section-content {
+		.container-fluid-width {
+			row-gap: 2rem;
+		}
+	}
+	.section-content.column-3 .column {
+		flex: 1 1 100%;
+	}
+
+	.pillar-desc {
 	}
 }

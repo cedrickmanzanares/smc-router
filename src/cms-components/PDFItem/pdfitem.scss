@@ -71,3 +71,10 @@
 	display: flex;
 	align-items: center;
 }
+
+@media only screen and (max-width: 450px) {
+	.pdf-item {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

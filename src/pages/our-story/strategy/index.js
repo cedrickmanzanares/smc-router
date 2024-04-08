@@ -59,7 +59,7 @@ export default function OurStrategy() {
 						</div>
 					</div>
 				</Section>
-				<Section>
+				<Section sectionStyle={{ paddingTop: 0 }}>
 					<div className='column'>
 						<div className='business-item'>
 							<div className='img-container'>
