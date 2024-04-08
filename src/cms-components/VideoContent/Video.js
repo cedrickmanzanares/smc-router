@@ -14,9 +14,6 @@ export default function VideoContent({}) {
 	return (
 		<div className='video-content'>
 			<video
-				onFullScreenChange={() => {
-					console.log('test');
-				}}
 				preload='auto'
 				playsInline
 				src={`${basePath}/videos/sample-video.mp4`}></video>

@@ -24,7 +24,7 @@ import Image from 'next/image';
 import { basePath } from '@/hooks/use-basepath';
 
 import { MenuContext, ThemeContext } from '@/pages/_app';
-import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
+import { PiCaretDown } from 'react-icons/pi';
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
 
@@ -38,6 +38,7 @@ import {
 	ModalCloseButton,
 } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
+// import Button from '@/components/button/button';
 
 export default function Nav({}) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,23 +58,218 @@ export default function Nav({}) {
 					style={{
 						marginTop: '20rem',
 					}}>
-					<Button onClick={onOpen}>Open Modal</Button>
+					<Button onClick={onOpen} className='btn btn-bordered'>
+						Open Modal
+					</Button>
 
 					<Modal isOpen={isOpen} onClose={onClose}>
 						<ModalOverlay />
 						<ModalContent>
-							<ModalHeader>Modal Title</ModalHeader>
+							<ModalHeader>Subsidiary Websites</ModalHeader>
 							<ModalCloseButton />
 							<ModalBody>
-								<p>asdasdasdasdsa</p>
+								<p>
+									<a
+										href='https://www.bankcom.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Bank of Commerce
+									</a>
+									<br />
+									<a
+										href='https://www.eaglecement.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Eagle Cement
+									</a>
+									<br />
+									<a
+										href='https://www.petron.com/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Petron Corp.
+									</a>
+									<br />
+									<a
+										href='https://www.ginebrasanmiguel.com/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Ginebra San Miguel
+									</a>
+									<br />
+									<a
+										href='https://www.sanmiguelproperties.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Properties, Inc
+									</a>
+									<br />
+									<a
+										href='https://www.sanmiguelfoods.com/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Foods
+									</a>
+									<br />
+									<a
+										href='https://greatfoodsolutions.com/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Great Food Solutions
+									</a>
+									<br />
+									<a
+										href='https://homefoodie.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Home Foodie
+									</a>
+									<br />
+									<a
+										href='https://magnoliachicken.com/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Magnolia Chicken
+									</a>
+									<br />
+									<a
+										href='https://www.monterey.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Monterey Foods Corp.
+									</a>
+									<br />
+									<a
+										href='https://www.ncc.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Northern Cement
+									</a>
+									<br />
+									<a
+										href='https://petrogen.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Petrogen Insurance Corporation
+									</a>
+									<br />
+									<a
+										href='https://www.sanmiguelbrewery.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Brewery Inc.
+									</a>
+									<br />
+									<a
+										href='https://www.smfb.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Food and Beverage
+									</a>
+									<br />
+									<a
+										href='https://www.facebook.com/redhorsebeer/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										Red Horse Beer
+									</a>
+									<br />
+									<a
+										href='https://www.facebook.com/sanmiguel.hk'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Brewery Hong Kong
+									</a>
+									<br />
+									<a
+										href='https://sanmiguelbrewery.com'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Brewing International Ltd.
+									</a>
+									<br />
+									<a
+										href='https://www.sanmiguelmart.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Mart
+									</a>
+									<br />
+									<a
+										href='https://www.facebook.com/SanMiguelPalePilsen/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Pale Pilsen
+									</a>
+									<br />
+									<a
+										href='https://www.facebook.com/sanmiglightph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Mig Light
+									</a>
+									<br />
+									<a
+										href='https://www.facebook.com/sanmiguelsuperdrybeer/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										San Miguel Super Dry
+									</a>
+									<br />
+									<a
+										href='https://smcstocktransfer.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										SMC Stock Transfer Service Corporation
+									</a>
+									<br />
+									<a
+										href='https://www.smcglobalpower.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										SMC Global Power Holdings Corp
+									</a>
+									<br />
+									<a
+										href='https://www.sltc.com.ph/'
+										target='_blank'
+										without='true'
+										rel='noreferrer'>
+										South Luzon Tollway Corporation
+									</a>
+									<br />
+								</p>
 							</ModalBody>
 
-							<ModalFooter>
+							{/* <ModalFooter>
 								<Button colorScheme='blue' mr={3} onClick={onClose}>
 									Close
 								</Button>
 								<Button variant='ghost'>Secondary Action</Button>
-							</ModalFooter>
+							</ModalFooter> */}
 						</ModalContent>
 					</Modal>
 				</div>

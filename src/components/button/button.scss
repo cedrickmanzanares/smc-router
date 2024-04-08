@@ -134,6 +134,17 @@
 	top: 0;
 }
 
+.subsidiary-btn {
+	margin-left: auto;
+	text-transform: uppercase;
+	font-weight: normal;
+	border-radius: 2rem !important;
+	padding: 1.5rem !important;
+	svg {
+		margin-left: 0.5rem;
+	}
+}
+
 @media only screen and (max-width: 450px) {
 	.btn.btn-stacked {
 		padding-left: 0;

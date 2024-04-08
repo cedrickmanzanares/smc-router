@@ -9,11 +9,12 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import { getColors } from '@/hooks/use-color';
 
 export default function OurBusinessesInner() {
 	const parallaxColumn = useRef(null);
 	const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
+	const { red } = getColors;
 	const { scrollYProgress } = useScroll({
 		target: parallaxColumn,
 		offset: ['start end', 'end start'],
@@ -51,6 +52,23 @@ export default function OurBusinessesInner() {
 			window.removeEventListener('resize', resize);
 		};
 	}, []);
+
+	const control_variants_prev = {
+		initial: {
+			x: '0rem',
+		},
+		hover: {
+			x: '-2rem',
+		},
+	};
+	const control_variants_next = {
+		initial: {
+			x: '0rem',
+		},
+		hover: {
+			x: '2rem',
+		},
+	};
 
 	return (
 		<>
@@ -142,38 +160,79 @@ export default function OurBusinessesInner() {
 				</Section>
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
+						<motion.div
+							className='control prev'
+							initial='initial'
+							whileHover='hover'
+							transition={{
+								staggerChildren: 0.02,
+							}}>
+							<motion.div
+								className='img-container'
+								variants={control_variants_prev}>
 								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
+							</motion.div>
 
 							<div className='control-details'>
-								<div className='arrow'>
+								<motion.div className='arrow' variants={control_variants_prev}>
 									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
+								</motion.div>
+								<motion.div>
+									<motion.p variants={control_variants_prev}>
+										Previous Business
+									</motion.p>
+									<motion.p
+										variants={{
+											initial: {
+												x: '0rem',
+											},
+											hover: {
+												x: '-2rem',
+												color: red,
+											},
+										}}
+										className='label heading-4'>
+										San Miguel Foods
+									</motion.p>
+								</motion.div>
 							</div>
 						</motion.div>
 
-						<motion.div className='control next'>
+						<motion.div
+							className='control next'
+							initial='initial'
+							whileHover='hover'
+							transition={{
+								staggerChildren: 0.02,
+							}}>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+								<motion.img
+									variants={control_variants_next}
+									src={`${basePath}/images/OurBusinesses/thumb.png`}
+								/>
 							</div>
 							<div className='control-details'>
-								<div className='arrow'>
+								<motion.div variants={control_variants_next} className='arrow'>
 									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
+								</motion.div>
+								<motion.div>
+									<motion.p variants={control_variants_next}>
+										Next Business
+									</motion.p>
+									<motion.p
+										variants={{
+											initial: {
+												x: '0rem',
+											},
+											hover: {
+												color: red,
+												x: '2rem',
+											},
+										}}
+										className='label heading-4'>
+										San Miguel Foods
+									</motion.p>
+								</motion.div>
 							</div>
 						</motion.div>
 					</motion.div>

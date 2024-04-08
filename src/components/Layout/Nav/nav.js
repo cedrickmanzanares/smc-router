@@ -43,6 +43,7 @@ import { getMenu, useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
 import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
 import { enterDuration } from '../Curve/anim';
+import Search from './search';
 
 export default function Nav({}) {
 	const router = useRouter();
@@ -156,7 +157,7 @@ export default function Nav({}) {
 					</Link>
 					<MainNav />
 
-					<IoIosSearch className='nav-search' size={'1.75rem'} />
+					<Search />
 				</div>
 			</motion.div>
 			<FloatingNav navOpen={navOpen} isOpen={isOpen} toggle={toggle} />

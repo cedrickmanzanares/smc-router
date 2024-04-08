@@ -133,7 +133,12 @@ export default function OurBusinesses() {
 								/>
 							</div>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses-1.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses-1.png`}
+									style={{
+										width: '55%',
+									}}
+								/>
 							</div>
 						</div>
 					</div>
