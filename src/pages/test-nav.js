@@ -1,5 +1,7 @@
 'use client';
 
+import { useDisclosure } from '@chakra-ui/react';
+
 import Link from 'next/link';
 
 import {
@@ -25,7 +27,20 @@ import { MenuContext, ThemeContext } from '@/pages/_app';
 import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
 import Head from 'next/head';
 import Curve from '@/components/Layout/Curve';
+
+import {
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+} from '@chakra-ui/react';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+
 export default function Nav({}) {
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
 		<>
 			<Head>
@@ -38,7 +53,30 @@ export default function Nav({}) {
 				<link rel='icon' href={`${basePath}/favicon.ico`} />
 			</Head>
 			<Curve>
-				<FloatingNav />
+				<div
+					style={{
+						marginTop: '20rem',
+					}}>
+					<Button onClick={onOpen}>Open Modal</Button>
+
+					<Modal isOpen={isOpen} onClose={onClose}>
+						<ModalOverlay />
+						<ModalContent>
+							<ModalHeader>Modal Title</ModalHeader>
+							<ModalCloseButton />
+							<ModalBody>
+								<p>asdasdasdasdsa</p>
+							</ModalBody>
+
+							<ModalFooter>
+								<Button colorScheme='blue' mr={3} onClick={onClose}>
+									Close
+								</Button>
+								<Button variant='ghost'>Secondary Action</Button>
+							</ModalFooter>
+						</ModalContent>
+					</Modal>
+				</div>
 			</Curve>
 		</>
 	);

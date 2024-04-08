@@ -247,15 +247,16 @@
 @media only screen and (max-width: 768px) {
 	.ourbusinesses-container {
 		display: grid;
-		padding: 0;
+		flex-direction: column;
+		grid-template-rows: 4rem 30vh 7.5rem auto;
 		grid-template-columns: 1fr;
-		grid-template-rows: 4rem 30vh var(--selected-size) auto;
 		h2 {
 			grid-area: 1 / 1 / span 1 / span 1;
 		}
 		.outer-ring-container {
 			grid-area: 2 / 1 / span 1 / span 1;
-			height: 100%;
+			height: 30vh;
+			margin: 0;
 		}
 		.outer-ring {
 			width: auto;
@@ -265,17 +266,34 @@
 		.inner-ring {
 			grid-area: 3 / 1 / span 1 / span 1;
 			height: 100%;
-			display: flex;
-			flex-wrap: nowrap;
+			display: block;
+			white-space: nowrap;
 			overflow: hidden;
 		}
 
 		.ring-description {
 			grid-area: 4 / 1 / span 1 / span 1;
+			.descriptions {
+				p {
+					line-height: 1.5;
+				}
+			}
 		}
 		.inner-item {
-			transform: translateY(0%) !important;
-			flex-wrap: wrap;
+			// transform: translateY(0%) !important;
+			display: inline-block;
+			width: 33.33%;
+			text-align: center;
+			white-space: wrap;
+			vertical-align: top;
+			&:first-child {
+				margin-left: 33.33%;
+			}
+			p {
+				line-height: 1.25;
+				padding: 0 1rem;
+				display: none;
+			}
 			&:before {
 				top: calc(var(--selected-size) / 2);
 				bottom: auto;
@@ -285,21 +303,27 @@
 				height: 2px;
 			}
 		}
+		.inner-img {
+			margin: auto;
+		}
 		.ring-selected {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, 0%);
-			display: flex;
-			align-items: center;
+			display: block;
+
 			width: auto;
 			height: 100%;
 			z-index: 0;
+
 			&:before {
 				transform: none;
 				width: 2px;
-				height: calc(50% + var(--gap));
-				margin: auto;
+				height: calc(50% + 2rem);
+				margin: 0;
+				margin-right: auto;
+				margin-left: auto;
 			}
 		}
 	}

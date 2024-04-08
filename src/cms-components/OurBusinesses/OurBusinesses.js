@@ -18,7 +18,13 @@ import { useWindowSize } from '@uidotdev/usehooks';
 import useAnim from '@/hooks/use-anim';
 
 export default function OurBusinesses({ className, link, children }) {
-	const { height } = useWindowSize();
+	const { height, width } = useWindowSize();
+	const [isMobile, setIsMobile] = useState(width < 768);
+
+	useEffect(() => {
+		if (width < 768) setIsMobile(true);
+		else setIsMobile(false);
+	}, [width]);
 
 	const business = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -279,7 +285,8 @@ export default function OurBusinesses({ className, link, children }) {
 											y: `-50%`,
 										}}
 										animate={{
-											y: `${-50 - selected * 100}%`,
+											x: isMobile ? `${-selected * 100}%` : 0,
+											y: !isMobile ? `${-50 - selected * 100}%` : 0,
 										}}
 										transition={{
 											ease: 'easeInOut',
