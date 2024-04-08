@@ -198,10 +198,12 @@ function FloatingNavContent({ isOpen, toggle }) {
 			className='test-nav-toggle-content'
 			initial='initial'
 			animate={isOpen ? 'open' : 'initial'}
-			style={{
-				overflow: isOpen ? 'auto' : 'hidden',
-				pointerEvents: isOpen ? 'all' : 'none',
-			}}>
+			style={
+				{
+					// overflow: isOpen ? 'auto' : 'hidden',
+					// pointerEvents: isOpen ? 'all' : 'none',
+				}
+			}>
 			<MainNav
 				c={'toggle-nav'}
 				defaultOpen={false}

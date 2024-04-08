@@ -146,71 +146,87 @@ export default function PageBanner({
 		{
 			'smc-default': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-red': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-blue': {
 				backgroundImage: `linear-gradient(90deg, ${blueShade2}, ${blueShade2})`,
+				left: '-22.5%',
 				transition: path_transitions,
 			},
 			'smc-yellow': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blue})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 		},
 		{
 			'smc-default': {
 				backgroundImage: `linear-gradient(90deg, ${yellow} 25%, ${red})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-red': {
 				backgroundImage: `linear-gradient(90deg, ${yellow} 25%, ${red})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-blue': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}00, ${yellow})`,
+				left: '-30%',
 				transition: path_transitions,
 			},
 			'smc-yellow': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blue})`,
+				left: '-5%',
 				transition: path_transitions,
 			},
 		},
 		{
 			'smc-default': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-red': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 			'smc-blue': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}00, ${yellow})`,
+				left: '5%',
 				transition: path_transitions,
 			},
 			'smc-yellow': {
 				backgroundImage: `linear-gradient(90deg, ${blue}, ${yellow})`,
+				left: '-10%',
 				transition: path_transitions,
 			},
 		},
 		{
 			'smc-default': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				right: '-4%',
 				transition: path_transitions,
 			},
 			'smc-red': {
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				right: '-4%',
 				transition: path_transitions,
 			},
 			'smc-blue': {
+				right: '0%',
 				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blueShade1})`,
 				transition: path_transitions,
 			},
 			'smc-yellow': {
+				right: '5%',
 				backgroundImage: `linear-gradient(90deg, ${blue}, ${yellow})`,
 				transition: path_transitions,
 			},

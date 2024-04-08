@@ -417,6 +417,7 @@ a.nav-item,
 				padding-left: 2rem;
 			}
 		}
+
 		.inner-dropdown {
 			width: 100%;
 
@@ -437,9 +438,13 @@ a.nav-item,
 		.nav-item {
 			display: block;
 			height: auto;
+
 			.inner-dropdown {
 				position: static;
 			}
+		}
+		.nav-dropdown {
+			height: auto !important;
 		}
 	}
 }

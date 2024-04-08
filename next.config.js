@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-	output: 'export',
-	basePath: '/revamp',
+	// output: 'export',
+	basePath: '',
 	reactStrictMode: true,
 	swcMinify: true,
 	trailingSlash: true,
