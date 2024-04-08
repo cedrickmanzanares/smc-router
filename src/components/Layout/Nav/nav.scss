@@ -177,7 +177,9 @@
 	justify-content: center;
 	position: relative;
 	height: var(--nav-height);
-
+	a {
+		pointer-events: all !important;
+	}
 	.nav-item {
 		color: inherit;
 		padding: 1rem 1.5rem;
