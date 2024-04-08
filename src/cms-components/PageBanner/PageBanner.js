@@ -9,6 +9,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
 import { ThemeContext } from '@/pages/_app';
+import { enterDuration } from '@/components/Layout/Curve/anim';
 
 export default function PageBanner({
 	title,
@@ -24,11 +25,12 @@ export default function PageBanner({
 	headingSize = 'heading-1',
 }) {
 	const smcTheme = useContext(ThemeContext);
-
+	const { red, redShade1, yellow, yellowShade1, blue, blueShade1, blueShade2 } =
+		getColors;
 	const headingColor = noBg ? '' : 'white';
 	const bannerClasses = `page-banner ${size} ${direction} ${
 		!image ? 'no-image' : ''
-	} ${headingColor} ${noBg ? 'no-bg' : ''}`;
+	} ${headingColor} ${noBg ? 'no-bg' : ''} ${smcTheme}`;
 	const bannerContainerClasses = `container-fluid-width ${containerSize}`;
 	const bannerHeadingClasses = `banner-title ${headingSize} `;
 
@@ -136,6 +138,103 @@ export default function PageBanner({
 		},
 	};
 
+	const path_transitions = {
+		delay: enterDuration - 0.5,
+	};
+
+	const path_settings = [
+		{
+			'smc-default': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				transition: path_transitions,
+			},
+			'smc-red': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				transition: path_transitions,
+			},
+			'smc-blue': {
+				backgroundImage: `linear-gradient(90deg, ${blueShade2}, ${blueShade2})`,
+				transition: path_transitions,
+			},
+			'smc-yellow': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blue})`,
+				transition: path_transitions,
+			},
+		},
+		{
+			'smc-default': {
+				backgroundImage: `linear-gradient(90deg, ${yellow} 25%, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-red': {
+				backgroundImage: `linear-gradient(90deg, ${yellow} 25%, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-blue': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}00, ${yellow})`,
+				transition: path_transitions,
+			},
+			'smc-yellow': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blue})`,
+				transition: path_transitions,
+			},
+		},
+		{
+			'smc-default': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-red': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-blue': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}00, ${yellow})`,
+				transition: path_transitions,
+			},
+			'smc-yellow': {
+				backgroundImage: `linear-gradient(90deg, ${blue}, ${yellow})`,
+				transition: path_transitions,
+			},
+		},
+		{
+			'smc-default': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				transition: path_transitions,
+			},
+			'smc-red': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red} 25%)`,
+				transition: path_transitions,
+			},
+			'smc-blue': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${blueShade1})`,
+				transition: path_transitions,
+			},
+			'smc-yellow': {
+				backgroundImage: `linear-gradient(90deg, ${blue}, ${yellow})`,
+				transition: path_transitions,
+			},
+		},
+		{
+			'smc-default': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-red': {
+				backgroundImage: `linear-gradient(90deg, ${yellow}, ${red})`,
+				transition: path_transitions,
+			},
+			'smc-blue': {
+				backgroundImage: `linear-gradient(90deg, ${blueShade1}, ${blueShade1})`,
+				transition: path_transitions,
+			},
+			'smc-yellow': {
+				backgroundImage: `linear-gradient(90deg, ${blue}, ${yellow})`,
+				transition: path_transitions,
+			},
+		},
+	];
+
 	return (
 		<motion.div
 			className={bannerClasses}
@@ -148,6 +247,8 @@ export default function PageBanner({
 					variants={bg_anim}></motion.div>
 
 				<motion.div
+					animate={smcTheme}
+					variants={path_settings[0]}
 					className='path path-1'
 					style={{
 						y: '-70%',
@@ -155,7 +256,10 @@ export default function PageBanner({
 						rotate: rotate,
 						z: z[0],
 					}}></motion.div>
+
 				<motion.div
+					animate={smcTheme}
+					variants={path_settings[1]}
 					className='path path-2'
 					style={{
 						y: '-70%',
@@ -163,13 +267,19 @@ export default function PageBanner({
 						rotate: rotate,
 						z: z[1],
 					}}></motion.div>
+
 				<motion.div
+					animate={smcTheme}
+					variants={path_settings[2]}
 					className='path path-3'
 					style={{ y: '2%', x: '-48%', rotate: rotate, z: z[2] }}></motion.div>
 
 				<motion.div
+					animate={smcTheme}
+					variants={path_settings[3]}
 					className='path path-4'
 					style={{ x: '35%', rotate: rotate, z: z[3] }}></motion.div>
+
 				<motion.div
 					className='path path-5'
 					style={{ x: '55%', rotate: rotate, z: z[4] }}></motion.div>

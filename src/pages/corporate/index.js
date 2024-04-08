@@ -68,7 +68,7 @@ export default function Corporate() {
 			</Section>
 			<Section columnCount={2}>
 				<div className='column'>
-					<div className='news-item'>
+					<div className='business-item'>
 						<div className='img-container'>
 							<img src={`${basePath}/images/Corporate/governance.png`} />
 						</div>
@@ -91,7 +91,7 @@ export default function Corporate() {
 					</div>
 				</div>
 				<div className='column'>
-					<div className='news-item'>
+					<div className='business-item'>
 						<div className='img-container'>
 							<img
 								src={`${basePath}/images/ph.svg`}
@@ -121,7 +121,7 @@ export default function Corporate() {
 					</div>
 				</div>
 				<div className='column'>
-					<div className='news-item'>
+					<div className='business-item'>
 						<div className='img-container'>
 							<img
 								src={`${basePath}/images/heart.svg`}
@@ -152,7 +152,7 @@ export default function Corporate() {
 					</div>
 				</div>
 				<div className='column'>
-					<div className='news-item'>
+					<div className='business-item'>
 						<div className='img-container'>
 							<img src={`${basePath}/images/OurStrategy/our-strat-4.png`} />
 						</div>

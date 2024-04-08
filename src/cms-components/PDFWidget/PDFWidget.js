@@ -82,7 +82,7 @@ export default function PDFWidget({ title, subtitle, link }) {
 				console.log(event, info);
 			}}>
 			<Link href={link} className='link-cover'></Link>
-			<h3 className='heading-5 pdf-widget-title'>
+			<h3 className='heading-4 pdf-widget-title'>
 				{title}
 				<br />
 				<span>{subtitle}</span>

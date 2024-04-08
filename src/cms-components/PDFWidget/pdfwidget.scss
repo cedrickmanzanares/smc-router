@@ -57,3 +57,10 @@
 	top: 100%;
 	z-index: 0;
 }
+
+@media only screen and (max-width: 450px) {
+	.pdf-widget {
+		aspect-ratio: auto;
+		height: 10rem;
+	}
+}

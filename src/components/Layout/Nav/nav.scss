@@ -404,17 +404,41 @@ a.nav-item,
 		a.nav-item,
 		.nav-item > a,
 		.nav-item > div:first-child a {
-			font-size: 1.75rem;
+			font-size: 1.5rem;
 			font-weight: 800;
+			margin: 1rem 0;
 		}
 		.nav-dropdown {
-			font-size: 1.25rem;
+			font-size: 1.15rem;
 			padding: 0;
+			padding-left: 2rem;
+			> div .inner-dropdown {
+				padding: 0;
+				padding-left: 2rem;
+			}
 		}
 		.inner-dropdown {
 			width: 100%;
+
 			.inner-dropdown {
-				font-size: 1.25rem;
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+.test-nav-nav-toggle {
+	.nav-toggle-bg-elements {
+		display: none;
+	}
+	.test-main-nav {
+		padding: 2rem;
+		padding-top: 10rem;
+		.nav-item {
+			display: block;
+			height: auto;
+			.inner-dropdown {
+				position: static;
 			}
 		}
 	}
