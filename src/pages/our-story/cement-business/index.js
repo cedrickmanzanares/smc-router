@@ -9,6 +9,7 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -99,40 +100,8 @@ export default function FoodAndBeverages() {
 
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
-
-						<motion.div className='control next'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Curve>

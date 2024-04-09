@@ -36,11 +36,17 @@ export default function All() {
 		<Curve>
 			<PageBanner title={'Company Disclosures'} noBg={true} />
 			<Section>
-				<Flex gap={5} mb={0}>
-					<FormControl ml={'auto'} w={'auto'}>
+				<Flex
+					gap={5}
+					mb={0}
+					direction={{
+						base: 'column',
+						sm: 'row',
+					}}>
+					<FormControl ml={'auto'} w={{ base: '100%', sm: 'auto' }}>
 						<Input placeholder='Enter Keyword' size={'lg'} fontSize={'1rem'} />
 					</FormControl>
-					<FormControl w={'auto'}>
+					<FormControl w={{ base: '100%', sm: 'auto' }}>
 						<Select placeholder='Select Year' size={'lg'} fontSize={'1rem'}>
 							<option>United Arab Emirates</option>
 							<option>Nigeria</option>

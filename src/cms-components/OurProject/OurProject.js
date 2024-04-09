@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { motion, useScroll } from 'framer-motion';
 
@@ -12,12 +12,18 @@ import { basePath } from '@/hooks/use-basepath';
 
 export default function OurProject({ className, link, children }) {
 	const business = useRef(null);
+
+	const [y, setY] = useState();
 	const { scrollYProgress } = useScroll({
 		target: business,
 		offset: ['start end', 'end start'],
 	});
 
 	const [selected, setSelected] = useState(0);
+
+	useEffect(() => {
+		setY(document.querySelectorAll('.projects-img')[0].offsetHeight);
+	}, []);
 
 	const slides = [
 		{
@@ -211,6 +217,14 @@ export default function OurProject({ className, link, children }) {
 							<div className='controls'>
 								<motion.button
 									className='button left'
+									style={{
+										top: y / 2,
+										opacity: selected === 0 ? 0 : 1,
+										pointerEvents: selected === 'none' ? 1 : 'all',
+									}}
+									whileTap={{
+										x: '-1rem',
+									}}
 									onTap={() => {
 										if (selected - 1 < 0) return;
 										setSelected((prev) => prev - 1);
@@ -218,6 +232,14 @@ export default function OurProject({ className, link, children }) {
 									<PiCaretLeftBold />
 								</motion.button>
 								<motion.button
+									style={{
+										top: y / 2,
+										opacity: selected === slides.length - 1 ? 0 : 1,
+										pointerEvents: selected === 'none' ? 1 : 'all',
+									}}
+									whileTap={{
+										x: '1rem',
+									}}
 									className='button right'
 									onTap={() => {
 										if (selected + 1 > slides.length - 1) return;

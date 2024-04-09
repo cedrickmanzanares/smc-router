@@ -10,6 +10,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
+import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -167,10 +168,6 @@ export default function FoodAndBeverages() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
-									<b>Business Opportunities</b>
-								</p>
-
 								<p className='small-text'>
 									Head Office Complex
 									<br />
@@ -180,7 +177,7 @@ export default function FoodAndBeverages() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									Tel no.: (632) 8632-3000 <br />
 									http://www.sanmiguelbrewery.com.ph
 								</p>
@@ -256,18 +253,14 @@ export default function FoodAndBeverages() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
-									<b>Business Opportunities</b>
-								</p>
-
-								<p>
+								<p className='small-text'>
 									<b>SAN MIGUEL FOODS, INC.</b> <br />
 									No. 100 E. Rodriguez Jr. Avenue (C5 Road) <br />
 									Barangay Ugong, Pasig City <br />
 									1604, Metro Manila, Philippines <br />
 								</p>
-								<p>Landline: +632 5 317 5000</p>
-								<p>
+								<p className='small-text'>Landline: +632 5 317 5000</p>
+								<p className='small-text'>
 									<a href='mailto: customercare@sanmiguel.com.ph'>
 										customercare@sanmiguel.com.ph
 									</a>
@@ -315,7 +308,7 @@ export default function FoodAndBeverages() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>GINEBRA SAN MIGUEL, INC.</b>
 									<br />
 									Corporate Head Office 3rd, 5th &amp; 6th
@@ -326,7 +319,7 @@ export default function FoodAndBeverages() {
 									<br />
 									Metro Manila, Philippines
 								</p>
-								<p>
+								<p className='small-text'>
 									Tel no.:{' '}
 									<a href='tel: (02) 841-5100' target='_blank'>
 										(02) 841-5100
@@ -337,10 +330,10 @@ export default function FoodAndBeverages() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>Customer Care</b>
 								</p>
-								<p>
+								<p className='small-text'>
 									For inquiries, orders and suggestions
 									<br />
 									on our products and services,
@@ -374,40 +367,8 @@ export default function FoodAndBeverages() {
 				</Section>
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
-
-						<motion.div className='control next'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Curve>

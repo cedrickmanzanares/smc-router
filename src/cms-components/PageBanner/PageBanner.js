@@ -19,10 +19,11 @@ export default function PageBanner({
 	containerSize = 'medium',
 
 	noBg = false,
-
+	bannerShade = false,
 	direction = 'left',
 	size = 'half',
 	headingSize = 'heading-1',
+	children,
 }) {
 	const smcTheme = useContext(ThemeContext);
 	const { red, redShade1, yellow, yellowShade1, blue, blueShade1, blueShade2 } =
@@ -268,7 +269,7 @@ export default function PageBanner({
 					className='path path-1'
 					style={{
 						y: '-70%',
-						x: '-40%',
+						x: '-55%',
 						rotate: rotate,
 						z: z[0],
 					}}></motion.div>
@@ -279,7 +280,7 @@ export default function PageBanner({
 					className='path path-2'
 					style={{
 						y: '-70%',
-						x: '-15%',
+						x: '-43%',
 						rotate: rotate,
 						z: z[1],
 					}}></motion.div>
@@ -288,18 +289,18 @@ export default function PageBanner({
 					animate={smcTheme}
 					variants={path_settings[2]}
 					className='path path-3'
-					style={{ y: '2%', x: '-48%', rotate: rotate, z: z[2] }}></motion.div>
+					style={{ y: '2%', x: '-58%', rotate: rotate, z: z[2] }}></motion.div>
 
 				<motion.div
 					animate={smcTheme}
 					variants={path_settings[3]}
 					className='path path-4'
-					style={{ x: '35%', rotate: rotate, z: z[3] }}></motion.div>
+					style={{ x: '55%', rotate: rotate, z: z[3] }}></motion.div>
 
 				<motion.div
 					className='path path-5'
-					style={{ x: '55%', rotate: rotate, z: z[4] }}></motion.div>
-				<div className='banner-shade'></div>
+					style={{ x: '65%', rotate: rotate, z: z[4] }}></motion.div>
+				{bannerShade && <div className='banner-shade'></div>}
 			</div>
 			<motion.div className={bannerContainerClasses}>
 				<motion.div
@@ -326,6 +327,8 @@ export default function PageBanner({
 							{subtitle}
 						</motion.p>
 					)}
+
+					{children && children}
 				</motion.div>
 			</motion.div>
 		</motion.div>

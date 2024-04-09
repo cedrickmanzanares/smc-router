@@ -29,11 +29,17 @@ export default function InnerDisclosure({ title }) {
 		<Curve>
 			<PageBanner title={title} noBg={true} />
 			<Section>
-				<Flex gap={5} mb={0}>
-					<FormControl ml={'auto'} w={'auto'}>
+				<Flex
+					gap={5}
+					mb={0}
+					direction={{
+						base: 'column',
+						sm: 'row',
+					}}>
+					<FormControl ml={'auto'} w={{ base: '100%', sm: 'auto' }}>
 						<Input placeholder='Enter Keyword' />
 					</FormControl>
-					<FormControl w={'auto'}>
+					<FormControl w={{ base: '100%', sm: 'auto' }}>
 						<Select placeholder='Select Year'>
 							<option>United Arab Emirates</option>
 							<option>Nigeria</option>

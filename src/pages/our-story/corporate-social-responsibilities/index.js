@@ -120,7 +120,7 @@ export default function CSR() {
 					</div>
 				</Section>
 
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
 						<div className='text-content'>
 							<h2 className='heading-2'>Environmental and Other Programs</h2>

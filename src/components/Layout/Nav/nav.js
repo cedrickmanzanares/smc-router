@@ -2,25 +2,10 @@
 
 import Link from 'next/link';
 
-import {
-	MotionConfig,
-	motion,
-	useMotionValueEvent,
-	useScroll,
-} from 'framer-motion';
-import { animate, stagger } from 'framer-motion/dom';
-import { IoIosSearch } from 'react-icons/io';
-import { useCycle } from 'framer-motion';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 
-import {
-	Box,
-	Accordion,
-	AccordionItem,
-	AccordionButton,
-	AccordionPanel,
-	AccordionIcon,
-} from '@chakra-ui/react';
+import { useCycle } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
 
 import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
@@ -35,15 +20,29 @@ import {
 	toggleSettings,
 	transitionSettings,
 } from './anim';
-import Image from 'next/image';
+
+import {
+	Flex,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalCloseButton,
+	ModalBody,
+	ModalFooter,
+	Button,
+	ButtonGroup,
+	useDisclosure,
+} from '@chakra-ui/react';
 
 import { basePath } from '@/hooks/use-basepath';
 import { useRouter } from 'next/router';
-import { getMenu, useGetToggleFill } from '@/data/data';
+import { useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
-import { PiCaretDown, PiCaretRightBold } from 'react-icons/pi';
+import { PiCaretDown } from 'react-icons/pi';
 import { enterDuration } from '../Curve/anim';
 import Search from './search';
+import SocialIcons, { FacebookIcon } from '../Footer/social-icon';
 
 export default function Nav({}) {
 	const router = useRouter();
@@ -51,7 +50,7 @@ export default function Nav({}) {
 	const className = router.route === '/' ? 'home' : 'inner';
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
-	const [isOpen, toggle] = useCycle(false, true);
+	const [isToggleOpen, toggle] = useCycle(false, true);
 	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
 		getColors;
 
@@ -85,7 +84,7 @@ export default function Nav({}) {
 			case 'smc-yellow':
 				return baseBlack;
 			default:
-				return '#ffffff00';
+				return '#ffffff';
 		}
 	};
 
@@ -160,7 +159,11 @@ export default function Nav({}) {
 					<Search />
 				</div>
 			</motion.div>
-			<FloatingNav navOpen={navOpen} isOpen={isOpen} toggle={toggle} />
+			<FloatingNav
+				navOpen={navOpen}
+				isToggleOpen={isToggleOpen}
+				toggle={toggle}
+			/>
 		</>
 	);
 }
@@ -172,6 +175,7 @@ function MainNav({
 	animation = false,
 	toggle,
 }) {
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	const menu = useContext(MenuContext);
 	const smcTheme = useContext(ThemeContext);
 	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
@@ -246,97 +250,139 @@ function MainNav({
 											? (link += `/${item.page[0].slug}`)
 											: `${item.url}`;
 
-										// let defaultheight = height;
-										return (
-											<motion.div
-												key={key}
-												className='nav-dropdown-item'
-												onMouseEnter={(event) => {
-													let dropdownItem =
-														event.target.closest('.nav-dropdown-item');
-													dropdownItem
-														.closest('.nav-item')
-														.querySelectorAll('.inner-dropdown')
-														.forEach((dropdown) => {
-															dropdown.classList.remove('active');
-														});
+										if (link === 'social-media-popup')
+											// let defaultheight = height;
+											return (
+												<div className='nav-dropdown-item' key={key}>
+													<div>
+														<Button onClick={onOpen} className='nav-popup'>
+															{item.title}
+														</Button>
+														<Modal isOpen={isOpen} onClose={onClose} p={5}>
+															<ModalOverlay />
+															<ModalContent pb={4}>
+																<ModalHeader className='heading-5'>
+																	{item.title}
+																</ModalHeader>
+																<ModalCloseButton />
+																<ModalBody>
+																	<h3 className='heading-6'>
+																		San Miguel Social Media
+																	</h3>
+																	<SocialIcons />
+																	<h3 className='heading-6'>
+																		Follow RSA on social media!
+																	</h3>
+																	<Flex gap={2} className='social-icon'>
+																		<FacebookIcon
+																			link={
+																				'https://www.facebook.com/smcramonang/'
+																			}
+																		/>
+																	</Flex>
+																</ModalBody>
+															</ModalContent>
+														</Modal>
+													</div>
+												</div>
+											);
+										else
+											return (
+												<motion.div
+													key={key}
+													className='nav-dropdown-item'
+													onMouseEnter={(event) => {
+														let dropdownItem =
+															event.target.closest('.nav-dropdown-item');
+														dropdownItem
+															.closest('.nav-item')
+															.querySelectorAll('.inner-dropdown')
+															.forEach((dropdown) => {
+																dropdown.classList.remove('active');
+															});
 
-													let innerDropdown =
-														dropdownItem.querySelector('.inner-dropdown');
+														let innerDropdown =
+															dropdownItem.querySelector('.inner-dropdown');
 
-													if (innerDropdown) {
-														innerDropdown.classList.add('active');
+														if (innerDropdown) {
+															innerDropdown.classList.add('active');
 
-														let navDropdown =
-															innerDropdown.closest('.nav-dropdown');
-														if (navDropdown) {
-															navDropdown.style.height = `${innerDropdown.offsetHeight}px`;
+															let navDropdown =
+																innerDropdown.closest('.nav-dropdown');
+															if (navDropdown) {
+																navDropdown.style.height = `${innerDropdown.offsetHeight}px`;
+															}
+														} else {
+															let navDropdown =
+																dropdownItem.closest('.nav-dropdown');
+															if (navDropdown) {
+																navDropdown.style.height = `auto`;
+															}
 														}
-													}
-												}}
-												onMouseLeave={() => {
-													// setHeight(innerDropdown.offsetHeight);
-												}}>
-												<motion.div onTap={toggle}>
-													<Link href={link}>
-														<b>{item.title}</b>
-														{item.children.length !== 0 && <PiCaretDown />}
-													</Link>
-												</motion.div>
+													}}
+													onMouseLeave={() => {
+														// setHeight(innerDropdown.offsetHeight);
+													}}>
+													<motion.div onTap={toggle}>
+														<Link href={link}>
+															<b>{item.title}</b>
+															{item.children.length !== 0 && <PiCaretDown />}
+														</Link>
+													</motion.div>
 
-												{item.children.length !== 0 && (
-													<motion.div
-														animate={smcTheme}
-														variants={innerDropdown_variants}
-														className={`inner-dropdown`}
-														transition={{
-															delay: enterDuration,
-														}}>
-														{item.children.map((item) => {
-															let key = `menuItem_lvl3_${item.id}`;
-															let link = parent_slug;
-															link = item.page.length
-																? (link += `/${item.page[0].slug}`)
-																: `${item.url}`;
+													{item.children.length !== 0 && (
+														<motion.div
+															animate={smcTheme}
+															variants={innerDropdown_variants}
+															className={`inner-dropdown`}
+															transition={{
+																delay: enterDuration,
+															}}>
+															{item.children.map((item) => {
+																let key = `menuItem_lvl3_${item.id}`;
+																let link = parent_slug;
+																link = item.page.length
+																	? (link += `/${item.page[0].slug}`)
+																	: `${item.url}`;
 
-															if (item.children.length === 0) {
-																return (
-																	<motion.div onTap={toggle} key={key}>
-																		<Link href={link}>{item.title}</Link>
-																	</motion.div>
-																);
-															} else {
-																return (
-																	<div key={key}>
-																		<motion.div onTap={toggle}>
+																if (item.children.length === 0) {
+																	return (
+																		<motion.div onTap={toggle} key={key}>
 																			<Link href={link}>{item.title}</Link>
 																		</motion.div>
+																	);
+																} else {
+																	return (
+																		<div key={key}>
+																			<motion.div onTap={toggle}>
+																				<Link href={link}>{item.title}</Link>
+																			</motion.div>
 
-																		<ul className='inner-dropdown'>
-																			{item.children.map((item) => {
-																				let key = `menuItem_lvl4_${item.id}`;
-																				let link = parent_slug;
-																				link = item.page.length
-																					? (link += `/${item.page[0].slug}`)
-																					: `${item.url}`;
+																			<ul className='inner-dropdown'>
+																				{item.children.map((item) => {
+																					let key = `menuItem_lvl4_${item.id}`;
+																					let link = parent_slug;
+																					link = item.page.length
+																						? (link += `/${item.page[0].slug}`)
+																						: `${item.url}`;
 
-																				return (
-																					<motion.li onTap={toggle} key={key}>
-																						<Link href={link}>
-																							{item.title}
-																						</Link>
-																					</motion.li>
-																				);
-																			})}
-																		</ul>
-																	</div>
-																);
-															}
-														})}
-													</motion.div>
-												)}
-											</motion.div>
-										);
+																					return (
+																						<motion.li onTap={toggle} key={key}>
+																							<Link href={link}>
+																								{item.title}
+																							</Link>
+																						</motion.li>
+																					);
+																				})}
+																			</ul>
+																		</div>
+																	);
+																}
+															})}
+														</motion.div>
+													)}
+												</motion.div>
+											);
 									})}
 								</motion.div>
 							</NavItem>
@@ -365,7 +411,7 @@ function NavItem({
 	animation,
 	toggle,
 }) {
-	const [isOpen, toggleOpen] = useCycle(false, true);
+	const [isToggleOpen, toggleOpen] = useCycle(false, true);
 
 	const hover_animation1 = {
 		open: {
@@ -385,7 +431,7 @@ function NavItem({
 			variants={navItem_variants}
 			onMouseEnter={hover}
 			onMouseLeave={hover}
-			animate={animation ? navItem_variants : isOpen ? 'open' : 'closed'}>
+			animate={animation ? navItem_variants : isToggleOpen ? 'open' : 'closed'}>
 			<motion.div onTap={toggle} style={{}}>
 				<Link href={link}>{label}</Link>
 			</motion.div>
@@ -394,13 +440,13 @@ function NavItem({
 	);
 }
 
-function FloatingNav({ navOpen, isOpen, toggle }) {
+function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 	const { baseBlack, red, blue, yellow } = getColors;
 	const { toggleFill } = useGetToggleFill();
 
 	const theme = useContext(ThemeContext);
 
-	// const [isOpen, toggle] = useCycle(true, true);
+	// const [isToggleOpen, toggle] = useCycle(true, true);
 
 	const circle_variants = {
 		initial: {
@@ -428,15 +474,17 @@ function FloatingNav({ navOpen, isOpen, toggle }) {
 					},
 				},
 			}}>
-			<FloatingNavContent isOpen={isOpen} toggle={toggle}></FloatingNavContent>
+			<FloatingNavContent
+				isToggleOpen={isToggleOpen}
+				toggle={toggle}></FloatingNavContent>
 			<motion.div
 				className='nav-toggle-trigger'
 				// initial={toggleTrigger_variants.closed}
 				// animate={navOpen ? 'closed' : 'open'}
 				// variants={toggleTrigger_variants}
 				initial='initial'
-				whileHover={isOpen ? 'open' : 'hovered'}
-				animate={isOpen ? 'open' : !navOpen ? 'navopen' : 'initial'}
+				whileHover={isToggleOpen ? 'open' : 'hovered'}
+				animate={isToggleOpen ? 'open' : !navOpen ? 'navopen' : 'initial'}
 				onTap={toggle}
 				variants={{
 					initial: {
@@ -491,15 +539,15 @@ function FloatingNav({ navOpen, isOpen, toggle }) {
 	);
 }
 
-function FloatingNavContent({ isOpen, toggle }) {
+function FloatingNavContent({ isToggleOpen, toggle }) {
 	const { red } = getColors;
 	const windowDimensions = useWindowSize();
 	const { x: mouseX, y: mouseY } = useMousePosition();
 
 	useEffect(() => {
-		if (isOpen) document.querySelector('body').style.overflow = 'hidden';
+		if (isToggleOpen) document.querySelector('body').style.overflow = 'hidden';
 		else document.querySelector('body').style.overflow = 'auto';
-	}, [isOpen]);
+	}, [isToggleOpen]);
 
 	const big_1_variants = {
 		open: {
@@ -555,10 +603,10 @@ function FloatingNavContent({ isOpen, toggle }) {
 		<motion.div
 			className='nav-toggle-content'
 			initial='initial'
-			animate={isOpen ? 'open' : 'initial'}
+			animate={isToggleOpen ? 'open' : 'initial'}
 			style={{
-				overflow: isOpen ? 'auto' : 'hidden',
-				pointerEvents: isOpen ? 'all' : 'none',
+				overflow: isToggleOpen ? 'auto' : 'hidden',
+				pointerEvents: isToggleOpen ? 'all' : 'none',
 			}}
 			variants={floatingNavContent_variants}>
 			{windowDimensions.width !== null && (

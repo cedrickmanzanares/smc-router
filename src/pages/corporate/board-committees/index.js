@@ -24,7 +24,9 @@ export default function BoardCommittees() {
 			<Curve>
 				<PageBanner title={'Board Committees'} direction='center' />
 
-				<Section columnCount={3}>
+				<Section
+					columnCount={3}
+					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
 					<div className='column text-content'>
 						<p class='heading-5'>
 							<b>EXECUTIVE COMMITTEE</b>
@@ -128,7 +130,7 @@ export default function BoardCommittees() {
 							</a>
 						</p>
 					</div>
-					<div className='column'>
+					<div className='column grow-limit'>
 						<header class='heading-5'>
 							<b>CORPORATE GOVERNANCE COMMITTEE</b>
 						</header>
@@ -161,7 +163,7 @@ export default function BoardCommittees() {
 						</p>
 					</div>
 
-					<div className='column'>
+					<div className='column grow-limit'>
 						<header class='heading-5'>
 							<b>BOARD SUSTAINABILITY COMMITTEE</b>
 						</header>

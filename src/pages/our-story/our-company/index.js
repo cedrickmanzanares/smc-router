@@ -148,7 +148,10 @@ export default function OurCompany() {
 					</div>
 				</Section>
 
-				<Section columnCount={2} sectionStyle={{ paddingTop: 0 }}>
+				<Section
+					columnCount={2}
+					sectionStyle={{ paddingTop: 0 }}
+					containerClass={'ourcompany-column'}>
 					<div className='column sticky tab-source tabsource-ourcompany'>
 						<motion.button
 							class={`tab-links ${selected === 0 ? 'active' : ''}`}
@@ -227,7 +230,7 @@ export default function OurCompany() {
 							<div className='heading-6 tab-label'>Cement</div>
 						</motion.button>
 					</div>
-					<div className='column tab-target'>
+					<div className='column tab-target tabtarget-ourcompany'>
 						<AnimatePresence>
 							<modiv style={{ display: selected === 0 ? 'block' : 'none' }}>
 								<h3 className='heading-3'>Food and Beverage</h3>

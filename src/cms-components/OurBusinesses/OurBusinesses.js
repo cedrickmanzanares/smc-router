@@ -16,6 +16,12 @@ import Button from '@/components/button/button';
 import { basePath } from '@/hooks/use-basepath';
 import { useWindowSize } from '@uidotdev/usehooks';
 import useAnim from '@/hooks/use-anim';
+import {
+	PiCaretLeft,
+	PiCaretLeftBold,
+	PiCaretRight,
+	PiCaretRightBold,
+} from 'react-icons/pi';
 
 export default function OurBusinesses({ className, link, children }) {
 	const { height, width } = useWindowSize();
@@ -85,6 +91,9 @@ export default function OurBusinesses({ className, link, children }) {
 		},
 	];
 
+	useEffect(() => {
+		console.log(selected);
+	}, [selected]);
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
 		// console.log(latest);
 		let mod = 1 / data.length;
@@ -161,6 +170,37 @@ export default function OurBusinesses({ className, link, children }) {
 					<div className='ourbusinesses-container'>
 						<h2 className='heading-2'>Our Businesses</h2>
 						<div className='outer-ring-container'>
+							<div className='controls'>
+								<motion.button
+									className='control prev'
+									whileTap={{
+										x: '-1rem',
+									}}
+									onTap={() => {
+										if (selected > 0) setSelected((prev) => prev - 1);
+									}}
+									style={{
+										opacity: selected === 0 ? 0 : 1,
+										pointerEvents: selected === 'none' ? 1 : 'all',
+									}}>
+									<PiCaretLeftBold size={'1.25rem'} />
+								</motion.button>
+								<motion.button
+									className='control next'
+									whileTap={{
+										x: '1rem',
+									}}
+									onTap={() => {
+										if (selected < data.length - 1)
+											setSelected((prev) => prev + 1);
+									}}
+									style={{
+										opacity: selected === data.length - 1 ? 0 : 1,
+										pointerEvents: selected === 'none' ? 1 : 'all',
+									}}>
+									<PiCaretRightBold size={'1.25rem'} />
+								</motion.button>
+							</div>
 							<div className='outer-ring'>
 								<div className='ring'></div>
 								{data.map((val, index) => {
@@ -347,7 +387,7 @@ export default function OurBusinesses({ className, link, children }) {
 							key={`control_${index}`}
 							className='test2'
 							whileInView={() => {
-								setSelected(index);
+								if (!isMobile) setSelected(index);
 							}}
 							viewport={{
 								amount: 'all',

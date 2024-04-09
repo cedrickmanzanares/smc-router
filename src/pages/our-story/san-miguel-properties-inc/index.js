@@ -10,6 +10,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
+import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -117,14 +118,14 @@ export default function FoodAndBeverages() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>CORPORATE OFFICE:</b>
 									<br />
 									3/F San Miguel Head Office Complex <br />
 									40 San Miguel Ave., Ortigas Center <br />
 									Mandaluyong City, 1550 Philippines
 								</p>
-								<p>
+								<p className='small-text'>
 									Tel No. +632 8632-3000 loc. 3250
 									<br />
 									Fax No. +632 8632-3266
@@ -137,7 +138,7 @@ export default function FoodAndBeverages() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>SALES OFFICE:</b>
 									<br />
 									Asian Leaf Subdivision Brgy. San Francisco,
@@ -146,7 +147,7 @@ export default function FoodAndBeverages() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>CUSTOMER CARE HOTLINE:</b> <br />
 									<a href='tel: (+632) 8-632-2000'>(+632) 8-632-2000</a>
 								</p>
@@ -157,40 +158,8 @@ export default function FoodAndBeverages() {
 
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
-
-						<motion.div className='control next'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Curve>

@@ -3,16 +3,7 @@
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-import {
-	ImFacebook,
-	ImYoutube,
-	ImLinkedin2,
-	ImSphere,
-	ImCircleRight,
-} from 'react-icons/im';
-
 import { getColors } from '@/hooks/use-color';
-import { LuInstagram } from 'react-icons/lu';
 
 import {
 	Box,
@@ -38,16 +29,13 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { basePath } from '@/hooks/use-basepath';
 import { PiCaretDownBold, PiCaretDownLight } from 'react-icons/pi';
+import SocialIcons from './social-icon';
 
 export default function Footer() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	const year = new Date().getFullYear();
 	const { baseBlack, gray2, red } = getColors;
-	const footerIcon = {
-		size: '1.75rem',
-		color: baseBlack,
-	};
 
 	const footer = useRef(null);
 
@@ -68,98 +56,20 @@ export default function Footer() {
 							alt={"World's Best Companies 2023, World's Best Employers 2023"}
 						/>
 					</figure>
-					<Flex gap={2} className='social-icon'>
-						<motion.div
-							className='social-icons'
-							initial={{
-								backgroundColor: gray2,
-							}}
-							whileHover={{
-								scale: 1.2,
-								color: '#ffffff',
-								backgroundColor: '#3975ea',
-							}}
-							whileTap={{ scale: 0.9 }}>
-							<Link href='/'>
-								<ImFacebook size={footerIcon.size} />
-							</Link>
-						</motion.div>
-						<motion.div
-							className='social-icons'
-							initial={{
-								backgroundImage: `linear-gradient(45deg, ${gray2}, ${gray2})`,
-							}}
-							whileHover={{
-								scale: 1.2,
-								color: '#ffffff',
-								backgroundImage:
-									'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
-							}}
-							whileTap={{ scale: 0.9 }}>
-							<Link href='/'>
-								<LuInstagram size={footerIcon.size} />
-							</Link>
-						</motion.div>
-
-						<motion.div
-							className='social-icons'
-							initial={{
-								backgroundColor: gray2,
-							}}
-							whileHover={{
-								scale: 1.2,
-								color: '#ffffff',
-								backgroundColor: '#ea3324',
-							}}
-							whileTap={{ scale: 0.9 }}>
-							<Link href='/'>
-								<ImYoutube size={footerIcon.size} />
-							</Link>
-						</motion.div>
-
-						<motion.div
-							className='social-icons'
-							initial={{
-								backgroundColor: gray2,
-							}}
-							whileHover={{
-								scale: 1.2,
-								color: '#ffffff',
-								backgroundColor: '#2a6496',
-							}}
-							whileTap={{ scale: 0.9 }}>
-							<Link href='/'>
-								<ImLinkedin2 size={footerIcon.size} />
-							</Link>
-						</motion.div>
-
-						<motion.div
-							className='social-icons'
-							initial={{
-								backgroundColor: gray2,
-							}}
-							whileHover={{
-								scale: 1.2,
-								color: '#ffffff',
-								backgroundColor: red,
-							}}
-							whileTap={{ scale: 0.9 }}>
-							<Link href='/'>
-								<ImSphere size={footerIcon.size} />
-							</Link>
-						</motion.div>
-					</Flex>
+					<SocialIcons />
 					<Button onClick={onOpen} className='subsidiary-btn btn btn-bordered'>
 						Subsidiary Websites
 						<PiCaretDownBold fontSize={'1.35rem'} />
 					</Button>
 					<Modal isOpen={isOpen} onClose={onClose}>
 						<ModalOverlay />
-						<ModalContent>
-							<ModalHeader>Subsidiary Websites</ModalHeader>
+						<ModalContent pb={4}>
+							<ModalHeader className='heading-5'>
+								Subsidiary Websites
+							</ModalHeader>
 							<ModalCloseButton />
 							<ModalBody>
-								<p>
+								<p className='small-text'>
 									<a
 										href='https://www.bankcom.com.ph/'
 										target='_blank'

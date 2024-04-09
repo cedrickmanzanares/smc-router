@@ -10,6 +10,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
+import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -126,7 +127,7 @@ export default function FoodAndBeverages() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b className='heading-6'>Main Office</b>
 									<br />
 									10/F San Miguel Properties Centre
@@ -135,13 +136,13 @@ export default function FoodAndBeverages() {
 									<br />
 									1550 Metro Manila, Philippines
 								</p>
-								<p>
-									Trunk Line:{' '}
+								<p className='small-text'>
+									Trunk Line:
 									<a href='tel: (+632) 5308-8888' target='_blank'>
 										(+632) 5308-8888
 									</a>
 									<br />
-									Fax No.{' '}
+									Fax No.
 									<a href='tel: (+632) 8637-6297' target='_blank'>
 										(+632) 8637-6297
 									</a>
@@ -153,40 +154,8 @@ export default function FoodAndBeverages() {
 
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
-
-						<motion.div className='control next'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</div>
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next Business</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Curve>

@@ -24,7 +24,9 @@ export default function TotalOutstandingShares() {
 						<p>
 							Latest data: As of June 30, 2023
 							<br />
-							*Updated Quarterly; will update once received
+							<span className='small-text'>
+								*Updated Quarterly; will update once received
+							</span>
 						</p>
 						<table class='table'>
 							<tbody>

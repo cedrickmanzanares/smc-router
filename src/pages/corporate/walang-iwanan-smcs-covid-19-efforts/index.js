@@ -106,14 +106,11 @@ export default function WalangIwanan() {
 									src={`${basePath}/images/WalangIwanan/WalangIwanan-1.svg`}
 								/>
 							</div>
-							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
+							<div className='img-container' style={{ top: '15%' }}>
+								<img src={`${basePath}/images/heart.svg`} />
 							</div>
 							<div className='img-container'>
 								<img
-									style={{
-										width: '55%',
-									}}
 									src={`${basePath}/images/WalangIwanan/WalangIwanan-2.png`}
 								/>
 							</div>

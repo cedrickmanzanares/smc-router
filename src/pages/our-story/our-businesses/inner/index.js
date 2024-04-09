@@ -11,6 +11,34 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { getColors } from '@/hooks/use-color';
 
+const { red } = getColors;
+const control_img = {
+	initial: {
+		opacity: 1,
+		scale: 1,
+	},
+	hover: {
+		opacity: 0.5,
+		scale: 0.9,
+	},
+};
+const control_variants_prev = {
+	initial: {
+		x: '0rem',
+	},
+	hover: {
+		x: '-2rem',
+	},
+};
+const control_variants_next = {
+	initial: {
+		x: '0rem',
+	},
+	hover: {
+		x: '2rem',
+	},
+};
+
 export default function OurBusinessesInner() {
 	const parallaxColumn = useRef(null);
 	const [dimension, setDimension] = useState({ width: 0, height: 0 });
@@ -52,23 +80,6 @@ export default function OurBusinessesInner() {
 			window.removeEventListener('resize', resize);
 		};
 	}, []);
-
-	const control_variants_prev = {
-		initial: {
-			x: '0rem',
-		},
-		hover: {
-			x: '-2rem',
-		},
-	};
-	const control_variants_next = {
-		initial: {
-			x: '0rem',
-		},
-		hover: {
-			x: '2rem',
-		},
-	};
 
 	return (
 		<>
@@ -122,7 +133,7 @@ export default function OurBusinessesInner() {
 						<div className='text-content'>
 							<h3 className='heading-5'>Business Opportunities</h3>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>Ginebra San Miguel, Inc.</b>
 								</p>
 
@@ -134,7 +145,7 @@ export default function OurBusinessesInner() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>Customer Care</b>
 								</p>
 								<p className='small-text'>
@@ -150,7 +161,7 @@ export default function OurBusinessesInner() {
 								</p>
 							</div>
 							<div className='opportunities-item small-text'>
-								<p>
+								<p className='small-text'>
 									<b>Email and Social Media</b>
 								</p>
 								<p className='small-text'>customercare.gsmi@smg.sanmiguel</p>
@@ -160,84 +171,94 @@ export default function OurBusinessesInner() {
 				</Section>
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div
-							className='control prev'
-							initial='initial'
-							whileHover='hover'
-							transition={{
-								staggerChildren: 0.02,
-							}}>
-							<motion.div
-								className='img-container'
-								variants={control_variants_prev}>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
-							</motion.div>
-
-							<div className='control-details'>
-								<motion.div className='arrow' variants={control_variants_prev}>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</motion.div>
-								<motion.div>
-									<motion.p variants={control_variants_prev}>
-										Previous Business
-									</motion.p>
-									<motion.p
-										variants={{
-											initial: {
-												x: '0rem',
-											},
-											hover: {
-												x: '-2rem',
-												color: red,
-											},
-										}}
-										className='label heading-4'>
-										San Miguel Foods
-									</motion.p>
-								</motion.div>
-							</div>
-						</motion.div>
-
-						<motion.div
-							className='control next'
-							initial='initial'
-							whileHover='hover'
-							transition={{
-								staggerChildren: 0.02,
-							}}>
-							<div className='img-container'>
-								<motion.img
-									variants={control_variants_next}
-									src={`${basePath}/images/OurBusinesses/thumb.png`}
-								/>
-							</div>
-							<div className='control-details'>
-								<motion.div variants={control_variants_next} className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</motion.div>
-								<motion.div>
-									<motion.p variants={control_variants_next}>
-										Next Business
-									</motion.p>
-									<motion.p
-										variants={{
-											initial: {
-												x: '0rem',
-											},
-											hover: {
-												color: red,
-												x: '2rem',
-											},
-										}}
-										className='label heading-4'>
-										San Miguel Foods
-									</motion.p>
-								</motion.div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Curve>
 		</>
+	);
+}
+
+export function PrevBusinesses() {
+	return (
+		<motion.div
+			className='control prev'
+			initial='initial'
+			whileHover='hover'
+			transition={{
+				staggerChildren: 0.02,
+			}}>
+			<motion.div className='img-container' variants={control_variants_prev}>
+				<motion.img
+					variants={control_img}
+					src={`${basePath}/images/OurBusinesses/thumb.png`}
+				/>
+			</motion.div>
+
+			<div className='control-details'>
+				<motion.div className='arrow' variants={control_variants_prev}>
+					<BsArrowLeftCircle size={'1.75rem'} />
+				</motion.div>
+				<motion.div>
+					<motion.p variants={control_variants_prev}>
+						Previous Business
+					</motion.p>
+					<motion.p
+						variants={{
+							initial: {
+								x: '0rem',
+							},
+							hover: {
+								x: '-2rem',
+								color: red,
+							},
+						}}
+						className='label heading-4'>
+						San Miguel Foods
+					</motion.p>
+				</motion.div>
+			</div>
+		</motion.div>
+	);
+}
+
+export function NextBusinesses() {
+	return (
+		<motion.div
+			className='control next'
+			initial='initial'
+			whileHover='hover'
+			transition={{
+				staggerChildren: 0.02,
+			}}>
+			<motion.div className='img-container' variants={control_variants_next}>
+				<motion.img
+					variants={control_img}
+					src={`${basePath}/images/OurBusinesses/thumb.png`}
+				/>
+			</motion.div>
+			<div className='control-details'>
+				<motion.div variants={control_variants_next} className='arrow'>
+					<BsArrowRightCircle size={'1.75rem'} />
+				</motion.div>
+				<motion.div>
+					<motion.p variants={control_variants_next}>Next Business</motion.p>
+					<motion.p
+						variants={{
+							initial: {
+								x: '0rem',
+							},
+							hover: {
+								color: red,
+								x: '2rem',
+							},
+						}}
+						className='label heading-4'>
+						San Miguel Foods
+					</motion.p>
+				</motion.div>
+			</div>
+		</motion.div>
 	);
 }

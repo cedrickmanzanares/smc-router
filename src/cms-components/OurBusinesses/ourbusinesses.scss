@@ -92,6 +92,9 @@
 	margin: auto;
 	align-self: center;
 	padding: 2rem;
+	.controls {
+		display: none;
+	}
 }
 .outer-ring {
 	width: 30vw;
@@ -245,18 +248,47 @@
 }
 
 @media only screen and (max-width: 768px) {
+	.ourbusinesses-section {
+		height: 100dvh !important;
+		min-height: 0;
+	}
 	.ourbusinesses-container {
 		display: grid;
 		flex-direction: column;
-		grid-template-rows: 4rem 30vh 7.5rem auto;
+		grid-template-rows: 4rem 1.2fr 0.8fr;
 		grid-template-columns: 1fr;
+		overflow: visible;
+		.test {
+			display: none;
+		}
 		h2 {
 			grid-area: 1 / 1 / span 1 / span 1;
 		}
 		.outer-ring-container {
 			grid-area: 2 / 1 / span 1 / span 1;
-			height: 30vh;
+			height: 35vh;
 			margin: 0;
+			position: relative;
+			align-self: end;
+
+			.controls {
+				display: block;
+				color: var(--base-black);
+				button {
+					position: absolute;
+					background-color: white;
+					border-radius: 100%;
+					padding: 0.5rem;
+					top: 50%;
+					// transform: translate(0, -50%);
+				}
+				.prev {
+					left: -1rem;
+				}
+				.next {
+					right: -1rem;
+				}
+			}
 		}
 		.outer-ring {
 			width: auto;
@@ -264,15 +296,12 @@
 		}
 
 		.inner-ring {
-			grid-area: 3 / 1 / span 1 / span 1;
-			height: 100%;
-			display: block;
-			white-space: nowrap;
-			overflow: hidden;
+			display: none;
 		}
 
 		.ring-description {
 			grid-area: 4 / 1 / span 1 / span 1;
+			grid-area: 3 / 1 / span 1 / span 1;
 			.descriptions {
 				p {
 					line-height: 1.5;
@@ -281,37 +310,18 @@
 		}
 		.inner-item {
 			// transform: translateY(0%) !important;
-			display: inline-block;
-			width: 33.33%;
-			text-align: center;
-			white-space: wrap;
-			vertical-align: top;
-			&:first-child {
-				margin-left: 33.33%;
-			}
-			p {
-				line-height: 1.25;
-				padding: 0 1rem;
-				display: none;
-			}
-			&:before {
-				top: calc(var(--selected-size) / 2);
-				bottom: auto;
-				left: 0;
-				right: 0;
-				width: auto;
-				height: 2px;
-			}
+			display: none;
 		}
 		.inner-img {
 			margin: auto;
+			display: none;
 		}
 		.ring-selected {
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, 0%);
-			display: block;
+			display: none;
 
 			width: auto;
 			height: 100%;

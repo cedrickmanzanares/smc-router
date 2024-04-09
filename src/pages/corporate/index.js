@@ -25,13 +25,8 @@ export default function Corporate() {
 				size='full'
 				title='Corporate'
 				subtitle='Eu phasellus nunc neque porta laoreet maecenas tortor in. Magnis sit leo at a tortor. Quis massa tellus ut arcu sit sed sed. In ultrices curabitur leo eu.'
-				image={`${basePath}/images/Corporate/Corporate-Banner.png`}>
-				<div className='desc-container'>
-					<h1 className='heading-1 split-color'>
-						<b>Corporate</b>
-					</h1>
-				</div>
-			</PageBanner>
+				bannerShade={true}
+				image={`${basePath}/images/Corporate/Corporate-Banner.png`}></PageBanner>
 			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 				<div className='column'>
 					<h2 className='heading-2'>Tincidunt egestas phasellus sed ornare</h2>

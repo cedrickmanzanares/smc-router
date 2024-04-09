@@ -26,7 +26,7 @@ export default function ShareholderInformation() {
 			<PageBanner
 				title='Shareholder Information'
 				direction='center'></PageBanner>
-			<Section columnCount={2}>
+			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 				<div className='column mobile-hide'>
 					<div className='image-content stacked'>
 						<div className='img-container'>

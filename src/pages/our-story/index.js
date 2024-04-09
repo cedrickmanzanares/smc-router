@@ -138,7 +138,7 @@ export default function OurStory() {
 					size={'full'}
 					image={settings.image}
 				/>
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
 						<h2 className='heading-2'>Neque dictumst eget.</h2>
 						<p>Purus varius elit morbi diam varius integer.</p>

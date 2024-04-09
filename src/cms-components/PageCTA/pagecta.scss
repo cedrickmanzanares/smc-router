@@ -54,3 +54,14 @@
 		white-space: nowrap;
 	}
 }
+
+@media only screen and (max-width: 450px) {
+	.pageCTA {
+		border-bottom-left-radius: 3rem;
+		border-bottom-right-radius: 3rem;
+	}
+	.cta-images {
+		min-height: 0;
+		height: 30vh;
+	}
+}

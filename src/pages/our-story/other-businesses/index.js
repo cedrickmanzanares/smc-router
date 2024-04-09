@@ -29,10 +29,25 @@ export default function FoodAndBeverages() {
 					columnCount={3}
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
-					<div class='column text-center'>
-						<div class='img-container'>
+					<div
+						class='column text-center'
+						style={{
+							lineHeight: 1.25,
+						}}>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#fbfbfb',
+								marginBottom: '2rem',
+							}}>
 							<a href='https://aibc.com.ph/'>
-								<img src={`${basePath}/images/OurBusinesses/ob-1.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-1.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -44,9 +59,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href=''>
-								<img src={`${basePath}/images/OurBusinesses/ob-2.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-2.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -56,9 +82,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='https://www.bankcom.com.ph/'>
-								<img src={`${basePath}/images/OurBusinesses/ob-3.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-3.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -68,9 +105,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href=''>
-								<img src={`${basePath}/images/OurBusinesses/ob-4.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-4.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -80,9 +128,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='https://smcstocktransfer.com.ph/'>
-								<img src={`${basePath}/images/OurBusinesses/ob-5.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-5.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -94,9 +153,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href=''>
-								<img src={`${basePath}/images/OurBusinesses/ob-6.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-6.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -106,9 +176,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='https://www.prosync.com.ph/'>
-								<img src={`${basePath}/images/OurBusinesses/ob-7.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-7.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -118,9 +199,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='#'>
-								<img src={`${basePath}/images/OurBusinesses/ob-8.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-8.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -130,9 +222,20 @@ export default function FoodAndBeverages() {
 						</div>
 					</div>
 					<div class='column text-center'>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='#'>
-								<img src={`${basePath}/images/OurBusinesses/ob-9.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-9.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -147,9 +250,20 @@ export default function FoodAndBeverages() {
 							marginLeft: 'auto',
 							marginRight: 'auto',
 						}}>
-						<div class='img-container'>
+						<div
+							class='img-container'
+							style={{
+								borderRadius: '100%',
+								backgroundColor: '#f7f7f7',
+								marginBottom: '2rem',
+							}}>
 							<a href='https://petrogen.com.ph/' target='_blank'>
-								<img src={`${basePath}/images/OurBusinesses/ob-10.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/ob-10.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</a>
 						</div>
 						<div class='desc'>
@@ -166,7 +280,12 @@ export default function FoodAndBeverages() {
 					<motion.div className='page-controls'>
 						<motion.div className='control prev'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/thumb.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</div>
 
 							<div className='control-details'>
@@ -184,7 +303,12 @@ export default function FoodAndBeverages() {
 
 						<motion.div className='control next'>
 							<div className='img-container'>
-								<img src={`${basePath}/images/OurBusinesses/thumb.png`} />
+								<img
+									src={`${basePath}/images/OurBusinesses/thumb.png`}
+									style={{
+										mixBlendMode: 'multiply',
+									}}
+								/>
 							</div>
 							<div className='control-details'>
 								<div className='arrow'>

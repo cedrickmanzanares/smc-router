@@ -63,9 +63,11 @@ export const useGetTheme = (menu) => {
 		let parentLinks = menu.map((item) => item.page[0].slug);
 
 		let index = parentLinks.indexOf(router.route.split('/')[1]);
-		console.log(router.route);
+		if (router.route === '/') index = -2;
+
 		switch (index) {
 			case 0:
+			case -1:
 				setsmcTheme('smc-red');
 				break;
 			case 1:

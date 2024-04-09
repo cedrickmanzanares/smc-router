@@ -224,4 +224,8 @@
 
 	.pillar-desc {
 	}
+
+	.section-content.column-3 .news-featured.column {
+		grid-template-columns: 1fr;
+	}
 }

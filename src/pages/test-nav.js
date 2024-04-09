@@ -64,8 +64,10 @@ export default function Nav({}) {
 
 					<Modal isOpen={isOpen} onClose={onClose}>
 						<ModalOverlay />
-						<ModalContent>
-							<ModalHeader>Subsidiary Websites</ModalHeader>
+						<ModalContent pb={4}>
+							<ModalHeader className='heading-5'>
+								Subsidiary Websites
+							</ModalHeader>
 							<ModalCloseButton />
 							<ModalBody>
 								<p>

@@ -24,7 +24,9 @@ export default function CompanyOfficers() {
 			<Curve>
 				<PageBanner title={'Company Officers'} direction='center' />
 
-				<Section columnCount={3}>
+				<Section
+					columnCount={3}
+					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
 					<div className='column text-content full'>
 						<p>
 							<b>

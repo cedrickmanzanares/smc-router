@@ -178,7 +178,15 @@
 	position: relative;
 	height: var(--nav-height);
 	a {
-		pointer-events: all !important;
+		margin: 0.75rem 0;
+		line-height: 1.25;
+	}
+	.nav-popup {
+		padding: 0 !important;
+		margin: 0 !important;
+		background: transparent !important;
+		font-weight: 800 !important;
+		height: auto !important;
 	}
 	.nav-item {
 		color: inherit;
@@ -279,6 +287,7 @@
 	width: 768px;
 	a {
 		padding: 0;
+		pointer-events: all !important;
 	}
 	.nav-item {
 		height: auto;
@@ -369,7 +378,7 @@ a.nav-item,
 }
 
 .nav-search {
-	color: white;
+	color: inherit;
 	.nav-input {
 		z-index: 1;
 		position: absolute;

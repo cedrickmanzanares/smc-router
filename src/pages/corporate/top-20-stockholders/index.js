@@ -17,11 +17,14 @@ export default function Top20Stockholders() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Curve>
-				<PageBanner title={'Total Outstanding Shares'} noBg='true' />
+				<PageBanner title={'Top 20 Stockholders'} noBg='true' />
 
 				<Section columnCount={3}>
 					<div className='column text-content'>
-						<p>As of December 31, 2022 *updated Annually</p>
+						<p>
+							As of December 31, 2022 <br />
+							<span className='small-text'>*updated Annually</span>
+						</p>
 
 						<small>
 							<table class='table table-responsive top20'>

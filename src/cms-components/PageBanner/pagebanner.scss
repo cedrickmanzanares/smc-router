@@ -232,8 +232,8 @@
 	perspective-origin: 50% 100%;
 	.path {
 		border-radius: 10rem;
-		height: 20rem;
-		width: 75rem;
+		height: 35%;
+		width: 100rem;
 		background-image: linear-gradient(
 			90deg,
 			var(--base-yellow),
@@ -276,7 +276,6 @@
 	}
 	.path-4 {
 		opacity: 0.77;
-		height: 20rem;
 	}
 	.path-5 {
 		opacity: 0.75;
@@ -287,4 +286,8 @@
 .banner-img {
 	background-size: cover;
 	background-position: center;
+}
+
+.banner-shade {
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
