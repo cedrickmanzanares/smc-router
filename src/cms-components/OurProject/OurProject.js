@@ -22,6 +22,7 @@ export default function OurProject({ className, link, children }) {
 	const [selected, setSelected] = useState(0);
 
 	useEffect(() => {
+		console.log(document.querySelectorAll('.projects-img'));
 		setY(document.querySelectorAll('.projects-img')[0].offsetHeight);
 	}, []);
 
@@ -218,7 +219,6 @@ export default function OurProject({ className, link, children }) {
 								<motion.button
 									className='button left'
 									style={{
-										top: y / 2,
 										opacity: selected === 0 ? 0 : 1,
 										pointerEvents: selected === 'none' ? 1 : 'all',
 									}}
@@ -233,7 +233,6 @@ export default function OurProject({ className, link, children }) {
 								</motion.button>
 								<motion.button
 									style={{
-										top: y / 2,
 										opacity: selected === slides.length - 1 ? 0 : 1,
 										pointerEvents: selected === 'none' ? 1 : 'all',
 									}}

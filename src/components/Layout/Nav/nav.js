@@ -47,6 +47,7 @@ import SocialIcons, { FacebookIcon } from '../Footer/social-icon';
 export default function Nav({}) {
 	const router = useRouter();
 	const smcTheme = useContext(ThemeContext);
+
 	const className = router.route === '/' ? 'home' : 'inner';
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
@@ -75,24 +76,10 @@ export default function Nav({}) {
 		}
 	};
 
-	const getNavColor = () => {
-		switch (smcTheme) {
-			case 'smc-red':
-				return '#ffffff';
-			case 'smc-blue':
-				return '#ffffff';
-			case 'smc-yellow':
-				return baseBlack;
-			default:
-				return '#ffffff';
-		}
-	};
-
 	const navContainer_variants = {
 		open: {
 			opacity: 1,
 			y: '0%',
-			color: getNavColor(smcTheme),
 			backgroundColor: getBackground(smcTheme),
 			transition: {
 				duration: 0.35,
@@ -113,7 +100,6 @@ export default function Nav({}) {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
 			},
-			color: getNavColor(smcTheme),
 			backgroundColor: getBackground(smcTheme),
 		},
 	};
@@ -177,9 +163,41 @@ function MainNav({
 }) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const menu = useContext(MenuContext);
-	const smcTheme = useContext(ThemeContext);
 	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
 		getColors;
+
+	const smcTheme = useContext(ThemeContext);
+	const getNavColor = () => {
+		switch (smcTheme) {
+			case 'smc-red':
+				return '#ffffff';
+			case 'smc-blue':
+				return '#ffffff';
+			case 'smc-yellow':
+				return baseBlack;
+			default:
+				return '#ffffff';
+		}
+	};
+
+	const nav_variants = {
+		'smc-red': {
+			color: '#ffffff',
+		},
+
+		'smc-blue': {
+			color: '#ffffff',
+		},
+
+		'smc-yellow': {
+			color: baseBlack,
+		},
+
+		'smc-default': {
+			color: '#ffffff',
+		},
+	};
+
 	useEffect(() => {
 		let navItem = document.querySelectorAll('.nav-item');
 		navItem.forEach((item) => {
@@ -211,13 +229,11 @@ function MainNav({
 	};
 	return (
 		<motion.nav
-			variants={{
-				initial: {},
-				open: {
-					transition: {
-						staggerChildren: 0.015,
-						// delayChildren: 0.5,
-					},
+			animate={smcTheme}
+			variants={nav_variants}
+			transition={{
+				color: {
+					delay: enterDuration - 0.75,
 				},
 			}}
 			className={`main-nav ${c && c} ${smcTheme}`}>

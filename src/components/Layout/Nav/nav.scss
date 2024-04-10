@@ -187,6 +187,7 @@
 		background: transparent !important;
 		font-weight: 800 !important;
 		height: auto !important;
+		color: inherit;
 	}
 	.nav-item {
 		color: inherit;
@@ -286,6 +287,7 @@
 	max-width: 100%;
 	width: 768px;
 	a {
+		color: inherit;
 		padding: 0;
 		pointer-events: all !important;
 	}
@@ -302,14 +304,16 @@
 		display: block !important;
 		opacity: 1 !important;
 		transform: none !important;
-		color: white;
 		height: auto !important;
 		padding: 1rem;
 		width: 100%;
+		color: inherit;
 		> div {
 			width: 100%;
+			color: inherit;
 			.inner-dropdown {
 				padding: 1rem;
+				color: inherit;
 			}
 		}
 		.inner-dropdown {
@@ -317,15 +321,11 @@
 			display: block !important;
 			background-image: none !important;
 		}
-		a {
-			color: white;
-		}
 	}
 
 	a.nav-item,
 	.nav-item > a,
 	.nav-item > div:first-child a {
-		color: white;
 		font-size: 1.5rem;
 		display: block;
 	}
@@ -337,13 +337,6 @@
 
 .toggle-nav-item a {
 	color: currentColor;
-}
-
-.toggle-nav-item > a {
-	font-size: 3rem;
-	color: white;
-	font-weight: bold;
-	text-transform: uppercase;
 }
 
 .nav-item {

@@ -24,7 +24,16 @@ export default function VideoContent({}) {
 						.closest('.video-content')
 						.querySelector('video');
 					video.play();
-					video.requestFullscreen();
+					if (video.requestFullscreen) {
+						video.requestFullscreen();
+					} else if (video.webkitRequestFullscreen) {
+						/* Safari */
+						video.webkitRequestFullscreen();
+					} else if (video.msRequestFullscreen) {
+						/* IE11 */
+						video.msRequestFullscreen();
+					}
+
 					let fullScreenChanged = function (e) {
 						console.log(document.fullscreenElement);
 						if (!document.fullscreenElement) {

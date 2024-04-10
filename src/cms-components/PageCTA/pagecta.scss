@@ -59,9 +59,13 @@
 	.pageCTA {
 		border-bottom-left-radius: 3rem;
 		border-bottom-right-radius: 3rem;
+		.heading-2 {
+			transform: translate(-50%, -50%) !important;
+		}
 	}
+
 	.cta-images {
 		min-height: 0;
-		height: 30vh;
+		height: 35vh;
 	}
 }

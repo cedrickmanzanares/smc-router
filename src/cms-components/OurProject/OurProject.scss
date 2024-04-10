@@ -26,6 +26,9 @@
 		opacity: 0.35;
 	}
 }
+.projects-slider-container {
+	padding-bottom: 10vh;
+}
 .projects-slider {
 	width: 35rem;
 	max-width: 100%;
@@ -39,8 +42,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-		top: 11rem;
+		margin-top: -1.25rem;
+		top: 50%;
 		border-radius: 100%;
 		&.left {
 			left: -1.5rem;
@@ -68,6 +71,7 @@
 	.projects-description {
 		white-space: normal;
 		padding: 2rem 0;
+		position: absolute;
 		p {
 			line-height: 1.5;
 		}
@@ -79,5 +83,11 @@
 		.project-desc {
 			line-height: 1.5;
 		}
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.projects-slider-container {
+		padding-bottom: 15vh;
 	}
 }

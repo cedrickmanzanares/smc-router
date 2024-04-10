@@ -183,7 +183,7 @@ export default function OurBusinesses({ className, link, children }) {
 										opacity: selected === 0 ? 0 : 1,
 										pointerEvents: selected === 'none' ? 1 : 'all',
 									}}>
-									<PiCaretLeftBold size={'1.25rem'} />
+									<PiCaretLeftBold size={'1rem'} />
 								</motion.button>
 								<motion.button
 									className='control next'
@@ -198,7 +198,7 @@ export default function OurBusinesses({ className, link, children }) {
 										opacity: selected === data.length - 1 ? 0 : 1,
 										pointerEvents: selected === 'none' ? 1 : 'all',
 									}}>
-									<PiCaretRightBold size={'1.25rem'} />
+									<PiCaretRightBold size={'1rem'} />
 								</motion.button>
 							</div>
 							<div className='outer-ring'>
