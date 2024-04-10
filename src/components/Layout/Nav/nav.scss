@@ -177,6 +177,7 @@
 	justify-content: center;
 	position: relative;
 	height: var(--nav-height);
+	transition: color 0.35s 1s;
 	a {
 		margin: 0.75rem 0;
 		line-height: 1.25;
@@ -421,7 +422,7 @@ a.nav-item,
 	}
 	.nav-toggle-trigger {
 		top: 0.75rem;
-		transform: scale(1) !important;
+		transform: scale(0.8) !important;
 		right: 1rem;
 	}
 }

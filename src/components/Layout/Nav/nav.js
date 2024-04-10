@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 
 import { useCycle } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
@@ -63,6 +63,19 @@ export default function Nav({}) {
 		}
 	});
 
+	const getNavColor = () => {
+		switch (smcTheme) {
+			case 'smc-red':
+				return '#ffffff';
+			case 'smc-blue':
+				return '#ffffff';
+			case 'smc-yellow':
+				return baseBlack;
+			default:
+				return '#ffffff';
+		}
+	};
+
 	const getBackground = () => {
 		switch (smcTheme) {
 			case 'smc-red':
@@ -80,6 +93,7 @@ export default function Nav({}) {
 		open: {
 			opacity: 1,
 			y: '0%',
+			color: getNavColor(smcTheme),
 			backgroundColor: getBackground(smcTheme),
 			transition: {
 				duration: 0.35,
@@ -96,6 +110,7 @@ export default function Nav({}) {
 		closed: {
 			opacity: 0,
 			y: '-100%',
+			color: getNavColor(smcTheme),
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
@@ -105,7 +120,7 @@ export default function Nav({}) {
 	};
 
 	return (
-		<>
+		<div>
 			<motion.div
 				className={`${className} nav-container`}
 				animate={navOpen ? 'open' : 'closed'}
@@ -150,7 +165,7 @@ export default function Nav({}) {
 				isToggleOpen={isToggleOpen}
 				toggle={toggle}
 			/>
-		</>
+		</div>
 	);
 }
 
@@ -161,6 +176,7 @@ function MainNav({
 	animation = false,
 	toggle,
 }) {
+	const nav = useRef(null);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const menu = useContext(MenuContext);
 	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
@@ -179,7 +195,6 @@ function MainNav({
 				return '#ffffff';
 		}
 	};
-
 	const nav_variants = {
 		'smc-red': {
 			color: '#ffffff',
@@ -227,15 +242,50 @@ function MainNav({
 			backgroundImage: `linear-gradient(90deg, ${yellow}, ${yellowShade1})`,
 		},
 	};
+
+	useEffect(() => {
+		nav.current.addEventListener('wheel', (event) => {
+			nav.current.scrollTop += event.deltaY / 2;
+		});
+	}, [nav]);
 	return (
 		<motion.nav
-			animate={smcTheme}
-			variants={nav_variants}
+			ref={nav}
+			style={{
+				color: getNavColor(smcTheme),
+			}}
 			transition={{
 				color: {
 					delay: enterDuration - 0.75,
 				},
 			}}
+			variants={{
+				initial: {
+					transition: {
+						color: {
+							delay: enterDuration - 0.75,
+						},
+						// delayChildren: 0.5,
+					},
+				},
+				open: {
+					transition: {
+						staggerChildren: 0.015,
+						color: {
+							delay: enterDuration - 0.75,
+						},
+						// delayChildren: 0.5,
+					},
+				},
+			}}
+			// initial='initial'
+			// variants={{
+			// 	open: {
+			// 		transition: {
+			// 			staggerChildren: 0.5,
+			// 		},
+			// 	},
+			// }}
 			className={`main-nav ${c && c} ${smcTheme}`}>
 			{menu.length !== 0 &&
 				menu.map((item_lvl1, index) => {
