@@ -27,9 +27,9 @@ export default function Top20Stockholders() {
 						</p>
 
 						<small>
-							<table class='table table-responsive top20'>
+							<table className='table table-responsive top20'>
 								<tbody>
-									<tr class='upper table__header'>
+									<tr className='upper table__header'>
 										<th>Rank</th>
 										<th>Stockholder Name</th>
 										<th>Common</th>
@@ -274,7 +274,7 @@ export default function Top20Stockholders() {
 								</tbody>
 							</table>
 						</small>
-						<div class='top-total'>
+						<div className='top-total'>
 							<p>
 								<b>TOTAL NO. OF SHARES :</b> <span>3,227,135,055</span>
 							</p>

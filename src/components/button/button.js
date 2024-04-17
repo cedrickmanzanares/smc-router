@@ -12,7 +12,7 @@ import { ThemeContext } from '@/pages/_app';
 import { useGetButtonColor, useGetToggleFill } from '@/data/data';
 
 export default function Button({ className, link, children }) {
-	const smcTheme = useContext(ThemeContext);
+	const { smcTheme } = useContext(ThemeContext);
 
 	const [button, { width, height }] = useMeasure();
 	const { blue, red, baseBlack } = getColors;

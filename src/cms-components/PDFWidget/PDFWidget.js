@@ -79,7 +79,6 @@ export default function PDFWidget({ title, subtitle, link }) {
 						borderRadius: '0%',
 					},
 				});
-				console.log(event, info);
 			}}>
 			<Link href={link} className='link-cover'></Link>
 			<h3 className='heading-4 pdf-widget-title'>

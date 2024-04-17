@@ -34,7 +34,6 @@ export default function ParallaxGrid({ images, anim, children }) {
 
 	useEffect(() => {
 		var base_url = window.location.origin;
-		console.log(base_url);
 
 		const resize = () => {
 			setDimension({ width: window.innerWidth, height: window.innerHeight });

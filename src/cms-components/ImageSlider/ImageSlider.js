@@ -52,12 +52,6 @@ export default function ImageSlider({
 				.querySelectorAll('.image-slide')
 				[selected].querySelector('.image-img').offsetHeight
 		);
-
-		console.log(
-			slider.current
-				.querySelectorAll('.image-slide')
-				[selected].querySelector('.image-img').offsetHeight
-		);
 	}, [selected]);
 
 	const innerItem_click = (event, info) => {
@@ -203,7 +197,7 @@ export default function ImageSlider({
 							}}
 							onTap={(event) => {
 								if (selected - 1 < 0) return;
-								console.log(event);
+
 								setSelected((prev) => prev - 1);
 							}}>
 							<PiCaretCircleLeft size={'40px'} />

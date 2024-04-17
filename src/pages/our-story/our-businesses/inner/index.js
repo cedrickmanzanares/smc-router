@@ -201,9 +201,7 @@ export function PrevBusinesses() {
 					<BsArrowLeftCircle size={'1.75rem'} />
 				</motion.div>
 				<motion.div>
-					<motion.p variants={control_variants_prev}>
-						Previous Business
-					</motion.p>
+					<motion.p variants={control_variants_prev}>Previous</motion.p>
 					<motion.p
 						variants={{
 							initial: {
@@ -243,7 +241,7 @@ export function NextBusinesses() {
 					<BsArrowRightCircle size={'1.75rem'} />
 				</motion.div>
 				<motion.div>
-					<motion.p variants={control_variants_next}>Next Business</motion.p>
+					<motion.p variants={control_variants_next}>Next</motion.p>
 					<motion.p
 						variants={{
 							initial: {

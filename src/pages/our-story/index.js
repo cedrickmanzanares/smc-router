@@ -18,6 +18,7 @@ import Section from '@/cms-components/Section/Section';
 import Link from 'next/link';
 import { PiCaretCircleRight } from 'react-icons/pi';
 import { getColors } from '@/hooks/use-color';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 
 export default function OurStory() {
 	const { red, baseBlack } = getColors;
@@ -164,17 +165,13 @@ export default function OurStory() {
 						</p>
 					</div>
 					<div className='column'>
-						<div className='image-content stacked'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-1.svg`} />
-							</div>
-							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
-							</div>
-							<div className='img-container'>
-								<img src={`${basePath}/images/OurStory/OurStory-2.png`} />
-							</div>
-						</div>
+						<StackedImages
+							images={[
+								`${basePath}/images/OurStory/OurStory-1.svg`,
+								`${basePath}/images/ph.svg`,
+								`${basePath}/images/OurStory/OurStory-2.png`,
+							]}
+						/>
 					</div>
 				</Section>
 

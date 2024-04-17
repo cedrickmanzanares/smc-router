@@ -42,7 +42,7 @@ export default function Search() {
 								<InputLeftElement pointerEvents='none' h={'4rem'} pl={1.5}>
 									<IoIosSearch size={'1.25rem'} />
 								</InputLeftElement>
-								<Input type='tel' placeholder='Phone number' />
+								<Input type='tel' placeholder='Enter keyword ' />
 							</InputGroup>
 						</FormControl>
 					</Flex>

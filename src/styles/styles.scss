@@ -2,6 +2,14 @@
 	box-sizing: border-box;
 }
 
+// --fs-sm: clamp(0.7rem, 0vi + 0.7rem, 0.7rem);
+// --fs-base: clamp(0.88rem, 0vi + 0.88rem, 0.88rem);
+// --fs-md: clamp(1.09rem, 0vi + 1.09rem, 1.09rem);
+// --fs-lg: clamp(1.37rem, 0vi + 1.37rem, 1.37rem);
+// --fs-xl: clamp(1.71rem, 0vi + 1.71rem, 1.71rem);
+// --fs-xxl: clamp(2.14rem, 0vi + 2.14rem, 2.14rem);
+// --fs-xxxl: clamp(2.67rem, 0vi + 2.67rem, 2.67rem);
+
 body {
 	--base-red: #f25a38;
 	--shade1-red: #b44026;
@@ -13,6 +21,7 @@ body {
 
 	--gray-2: #e6e6e6;
 	--gray-3: #c9c9c9;
+	--gray-4: #797979;
 	--base-black: #2c2c2c;
 	--nav-height: 6rem;
 	background-color: #fffbf2;
@@ -33,15 +42,16 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather+Sans:ital,wght@0,300;0,600;0,800;1,400&display=swap&family=Merriweather&family=Merriweather+Sans:ital,wght@0,300;0,600;0,800;1,400&display=swap');
 
+html {
+	font-size: 14px;
+}
 html,
 body {
 	font-family: 'Inter', sans-serif;
 	font-family: 'Merriweather', serif;
 	font-weight: 300;
-
 	line-height: 1.6;
-
-	font-size: clamp(0.88rem, 0.23vi + 0.82rem, 1rem);
+	font-size: 14px;
 	hanging-punctuation: first last;
 }
 
@@ -50,40 +60,18 @@ p:first-child {
 }
 a {
 	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		font-weight: 500;
+	}
+}
+b a:hover {
+	font-weight: 800;
 }
 
 .mobile-only {
 	display: none;
 }
-/* 
-h1,
-.heading-1 {
-	font-size: 3.815rem;
-	text-wrap: pretty;
-}
-h2,
-.heading-2 {
-	font-size: 3.052rem;
-	line-height: 1.25;
-	text-wrap: pretty;
-}
-h3,
-.heading-3 {
-	font-size: 2.441rem;
-	line-height: 1.25;
-}
-h4,
-.heading-4 {
-	font-size: 1.953rem;
-}
-h5,
-.heading-5 {
-	font-size: 1.563rem;
-}
-h6,
-.heading-6 {
-	font-size: 1.25rem;
-} */
 
 h1,
 .heading-1,
@@ -98,6 +86,7 @@ h5,
 h6,
 .heading-6 {
 	font-family: 'Merriweather Sans', sans-serif;
+	line-height: 1.15;
 }
 
 h2,
@@ -109,63 +98,21 @@ h6 {
 	font-weight: 700;
 }
 
-// h1,
-// .heading-1 {
-// 	line-height: 1.065;
-// 	margin-bottom: 1em;
-// 	font-size: clamp(3.05rem, -0.87vi + 3.27rem, 2.49rem);
-// 	font-weight: 900;
-// }
-// h2,
-// .heading-2 {
-// 	font-size: clamp(2.44rem, -0.57vi + 2.58rem, 2.07rem);
-// 	line-height: 1.125;
-// 	margin-bottom: 0.66em;
-// }
-// h3,
-// .heading-3 {
-// 	font-size: clamp(1.95rem, -0.35vi + 2.04rem, 1.73rem);
-// 	line-height: 1.25;
-// 	margin-bottom: 1em;
-// 	font-weight: 600;
-// }
-// h4,
-// .heading-4 {
-// 	font-size: clamp(1.56rem, -0.19vi + 1.61rem, 1.44rem);
-// 	line-height: 1.45;
-// 	margin-bottom: 1em;
-// 	font-weight: 600;
-// }
-// h5,
-// .heading-5 {
-// 	font-size: clamp(1.25rem, -0.08vi + 1.27rem, 1.2rem);
-// 	font-weight: 600;
-// 	line-height: 1.55;
-// }
-// h6,
-// .heading-6 {
-// 	margin-top: 2rem;
-// 	font-size: clamp(1rem, 0vi + 1rem, 1rem);
-// 	font-weight: 600;
-// }
-
 h1,
 .heading-1 {
 	line-height: 1.065;
 	margin-bottom: 1em;
-	font-size: clamp(2.18rem, 1.59vi + 1.78rem, 3.05rem);
+	font-size: clamp(2.67rem, 0vi + 2.67rem, 2.67rem);
 	font-weight: 900;
 }
 
 h2,
 .heading-2 {
-	font-size: clamp(1.81rem, 1.14vi + 1.53rem, 2.44rem);
-	line-height: 1.125;
-	margin-bottom: 0.66em;
+	font-size: clamp(2.14rem, 0vi + 2.14rem, 2.14rem);
 }
 h3,
 .heading-3 {
-	font-size: clamp(1.51rem, 0.8vi + 1.31rem, 1.95rem);
+	font-size: clamp(1.71rem, 0vi + 1.71rem, 1.71rem);
 	line-height: 1.25;
 	margin-bottom: 1em;
 	font-weight: 600;
@@ -173,7 +120,7 @@ h3,
 
 h4,
 .heading-4 {
-	font-size: clamp(1.26rem, 0.55vi + 1.12rem, 1.56rem);
+	font-size: clamp(1.37rem, 0vi + 1.37rem, 1.37rem);
 	line-height: 1.45;
 	margin-bottom: 1em;
 	font-weight: 600;
@@ -181,7 +128,7 @@ h4,
 
 h5,
 .heading-5 {
-	font-size: clamp(1.05rem, 0.36vi + 0.96rem, 1.25rem);
+	font-size: clamp(1.09rem, 0vi + 1.09rem, 1.09rem);
 	font-weight: 600;
 	line-height: 1.55;
 }
@@ -189,12 +136,11 @@ h5,
 h6,
 .heading-6 {
 	margin-top: 2rem;
-	font-size: clamp(0.88rem, 0.23vi + 0.82rem, 1rem);
+	font-size: clamp(0.88rem, 0vi + 0.88rem, 0.88rem);
 	font-weight: 600;
 }
 
 p {
-	font-size: 1rem;
 	margin: 2rem 0;
 	&:first-child {
 		margin-top: 0;
@@ -218,13 +164,14 @@ b {
 }
 
 .small-text {
-	font-size: clamp(0.73rem, 0.13vi + 0.7rem, 0.8rem);
+	font-size: clamp(0.7rem, 0vi + 0.7rem, 0.7rem);
 	line-height: 1.75;
 	letter-spacing: 0.015em;
+	color: var(--gray-4);
 }
 
 .size-limit {
-	font-size: clamp(0.73rem, 0.13vi + 0.7rem, 0.8rem);
+	font-size: clamp(0.7rem, 0vi + 0.7rem, 0.7rem);
 }
 .big {
 	font-size: 1.2em;
@@ -931,8 +878,8 @@ a {
 	}
 
 	.img-container:nth-child(1) {
-		width: 90%;
-		top: 56%;
+		width: 80%;
+		top: 61%;
 	}
 
 	.img-container:nth-child(2) {
@@ -942,10 +889,14 @@ a {
 	}
 
 	.img-container:nth-child(3) {
-		width: 130%;
+		width: 100%;
 		aspect-ratio: 1 /1;
+		.clip {
+			clip-path: circle(50% at center);
+		}
+
 		img {
-			width: 80%;
+			width: 100%;
 			height: auto;
 			object-fit: contain;
 			margin: auto;
@@ -1192,7 +1143,53 @@ table {
 		margin-bottom: 1rem;
 	}
 }
+
+@media only screen and (min-width: 1560px) {
+	h1,
+	.heading-1 {
+		font-size: clamp(2.67rem, 0.53vi + 2.54rem, 3.05rem);
+	}
+	h2,
+	.heading-2 {
+		font-size: clamp(2.14rem, 0.55vi + 2rem, 2.44rem);
+	}
+	h3,
+	.heading-3 {
+		font-size: clamp(1.71rem, 0.44vi + 1.6rem, 1.95rem);
+	}
+
+	h4,
+	.heading-4 {
+		font-size: clamp(1.37rem, 0.36vi + 1.28rem, 1.56rem);
+	}
+
+	h5,
+	.heading-5 {
+		font-size: clamp(1.09rem, 0.28vi + 1.02rem, 1.25rem);
+	}
+
+	h6,
+	.heading-6 {
+		font-size: clamp(0.88rem, 0.23vi + 0.82rem, 1rem);
+	}
+
+	body,
+	html {
+		font-size: 16px;
+	}
+	.small-text {
+		font-size: clamp(0.7rem, 0.18vi + 0.65rem, 0.8rem);
+	}
+}
 @media only screen and (max-width: 980px) {
+	body,
+	html {
+		font-size: clamp(0.75rem, 0.34vi + 0.66rem, 0.88rem);
+	}
+	.small-text {
+		font-size: clamp(0.6rem, 0.28vi + 0.53rem, 0.7rem);
+	}
+
 	p,
 	table {
 		margin: 1rem 0;

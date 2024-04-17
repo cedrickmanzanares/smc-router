@@ -66,10 +66,6 @@ export default function News() {
 		},
 	];
 
-	useEffect(() => {
-		console.log(modal.index);
-	}, [modal.index]);
-
 	return (
 		<>
 			<Head>

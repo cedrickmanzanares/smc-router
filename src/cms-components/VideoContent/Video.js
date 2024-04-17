@@ -35,7 +35,6 @@ export default function VideoContent({}) {
 					}
 
 					let fullScreenChanged = function (e) {
-						console.log(document.fullscreenElement);
 						if (!document.fullscreenElement) {
 							video.pause();
 						}

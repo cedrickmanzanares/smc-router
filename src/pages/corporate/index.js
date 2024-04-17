@@ -18,6 +18,7 @@ import Button from '@/components/button/button';
 
 import { basePath } from '@/hooks/use-basepath';
 import Section from '@/cms-components/Section/Section';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 export default function Corporate() {
 	return (
 		<Curve>
@@ -48,17 +49,13 @@ export default function Corporate() {
 					</p>
 				</div>
 				<div className='column'>
-					<div className='image-content stacked'>
-						<div className='img-container'>
-							<img src={`${basePath}/images/Corporate/Corporate-1.svg`} />
-						</div>
-						<div className='img-container' style={{ display: 'none' }}>
-							<img src={`${basePath}/images/ph.svg`} />
-						</div>
-						<div className='img-container'>
-							<img src={`${basePath}/images/Corporate/Corporate-2.png`} />
-						</div>
-					</div>
+					<StackedImages
+						images={[
+							`${basePath}/images/Corporate/Corporate-1.svg`,
+							``,
+							`${basePath}/images/Corporate/Corporate-2.png`,
+						]}
+					/>
 				</div>
 			</Section>
 			<Section columnCount={2}>

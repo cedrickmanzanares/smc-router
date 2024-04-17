@@ -644,13 +644,11 @@ export default function ShapeBg({ daya }) {
 								strokeLinecap='round'
 								onAnimationStart={() => {
 									if (index === controlVariants.length - 1) {
-										console.log('start');
 										setAnimating(true);
 									}
 								}}
 								onAnimationComplete={(def) => {
 									if (index === controlVariants.length - 1) {
-										console.log(def + ' end');
 										setAnimating(false);
 									}
 								}}

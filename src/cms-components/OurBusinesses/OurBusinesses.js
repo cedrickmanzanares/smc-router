@@ -91,14 +91,9 @@ export default function OurBusinesses({ className, link, children }) {
 		},
 	];
 
-	useEffect(() => {
-		console.log(selected);
-	}, [selected]);
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-		// console.log(latest);
 		let mod = 1 / data.length;
 
-		// console.log(~~(latest / mod));
 		let index =
 			~~(latest / mod) == data.length ? data.length - 1 : ~~(latest / mod);
 
@@ -334,7 +329,7 @@ export default function OurBusinesses({ className, link, children }) {
 										}}
 										onTap={(event, info) => {
 											let test = document.querySelectorAll('.test2');
-											console.log(height);
+											height;
 											window.scrollTo({
 												top:
 													business.current.offsetTop +

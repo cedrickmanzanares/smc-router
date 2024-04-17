@@ -1,5 +1,5 @@
 .pillar-section {
-	min-height: 250vh;
+	min-height: 300vh;
 	align-items: flex-start;
 	width: 100%;
 	padding: 0 !important;
@@ -42,7 +42,13 @@
 	margin-left: auto;
 	margin-right: 15vw;
 	font-family: 'Merriweather Sans', sans-serif;
-
+	.uppercase {
+		margin-bottom: 1rem;
+	}
+	.heading-2 {
+		margin-top: 1rem;
+		margin-bottom: 1.5rem;
+	}
 	.heading-4 {
 		line-height: 1.25;
 		margin-bottom: 1rem;

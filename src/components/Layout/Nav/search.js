@@ -12,7 +12,7 @@ export default function Search() {
 
 	const { red, blue, yellow } = getColors;
 
-	const smcTheme = useContext(ThemeContext);
+	const { smcTheme } = useContext(ThemeContext);
 	const [searchOpen, toggleSearch] = useState(false);
 	const searchInput = useRef();
 	const searchForm = useRef();
@@ -48,13 +48,12 @@ export default function Search() {
 				onBlur={() => {
 					toggleSearch(false);
 				}}>
-				<input type='text' ref={searchInput} />
+				<input type='text' ref={searchInput} placeholder='Enter keyword' />
 			</motion.form>
 			<button className='nav-icon'>
 				<IoIosSearch
 					onClick={() => {
 						if (searchOpen) {
-							// console.log('Submit');
 							// router.push('/search');
 						} else {
 							setTimeout(() => {

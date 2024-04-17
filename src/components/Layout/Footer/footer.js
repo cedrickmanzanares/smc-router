@@ -61,7 +61,7 @@ export default function Footer() {
 						Subsidiary Websites
 						<PiCaretDownBold fontSize={'1.35rem'} />
 					</Button>
-					<Modal isOpen={isOpen} onClose={onClose}>
+					<Modal isOpen={isOpen} onClose={onClose} scrollBehavior={'inside'}>
 						<ModalOverlay />
 						<ModalContent pb={4}>
 							<ModalHeader className='heading-5'>
@@ -69,7 +69,7 @@ export default function Footer() {
 							</ModalHeader>
 							<ModalCloseButton />
 							<ModalBody>
-								<p className='small-text'>
+								<p>
 									<a
 										href='https://www.bankcom.com.ph/'
 										target='_blank'

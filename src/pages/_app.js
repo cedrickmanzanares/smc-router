@@ -62,7 +62,7 @@ export const PreloadContext = createContext({});
 export default function App({ Component, pageProps, router }) {
 	const [token, setToken] = useState('');
 	const { menu } = useGetMenu();
-	const { smcTheme } = useGetTheme(menu);
+	const { smcTheme, smcThemeDelayed } = useGetTheme(menu);
 	const [preload, setPreload] = useState(true);
 
 	useEffect(() => {
@@ -109,7 +109,7 @@ export default function App({ Component, pageProps, router }) {
 				}}>
 				<ChakraProvider theme={theme}>
 					<PreloadContext.Provider value={preload}>
-						<ThemeContext.Provider value={smcTheme}>
+						<ThemeContext.Provider value={{ smcTheme, smcThemeDelayed }}>
 							<MenuContext.Provider value={menu}>
 								<TokenContext.Provider value={token}>
 									<Nav />

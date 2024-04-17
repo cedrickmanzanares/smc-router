@@ -159,8 +159,13 @@ export default function AnnualReports() {
 							<FormLabel>Select a year for quick search</FormLabel>
 							<FormControl w={'auto'}>
 								<Select placeholder='Select Year'>
-									<option>United Arab Emirates</option>
-									<option>Nigeria</option>
+									<option>Select Year</option>
+									<option>2024</option>
+									<option>2023</option>
+									<option>2022</option>
+									<option>2021</option>
+									<option>2020</option>
+									<option>2019</option>
 								</Select>
 							</FormControl>
 						</Flex>

@@ -54,44 +54,48 @@ export const useGetMenu = () => {
 
 export const useGetTheme = (menu) => {
 	const [smcTheme, setsmcTheme] = useState('smc-default');
+	const [smcThemeDelayed, setsmcThemeDelayed] = useState('smc-default');
 	const router = useRouter();
-	useEffect(() => {
-		console.log(smcTheme);
-	}, [smcTheme]);
+
+	const getTheme = (index, setter) => {
+		switch (index) {
+			case 0:
+			case -1:
+				setter('smc-red');
+				break;
+			case 1:
+				setter('smc-null');
+				break;
+			case 2:
+				setter('smc-blue');
+				break;
+			case 3:
+				setter('smc-yellow');
+				break;
+			default:
+				setter('smc-default');
+		}
+	};
 	useEffect(() => {
 		// if (router.route.split('/')[0] === )
 		let parentLinks = menu.map((item) => item.page[0].slug);
 
 		let index = parentLinks.indexOf(router.route.split('/')[1]);
 		if (router.route === '/') index = -2;
-
-		switch (index) {
-			case 0:
-			case -1:
-				setsmcTheme('smc-red');
-				break;
-			case 1:
-				setsmcTheme('smc-null');
-				break;
-			case 2:
-				setsmcTheme('smc-blue');
-				break;
-			case 3:
-				setsmcTheme('smc-yellow');
-				break;
-			default:
-				setsmcTheme('smc-default');
-		}
+		getTheme(index, setsmcTheme);
+		setTimeout(() => {
+			getTheme(index, setsmcThemeDelayed);
+		}, 500);
 	}, [router, menu]);
 
-	return { smcTheme };
+	return { smcTheme, smcThemeDelayed };
 };
 
 export const useGetToggleFill = () => {
 	const { red, blue, yellow } = getColors;
 	const [toggleFill, setToggleFill] = useState(red);
 
-	const smcTheme = useContext(ThemeContext);
+	const { smcTheme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		if (smcTheme === 'smc-red') setToggleFill(red);
@@ -106,7 +110,7 @@ export const useGetToggleFill = () => {
 export const useGetButtonColor = () => {
 	const { red, blue, yellow, baseBlack } = getColors;
 	const [buttonColor, setButtonColor] = useState(baseBlack);
-	const smcTheme = useContext(ThemeContext);
+	const { smcTheme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		if (smcTheme === 'smc-red') setButtonColor(red);

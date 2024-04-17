@@ -25,13 +25,13 @@ export default function PageBanner({
 	headingSize = 'heading-1',
 	children,
 }) {
-	const smcTheme = useContext(ThemeContext);
+	const { smcThemeDelayed } = useContext(ThemeContext);
 	const { red, redShade1, yellow, yellowShade1, blue, blueShade1, blueShade2 } =
 		getColors;
 	const headingColor = noBg ? '' : 'white';
 	const bannerClasses = `page-banner ${size} ${direction} ${
 		!image ? 'no-image' : ''
-	} ${headingColor} ${noBg ? 'no-bg' : ''} ${smcTheme}`;
+	} ${headingColor} ${noBg ? 'no-bg' : ''} ${smcThemeDelayed}`;
 	const bannerContainerClasses = `container-fluid-width ${containerSize}`;
 	const bannerHeadingClasses = `banner-title ${headingSize} `;
 
@@ -61,10 +61,10 @@ export default function PageBanner({
 	];
 
 	useEffect(() => {
-		if (smcTheme === 'smc-blue' && size === 'full') {
+		if (smcThemeDelayed === 'smc-blue' && size === 'full') {
 			setRotate(45);
 		}
-	}, [smcTheme]);
+	}, [smcThemeDelayed]);
 
 	const banner_anim = {
 		initial: {
@@ -75,8 +75,8 @@ export default function PageBanner({
 			y: 0,
 			opacity: 1,
 			transition: {
-				duration: 0.5,
-				delay: 0.85,
+				duration: 1,
+				delay: 0.6,
 				ease: [0.76, 0, 0.24, 1],
 			},
 		},
@@ -104,8 +104,8 @@ export default function PageBanner({
 		enter: {
 			scale: 1,
 			transition: {
-				duration: 0.5,
-				delay: 0.8,
+				duration: 1,
+				delay: 0.5,
 				ease: [0.76, 0, 0.24, 1],
 			},
 		},
@@ -116,24 +116,24 @@ export default function PageBanner({
 
 	const text_anim = {
 		initial: {
-			x: 100,
+			y: 50,
 			opacity: 0,
 		},
 		enter: {
-			x: 0,
+			y: 0,
 			opacity: 1,
 			transition: {
-				duration: 0.5,
-				delay: 1,
+				duration: 1,
+				delay: 0.7,
 				ease: [0.76, 0, 0.24, 1],
 			},
 		},
 		exit: {
-			x: -100,
+			y: -50,
 			opacity: 0,
 			transition: {
-				duration: 0.5,
-				delay: 0.1,
+				duration: 0.75,
+				delay: 0.5,
 				ease: [0.76, 0, 0.24, 1],
 			},
 		},
@@ -264,7 +264,7 @@ export default function PageBanner({
 					variants={bg_anim}></motion.div>
 
 				<motion.div
-					animate={smcTheme}
+					animate={smcThemeDelayed}
 					variants={path_settings[0]}
 					className='path path-1'
 					style={{
@@ -275,7 +275,7 @@ export default function PageBanner({
 					}}></motion.div>
 
 				<motion.div
-					animate={smcTheme}
+					animate={smcThemeDelayed}
 					variants={path_settings[1]}
 					className='path path-2'
 					style={{
@@ -286,13 +286,13 @@ export default function PageBanner({
 					}}></motion.div>
 
 				<motion.div
-					animate={smcTheme}
+					animate={smcThemeDelayed}
 					variants={path_settings[2]}
 					className='path path-3'
 					style={{ y: '2%', x: '-58%', rotate: rotate, z: z[2] }}></motion.div>
 
 				<motion.div
-					animate={smcTheme}
+					animate={smcThemeDelayed}
 					variants={path_settings[3]}
 					className='path path-4'
 					style={{ x: '55%', rotate: rotate, z: z[3] }}></motion.div>

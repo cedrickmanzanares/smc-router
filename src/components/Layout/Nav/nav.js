@@ -1,54 +1,37 @@
 'use client';
 
-import Link from 'next/link';
-
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-
-import { useCycle } from 'framer-motion';
-import { useContext, useEffect, useRef, useState } from 'react';
-
-import useMousePosition from '@/hooks/use-mousepoition';
 import { getColors } from '@/hooks/use-color';
-import { useWindowSize } from '@uidotdev/usehooks';
+import { MenuContext, ThemeContext } from '@/pages/_app';
+import {
+	animate,
+	motion,
+	useCycle,
+	useMotionValueEvent,
+	useScroll,
+} from 'framer-motion';
+import { useRouter } from 'next/router';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { enterDuration } from '../Curve/anim';
+import Link from 'next/link';
+import { basePath } from '@/hooks/use-basepath';
+import Search from './search';
+import { PiPlusCircle } from 'react-icons/pi';
+import { useGetToggleFill } from '@/data/data';
 import {
 	floatingNavContent_variants,
-	hover_animation,
-	navItem_variants,
 	path1_variants,
 	path2_variants,
 	path3_variants,
 	toggleSettings,
 	transitionSettings,
 } from './anim';
-
-import {
-	Flex,
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalCloseButton,
-	ModalBody,
-	ModalFooter,
-	Button,
-	ButtonGroup,
-	useDisclosure,
-} from '@chakra-ui/react';
-
-import { basePath } from '@/hooks/use-basepath';
-import { useRouter } from 'next/router';
-import { useGetToggleFill } from '@/data/data';
-import { MenuContext, ThemeContext } from '@/pages/_app';
-import { PiCaretDown } from 'react-icons/pi';
-import { enterDuration } from '../Curve/anim';
-import Search from './search';
-import SocialIcons, { FacebookIcon } from '../Footer/social-icon';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Nav({}) {
 	const router = useRouter();
-	const smcTheme = useContext(ThemeContext);
-
+	const { smcThemeDelayed, smcTheme } = useContext(ThemeContext);
 	const className = router.route === '/' ? 'home' : 'inner';
+
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
 	const [isToggleOpen, toggle] = useCycle(false, true);
@@ -64,7 +47,7 @@ export default function Nav({}) {
 	});
 
 	const getNavColor = () => {
-		switch (smcTheme) {
+		switch (smcThemeDelayed) {
 			case 'smc-red':
 				return '#ffffff';
 			case 'smc-blue':
@@ -76,8 +59,8 @@ export default function Nav({}) {
 		}
 	};
 
-	const getBackground = () => {
-		switch (smcTheme) {
+	const getBackground = (smcThemeDelayed) => {
+		switch (smcThemeDelayed) {
 			case 'smc-red':
 				return red;
 			case 'smc-blue':
@@ -89,102 +72,354 @@ export default function Nav({}) {
 		}
 	};
 
+	useEffect(() => {
+		getBackground(smcThemeDelayed);
+	}, [smcThemeDelayed]);
+
 	const navContainer_variants = {
 		open: {
 			opacity: 1,
 			y: '0%',
-			color: getNavColor(smcTheme),
-			backgroundColor: getBackground(smcTheme),
+
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
-				backgroundColor: {
-					delay: enterDuration - 0.75,
-				},
-				color: {
-					delay: enterDuration - 0.75,
-				},
+
+				// color: {
+				// 	delay: enterDuration - 0.75,
+				// },
 			},
 		},
 
 		closed: {
 			opacity: 0,
 			y: '-100%',
-			color: getNavColor(smcTheme),
+
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
 			},
-			backgroundColor: getBackground(smcTheme),
 		},
 	};
 
 	return (
-		<div>
+		<motion.div
+			className={`${className} nav-container ${smcThemeDelayed}`}
+			animate={navOpen ? 'open' : 'closed'}>
 			<motion.div
-				className={`${className} nav-container`}
-				animate={navOpen ? 'open' : 'closed'}
-				variants={navContainer_variants}>
-				<div className='container-fluid-width large'>
-					<Link href='/' className='brand-logo'>
-						<figure>
-							<motion.img
-								animate={{
-									opacity: smcTheme === 'smc-default' ? 1 : 0,
-								}}
-								transition={{ delay: 0.75 }}
-								src={`${basePath}/images/smc-logo.svg`}
-								alt='SMC Logo'
-							/>
-							<motion.img
-								animate={{
-									opacity:
-										smcTheme === 'smc-red' || smcTheme === 'smc-blue' ? 1 : 0,
-								}}
-								transition={{ delay: 0.75 }}
-								src={`${basePath}/images/smc-logo-white.svg`}
-								alt='SMC Logo White'
-							/>
-							<motion.img
-								animate={{
-									opacity: smcTheme === 'smc-yellow' ? 1 : 0,
-								}}
-								transition={{ delay: 0.75 }}
-								src={`${basePath}/images/smc-logo-gray.svg`}
-								alt='SMC Logo White'
-							/>
-						</figure>
-					</Link>
-					<MainNav />
+				className='container-fluid-width large'
+				variants={navContainer_variants}
+				style={{
+					background: getBackground(smcThemeDelayed),
+					color: getNavColor(smcThemeDelayed),
+				}}>
+				<Link href='/' className='brand-logo'>
+					<figure>
+						<motion.img
+							animate={{
+								opacity: smcThemeDelayed === 'smc-default' ? 1 : 0,
+							}}
+							transition={{ delay: 0.75 }}
+							src={`${basePath}/images/smc-logo.svg`}
+							alt='SMC Logo'
+						/>
+						<motion.img
+							animate={{
+								opacity:
+									smcThemeDelayed === 'smc-red' ||
+									smcThemeDelayed === 'smc-blue'
+										? 1
+										: 0,
+							}}
+							transition={{ delay: 0.75 }}
+							src={`${basePath}/images/smc-logo-white.svg`}
+							alt='SMC Logo White'
+						/>
+						<motion.img
+							animate={{
+								opacity: smcThemeDelayed === 'smc-yellow' ? 1 : 0,
+							}}
+							transition={{ delay: 0.75 }}
+							src={`${basePath}/images/smc-logo-gray.svg`}
+							alt='SMC Logo White'
+						/>
+					</figure>
+				</Link>
+				<MainNav />
 
-					<Search />
-				</div>
+				<Search />
 			</motion.div>
 			<FloatingNav
 				navOpen={navOpen}
 				isToggleOpen={isToggleOpen}
 				toggle={toggle}
 			/>
-		</div>
+		</motion.div>
 	);
 }
 
-function MainNav({
-	c,
-	color = '',
-	defaultOpen = 'true',
-	animation = false,
-	toggle,
-}) {
-	const nav = useRef(null);
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const menu = useContext(MenuContext);
-	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
-		getColors;
+// export function MainNav() {
+// 	// const [menu, setMenu] = useState([]);
+// 	const nav = useRef(null);
 
-	const smcTheme = useContext(ThemeContext);
+// 	// const token = useContext(TokenContext);
+
+// 	useEffect(() => {
+// 		if (!menu.length) {
+// 			fetch(`https://smc-revamp-cms.c3-interactive.ph/api/v1/navigation`, {
+// 				method: 'GET',
+// 				headers: {
+// 					'Content-Type': 'application/json',
+// 					// Authorization: `Bearer ${token}`,
+// 				},
+// 			})
+// 				.then((res) => {
+// 					return res.json();
+// 				})
+// 				.then((data) => {
+// 					console.log(data);
+// 					let filteredMenu = data.filter((item) => item.page_is_published);
+// 					setMenu((prev) => (prev = filteredMenu));
+// 				});
+// 		}
+// 	}, []);
+
+// 	return (
+// 		<div className='main-nav'>
+// 			{menu.map((item_lvl1, index) => {
+// 				console.log(item_lvl1.navigations.length);
+// 				return (
+// 					<motion.div
+// 						className='nav-item'
+// 						key={`menuItem_lvl1_${item_lvl1.page_id}`}>
+// 						<Link href={item_lvl1.page_slug}>{item_lvl1.page_title}</Link>
+// 						{item_lvl1.navigations.length !== 0 && (
+// 							<motion.div className='nav-dropdown'>
+// 								<div className='container-fluid-width medium'>
+// 									{item_lvl1.navigations.map((item_lvl2, index) => {
+// 										return (
+// 											<div>
+// 												<p>
+// 													<b>
+// 														<a>{item_lvl2.page_title}</a>
+// 													</b>
+// 												</p>
+// 												{item_lvl2.navigations.length !== 0 && (
+// 													<div>
+// 														{item_lvl2.navigations.map((item_lvl3, index) => {
+// 															return <a href=''>{item_lvl3.page_title}</a>;
+// 														})}
+// 													</div>
+// 												)}
+// 											</div>
+// 										);
+// 									})}
+// 								</div>
+// 							</motion.div>
+// 						)}
+// 					</motion.div>
+// 				);
+// 			})}
+// 		</div>
+// 	);
+// }
+
+export function MainNav({ c }) {
+	const menu = useContext(MenuContext);
+	const nav = useRef(null);
+
+	const navItem_variants = {
+		initial: {
+			backgroundColor: `rgba(0,0,0,0)`,
+		},
+		hover: {
+			backgroundColor: `rgba(0,0,0,.1)`,
+		},
+	};
+
+	const navDropdown_variants = {
+		initial: {
+			display: 'none',
+		},
+		hover: {
+			display: 'block',
+		},
+	};
+
+	return (
+		<motion.div
+			className={`${c} main-nav`}
+			variants={{
+				initial: {
+					opacity: 0,
+					transition: {
+						color: {
+							delay: enterDuration - 0.75,
+						},
+						// delayChildren: 0.5,
+					},
+				},
+				open: {
+					opacity: 1,
+					transition: {
+						staggerChildren: 0.015,
+						color: {
+							delay: enterDuration - 0.75,
+						},
+						// delayChildren: 0.5,
+					},
+				},
+			}}>
+			{menu.map((item_lvl1, index) => {
+				let link = item_lvl1.page.length
+					? `/${item_lvl1.page[0].slug}`
+					: `${item_lvl1.url}`;
+
+				let parent_slug = link;
+				return (
+					<motion.div
+						className='nav-item'
+						variants={navItem_variants}
+						whileHover='hover'
+						key={`menuItem_lvl1_${item_lvl1.id}`}>
+						<Link href={link}>{item_lvl1.title}</Link>
+						{item_lvl1.children.length !== 0 && (
+							<motion.div
+								className='nav-dropdown'
+								variants={navDropdown_variants}>
+								<div className='container-fluid-width medium'>
+									{item_lvl1.children.map((item_lvl2, index) => {
+										let link = parent_slug;
+										link = item_lvl2.url
+											? item_lvl2.url
+											: (link += '/' + item_lvl2.page[0].slug);
+
+										let columnClass =
+											item_lvl2.children.length > 4 ? 'column-2' : '';
+
+										return (
+											<div
+												className='inner-dropdown'
+												key={`menuItem_lvl2_${item_lvl2.id}`}>
+												<motion.b
+													initial='initial'
+													whileHover='hover'
+													className='inner-dropdown-link'>
+													<Link href={link}>{item_lvl2.title}</Link>
+													<motion.span
+														className='line'
+														variants={{
+															initial: {
+																width: '0%',
+															},
+															hover: {
+																width: '100%',
+															},
+														}}></motion.span>
+												</motion.b>
+
+												{item_lvl2.children.length !== 0 && (
+													<div className={`${columnClass} inner_lvl2-dropdown`}>
+														{item_lvl2.children.map((item_lvl3, index) => {
+															let link = parent_slug;
+															link = item_lvl3.url
+																? item_lvl3.url
+																: (link += '/' + item_lvl3.page[0].slug);
+
+															return (
+																<div key={`menuItem_lvl3_${item_lvl3.id}`}>
+																	<div className='inner_lvl2-dropdown-link'>
+																		<Link href={link}>{item_lvl3.title}</Link>
+
+																		{item_lvl3.children.length !== 0 && (
+																			<button
+																				onClick={(event) => {
+																					event.target.classList.toggle(
+																						'active'
+																					);
+
+																					let target = event.target.closest(
+																						'.inner_lvl2-dropdown-link'
+																					).nextSibling;
+
+																					console.log(target);
+																					if (
+																						event.target.classList.contains(
+																							'active'
+																						)
+																					)
+																						animate(target, {
+																							height: 'auto',
+																						});
+																					else
+																						animate(target, {
+																							height: '0px',
+																						});
+																				}}>
+																				<PiPlusCircle fontSize={'1.25rem'} />
+																			</button>
+																		)}
+																	</div>
+																	{item_lvl3.children.length !== 0 && (
+																		<div
+																			className={`inner_lvl3-dropdown`}
+																			style={{
+																				height: 0,
+																				listStyle: 'circle',
+																				breakInside: 'avoid-column',
+																				overflow: 'hidden',
+																			}}>
+																			{item_lvl3.children.length !== 0 && (
+																				<motion.ul>
+																					{item_lvl3.children.map(
+																						(item_lvl4, index) => {
+																							let link = parent_slug;
+																							link = item_lvl4.url
+																								? item_lvl4.url
+																								: (link +=
+																										'/' +
+																										item_lvl4.page[0].slug);
+																							return (
+																								<li
+																									key={`menuItem_lvl4_${item_lvl4.id}`}>
+																									<Link href={link}>
+																										{item_lvl4.title}
+																									</Link>
+																								</li>
+																							);
+																						}
+																					)}
+																				</motion.ul>
+																			)}
+																		</div>
+																	)}
+																</div>
+															);
+														})}
+													</div>
+												)}
+											</div>
+										);
+									})}
+								</div>
+							</motion.div>
+						)}
+					</motion.div>
+				);
+			})}
+		</motion.div>
+	);
+}
+
+function FloatingNav({ navOpen, isToggleOpen, toggle }) {
+	const { baseBlack, red, blue, yellow } = getColors;
+	const { toggleFill } = useGetToggleFill();
+	const toggleNav = useRef();
+	const { smcTheme, smcThemeDelayed } = useContext(ThemeContext);
+
+	// const [isToggleOpen, toggle] = useCycle(true, true);
 	const getNavColor = () => {
-		switch (smcTheme) {
+		switch (smcThemeDelayed) {
 			case 'smc-red':
 				return '#ffffff';
 			case 'smc-blue':
@@ -195,324 +430,19 @@ function MainNav({
 				return '#ffffff';
 		}
 	};
-	const nav_variants = {
-		'smc-red': {
-			color: '#ffffff',
-		},
 
-		'smc-blue': {
-			color: '#ffffff',
-		},
-
-		'smc-yellow': {
-			color: baseBlack,
-		},
-
-		'smc-default': {
-			color: '#ffffff',
-		},
+	const getBackground = (smcThemeDelayed) => {
+		switch (smcThemeDelayed) {
+			case 'smc-red':
+				return red;
+			case 'smc-blue':
+				return blue;
+			case 'smc-yellow':
+				return yellow;
+			default:
+				return '#ffffff00';
+		}
 	};
-
-	useEffect(() => {
-		let navItem = document.querySelectorAll('.nav-item');
-		navItem.forEach((item) => {
-			let height = 0;
-			let dropdown = item.querySelector('.inner-dropdown');
-			if (dropdown) {
-				height = dropdown.offsetHeight;
-				dropdown.classList.add('active');
-			}
-
-			let navDropdown = item.querySelector('.nav-dropdown');
-			if (navDropdown) navDropdown.style.height = `${height}px`;
-		});
-	}, [menu]);
-
-	const innerDropdown_variants = {
-		'smc-default': {
-			backgroundImage: `linear-gradient(90deg, ${redShade1}, ${red})`,
-		},
-		'smc-red': {
-			backgroundImage: `linear-gradient(90deg, ${redShade1}, ${red})`,
-		},
-		'smc-blue': {
-			backgroundImage: `linear-gradient(90deg, ${blueShade1}, ${blue})`,
-		},
-		'smc-yellow': {
-			backgroundImage: `linear-gradient(90deg, ${yellow}, ${yellowShade1})`,
-		},
-	};
-
-	useEffect(() => {
-		nav.current.addEventListener('wheel', (event) => {
-			nav.current.scrollTop += event.deltaY / 2;
-		});
-	}, [nav]);
-	return (
-		<motion.nav
-			ref={nav}
-			style={{
-				color: getNavColor(smcTheme),
-			}}
-			transition={{
-				color: {
-					delay: enterDuration - 0.75,
-				},
-			}}
-			variants={{
-				initial: {
-					transition: {
-						color: {
-							delay: enterDuration - 0.75,
-						},
-						// delayChildren: 0.5,
-					},
-				},
-				open: {
-					transition: {
-						staggerChildren: 0.015,
-						color: {
-							delay: enterDuration - 0.75,
-						},
-						// delayChildren: 0.5,
-					},
-				},
-			}}
-			// initial='initial'
-			// variants={{
-			// 	open: {
-			// 		transition: {
-			// 			staggerChildren: 0.5,
-			// 		},
-			// 	},
-			// }}
-			className={`main-nav ${c && c} ${smcTheme}`}>
-			{menu.length !== 0 &&
-				menu.map((item_lvl1, index) => {
-					let key = `menuItem_lvl1_${item_lvl1.id}`;
-
-					let link = item_lvl1.page.length
-						? `/${item_lvl1.page[0].slug}`
-						: `${item_lvl1.url}`;
-					let parent_slug = link;
-
-					if (item_lvl1.children.length)
-						return (
-							<NavItem
-								key={key}
-								label={item_lvl1.title}
-								link={link}
-								animation={animation}
-								toggle={toggle}
-								navItem_variants={navItem_variants}>
-								<motion.div
-									className='nav-dropdown'
-									initial={hover_animation.closed}
-									variants={hover_animation}>
-									{item_lvl1.children.map((item) => {
-										let key = `menuItem_lvl2_${item.id}`;
-										let link = parent_slug;
-										link = item.page.length
-											? (link += `/${item.page[0].slug}`)
-											: `${item.url}`;
-
-										if (link === 'social-media-popup')
-											// let defaultheight = height;
-											return (
-												<div className='nav-dropdown-item' key={key}>
-													<div>
-														<Button onClick={onOpen} className='nav-popup'>
-															{item.title}
-														</Button>
-														<Modal isOpen={isOpen} onClose={onClose} p={5}>
-															<ModalOverlay />
-															<ModalContent pb={4}>
-																<ModalHeader className='heading-5'>
-																	{item.title}
-																</ModalHeader>
-																<ModalCloseButton />
-																<ModalBody>
-																	<h3 className='heading-6'>
-																		San Miguel Social Media
-																	</h3>
-																	<SocialIcons />
-																	<h3 className='heading-6'>
-																		Follow RSA on social media!
-																	</h3>
-																	<Flex gap={2} className='social-icon'>
-																		<FacebookIcon
-																			link={
-																				'https://www.facebook.com/smcramonang/'
-																			}
-																		/>
-																	</Flex>
-																</ModalBody>
-															</ModalContent>
-														</Modal>
-													</div>
-												</div>
-											);
-										else
-											return (
-												<motion.div
-													key={key}
-													className='nav-dropdown-item'
-													onMouseEnter={(event) => {
-														let dropdownItem =
-															event.target.closest('.nav-dropdown-item');
-														dropdownItem
-															.closest('.nav-item')
-															.querySelectorAll('.inner-dropdown')
-															.forEach((dropdown) => {
-																dropdown.classList.remove('active');
-															});
-
-														let innerDropdown =
-															dropdownItem.querySelector('.inner-dropdown');
-
-														if (innerDropdown) {
-															innerDropdown.classList.add('active');
-
-															let navDropdown =
-																innerDropdown.closest('.nav-dropdown');
-															if (navDropdown) {
-																navDropdown.style.height = `${innerDropdown.offsetHeight}px`;
-															}
-														} else {
-															let navDropdown =
-																dropdownItem.closest('.nav-dropdown');
-															if (navDropdown) {
-																navDropdown.style.height = `auto`;
-															}
-														}
-													}}
-													onMouseLeave={() => {
-														// setHeight(innerDropdown.offsetHeight);
-													}}>
-													<motion.div onTap={toggle}>
-														<Link href={link}>
-															<b>{item.title}</b>
-															{item.children.length !== 0 && <PiCaretDown />}
-														</Link>
-													</motion.div>
-
-													{item.children.length !== 0 && (
-														<motion.div
-															animate={smcTheme}
-															variants={innerDropdown_variants}
-															className={`inner-dropdown`}
-															transition={{
-																delay: enterDuration,
-															}}>
-															{item.children.map((item) => {
-																let key = `menuItem_lvl3_${item.id}`;
-																let link = parent_slug;
-																link = item.page.length
-																	? (link += `/${item.page[0].slug}`)
-																	: `${item.url}`;
-
-																if (item.children.length === 0) {
-																	return (
-																		<motion.div onTap={toggle} key={key}>
-																			<Link href={link}>{item.title}</Link>
-																		</motion.div>
-																	);
-																} else {
-																	return (
-																		<div key={key}>
-																			<motion.div onTap={toggle}>
-																				<Link href={link}>{item.title}</Link>
-																			</motion.div>
-
-																			<ul className='inner-dropdown'>
-																				{item.children.map((item) => {
-																					let key = `menuItem_lvl4_${item.id}`;
-																					let link = parent_slug;
-																					link = item.page.length
-																						? (link += `/${item.page[0].slug}`)
-																						: `${item.url}`;
-
-																					return (
-																						<motion.li onTap={toggle} key={key}>
-																							<Link href={link}>
-																								{item.title}
-																							</Link>
-																						</motion.li>
-																					);
-																				})}
-																			</ul>
-																		</div>
-																	);
-																}
-															})}
-														</motion.div>
-													)}
-												</motion.div>
-											);
-									})}
-								</motion.div>
-							</NavItem>
-						);
-					else {
-						return (
-							<Link key={key} className='nav-item' href={link}>
-								<motion.span
-									onTap={toggle}
-									variants={animation ? navItem_variants : undefined}>
-									{item_lvl1.title}
-								</motion.span>
-							</Link>
-						);
-					}
-				})}
-		</motion.nav>
-	);
-}
-
-function NavItem({
-	children,
-	label,
-	link,
-	navItem_variants,
-	animation,
-	toggle,
-}) {
-	const [isToggleOpen, toggleOpen] = useCycle(false, true);
-
-	const hover_animation1 = {
-		open: {
-			scale: 2,
-		},
-		closed: {
-			scale: 1,
-		},
-	};
-	const hover = (elem) => {
-		toggleOpen();
-	};
-
-	return (
-		<motion.div
-			className='nav-item'
-			variants={navItem_variants}
-			onMouseEnter={hover}
-			onMouseLeave={hover}
-			animate={animation ? navItem_variants : isToggleOpen ? 'open' : 'closed'}>
-			<motion.div onTap={toggle} style={{}}>
-				<Link href={link}>{label}</Link>
-			</motion.div>
-			{children}
-		</motion.div>
-	);
-}
-
-function FloatingNav({ navOpen, isToggleOpen, toggle }) {
-	const { baseBlack, red, blue, yellow } = getColors;
-	const { toggleFill } = useGetToggleFill();
-
-	const theme = useContext(ThemeContext);
-
-	// const [isToggleOpen, toggle] = useCycle(true, true);
 
 	const circle_variants = {
 		initial: {
@@ -531,7 +461,7 @@ function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 
 	return (
 		<motion.div
-			className={`nav-toggle ${theme}`}
+			className={`nav-toggle ${smcTheme}`}
 			initial='initial'
 			variants={{
 				open: {
@@ -608,7 +538,7 @@ function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 function FloatingNavContent({ isToggleOpen, toggle }) {
 	const { red } = getColors;
 	const windowDimensions = useWindowSize();
-	const { x: mouseX, y: mouseY } = useMousePosition();
+	const toggleNav = useRef();
 
 	useEffect(() => {
 		if (isToggleOpen) document.querySelector('body').style.overflow = 'hidden';
@@ -665,8 +595,18 @@ function FloatingNavContent({ isToggleOpen, toggle }) {
 		},
 	};
 
+	function scroll(event) {
+		toggleNav.current.scrollTop += event.deltaY / 3;
+	}
+
+	useEffect(() => {
+		toggleNav.current.removeEventListener('wheel', scroll);
+		toggleNav.current.addEventListener('wheel', scroll);
+	}, [toggleNav]);
+
 	return (
 		<motion.div
+			ref={toggleNav}
 			className='nav-toggle-content'
 			initial='initial'
 			animate={isToggleOpen ? 'open' : 'initial'}

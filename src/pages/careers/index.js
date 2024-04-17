@@ -20,6 +20,7 @@ import { basePath } from '@/hooks/use-basepath';
 import SingleParallax from '@/components/single-parallax/single-parallax';
 import Section from '@/cms-components/Section/Section';
 import VideoContent from '@/cms-components/VideoContent/Video';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 export default function Careers() {
 	return (
 		<Curve>
@@ -46,21 +47,13 @@ export default function Careers() {
 
 			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 				<div className='column'>
-					<div className='image-content stacked'>
-						<div className='img-container'>
-							<img src={`${basePath}/images/Careers/Careers-1.svg`} />
-						</div>
-						<div
-							className='img-container'
-							style={{
-								width: '15%',
-							}}>
-							<img src={`${basePath}/images/tao.svg`} />
-						</div>
-						<div className='img-container'>
-							<img src={`${basePath}/images/Careers/Careers-2.png`} />
-						</div>
-					</div>
+					<StackedImages
+						images={[
+							`${basePath}/images/Careers/Careers-1.svg`,
+							`${basePath}/images/tao.svg`,
+							`${basePath}/images/Careers/Careers-2.png`,
+						]}
+					/>
 				</div>
 				<div className='column'>
 					<div className='text-content'>
@@ -70,7 +63,8 @@ export default function Careers() {
 							journey. We offer attractive opportunities for career development.
 						</p>
 						<h2 className='heading-5'>
-							Corporate Human Resources (Talent Acquisition)
+							Corporate Human Resources <br />
+							(Talent Acquisition)
 						</h2>
 						<p>
 							San Miguel Corporation

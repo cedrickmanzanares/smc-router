@@ -20,10 +20,10 @@ export default function Pillar({ content, position, children, simple }) {
 	});
 
 	const introOutStart = 0.1;
-	const introOutEnd = introOutStart + 0.01;
+	const introOutEnd = introOutStart + 0.1;
 
-	const mainInStart = introOutStart + 0.02;
-	const mainInEnd = introOutStart + 0.15;
+	const mainInStart = introOutStart + 0.2;
+	const mainInEnd = introOutStart + 0.3;
 
 	const delay = 0.025;
 	const blurOpacity = useTransform(
@@ -108,7 +108,7 @@ export default function Pillar({ content, position, children, simple }) {
 		// opacity 0
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 2, mainInEnd + delay * 2, 1],
+			[0, mainInStart + delay * 2, mainInEnd + delay * 2.5, 1],
 			[0, 0, 1, 1],
 			{ ease: easing }
 		),
@@ -116,7 +116,7 @@ export default function Pillar({ content, position, children, simple }) {
 		// y
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 2, mainInEnd + delay * 2, 1],
+			[0, mainInStart + delay * 2, mainInEnd + delay * 2.5, 1],
 			['100px', '100px', '0px', '0px'],
 			{ ease: easing }
 		),
@@ -126,7 +126,7 @@ export default function Pillar({ content, position, children, simple }) {
 		// opacity 0
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 3, mainInEnd + delay * 3, 1],
+			[0, mainInStart + delay * 3, mainInEnd + delay * 3.5, 1],
 			[0, 0, 1, 1],
 			{ ease: easing }
 		),
@@ -134,7 +134,7 @@ export default function Pillar({ content, position, children, simple }) {
 		// y
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 3, mainInEnd + delay * 3, 1],
+			[0, mainInStart + delay * 3, mainInEnd + delay * 3.5, 1],
 			['100px', '100px', '0px', '0px'],
 			{ ease: easing }
 		),
@@ -164,14 +164,14 @@ export default function Pillar({ content, position, children, simple }) {
 	const line = [
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
+			[0, mainInStart, mainInEnd + delay * 3, 1],
 			['0vh', '0vh', '60vh', '2vh'],
 			{ ease: easing }
 		),
 
 		useTransform(
 			scrollYProgress,
-			[0, mainInStart + delay * 4, mainInEnd + 0.3, 1],
+			[0, mainInStart + delay * 3, mainInEnd + 0.2, 1],
 			['0vh', '0vh', '0', '60vh'],
 			{ ease: easing }
 		),

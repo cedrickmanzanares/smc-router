@@ -294,7 +294,7 @@ export default function FoodAndBeverages() {
 								</div>
 								<div>
 									<p>
-										<b>Previous Business</b>
+										<b>Previous</b>
 									</p>
 									<p className='label heading-5'>San Miguel Foods</p>
 								</div>
@@ -316,7 +316,7 @@ export default function FoodAndBeverages() {
 								</div>
 								<div>
 									<p>
-										<b>Next Business</b>
+										<b>Next</b>
 									</p>
 									<p className='label heading-5'>San Miguel Foods</p>
 								</div>

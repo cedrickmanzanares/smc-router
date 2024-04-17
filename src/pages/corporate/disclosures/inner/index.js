@@ -36,10 +36,13 @@ export default function InnerDisclosure({ title }) {
 						base: 'column',
 						sm: 'row',
 					}}>
-					<FormControl ml={'auto'} w={{ base: '100%', sm: 'auto' }}>
-						<Input placeholder='Enter Keyword' />
+					<FormControl
+						ml={'auto'}
+						w={{ base: '100%', sm: 'auto' }}
+						h={'3.5rem'}>
+						<Input placeholder='Enter Keyword' h={'4rem'} />
 					</FormControl>
-					<FormControl w={{ base: '100%', sm: 'auto' }}>
+					<FormControl w={{ base: '100%', sm: 'auto' }} h={'3.5rem'}>
 						<Select placeholder='Select Year'>
 							<option>United Arab Emirates</option>
 							<option>Nigeria</option>

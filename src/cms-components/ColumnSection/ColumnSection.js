@@ -29,7 +29,6 @@ export default function ColumnSection({
 
 	const top = imageSetting ? imageSetting.t : ['0%', `100%`];
 
-	console.log(top);
 	const imageT = useTransform(column_scroll_images, [0, 1], top);
 
 	return (
