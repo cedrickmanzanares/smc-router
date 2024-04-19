@@ -6,7 +6,7 @@ import PDFWidget from '@/cms-components/PDFWidget/PDFWidget';
 import { getColors } from '@/hooks/use-color';
 import { motion } from 'framer-motion';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 
@@ -21,7 +21,7 @@ export default function All() {
 	const src = './videos/sample-video.mp4';
 
 	return (
-		<Curve>
+		<Fade>
 			<PageTitle title='Company' split='Disclosures' size='small' />
 
 			<motion.div
@@ -119,6 +119,6 @@ export default function All() {
 					</div>
 				</div>
 			</motion.div>
-		</Curve>
+		</Fade>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion } from 'framer-motion';
 
@@ -95,7 +95,7 @@ export default function NewsInner() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner
 					noBg={true}
 					headingSize='heading-2'
@@ -242,7 +242,7 @@ export default function NewsInner() {
 						</motion.div>
 					</motion.div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

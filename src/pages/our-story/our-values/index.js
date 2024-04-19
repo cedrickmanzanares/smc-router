@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 
@@ -21,11 +21,11 @@ export default function OurValues() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Our Values'} direction='center' />
 				<Section>
 					<div className='column'>
-						<VideoContent />
+						<VideoContent src={`${basePath}/videos/615559faf380d.mp4`} />
 					</div>
 				</Section>
 				<Section>
@@ -83,7 +83,7 @@ export default function OurValues() {
 						</p>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

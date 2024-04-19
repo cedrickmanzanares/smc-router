@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion, useScroll } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -87,7 +87,7 @@ export default function WalangIwanan() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner
 					title={'Walang Iwanan Our Covid-19 Response'}
 					direction='center'
@@ -183,7 +183,7 @@ export default function WalangIwanan() {
 						);
 					})}
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

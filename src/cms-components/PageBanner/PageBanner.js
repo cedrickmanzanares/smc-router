@@ -9,7 +9,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
 import { ThemeContext } from '@/pages/_app';
-import { enterDuration } from '@/components/Layout/Curve/anim';
+import { enterDuration } from '@/components/Layout/anim';
 
 export default function PageBanner({
 	title,
@@ -66,40 +66,9 @@ export default function PageBanner({
 		}
 	}, [smcThemeDelayed]);
 
-	const banner_anim = {
-		initial: {
-			y: 100,
-			opacity: 0,
-		},
-		enter: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 1,
-				delay: 0.6,
-				ease: [0.76, 0, 0.24, 1],
-			},
-		},
-		exit: {
-			y: -100,
-			opacity: 0,
-			transition: {
-				duration: 0.5,
-				delay: 0.1,
-				ease: [0.76, 0, 0.24, 1],
-			},
-		},
-	};
-
-	const path_anim = {
-		initial: {},
-		enter: {},
-		exit: {},
-	};
-
 	const bg_anim = {
 		initial: {
-			scale: 1.2,
+			scale: 1.1,
 		},
 		enter: {
 			scale: 1,
@@ -116,7 +85,7 @@ export default function PageBanner({
 
 	const text_anim = {
 		initial: {
-			y: 50,
+			y: 20,
 			opacity: 0,
 		},
 		enter: {
@@ -129,7 +98,7 @@ export default function PageBanner({
 			},
 		},
 		exit: {
-			y: -50,
+			y: -20,
 			opacity: 0,
 			transition: {
 				duration: 0.75,
@@ -255,7 +224,7 @@ export default function PageBanner({
 	return (
 		<motion.div
 			className={bannerClasses}
-			{...useAnim(banner_anim)}
+			// {...useAnim(banner_anim)}
 			ref={banner}>
 			<div className='banner-bg'>
 				<motion.div

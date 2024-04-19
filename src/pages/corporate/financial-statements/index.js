@@ -1,6 +1,6 @@
 'use client';
 
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
@@ -12,7 +12,7 @@ import Section from '@/cms-components/Section/Section';
 import Link from 'next/link';
 export default function FinancialStatement() {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner title='Financial Statement' direction='center'></PageBanner>
 			<Section>
 				<div className='column'>
@@ -390,6 +390,6 @@ export default function FinancialStatement() {
 					</table>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

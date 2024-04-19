@@ -4,7 +4,7 @@ import PDFItem from '@/cms-components/PDFItem/PDFItem';
 
 import { getColors } from '@/hooks/use-color';
 
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
@@ -25,7 +25,7 @@ export default function FinancialHighlights({}) {
 		2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
 	].reverse();
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner title={'Financial Highlights'} noBg={true} />
 			<Section>
 				<Flex
@@ -221,6 +221,6 @@ export default function FinancialHighlights({}) {
 					<p>*As of June 30, 2023</p>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
@@ -16,7 +16,7 @@ export default function BoardCommittees() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Analyst Coverage'} noBg='true' />
 
 				<Section columnCount={3}>
@@ -68,7 +68,7 @@ export default function BoardCommittees() {
 						</table>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

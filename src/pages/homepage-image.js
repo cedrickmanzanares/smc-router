@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import SampleVideo from '@/components/SampleVideo/sample-video';
 import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
@@ -46,29 +46,6 @@ export default function Home() {
 		text3: 'EXELLENCE <br/>ACCOUNTABILITY <br/>SUSTAINABILITY.',
 	};
 
-	const images = [
-		{
-			url: `${basePath}/images/Homepage-1/NewBanner/A.jpg`,
-			start: '5:00',
-			end: '7:59',
-		},
-		{
-			url: `${basePath}/images/Homepage-1/NewBanner/B.jpg`,
-			start: '8:00',
-			end: '15:59',
-		},
-		{
-			url: `${basePath}/images/Homepage-1/NewBanner/C.jpg`,
-			start: '16:00',
-			end: '18:59',
-		},
-		{
-			url: `${basePath}/images/Homepage-1/NewBanner/D.jpg`,
-			start: '19:00',
-			end: '5:00',
-		},
-	];
-
 	const today = new Date();
 	let url;
 	images.map((image, index) => {
@@ -112,7 +89,7 @@ export default function Home() {
 				/>
 				<link rel='icon' href={`${basePath}/favicon.ico`} />
 			</Head>
-			<Curve>
+			<Fade>
 				<motion.section className='main-banner'>
 					<motion.div className='banner-parallax'>
 						<motion.div
@@ -181,7 +158,7 @@ export default function Home() {
 					</div>
 				</motion.div>
 				<PageCTA />
-			</Curve>
+			</Fade>
 		</>
 	);
 }

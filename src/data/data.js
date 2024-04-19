@@ -1,9 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import { MenuContext, ThemeContext, TokenContext } from '@/pages/_app';
+import {
+	MenuContext,
+	PreloadContext,
+	ThemeContext,
+	TokenContext,
+} from '@/pages/_app';
 
 import { env } from '/next.config';
 import { useRouter } from 'next/router.js';
 import { getColors } from '@/hooks/use-color';
+import { basePath } from '@/hooks/use-basepath';
 const { api_url, api_uname, api_pass } = env;
 export const useInitializeToken = async () => {
 	let request_data = new FormData();
@@ -26,28 +32,31 @@ export const useInitializeToken = async () => {
 	return response;
 };
 
-export const useGetMenu = () => {
+export const useGetMenu = (token, setFakePreload) => {
 	const [menu, setMenu] = useState([]);
-	const token = useContext(TokenContext);
 
 	useEffect(() => {
-		if (!menu.length) {
-			fetch(`${api_url}/menu`, {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${token}`,
-				},
-			})
-				.then((res) => {
-					return res.json();
+		if (token) {
+			setFakePreload(false);
+			if (!menu.length) {
+				fetch(`${api_url}/menu`, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${token}`,
+					},
 				})
-				.then((data) => {
-					let filteredMenu = data.filter((item) => item.hidden != 0);
-					setMenu((prev) => (prev = filteredMenu));
-				});
+					.then((res) => {
+						return res.json();
+					})
+					.then((data) => {
+						let filteredMenu = data.filter((item) => item.hidden != 0);
+						setMenu((prev) => (prev = filteredMenu));
+						setFakePreload(true);
+					});
+			}
 		}
-	}, []);
+	}, [token, setFakePreload]);
 
 	return { menu };
 };
@@ -120,4 +129,80 @@ export const useGetButtonColor = () => {
 	}, [smcTheme]);
 
 	return { buttonColor };
+};
+
+export const useGetBannerData = () => {
+	const today = new Date();
+	const images = [
+		{
+			video: `${basePath}/images/Homepage-1/NewBanner/banner_morning.mp4`,
+			images: [],
+			start: '5:00',
+			end: '7:59',
+			bg: ['#6ba7cc', '#bac1c9'],
+		},
+		{
+			images: [
+				`${basePath}/images/Homepage-1/NewBanner/7am-11am-1.png`,
+				`${basePath}/images/Homepage-1/NewBanner/7am-11am-2.png`,
+				`${basePath}/images/Homepage-1/NewBanner/7am-11am-3.png`,
+				`${basePath}/images/Homepage-1/NewBanner/7am-11am-4.png`,
+			],
+			start: '8:00',
+			end: '15:59',
+			bg: ['#bac1c9', '#6ba7cc'],
+		},
+		{
+			images: [
+				`${basePath}/images/Homepage-1/NewBanner/1.png`,
+				`${basePath}/images/Homepage-1/NewBanner/2.png`,
+				`${basePath}/images/Homepage-1/NewBanner/3.png`,
+				`${basePath}/images/Homepage-1/NewBanner/4.png`,
+				`${basePath}/images/Homepage-1/NewBanner/5.png`,
+			],
+			start: '16:00',
+			end: '18:59',
+			bg: ['#6ba7cc', '#bac1c9'],
+		},
+		{
+			video: `${basePath}/images/Homepage-1/NewBanner/banner_night.mp4`,
+			images: `${basePath}/images/Homepage-1/NewBanner/D.jpg`,
+			start: '19:00',
+			end: '5:00',
+			bg: ['#132b3b', '#0c1a23'],
+		},
+	];
+
+	let banner_data = {};
+	images.map((image, index) => {
+		let imageTimeStart = new Date(
+			today.getFullYear(),
+			today.getMonth(),
+			today.getDate(),
+			image.start.split(':')[0],
+			image.start.split(':')[1]
+		);
+		let imageTimeEnd = new Date(
+			today.getFullYear(),
+			today.getMonth(),
+			today.getDate(),
+			image.end.split(':')[0],
+			image.end.split(':')[1]
+		);
+
+		if (today >= imageTimeStart && today <= imageTimeEnd) {
+			banner_data.images = image.images;
+			banner_data.video = image.video;
+			banner_data.bg = image.bg;
+		}
+		if (index === 3) {
+			if (imageTimeEnd >= today || today >= imageTimeStart) {
+				banner_data.images = image.images;
+				banner_data.video = image.video;
+				banner_data.bg = image.bg;
+			}
+		}
+	});
+
+	return { ...banner_data };
 };

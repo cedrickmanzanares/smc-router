@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { text, curve, translate } from './anim';
+import { text, curve, translate } from '../anim';
 import useAnim from '@/hooks/use-anim';
 import Lenis from '@studio-freight/lenis';
 import { initializeToken, useGetToggleFill } from '@/data/data';
@@ -33,7 +33,7 @@ export default function Curve({ children }) {
 	const router = useRouter();
 	const { red, blue, yellow } = getColors;
 	const { smcTheme } = useContext(ThemeContext);
-	const preload = useContext(PreloadContext);
+	const { preload } = useContext(PreloadContext);
 	const menu = useContext(MenuContext);
 
 	const [routes, setRoutes] = useState({ '/': 'Your World Made Better' });
@@ -123,8 +123,8 @@ export default function Curve({ children }) {
 				{routes[router.route]}
 			</motion.h6>
 
-			{dimensions.width != null && <SVG {...dimensions} />}
-			{dimensions.width == null && <div className='cheat-cover'></div>}
+			{/* {dimensions.width != null && <SVG {...dimensions} />}
+			{dimensions.width == null && <div className='cheat-cover'></div>} */}
 			{children}
 		</div>
 	);
@@ -141,7 +141,7 @@ const SVG = ({ height, width }) => {
 		if (smcTheme === 'smc-yellow') setColor(yellow);
 	}, [smcTheme]);
 
-	const preload = useContext(PreloadContext);
+	const { preload } = useContext(PreloadContext);
 	const initialPath = `
         M0 300 
         Q${width / 2} 0 ${width} 300

@@ -22,7 +22,6 @@ export default function OurProject({ className, link, children }) {
 	const [selected, setSelected] = useState(0);
 
 	useEffect(() => {
-		console.log(document.querySelectorAll('.projects-img'));
 		setY(document.querySelectorAll('.projects-img')[0].offsetHeight);
 	}, []);
 
@@ -155,7 +154,7 @@ export default function OurProject({ className, link, children }) {
 			<div className='container-fluid-width medium'>
 				<div className='column'>
 					<h2 className='heading-2'>Our Projects</h2>
-					<p>
+					<p className='subheading'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>

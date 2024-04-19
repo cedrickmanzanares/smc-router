@@ -26,7 +26,7 @@ import { basePath } from '@/hooks/use-basepath';
 import { MenuContext, ThemeContext } from '@/pages/_app';
 import { PiCaretDown } from 'react-icons/pi';
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import {
 	Modal,
@@ -53,7 +53,7 @@ export default function Nav({}) {
 				/>
 				<link rel='icon' href={`${basePath}/favicon.ico`} />
 			</Head>
-			<Curve>
+			<Fade>
 				<div
 					style={{
 						marginTop: '20rem',
@@ -275,7 +275,7 @@ export default function Nav({}) {
 						</ModalContent>
 					</Modal>
 				</div>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

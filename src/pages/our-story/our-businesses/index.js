@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -83,7 +83,7 @@ export default function OurBusinesses() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Our Businesses'} direction='center' />
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
@@ -165,7 +165,7 @@ export default function OurBusinesses() {
 						<BusinessItem />
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

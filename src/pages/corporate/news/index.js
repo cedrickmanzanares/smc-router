@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { useScroll } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -77,7 +77,7 @@ export default function News() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title='News' noBg={true} />
 
 				<Section columnCount={2} containerStyle={{ alignItems: 'flex-start' }}>
@@ -135,7 +135,7 @@ export default function News() {
 						</div>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

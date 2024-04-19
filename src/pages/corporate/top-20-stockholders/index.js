@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
@@ -16,7 +16,7 @@ export default function Top20Stockholders() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Top 20 Stockholders'} noBg='true' />
 
 				<Section columnCount={3}>
@@ -287,7 +287,7 @@ export default function Top20Stockholders() {
 						</div>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

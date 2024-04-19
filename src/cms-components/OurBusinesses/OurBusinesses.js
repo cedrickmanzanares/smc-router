@@ -122,7 +122,7 @@ export default function OurBusinesses({ className, link, children }) {
 
 	const text_variants = {
 		initial: {
-			x: '150px',
+			x: '50px',
 			opacity: 0,
 			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
 		},
@@ -132,7 +132,7 @@ export default function OurBusinesses({ className, link, children }) {
 			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
 		},
 		exit: {
-			x: '-150px',
+			x: '-50px',
 			opacity: 0,
 			transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
 		},

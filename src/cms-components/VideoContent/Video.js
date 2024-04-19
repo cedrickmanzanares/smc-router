@@ -10,13 +10,10 @@ import { useRef } from 'react';
 import { basePath } from '@/hooks/use-basepath';
 import { CgPlayButtonO } from 'react-icons/cg';
 
-export default function VideoContent({}) {
+export default function VideoContent({ src }) {
 	return (
 		<div className='video-content'>
-			<video
-				preload='auto'
-				playsInline
-				src={`${basePath}/videos/sample-video.mp4`}></video>
+			<video preload='auto' playsInline src={src}></video>
 			<button
 				className='video-play'
 				onClick={(event) => {

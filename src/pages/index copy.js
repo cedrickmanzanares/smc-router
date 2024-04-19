@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import Parallax from '@/components/Parallax/parallax';
 import SampleVideo from '@/components/SampleVideo/sample-video';
 
@@ -57,7 +57,7 @@ export default function Home() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<Parallax />
 				<SampleVideo />
 				<ColumnSection
@@ -151,7 +151,7 @@ export default function Home() {
 					</ColumnSection>
 				</div>
 				<PageCTA />
-			</Curve>
+			</Fade>
 		</>
 	);
 }

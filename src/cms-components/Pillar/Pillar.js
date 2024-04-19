@@ -72,16 +72,16 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(scrollYProgress, [0, mainInStart, 1], ['10px', '0px', '0px'], {
 			ease: easing,
 		}),
-		useTransform(scrollYProgress, [0, mainInStart, 1], ['5px', '0px', '10px'], {
+		useTransform(scrollYProgress, [0, mainInStart, 1], ['5px', '0px', '5px'], {
+			ease: easing,
+		}),
+		useTransform(scrollYProgress, [0, mainInStart, 1], ['0px', '0px', '10px'], {
+			ease: easing,
+		}),
+		useTransform(scrollYProgress, [0, mainInStart, 1], ['0px', '0px', '15px'], {
 			ease: easing,
 		}),
 		useTransform(scrollYProgress, [0, mainInStart, 1], ['0px', '0px', '20px'], {
-			ease: easing,
-		}),
-		useTransform(scrollYProgress, [0, mainInStart, 1], ['0px', '0px', '30px'], {
-			ease: easing,
-		}),
-		useTransform(scrollYProgress, [0, mainInStart, 1], ['0px', '0px', '40px'], {
 			ease: easing,
 		}),
 	];
@@ -99,7 +99,7 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay, mainInEnd + delay, 1],
-			['100px', '100px', '0px', '0px'],
+			['20px', '20px', '0px', '0px'],
 			{ ease: easing }
 		),
 	];
@@ -117,7 +117,7 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 2, mainInEnd + delay * 2.5, 1],
-			['100px', '100px', '0px', '0px'],
+			['20px', '20px', '0px', '0px'],
 			{ ease: easing }
 		),
 	];
@@ -135,7 +135,7 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 3, mainInEnd + delay * 3.5, 1],
-			['100px', '100px', '0px', '0px'],
+			['20px', '20px', '0px', '0px'],
 			{ ease: easing }
 		),
 	];
@@ -181,20 +181,20 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 6, mainInEnd + delay * 6, 1],
-			['-105vh', '0vh', '0vh', '0vh'],
+			['-20vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
-			['-85vh', '0vh', '0vh', '0vh'],
+			['-15vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 8, mainInEnd + delay * 8, 1],
-			['-65vh', '0vh', '0vh', '0vh'],
+			['-10vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 	];
@@ -203,20 +203,20 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 6, mainInEnd + delay * 6, 1],
-			['105vh', '0vh', '0vh', '0vh'],
+			['20vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
-			['85vh', '0vh', '0vh', '0vh'],
+			['15vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 8, mainInEnd + delay * 8, 1],
-			['65vh', '0vh', '0vh', '0vh'],
+			['10vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 	];
@@ -225,19 +225,19 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 6, mainInEnd + delay * 6, 1],
-			['105vh', '0vh', '0vh', '0vh'],
+			['20vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
-			['85vh', '0vh', '0vh', '0vh'],
+			['15vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 8, mainInEnd + delay * 8, 1],
-			['65vh', '0vh', '0vh', '0vh'],
+			['10vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 	];
@@ -246,19 +246,19 @@ export default function Pillar({ content, position, children, simple }) {
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 6, mainInEnd + delay * 6, 1],
-			['105vh', '0vh', '0vh', '0vh'],
+			['20vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 4, mainInEnd + delay * 4, 1],
-			['85vh', '0vh', '0vh', '0vh'],
+			['15vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 		useTransform(
 			scrollYProgress,
 			[0, mainInStart + delay * 8, mainInEnd + delay * 8, 1],
-			['65vh', '0vh', '0vh', '0vh'],
+			['10vh', '0vh', '0vh', '0vh'],
 			{ ease: easing }
 		),
 	];

@@ -1,13 +1,13 @@
 'use client';
 
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 export default function SharePrices({ title }) {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner title={'Share Prices'} noBg={true} />
-		</Curve>
+		</Fade>
 	);
 }

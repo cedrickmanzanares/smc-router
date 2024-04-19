@@ -2,22 +2,21 @@
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
+import { useGetBannerData } from '@/data/data';
+import { PreloadContext } from '@/pages/_app';
 
 export default function MainBanner() {
+	const { fakePreload, doneIntro } = useContext(PreloadContext);
+	const { images, video } = useGetBannerData();
+
 	const ref = useRef(null);
 
 	const text = ['Your World', 'Made Better'];
 
-	const imageSrc = [
-		`${basePath}/images/Homepage-1/NewBanner/1.png`,
-		`${basePath}/images/Homepage-1/NewBanner/2.png`,
-		`${basePath}/images/Homepage-1/NewBanner/3.png`,
-		`${basePath}/images/Homepage-1/NewBanner/4.png`,
-		`${basePath}/images/Homepage-1/NewBanner/5.png`,
-	];
+	console.log(video);
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -68,45 +67,66 @@ export default function MainBanner() {
 		// 	}}>
 		<motion.section className='main-banner' ref={ref}>
 			<motion.div className='banner-parallax'>
-				{imageSrc.map((val, index) => {
-					return (
-						<motion.div
-							variants={{
-								initial: {
-									y: '15vh',
-									scale: 1.2,
-									opacity: 0,
+				{video ? (
+					<motion.div
+						className='video-container'
+						animate={!(fakePreload && doneIntro) ? 'preload' : 'initial'}
+						variants={{
+							initial: {
+								scale: 1,
+								transition: {
+									duration: 1,
+									// ease: [0.76, 0, 0.24, 1],
 								},
-								enter: {
-									y: '0vh',
-									scale: 1,
-									opacity: 1,
-									transition: {
-										duration: 0.75,
-										delay: 0.5 + index * 0.05,
-										ease: [0.76, 0, 0.24, 1],
+							},
+							preload: {
+								scale: 1.025,
+							},
+						}}>
+						<video src={video} autoPlay playsInline muted loop></video>
+					</motion.div>
+				) : (
+					images.map((val, index) => {
+						return (
+							<motion.div
+								variants={{
+									initial: {
+										y: '15vh',
+										scale: 1.2,
+										opacity: 0,
 									},
-								},
-								exit: {
-									y: '-15vh',
-									opacity: 0,
-									transition: {
-										duration: 0.5,
-										delay: index * 0.05,
-										ease: [0.76, 0, 0.24, 1],
+									enter: {
+										y: '0vh',
+										scale: 1,
+										opacity: 1,
+										transition: {
+											duration: 0.75,
+											delay: 0.5 + index * 0.05,
+											ease: [0.76, 0, 0.24, 1],
+										},
 									},
-								},
-							}}
-							key={`parallax_img${index}`}
-							style={{
-								zIndex: index,
-								x: xValues[index],
-								y: yValues[index],
-								z: zValues[index],
-								backgroundImage: `url(${val})`,
-							}}></motion.div>
-					);
-				})}
+									exit: {
+										y: '-15vh',
+										opacity: 0,
+										transition: {
+											duration: 0.5,
+											delay: index * 0.05,
+											ease: [0.76, 0, 0.24, 1],
+										},
+									},
+								}}
+								key={`parallax_img${index}`}
+								style={{
+									zIndex: index,
+									x: xValues[index],
+									y: yValues[index],
+									z: zValues[index],
+									backgroundImage: `url(${val})`,
+								}}></motion.div>
+						);
+					})
+				)}
+
 				<motion.h1
 					className='heading-1'
 					style={{

@@ -1,13 +1,13 @@
 'use client';
 
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 export default function DividendHistory() {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner title={'Dividend History'} noBg={true} />
-		</Curve>
+		</Fade>
 	);
 }

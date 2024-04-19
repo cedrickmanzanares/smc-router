@@ -1,4 +1,4 @@
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import {
 	Box,
@@ -270,6 +270,6 @@ export default function About() {
 					</p>
 				</div>
 			</div>
-		</Curve>
+		</Fade>
 	);
 }

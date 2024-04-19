@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { getColors } from '@/hooks/use-color';
 
 import { useRouter } from 'next/router';
-
-export default function Search() {
+import { IoCloseOutline } from 'react-icons/io5';
+export default function Search({ preload_variants }) {
 	const router = useRouter();
 
 	const { red, blue, yellow } = getColors;
@@ -30,14 +30,16 @@ export default function Search() {
 	};
 
 	return (
-		<motion.div className={`nav-search ${smcTheme}`} animate={smcTheme}>
+		<motion.div
+			className={`nav-search ${smcTheme}`}
+			variants={preload_variants}>
 			<motion.form
 				ref={searchForm}
 				className='nav-input'
 				method='get'
 				action='/search'
 				style={{
-					display: searchOpen ? 'block' : 'none',
+					display: searchOpen ? 'flex' : 'none',
 				}}
 				variants={search_variants}
 				onSubmit={(event) => {
@@ -49,6 +51,12 @@ export default function Search() {
 					toggleSearch(false);
 				}}>
 				<input type='text' ref={searchInput} placeholder='Enter keyword' />
+				<button
+					onClick={() => {
+						toggleSearch(false);
+					}}>
+					<IoCloseOutline size={'2rem'} />
+				</button>
 			</motion.form>
 			<button className='nav-icon'>
 				<IoIosSearch
@@ -61,7 +69,6 @@ export default function Search() {
 							}, 100);
 
 							toggleSearch(true);
-							console.log('Open search');
 						}
 					}}
 					size={'1.75rem'}

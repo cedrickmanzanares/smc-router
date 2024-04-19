@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 
@@ -34,7 +34,7 @@ export default function Search() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Search'} direction='center'>
 					<Flex gap={5} mt={5}>
 						<FormControl bg={'white'}>
@@ -58,7 +58,7 @@ export default function Search() {
 						<SearchItem />
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

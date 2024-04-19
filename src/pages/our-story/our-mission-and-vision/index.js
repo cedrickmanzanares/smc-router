@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { getColors } from '@/hooks/use-color';
 
@@ -26,7 +26,7 @@ export default function OurMissionAndVison() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner title={'Our Mission & Vision'} direction='center' />
 				<Section>
 					<div className='column'>
@@ -85,7 +85,7 @@ export default function OurMissionAndVison() {
 					</div>
 				</Section>
 				<Section containerSize='small'></Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

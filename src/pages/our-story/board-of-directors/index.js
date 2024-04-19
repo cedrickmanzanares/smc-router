@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 
@@ -21,7 +21,7 @@ export default function BoardOfDirectors() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Board of Directors'} direction='center' />
 
 				<Section
@@ -160,7 +160,7 @@ export default function BoardOfDirectors() {
 						</p>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

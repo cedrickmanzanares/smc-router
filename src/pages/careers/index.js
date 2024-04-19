@@ -6,7 +6,7 @@ import PDFWidget from '@/cms-components/PDFWidget/PDFWidget';
 import { getColors } from '@/hooks/use-color';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
@@ -23,7 +23,7 @@ import VideoContent from '@/cms-components/VideoContent/Video';
 import StackedImages from '@/cms-components/StackedImages/stackedimages';
 export default function Careers() {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner
 				title={'Careers at San Miguel'}
 				image={`${basePath}/images/Careers/Careers-Banner.png`}
@@ -41,7 +41,7 @@ export default function Careers() {
 					</p>
 				</div>
 				<div className='column'>
-					<VideoContent />
+					<VideoContent src={`${basePath}/images/Careers/60984b8996347.mp4`} />
 				</div>
 			</Section>
 
@@ -83,6 +83,6 @@ export default function Careers() {
 					</div>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

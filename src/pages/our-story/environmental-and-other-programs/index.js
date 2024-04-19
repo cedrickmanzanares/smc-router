@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
@@ -17,7 +17,7 @@ export default function EnvironmenalProgram() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner
 					title={'Environment and Other Programs'}
 					direction='center'
@@ -142,7 +142,7 @@ export default function EnvironmenalProgram() {
 						</p>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

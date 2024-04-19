@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import SampleVideo from '@/components/SampleVideo/sample-video';
 import OurBusinesses from '@/cms-components/OurBusinesses/OurBusinesses';
@@ -17,6 +17,7 @@ import OurProject from '@/cms-components/OurProject/OurProject';
 
 import { TokenContext } from './_app.js';
 import Section from '@/cms-components/Section/Section.js';
+import { useGetBannerData } from '@/data/data.js';
 
 export default function Home() {
 	const token = useContext(TokenContext);
@@ -111,7 +112,10 @@ export default function Home() {
 
 				<link rel='icon' href={`${basePath}/favicon.ico`} />
 			</Head>
-			<Curve>
+			<Fade
+				customStyle={{
+					transformOrigin: 'center 5%',
+				}}>
 				<MainBanner />
 				<SampleVideo />
 				<Pillar content={pillar_content1} position={'right'}>
@@ -124,7 +128,8 @@ export default function Home() {
 				<OurBusinesses />
 				<OurProject />
 				<Section
-					containerClass='malasakit-container'
+					sectionClass='text-center'
+					containerClass='malasakit-container '
 					sectionStyle={{
 						textAlign: 'center',
 						color: 'white',
@@ -137,7 +142,7 @@ export default function Home() {
 							<h2 className='heading-2'>
 								<i>Malasakit</i>
 							</h2>
-							<p>
+							<p className='subheading'>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</p>
@@ -157,7 +162,7 @@ export default function Home() {
 				</Section>
 
 				<PageCTA />
-			</Curve>
+			</Fade>
 		</>
 	);
 }

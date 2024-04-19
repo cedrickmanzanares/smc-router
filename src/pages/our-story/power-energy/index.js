@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -65,7 +65,7 @@ export default function FoodAndBeverages() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Power & Energy'} direction='center' />
 
 				<Section
@@ -248,7 +248,7 @@ export default function FoodAndBeverages() {
 						<NextBusinesses />
 					</motion.div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

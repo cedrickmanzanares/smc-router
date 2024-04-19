@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
@@ -16,13 +16,13 @@ export default function Top20Stockholders() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Exchange Where Listed'} noBg='true' />
 
 				<Section columnCount={3}>
 					<div className='column text-content'></div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

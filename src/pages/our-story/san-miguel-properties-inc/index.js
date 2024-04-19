@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -39,7 +39,6 @@ export default function FoodAndBeverages() {
 
 	useEffect(() => {
 		var base_url = window.location.origin;
-		console.log(base_url);
 
 		const resize = () => {
 			setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -65,7 +64,7 @@ export default function FoodAndBeverages() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Properties'} direction='center' />
 
 				<Section
@@ -162,7 +161,7 @@ export default function FoodAndBeverages() {
 						<NextBusinesses />
 					</motion.div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { getColors } from '@/hooks/use-color';
 
@@ -25,7 +25,7 @@ export default function InvestorContact() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner title={'Investor Contact'} direction={'center'} />
 
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
@@ -72,7 +72,7 @@ export default function InvestorContact() {
 						</div>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion } from 'framer-motion';
 
@@ -85,7 +85,7 @@ export default function OurCompany() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner title={'Organizational Chart'} direction='center' />
 
 				<Section
@@ -101,7 +101,7 @@ export default function OurCompany() {
 						</div>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

@@ -4,7 +4,7 @@ import PDFItem from '@/cms-components/PDFItem/PDFItem';
 
 import { getColors } from '@/hooks/use-color';
 
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
@@ -26,7 +26,7 @@ export default function InnerDisclosure({ title }) {
 		2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
 	].reverse();
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner title={title} noBg={true} />
 			<Section>
 				<Flex
@@ -109,6 +109,6 @@ export default function InnerDisclosure({ title }) {
 					</button>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

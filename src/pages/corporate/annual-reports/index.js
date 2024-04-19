@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { useScroll, motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
@@ -148,7 +148,7 @@ export default function AnnualReports() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Annual Reports'} direction='center' />
 				<Section
 					columnCount={2}
@@ -191,7 +191,7 @@ export default function AnnualReports() {
 								<motion.p variants={text_variants}>
 									<Button
 										link='/our-story/our-company'
-										className={'btn-bordered pri'}>
+										className={'btn-bordered pri-btn'}>
 										Learn more
 									</Button>
 								</motion.p>
@@ -227,6 +227,9 @@ export default function AnnualReports() {
 											zIndex: {
 												delay: 0 > direction ? 0.25 : 0.35,
 											},
+										}}
+										style={{
+											pointerEvents: index === i ? 'all' : 'none',
 										}}
 										animate={{
 											opacity: i < index ? 0 : o[getDistance(i, index)],
@@ -272,7 +275,7 @@ export default function AnnualReports() {
 					</div>
 					{/* <ImageSlider captionPosition='annual-report' gradient='partial' /> */}
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

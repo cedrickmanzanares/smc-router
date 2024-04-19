@@ -1,4 +1,4 @@
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 export default function Contact() {
 	return (
@@ -28,6 +28,6 @@ export default function Contact() {
 					amet, convallis et turpis.
 				</p>
 			</div>
-		</Curve>
+		</Fade>
 	);
 }

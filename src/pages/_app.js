@@ -4,7 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Link from 'next/link';
 
 import Nav from '@/components/Layout/Nav/nav';
-import ShapeBg from '@/components/Layout/ShapeBg/shapebg';
+
 import Footer from '@/components/Layout/Footer/footer';
 import '@/styles/styles.scss';
 import { Merriweather, Merriweather_Sans } from 'next/font/google';
@@ -20,6 +20,7 @@ import {
 	useGetTheme,
 } from '../data/data';
 import { env } from '/next.config';
+import Preload from './preload-test';
 const { api_url, api_uname, api_pass } = env;
 
 const mw = Merriweather({
@@ -61,9 +62,12 @@ export const PreloadContext = createContext({});
 
 export default function App({ Component, pageProps, router }) {
 	const [token, setToken] = useState('');
-	const { menu } = useGetMenu();
-	const { smcTheme, smcThemeDelayed } = useGetTheme(menu);
+
 	const [preload, setPreload] = useState(true);
+	const [fakePreload, setFakePreload] = useState(false);
+	const [doneIntro, setDoneIntro] = useState(false);
+	const { menu } = useGetMenu(token, setFakePreload);
+	const { smcTheme, smcThemeDelayed } = useGetTheme(menu);
 
 	useEffect(() => {
 		if (!token) {
@@ -108,11 +112,19 @@ export default function App({ Component, pageProps, router }) {
 					position: 'relative',
 				}}>
 				<ChakraProvider theme={theme}>
-					<PreloadContext.Provider value={preload}>
+					<PreloadContext.Provider
+						value={{
+							preload,
+							fakePreload,
+							setFakePreload,
+							doneIntro,
+							setDoneIntro,
+						}}>
 						<ThemeContext.Provider value={{ smcTheme, smcThemeDelayed }}>
 							<MenuContext.Provider value={menu}>
 								<TokenContext.Provider value={token}>
 									<Nav />
+									<Preload />
 									<AnimatePresence mode='wait'>
 										<Component key={router.route} {...pageProps} />
 									</AnimatePresence>
@@ -122,8 +134,6 @@ export default function App({ Component, pageProps, router }) {
 						</ThemeContext.Provider>
 					</PreloadContext.Provider>
 				</ChakraProvider>
-
-				{/* <ShapeBg /> */}
 			</div>
 		</>
 	);

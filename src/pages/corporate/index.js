@@ -6,7 +6,7 @@ import PDFWidget from '@/cms-components/PDFWidget/PDFWidget';
 import { getColors } from '@/hooks/use-color';
 import { motion } from 'framer-motion';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
@@ -21,7 +21,7 @@ import Section from '@/cms-components/Section/Section';
 import StackedImages from '@/cms-components/StackedImages/stackedimages';
 export default function Corporate() {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner
 				size='full'
 				title='Corporate'
@@ -166,6 +166,6 @@ export default function Corporate() {
 					</div>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

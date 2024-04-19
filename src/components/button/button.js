@@ -21,24 +21,12 @@ export default function Button({ className, link, children }) {
 	const buttonVariants = {
 		buttonInitial: {
 			scale: 1,
-			transition: {
-				type: 'spring',
-				stiffness: 350,
-			},
 		},
 		buttonEnter: {
 			scale: 1.05,
-			transition: {
-				type: 'spring',
-				stiffness: 350,
-			},
 		},
 		buttonTap: {
 			scale: 0.98,
-			transition: {
-				type: 'spring',
-				stiffness: 350,
-			},
 		},
 	};
 
@@ -79,39 +67,12 @@ export default function Button({ className, link, children }) {
 			whileTap='buttonTap'
 			initial='buttonInitial'
 			whileHover='buttonEnter'
-			onHoverEnd={(event, info) => {
-				animate(event.target.querySelector('.btn-bg'), {
-					top: '-200%',
-					transition: {
-						duration: 0.4,
-					},
-					transitionEnd: {
-						top: '100%',
-					},
-				});
-			}}
 			variants={buttonVariants}
 			className={`btn size-limit${className ? ` ${className}` : ''}`}>
 			{link && <Link className='link-cover' href={link}></Link>}
 			<motion.span variants={textVariants} className='btn-label'>
 				{children}
 			</motion.span>
-			<motion.span
-				className='btn-bg'
-				variants={{
-					buttonInitial: {
-						top: '100%',
-						transition: {
-							duration: 0.4,
-						},
-					},
-					buttonEnter: {
-						top: '-50%',
-						transition: {
-							duration: 0.4,
-						},
-					},
-				}}></motion.span>
 		</motion.span>
 	);
 }

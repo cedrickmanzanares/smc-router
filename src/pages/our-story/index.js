@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
@@ -133,7 +133,7 @@ export default function OurStory() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner
 					title={settings.title}
 					size={'full'}
@@ -400,7 +400,7 @@ export default function OurStory() {
 						</div>
 					</motion.div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion } from 'framer-motion';
 
@@ -33,7 +33,7 @@ export default function OurStrategy() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Curve>
+			<Fade>
 				<PageBanner title={'Our Strategy'} direction='center' />
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
 					<div className='column'>
@@ -174,7 +174,7 @@ export default function OurStrategy() {
 						</div>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

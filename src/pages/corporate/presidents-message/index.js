@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 
@@ -21,7 +21,7 @@ export default function PresidentsMessage() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={"President's Message"} direction='center' />
 
 				<Section columnCount={3}>
@@ -336,7 +336,7 @@ export default function PresidentsMessage() {
 						</p>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -46,7 +46,7 @@ export default function OurHistory() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Our History'} direction='center' />
 
 				<Section direction={'center'}>
@@ -55,7 +55,17 @@ export default function OurHistory() {
 					</div>
 
 					<div className='column'>
-						<VideoContent />
+						<iframe
+							width='914'
+							height='514'
+							src='https://www.youtube.com/embed/sEakdgzsAvE'
+							title='128 years of San Miguel Corporation'
+							frameborder='0'
+							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+							referrerpolicy='strict-origin-when-cross-origin'
+							allowfullscreen
+							style={{ maxWidth: '100%' }}></iframe>
+						{/* <VideoContent /> */}
 					</div>
 				</Section>
 				<Section
@@ -238,7 +248,7 @@ export default function OurHistory() {
 						</div>
 					</div>
 				</motion.div>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

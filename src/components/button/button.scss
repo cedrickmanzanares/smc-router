@@ -5,6 +5,15 @@
 
 	.btn.btn-bordered {
 		border-color: var(--base-red);
+		&:hover {
+			background-color: var(--base-red);
+		}
+	}
+	.btn.btn-stacked {
+		&:hover {
+			background-color: var(--base-red);
+			color: white;
+		}
 	}
 }
 
@@ -15,6 +24,15 @@
 
 	.btn.btn-bordered {
 		border-color: var(--base-blue);
+		&:hover {
+			background-color: var(--base-blue);
+		}
+	}
+	.btn.btn-stacked {
+		&:hover {
+			background-color: var(--base-blue);
+			color: white;
+		}
 	}
 }
 
@@ -25,6 +43,15 @@
 
 	.btn.btn-bordered {
 		border-color: var(--base-black);
+		&:hover {
+			background-color: var(--base-black);
+		}
+	}
+	.btn.btn-stacked {
+		&:hover {
+			background-color: var(--base-black);
+			color: white;
+		}
 	}
 }
 
@@ -42,6 +69,8 @@
 	font-family: var(--font-mw_sans);
 	position: relative;
 	font-size: 1rem;
+	transition: background-color 0.1s ease-in;
+	transition-property: background-color, color;
 	&:hover {
 		font-weight: bold;
 		text-decoration: none;
@@ -84,6 +113,9 @@
 	border-color: white;
 	color: white;
 	background-color: transparent;
+	&:hover {
+		background-color: white;
+	}
 }
 
 .btn.btn-stacked {
@@ -100,20 +132,6 @@
 .btn.white {
 	background-color: white;
 	color: var(--base-red);
-}
-
-.btn-bg {
-	position: absolute;
-
-	top: 0;
-	left: 0;
-	color: inherit;
-	width: 150%;
-	height: 200%;
-	background: currentColor;
-	top: -50%;
-	left: -25%;
-	border-radius: 50%;
 }
 
 .btn.btn-icon {

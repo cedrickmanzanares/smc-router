@@ -40,7 +40,7 @@ import { useRouter } from 'next/router';
 import { useGetToggleFill } from '@/data/data';
 import { MenuContext, ThemeContext } from '@/pages/_app';
 import { PiCaretDown } from 'react-icons/pi';
-import { enterDuration } from '../Curve/anim';
+import { enterDuration } from '../anim';
 import Search from './search';
 import SocialIcons, { FacebookIcon } from '../Footer/social-icon';
 

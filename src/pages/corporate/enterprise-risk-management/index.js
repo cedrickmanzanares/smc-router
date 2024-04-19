@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
 
@@ -21,7 +21,7 @@ export default function SMCPrivacy() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner title={'Enterprise Risk Management'} direction='center' />
 
 				<Section columnCount={3}>
@@ -157,7 +157,7 @@ export default function SMCPrivacy() {
 						</ol>
 					</div>
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

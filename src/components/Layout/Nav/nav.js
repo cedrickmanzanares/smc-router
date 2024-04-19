@@ -1,7 +1,7 @@
 'use client';
 
 import { getColors } from '@/hooks/use-color';
-import { MenuContext, ThemeContext } from '@/pages/_app';
+import { MenuContext, PreloadContext, ThemeContext } from '@/pages/_app';
 import {
 	animate,
 	motion,
@@ -10,8 +10,8 @@ import {
 	useScroll,
 } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { enterDuration } from '../Curve/anim';
+import { useContext, useEffect, useRef, useState, createContext } from 'react';
+import { enterDuration } from '../anim';
 import Link from 'next/link';
 import { basePath } from '@/hooks/use-basepath';
 import Search from './search';
@@ -27,9 +27,36 @@ import {
 } from './anim';
 import { useWindowSize } from '@uidotdev/usehooks';
 
+const preload_variants = {
+	initial: {
+		opacity: 0,
+	},
+	preload: {
+		opacity: 0,
+	},
+
+	'smc-default': {
+		opacity: 1,
+	},
+
+	'smc-red': {
+		opacity: 1,
+	},
+	'smc-yellow': {
+		opacity: 1,
+	},
+	'smc-blue': {
+		opacity: 1,
+	},
+};
+
+const HoveredContext = createContext(null);
+
 export default function Nav({}) {
 	const router = useRouter();
+	const { fakePreload, doneIntro } = useContext(PreloadContext);
 	const { smcThemeDelayed, smcTheme } = useContext(ThemeContext);
+	const [[navIndex, navHovered], setHovered] = useState([null, false]);
 	const className = router.route === '/' ? 'home' : 'inner';
 
 	const { scrollY } = useScroll();
@@ -37,6 +64,8 @@ export default function Nav({}) {
 	const [isToggleOpen, toggle] = useCycle(false, true);
 	const { red, redShade1, blue, blueShade1, yellow, yellowShade1, baseBlack } =
 		getColors;
+
+	const [anim, setAnim] = useState('preload');
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		if (latest < 100) {
@@ -73,28 +102,67 @@ export default function Nav({}) {
 	};
 
 	useEffect(() => {
-		getBackground(smcThemeDelayed);
-	}, [smcThemeDelayed]);
+		getBackground(navIndex, navHovered);
+	}, [navIndex, navHovered]);
 
+	const default_variants = {
+		opacity: 1,
+
+		transition: {
+			duration: 0.35,
+			ease: [0.76, 0, 0.24, 1],
+			opacity: {
+				duration: 1,
+			},
+			// color: {
+			// 	delay: enterDuration - 0.75,
+			// },
+		},
+	};
 	const navContainer_variants = {
-		open: {
+		initial: {
 			opacity: 1,
-			y: '0%',
-
+			color: 'white',
+		},
+		'smc-red': {
+			...default_variants,
+			...{
+				backgroundColor: red,
+				color: 'white',
+			},
+		},
+		'smc-yellow': {
+			...default_variants,
+			...{
+				backgroundColor: yellow,
+				color: baseBlack,
+			},
+		},
+		'smc-blue': {
+			...default_variants,
+			...{
+				backgroundColor: blue,
+				color: 'white',
+			},
+		},
+		'smc-default': {
+			...default_variants,
+			...{
+				color: 'white',
+			},
+		},
+		preload: {
+			opacity: 0,
+			color: 'white',
 			transition: {
-				duration: 0.35,
-				ease: [0.76, 0, 0.24, 1],
-
-				// color: {
-				// 	delay: enterDuration - 0.75,
-				// },
+				duration: 2,
+				staggerChildren: 0.5,
 			},
 		},
 
 		closed: {
 			opacity: 0,
-			y: '-100%',
-
+			color: 'black',
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
@@ -102,59 +170,98 @@ export default function Nav({}) {
 		},
 	};
 
-	return (
-		<motion.div
-			className={`${className} nav-container ${smcThemeDelayed}`}
-			animate={navOpen ? 'open' : 'closed'}>
-			<motion.div
-				className='container-fluid-width large'
-				variants={navContainer_variants}
-				style={{
-					background: getBackground(smcThemeDelayed),
-					color: getNavColor(smcThemeDelayed),
-				}}>
-				<Link href='/' className='brand-logo'>
-					<figure>
-						<motion.img
-							animate={{
-								opacity: smcThemeDelayed === 'smc-default' ? 1 : 0,
-							}}
-							transition={{ delay: 0.75 }}
-							src={`${basePath}/images/smc-logo.svg`}
-							alt='SMC Logo'
-						/>
-						<motion.img
-							animate={{
-								opacity:
-									smcThemeDelayed === 'smc-red' ||
-									smcThemeDelayed === 'smc-blue'
-										? 1
-										: 0,
-							}}
-							transition={{ delay: 0.75 }}
-							src={`${basePath}/images/smc-logo-white.svg`}
-							alt='SMC Logo White'
-						/>
-						<motion.img
-							animate={{
-								opacity: smcThemeDelayed === 'smc-yellow' ? 1 : 0,
-							}}
-							transition={{ delay: 0.75 }}
-							src={`${basePath}/images/smc-logo-gray.svg`}
-							alt='SMC Logo White'
-						/>
-					</figure>
-				</Link>
-				<MainNav />
+	useEffect(() => {
+		if (!(fakePreload && doneIntro)) setAnim('preload');
+		else {
+			if (navOpen) {
+				setAnim(smcTheme);
+			} else setAnim('closed');
+		}
+	}, [fakePreload, doneIntro, navOpen, smcTheme]);
 
-				<Search />
+	useEffect(() => {
+		console.log('anim', anim);
+	}, [anim]);
+	return (
+		<HoveredContext.Provider value={{ navIndex, navHovered, setHovered }}>
+			<motion.div
+				initial='initial'
+				animate={anim}
+				className={`${className} nav-container ${smcThemeDelayed}`}>
+				<motion.div
+					variants={navContainer_variants}
+					className='container-fluid-width large'>
+					<motion.div variants={preload_variants} className='brand-logo'>
+						<Link href='/'>
+							<figure>
+								<motion.img
+									variants={{
+										initial: {
+											opacity: 0,
+										},
+										'smc-default': {
+											opacity: 1,
+										},
+										closed: {
+											opacity: 1,
+										},
+									}}
+									src={`${basePath}/images/smc-logo.svg`}
+									alt='SMC Logo'
+								/>
+								<motion.img
+									variants={{
+										initial: {
+											opacity: 0,
+										},
+										'smc-red': {
+											opacity: 1,
+										},
+										'smc-blue': {
+											opacity: 1,
+										},
+										closed: {
+											opacity: 1,
+										},
+									}}
+									src={`${basePath}/images/smc-logo-white.svg`}
+									alt='SMC Logo White'
+								/>
+								<motion.img
+									variants={{
+										initial: {
+											opacity: 0,
+										},
+										'smc-yellow': {
+											opacity: 1,
+										},
+										closed: {
+											opacity: 1,
+										},
+									}}
+									src={`${basePath}/images/smc-logo-gray.svg`}
+									alt='SMC Logo White'
+								/>
+							</figure>
+						</Link>
+					</motion.div>
+
+					<MainNav animation={false} />
+
+					<Search preload_variants={preload_variants} />
+				</motion.div>
+				<FloatingNav
+					navOpen={navOpen}
+					isToggleOpen={isToggleOpen}
+					toggle={toggle}
+				/>
 			</motion.div>
-			<FloatingNav
-				navOpen={navOpen}
-				isToggleOpen={isToggleOpen}
-				toggle={toggle}
-			/>
-		</motion.div>
+			<motion.div
+				className='hover-cover'
+				animate={{
+					opacity: navHovered ? 1 : 0,
+				}}></motion.div>
+		</HoveredContext.Provider>
 	);
 }
 
@@ -224,11 +331,14 @@ export default function Nav({}) {
 // 	);
 // }
 
-export function MainNav({ c }) {
+export function MainNav({ c, animation = true, toggle }) {
 	const menu = useContext(MenuContext);
 	const nav = useRef(null);
-
+	const { navIndex, navHovered, setHovered } = useContext(HoveredContext);
 	const navItem_variants = {
+		open: {
+			y: '-100%',
+		},
 		initial: {
 			backgroundColor: `rgba(0,0,0,0)`,
 		},
@@ -250,23 +360,28 @@ export function MainNav({ c }) {
 		<motion.div
 			className={`${c} main-nav`}
 			variants={{
-				initial: {
-					opacity: 0,
-					transition: {
-						color: {
-							delay: enterDuration - 0.75,
+				...preload_variants,
+				...{
+					initial: {
+						y: 0,
+						opacity: 0,
+						transition: {
+							color: {
+								delay: enterDuration - 0.75,
+							},
+							// delayChildren: 0.5,
 						},
-						// delayChildren: 0.5,
 					},
-				},
-				open: {
-					opacity: 1,
-					transition: {
-						staggerChildren: 0.015,
-						color: {
-							delay: enterDuration - 0.75,
+					open: {
+						y: -25,
+						opacity: 1,
+						transition: {
+							staggerChildren: 0.015,
+							color: {
+								delay: enterDuration - 0.75,
+							},
+							// delayChildren: 0.5,
 						},
-						// delayChildren: 0.5,
 					},
 				},
 			}}>
@@ -279,14 +394,26 @@ export function MainNav({ c }) {
 				return (
 					<motion.div
 						className='nav-item'
-						variants={navItem_variants}
 						whileHover='hover'
+						onHoverStart={() => {
+							setHovered([index, true]);
+							console.log('enter');
+						}}
+						onHoverEnd={() => {
+							setHovered([null, false]);
+							console.log('leave');
+						}}
+						variants={navItem_variants}
 						key={`menuItem_lvl1_${item_lvl1.id}`}>
-						<Link href={link}>{item_lvl1.title}</Link>
+						<Link href={link} onClick={toggle}>
+							{item_lvl1.title}
+						</Link>
 						{item_lvl1.children.length !== 0 && (
 							<motion.div
 								className='nav-dropdown'
-								variants={navDropdown_variants}>
+								animate={{
+									display: navHovered && navIndex === index ? 'block' : 'none',
+								}}>
 								<div className='container-fluid-width medium'>
 									{item_lvl1.children.map((item_lvl2, index) => {
 										let link = parent_slug;
@@ -302,20 +429,12 @@ export function MainNav({ c }) {
 												className='inner-dropdown'
 												key={`menuItem_lvl2_${item_lvl2.id}`}>
 												<motion.b
-													initial='initial'
 													whileHover='hover'
 													className='inner-dropdown-link'>
-													<Link href={link}>{item_lvl2.title}</Link>
-													<motion.span
-														className='line'
-														variants={{
-															initial: {
-																width: '0%',
-															},
-															hover: {
-																width: '100%',
-															},
-														}}></motion.span>
+													<Link href={link} onClick={toggle}>
+														{item_lvl2.title}
+													</Link>
+													<motion.span className='line'></motion.span>
 												</motion.b>
 
 												{item_lvl2.children.length !== 0 && (
@@ -329,7 +448,9 @@ export function MainNav({ c }) {
 															return (
 																<div key={`menuItem_lvl3_${item_lvl3.id}`}>
 																	<div className='inner_lvl2-dropdown-link'>
-																		<Link href={link}>{item_lvl3.title}</Link>
+																		<Link href={link} onClick={toggle}>
+																			{item_lvl3.title}
+																		</Link>
 
 																		{item_lvl3.children.length !== 0 && (
 																			<button
@@ -342,7 +463,6 @@ export function MainNav({ c }) {
 																						'.inner_lvl2-dropdown-link'
 																					).nextSibling;
 
-																					console.log(target);
 																					if (
 																						event.target.classList.contains(
 																							'active'
@@ -382,7 +502,9 @@ export function MainNav({ c }) {
 																							return (
 																								<li
 																									key={`menuItem_lvl4_${item_lvl4.id}`}>
-																									<Link href={link}>
+																									<Link
+																										href={link}
+																										onClick={toggle}>
 																										{item_lvl4.title}
 																									</Link>
 																								</li>
@@ -460,28 +582,14 @@ function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 	};
 
 	return (
-		<motion.div
-			className={`nav-toggle ${smcTheme}`}
-			initial='initial'
-			variants={{
-				open: {
-					transition: {
-						staggerChildren: 0.5,
-					},
-				},
-			}}>
+		<motion.div className={`nav-toggle ${smcTheme}`}>
 			<FloatingNavContent
 				isToggleOpen={isToggleOpen}
 				toggle={toggle}></FloatingNavContent>
 			<motion.div
 				className='nav-toggle-trigger'
-				// initial={toggleTrigger_variants.closed}
-				// animate={navOpen ? 'closed' : 'open'}
-				// variants={toggleTrigger_variants}
-				initial='initial'
 				whileHover={isToggleOpen ? 'open' : 'hovered'}
 				animate={isToggleOpen ? 'open' : !navOpen ? 'navopen' : 'initial'}
-				onTap={toggle}
 				variants={{
 					initial: {
 						scale: 0,
@@ -489,10 +597,11 @@ function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 					navopen: {
 						scale: 1,
 					},
-					open: {
+					closed: {
 						scale: 1,
 					},
-				}}>
+				}}
+				onTap={toggle}>
 				<svg
 					width={toggleSettings.size}
 					height={toggleSettings.size}
@@ -569,8 +678,8 @@ function FloatingNavContent({ isToggleOpen, toggle }) {
 		},
 		initial: {
 			opacity: 0,
-			x: `-${windowDimensions.height / 6}px`,
-			y: `${windowDimensions.height / 6}px`,
+			x: `-${windowDimensions.height / 20}px`,
+			y: `${windowDimensions.height / 20}px`,
 			transition: transitionSettings,
 		},
 	};
@@ -608,13 +717,12 @@ function FloatingNavContent({ isToggleOpen, toggle }) {
 		<motion.div
 			ref={toggleNav}
 			className='nav-toggle-content'
-			initial='initial'
 			animate={isToggleOpen ? 'open' : 'initial'}
+			variants={floatingNavContent_variants}
 			style={{
 				overflow: isToggleOpen ? 'auto' : 'hidden',
 				pointerEvents: isToggleOpen ? 'all' : 'none',
-			}}
-			variants={floatingNavContent_variants}>
+			}}>
 			{windowDimensions.width !== null && (
 				<svg
 					className='nav-toggle-bg-elements'
@@ -633,7 +741,7 @@ function FloatingNavContent({ isToggleOpen, toggle }) {
 						stroke='#F8D258'
 						strokeWidth='330'
 						strokeLinecap='round'
-						variants={big_1_variants}
+						
 					/> */}
 
 					<motion.path
@@ -699,7 +807,6 @@ function FloatingNavContent({ isToggleOpen, toggle }) {
 					/>
 				</svg>
 			)}
-
 			<MainNav
 				c={'toggle-nav'}
 				defaultOpen={false}

@@ -66,6 +66,12 @@ export default function SampleVideo() {
 		// }
 	});
 
+	const test = useTransform(
+		scrollYProgress,
+		[0, 1],
+		[0, 'var(--container-padding)']
+	);
+
 	return (
 		<motion.div
 			className='section-content fullscreen sample-video'
@@ -117,6 +123,7 @@ export default function SampleVideo() {
 				<motion.div
 					className='video-container'
 					style={{
+						padding: test,
 						backgroundImage: 'linear-gradient(#748089, #898a8a)',
 					}}
 					initial={{
@@ -124,9 +131,9 @@ export default function SampleVideo() {
 						x: '-50%',
 						y: '-50%',
 					}}
-					animate={{
-						scale: activateEnd ? 0.85 : 1,
-					}}
+					// animate={{
+					// 	scale: activateEnd ? 0.85 : 1,
+					// }}
 					ref={video}>
 					<video
 						style={{

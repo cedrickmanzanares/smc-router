@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 
 import { motion } from 'framer-motion';
 
@@ -74,7 +74,7 @@ export default function CSR() {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<Curve>
+			<Fade>
 				<PageBanner
 					title={'Corporate Social Responsibility'}
 					direction='center'
@@ -187,7 +187,7 @@ export default function CSR() {
 						);
 					})}
 				</Section>
-			</Curve>
+			</Fade>
 		</>
 	);
 }

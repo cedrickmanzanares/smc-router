@@ -6,7 +6,7 @@ import PDFWidget from '@/cms-components/PDFWidget/PDFWidget';
 import { getColors } from '@/hooks/use-color';
 import { motion } from 'framer-motion';
 import PageTitle from '@/cms-components/PageTitle/PageTitle';
-import Curve from '@/components/Layout/Curve';
+import Fade from '@/components/Layout/Fade';
 import { pageTranslate } from '@/hooks/pageAnim';
 import useAnim from '@/hooks/use-anim';
 import ColumnSection from '@/cms-components/ColumnSection/ColumnSection';
@@ -22,7 +22,7 @@ import Section from '@/cms-components/Section/Section';
 import Link from 'next/link';
 export default function ShareholderInformation() {
 	return (
-		<Curve>
+		<Fade>
 			<PageBanner
 				title='Shareholder Information'
 				direction='center'></PageBanner>
@@ -74,6 +74,6 @@ export default function ShareholderInformation() {
 					</div>
 				</div>
 			</Section>
-		</Curve>
+		</Fade>
 	);
 }

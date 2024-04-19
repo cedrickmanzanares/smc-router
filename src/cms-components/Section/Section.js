@@ -13,10 +13,11 @@ export default function Section({
 	sectionStyle,
 	containerStyle,
 	direction,
+	sectionClass,
 }) {
 	const sectionClasses = `section-content column-${columnCount} ${
 		direction ? direction : ''
-	}`;
+	} ${sectionClass}`;
 	const sectionContainerClasses = `container-fluid-width ${containerSize} ${
 		containerClass ? containerClass : ''
 	}`;
@@ -25,35 +26,32 @@ export default function Section({
 
 	// const [isPresent, safeToRemove] = usePresence();
 	// const [scope, animate] = useAnimate();
-	const section_anim = {
-		initial: {
-			y: 100,
-			opacity: 0,
-		},
-		enter: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 1,
-				delay: 0.75,
-				ease: [0.76, 0, 0.24, 1],
-			},
-		},
-		exit: {
-			y: -50,
-			opacity: 0,
-			transition: {
-				duration: 0.5,
-				delay: 0.075,
-				ease: [0.76, 0, 0.24, 1],
-			},
-		},
-	};
+	// const section_anim = {
+	// 	initial: {
+	// 		y: 20,
+	// 	},
+	// 	enter: {
+	// 		y: 0,
+	// 		transition: {
+	// 			duration: 1,
+	// 			delay: 1,
+	// 			ease: [0.76, 0, 0.24, 1],
+	// 		},
+	// 	},
+	// 	exit: {
+	// 		y: -20,
+	// 		transition: {
+	// 			duration: 0.5,
+	// 			delay: 0.075,
+	// 			ease: [0.76, 0, 0.24, 1],
+	// 		},
+	// 	},
+	// };
 
 	return (
 		<motion.div
 			className={sectionClasses}
-			{...useAnim(section_anim)}
+			// {...useAnim(section_anim)}
 			style={sectionStyle}>
 			<div className={sectionContainerClasses} style={containerStyle}>
 				{children}
