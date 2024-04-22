@@ -11,6 +11,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
 	return (
