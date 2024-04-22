@@ -17,7 +17,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Button from '@/components/button/button';
 
 import { basePath } from '@/hooks/use-basepath';
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 import Section from '@/cms-components/Section/Section';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import StackedImages from '@/cms-components/StackedImages/stackedimages';
@@ -41,7 +41,7 @@ export default function Careers() {
 					</p>
 				</div>
 				<div className='column'>
-					<VideoContent src={`${basePath}/images/Careers/60984b8996347.mp4`} />
+					<VideoContent src={`${basePath}/images/60984b8996347.mp4`} />
 				</div>
 			</Section>
 

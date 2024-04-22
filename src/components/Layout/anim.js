@@ -91,7 +91,7 @@ export const translate = {
 export const fadeVariants = {
 	initial: {
 		opacity: 0,
-		scale: 0.96,
+		// scale: 0.96,
 		top: '-300px',
 		transition: {
 			duration: initialDuration,
@@ -99,8 +99,8 @@ export const fadeVariants = {
 		},
 	},
 	enter: {
-		opacity: 1,
-		scale: 1,
+		opacity: 1.04,
+		// scale: 1,
 		top: '-100vh',
 		transition: {
 			duration: enterDuration,
@@ -113,7 +113,7 @@ export const fadeVariants = {
 	},
 	exit: {
 		opacity: 0,
-		scale: 0.96,
+		// scale: 0.96,
 		top: '-300px',
 		transition: { duration: exitDuration + 0.25, ease: [0.76, 0, 0.24, 1] },
 	},

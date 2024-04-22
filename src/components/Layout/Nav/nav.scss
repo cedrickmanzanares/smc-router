@@ -86,7 +86,7 @@
 		flex: 1 1 100%;
 
 		> b {
-			font-size: 125%;
+			font-size: 100%;
 		}
 		b a:hover {
 			text-decoration: none;
@@ -101,7 +101,9 @@
 			background-color: var(--base-black);
 		}
 	}
+
 	.inner_lvl2-dropdown {
+		font-size: 95%;
 		margin-top: 0.5rem;
 		gap: calc(var(--gap-padding) / 2);
 		&.column-2 {

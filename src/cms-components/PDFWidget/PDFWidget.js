@@ -13,18 +13,27 @@ import Button from '@/components/button/button';
 import { PiArrowUpRightBold } from 'react-icons/pi';
 import { getColors } from '@/hooks/use-color';
 
-export default function PDFWidget({ title, subtitle, link }) {
+export default function PDFWidget({
+	title,
+	subtitle,
+	link,
+	headingSize = 'heading-3',
+}) {
 	const { red, baseBlack, blue } = getColors;
 
 	const widgetVariants = {
 		rest: {
 			scale: 1,
 			color: baseBlack,
+			background: '#fafafa',
 			// background: '#ffffff00',
 		},
 		hover: {
-			scale: 1.1,
 			color: '#ffffff',
+			background: blue,
+			transition: {
+				duration: 0.15,
+			},
 			// background: red,
 		},
 		tap: {
@@ -67,21 +76,9 @@ export default function PDFWidget({ title, subtitle, link }) {
 			initial='rest'
 			whileHover='hover'
 			whileTap='tap'
-			variants={widgetVariants}
-			onHoverEnd={(event, info) => {
-				animate(event.target.querySelector('.pdf-widget-bg'), {
-					top: '-200%',
-					transition: {
-						duration: 0.4,
-					},
-					transitionEnd: {
-						top: '100%',
-						borderRadius: '0%',
-					},
-				});
-			}}>
+			variants={widgetVariants}>
 			<Link href={link} className='link-cover'></Link>
-			<h3 className='heading-4 pdf-widget-title'>
+			<h3 className={`${headingSize} pdf-widget-title`}>
 				{title}
 				<br />
 				<span>{subtitle}</span>
@@ -89,13 +86,6 @@ export default function PDFWidget({ title, subtitle, link }) {
 			<motion.div className='pdf-widget-link' variants={buttonVariant}>
 				<PiArrowUpRightBold size={`1.5rem`} />
 			</motion.div>
-
-			<motion.div
-				className='pdf-widget-bg'
-				style={{
-					x: '-50%',
-				}}
-				variants={widgetBg_variants}></motion.div>
 		</motion.div>
 	);
 }

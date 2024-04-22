@@ -138,7 +138,7 @@ export const useGetBannerData = () => {
 			video: `${basePath}/images/Homepage-1/NewBanner/banner_morning.mp4`,
 			images: [],
 			start: '5:00',
-			end: '7:59',
+			end: '6:59',
 			bg: ['#6ba7cc', '#bac1c9'],
 		},
 		{
@@ -148,26 +148,36 @@ export const useGetBannerData = () => {
 				`${basePath}/images/Homepage-1/NewBanner/7am-11am-3.png`,
 				`${basePath}/images/Homepage-1/NewBanner/7am-11am-4.png`,
 			],
-			start: '8:00',
-			end: '15:59',
+			start: '7:00',
+			end: '10:59',
 			bg: ['#bac1c9', '#6ba7cc'],
 		},
 		{
 			images: [
-				`${basePath}/images/Homepage-1/NewBanner/1.png`,
-				`${basePath}/images/Homepage-1/NewBanner/2.png`,
-				`${basePath}/images/Homepage-1/NewBanner/3.png`,
-				`${basePath}/images/Homepage-1/NewBanner/4.png`,
-				`${basePath}/images/Homepage-1/NewBanner/5.png`,
+				`${basePath}/images/Homepage-1/NewBanner/11am-4pm-1.png`,
+				`${basePath}/images/Homepage-1/NewBanner/11am-4pm-2.png`,
+				`${basePath}/images/Homepage-1/NewBanner/11am-4pm-3.png`,
+				`${basePath}/images/Homepage-1/NewBanner/11am-4pm-4.png`,
+			],
+			start: '11:00',
+			end: '15:59',
+			bg: ['#6ba7cc', '#bac1c9'],
+		},
+		{
+			images: [
+				`${basePath}/images/Homepage-1/NewBanner/4pm-6pm-1.png`,
+				`${basePath}/images/Homepage-1/NewBanner/4pm-6pm-2.png`,
+				`${basePath}/images/Homepage-1/NewBanner/4pm-6pm-3.png`,
+				`${basePath}/images/Homepage-1/NewBanner/4pm-6pm-4.png`,
 			],
 			start: '16:00',
-			end: '18:59',
+			end: '17:59',
 			bg: ['#6ba7cc', '#bac1c9'],
 		},
 		{
 			video: `${basePath}/images/Homepage-1/NewBanner/banner_night.mp4`,
 			images: `${basePath}/images/Homepage-1/NewBanner/D.jpg`,
-			start: '19:00',
+			start: '18:00',
 			end: '5:00',
 			bg: ['#132b3b', '#0c1a23'],
 		},
@@ -195,7 +205,7 @@ export const useGetBannerData = () => {
 			banner_data.video = image.video;
 			banner_data.bg = image.bg;
 		}
-		if (index === 3) {
+		if (index === 4) {
 			if (imageTimeEnd >= today || today >= imageTimeStart) {
 				banner_data.images = image.images;
 				banner_data.video = image.video;

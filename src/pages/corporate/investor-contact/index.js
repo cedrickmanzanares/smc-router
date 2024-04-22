@@ -6,6 +6,8 @@ import { getColors } from '@/hooks/use-color';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 
 export default function InvestorContact() {
 	const { gray2, red } = getColors;
@@ -29,48 +31,37 @@ export default function InvestorContact() {
 				<PageBanner title={'Investor Contact'} direction={'center'} />
 
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-					<div className='column'>
-						<div className='image-content stacked'>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/InvestorContact/InvestorContact-1.svg`}
-								/>
-							</div>
-							<div className='img-container'>
-								<img src={`${basePath}/images/ph.svg`} />
-							</div>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/InvestorContact/InvestorContact-2.png`}
-								/>
-							</div>
-						</div>
-					</div>
-					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-5'>
-								<b>
-									For institutional investor inquiries, please write or call:
-								</b>
-							</h2>
-							<p>
-								Investor Relations
-								<br />
-								<b>Reynabeth D. De Guzman</b>
-								<br />
-								Investor Relations Head
-								<br />
-								San Miguel Corporation
-								<br />
-								Telephone: (+632) 8-632-3752
-								<br />
-								E&#8209;mail: 
-								<a href='mailto: SMCInvestorRelations@sanmiguel.com.ph'>
-									SMCInvestorRelations@sanmiguel.com.ph
-								</a>
-							</p>
-						</div>
-					</div>
+					<Column>
+						<StackedImages
+							images={[
+								`${basePath}/images/InvestorContact/InvestorContact-1.svg`,
+								`${basePath}/images/ph.svg`,
+								`${basePath}/images/InvestorContact/InvestorContact-2.png`,
+							]}
+						/>
+					</Column>
+
+					<Column>
+						<h2 className='heading-5'>
+							<b>For institutional investor inquiries, please write or call:</b>
+						</h2>
+						<p>
+							Investor Relations
+							<br />
+							<b>Reynabeth D. De Guzman</b>
+							<br />
+							Investor Relations Head
+							<br />
+							San Miguel Corporation
+							<br />
+							Telephone: (+632) 8-632-3752
+							<br />
+							E&#8209;mail: 
+							<a href='mailto: SMCInvestorRelations@sanmiguel.com.ph'>
+								SMCInvestorRelations@sanmiguel.com.ph
+							</a>
+						</p>
+					</Column>
 				</Section>
 			</Fade>
 		</>

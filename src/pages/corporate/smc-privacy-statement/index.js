@@ -35,40 +35,28 @@ export default function SMCPrivacy() {
 							</b>{' '}
 							respect your privacy and will keep secure and confidential all
 							personal and sensitive information that you may provide to SMC,
-							and/or those that SMC may collect from you
-							<b>(&quot;Personal Data&quot;)</b>.
+							and/or those that SMC may collect from you{' '}
+							<b>(&quot;Personal Data&quot;)</b>.{' '}
 						</p>
 						<p>
 							This privacy statement <b>(&quot;Statement&quot;)</b> provides for
 							the Personal Data we obtain, or which you may provide through this
-							website, <a href='../../../'>www.sanmiguel.com.ph</a>{' '}
+							website, <a href='../../../'>www.sanmiguel.com.ph</a>
 							<b>(&quot;Website&quot;)</b>, and the standards we observe in
 							using, processing, keeping, securing, and disclosing said Personal
 							Data.
 						</p>
 						<p>
+							{' '}
 							Please read this Statement carefully to understand how We treat
 							Personal Data. We may update this Statement from time to time to
-							reflect
-							<g
-								class='gr_ gr_120 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar only-ins replaceWithoutSep'
-								id='120'
-								data-gr-id='120'>
-								change
-							</g>
-							(s) in the law and/or our internal standards. When We do so, We
-							will notify you by posting the updated Statement
-							<g
-								class='gr_ gr_92 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar multiReplace'
-								id='92'
-								data-gr-id='92'>
-								in
-							</g>{' '}
+							reflect change (s) in the law and/or our internal standards. When
+							We do so, We will notify you by posting the updated Statement in
 							this Website for your information and reference. By accessing the
 							Website and submitting your Concerns (defined below), or Personal
 							Data through it, you expressly acknowledge that you have read,
 							understood and hereby agree to all of the terms of this Statement
-							and that you provide consent for us to:
+							and that you provide consent for us to:{' '}
 						</p>
 						<ul>
 							<li>
@@ -78,15 +66,10 @@ export default function SMCPrivacy() {
 								third parties&apos; legitimate purpose/s;
 							</li>
 							<li>
-								Make your Personal Data available
-								<g
-									class='gr_ gr_93 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar multiReplace'
-									id='93'
-									data-gr-id='93'>
-									for
-								</g>{' '}
-								our subsidiaries and affiliates, contractors, service providers,
-								and other third parties.
+								{' '}
+								Make your Personal Data available for our subsidiaries and
+								affiliates, contractors, service providers, and other third
+								parties.{' '}
 							</li>
 						</ul>
 						<p>
@@ -95,18 +78,13 @@ export default function SMCPrivacy() {
 							</b>
 						</p>
 						<p>
+							{' '}
 							Our Website allows you to directly reach us and provide comments,
-							<g
-								class='gr_ gr_111 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Punctuation only-ins replaceWithoutSep'
-								id='111'
-								data-gr-id='111'>
-								suggestions
-							</g>{' '}
-							and complaints (collectively, <b>&quot;Concerns&quot;</b>) on our
-							products and services to help us improve them. When you access our
-							Website and submit your Concerns, We ask you to provide the
-							following Personal Data to identify you, and enable SMC to act on
-							your Concerns:
+							suggestions and complaints (collectively,{' '}
+							<b>&quot;Concerns&quot;</b>) on our products and services to help
+							us improve them. When you access our Website and submit your
+							Concerns, We ask you to provide the following Personal Data to
+							identify you, and enable SMC to act on your Concerns:{' '}
 						</p>
 						<ul>
 							<li>Full Name</li>
@@ -139,7 +117,7 @@ export default function SMCPrivacy() {
 							<li>
 								Information about your computer/device and internet connection,
 								as well as IP address, operating system, and browser type
-								(collectively, <b>&quot;Collected Data&quot;</b>).
+								(collectively, <b>&quot;Collected Data&quot;</b>).{' '}
 							</li>
 						</ul>
 						<p>
@@ -227,16 +205,11 @@ export default function SMCPrivacy() {
 								regulations;
 							</li>
 							<li>
+								{' '}
 								If We believe disclosure is necessary or appropriate to protect
-								the rights, property, or safety of SMC, our
-								<g
-									class='gr_ gr_124 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Punctuation only-ins replaceWithoutSep'
-									id='124'
-									data-gr-id='124'>
-									subsidiaries
-								</g>{' '}
-								and affiliates, officers, employees customers, or other third
-								parties;
+								the rights, property, or safety of SMC, our subsidiaries and
+								affiliates, officers, employees customers, or other third
+								parties;{' '}
 							</li>
 							<li>
 								To a buyer or other successor in the event of a merger,
@@ -258,10 +231,10 @@ export default function SMCPrivacy() {
 							</b>
 						</p>
 						<p>
-							No one under age eighteen (18) (<b>&quot;Minors&quot;</b>) may
+							No one under age eighteen (18) ( <b>&quot;Minors&quot;</b>) may
 							provide any Personal Data on the Website. SMC does not knowingly
 							collect Personal Data from Minors. If you are a Minor, please do
-							not use or provide any information on this Website about yourself.
+							not use or provide any information on this Website about yourself.{' '}
 						</p>
 						<p>
 							<b>
@@ -271,23 +244,19 @@ export default function SMCPrivacy() {
 							</b>
 						</p>
 						<p>
+							{' '}
 							Some content or applications, including advertisements, on the
-							<g
-								class='gr_ gr_117 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Punctuation only-ins replaceWithoutSep'
-								id='117'
-								data-gr-id='117'>
-								Website
-							</g>{' '}
-							are served by third-parties, including advertisers, ad networks
-							and servers, content providers, and application providers. These
-							third parties may use cookies (alone or in conjunction with web
-							beacons or other tracking technologies) to collect information
-							about you when you use our Website. The information they collect
-							may be associated with your Personal Data or they may collect
-							information, including Personal Data, about your online activities
-							over time and across different websites and other online services.
-							They may use this information to provide you with interest-based
-							(behavioral) advertising or other targeted content.
+							Website are served by third-parties, including advertisers, ad
+							networks and servers, content providers, and application
+							providers. These third parties may use cookies (alone or in
+							conjunction with web beacons or other tracking technologies) to
+							collect information about you when you use our Website. The
+							information they collect may be associated with your Personal Data
+							or they may collect information, including Personal Data, about
+							your online activities over time and across different websites and
+							other online services. They may use this information to provide
+							you with interest-based (behavioral) advertising or other targeted
+							content.{' '}
 						</p>
 						<p>
 							We do not control these third parties&apos; tracking technologies
@@ -295,6 +264,19 @@ export default function SMCPrivacy() {
 							advertisement or other targeted content, you should contact the
 							responsible provider directly.
 						</p>
+
+						<div
+							style={{
+								float: 'right',
+								maxWidth: '100%',
+							}}>
+							<img
+								src={`${basePath}/images/dpo.webp`}
+								alt=''
+								height='375'
+								width='580'
+							/>
+						</div>
 						<p>
 							<b>
 								<u>Accessing and Correcting Your Personal Data</u>
@@ -305,14 +287,7 @@ export default function SMCPrivacy() {
 							Data collected from you, including the right to access and correct
 							your Personal Data being processed, object to the processing, and
 							to lodge a complaint before the National Privacy Commission in
-							case of violation of your rights as
-							<g
-								class='gr_ gr_100 gr-alert gr_gramm gr_inline_cards gr_disable_anim_appear Grammar only-ins doubleReplace replaceWithoutSep'
-								id='100'
-								data-gr-id='100'>
-								data
-							</g>{' '}
-							subject.
+							case of violation of your rights as data subject.{' '}
 						</p>
 						<p>
 							You may send us an e-mail at customercare@sanmiguel.com.ph to
@@ -349,7 +324,7 @@ export default function SMCPrivacy() {
 							2012, please do not hesitate to contact the SMC Data Protection
 							Officer at the following:{' '}
 							<a href='mailto:dpo@sanmiguel.com.ph'>dpo@sanmiguel.com.ph</a> and
-							(+632) 632-3007.
+							(+632) 632-3007.{' '}
 						</p>
 					</div>
 				</Section>

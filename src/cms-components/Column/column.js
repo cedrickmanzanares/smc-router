@@ -12,13 +12,13 @@ export default function Column({
 	const columnVariants = {
 		initial: {
 			opacity: 0,
-			y: 25,
+			y: 35,
 		},
 		animate: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 1,
+				duration: 0.5,
 			},
 		},
 	};
@@ -28,7 +28,7 @@ export default function Column({
 			initial='initial'
 			whileInView='animate'
 			variants={columnVariants}
-			viewport={{ once: true }}
+			viewport={{ once: true, amount: 0.5 }}
 			className={columnClass}
 			style={{ ...columnStyle }}
 			ref={column}>

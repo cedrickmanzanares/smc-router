@@ -1,4 +1,4 @@
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 import { useDimensions } from '@/hooks/use-dimension';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 

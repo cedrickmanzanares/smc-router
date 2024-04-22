@@ -1,7 +1,7 @@
 .pdf-widget {
 	background-color: transparent;
 	border: 1px solid var(--gray-3);
-	padding: 1rem;
+	padding: 2rem;
 	position: relative;
 	aspect-ratio: 4/3;
 	display: flex;
@@ -45,17 +45,6 @@
 .pdf-widget-title,
 .pdf-widget-link {
 	z-index: 1;
-}
-
-.pdf-widget-bg {
-	position: absolute;
-	height: 200%;
-	width: 200%;
-	background-color: var(--base-blue);
-	border-radius: 100%;
-	left: 50%;
-	top: 100%;
-	z-index: 0;
 }
 
 @media only screen and (max-width: 450px) {

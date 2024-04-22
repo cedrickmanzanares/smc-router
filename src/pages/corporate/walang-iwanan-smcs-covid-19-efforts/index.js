@@ -19,12 +19,14 @@ import FullPageBanner from '@/cms-components/FullPageBanner/fullpagebanner';
 import FloatingImages from '@/cms-components/FloatingImages/floatingimages';
 
 import { basePath } from '@/hooks/use-basepath';
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 
 import VideoContent from '@/cms-components/VideoContent/Video';
 import { NewsItem } from '../news';
+import Column from '@/cms-components/Column/column';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 
 export default function WalangIwanan() {
 	const parent1 = useRef(null);
@@ -94,65 +96,51 @@ export default function WalangIwanan() {
 				/>
 
 				<Section>
-					<div className='column'>
+					<Column>
 						<VideoContent />
-					</div>
+					</Column>
 				</Section>
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-					<div className='column'>
-						<div className='image-content stacked'>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/WalangIwanan/WalangIwanan-1.svg`}
-								/>
-							</div>
-							<div className='img-container' style={{ top: '15%' }}>
-								<img src={`${basePath}/images/heart.svg`} />
-							</div>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/WalangIwanan/WalangIwanan-2.png`}
-								/>
-							</div>
-						</div>
-					</div>
-					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-2'>
-								Our efforts in the wake of the global pandemic are guided by our
-								malasakit.
-							</h2>
-							<p>
-								In the fight against Covid-19, we have mounted the largest
-								private sector response to the crisis. As of October 2020, we
-								have mobilized over P13 billion to help the country—specially
-								frontliners and the poorest communities.
-							</p>
-							<p>
-								Our contributions include hundreds of millions in food and
-								medical equipment, free fuel and waived toll fees for
-								frontliners, and the construction of quarantine facilities. We
-								also repurposed our liquor plants to manufacture disinfecting
-								alcohol for hospitals and clinics.
-							</p>
-							<p>
-								In 2021, our efforts continue to help the country recover from
-								the COVID-19 global pandemic.
-							</p>
-						</div>
-					</div>
+					<Column>
+						<StackedImages
+							images={[
+								`${basePath}/images/WalangIwanan/WalangIwanan-1.svg`,
+								`${basePath}/images/heart.svg`,
+								`${basePath}/images/WalangIwanan/WalangIwanan-2.png`,
+							]}
+						/>
+					</Column>
+					<Column>
+						<h2 className='heading-2'>
+							Our efforts in the wake of the global pandemic are guided by our
+							malasakit.
+						</h2>
+						<p>
+							In the fight against Covid-19, we have mounted the largest private
+							sector response to the crisis. As of October 2020, we have
+							mobilized over P13 billion to help the country—specially
+							frontliners and the poorest communities.
+						</p>
+						<p>
+							Our contributions include hundreds of millions in food and medical
+							equipment, free fuel and waived toll fees for frontliners, and the
+							construction of quarantine facilities. We also repurposed our
+							liquor plants to manufacture disinfecting alcohol for hospitals
+							and clinics.
+						</p>
+						<p>
+							In 2021, our efforts continue to help the country recover from the
+							COVID-19 global pandemic.
+						</p>
+					</Column>
 				</Section>
 
-				<Section containerSize={'full'} columnCount={1}>
-					<div className='column'>
-						<FullPageBanner
-							image={`${basePath}/images/WalangIwanan/WalangIwanan-3.png`}
-							caption={'Our Efforts'}></FullPageBanner>
-					</div>
-				</Section>
+				<FullPageBanner
+					image={`${basePath}/images/WalangIwanan/WalangIwanan-3.png`}
+					caption={'Our Efforts'}></FullPageBanner>
 
 				<Section columnCount={2} containerStyle={{ rowGap: 0 }}>
-					<div className='column' style={{ flex: '1 1 100%' }}>
+					<Column columnStyle={{ flex: '1 1 100%' }}>
 						<div className='news-featured column' ref={parent1}>
 							<div className='img-container'>
 								<img src={`${newsItems[0].img}`} />
@@ -168,10 +156,11 @@ export default function WalangIwanan() {
 								</p>
 							</div>
 						</div>
-					</div>
+					</Column>
+
 					{newsItems.map((news, index) => {
 						return (
-							<div className='column' key={`NewsItem_` + index}>
+							<Column key={`NewsItem_` + index}>
 								<NewsItem
 									link={news.link}
 									index={index}
@@ -179,7 +168,7 @@ export default function WalangIwanan() {
 									date={news.date}
 									img={news.img}
 								/>
-							</div>
+							</Column>
 						);
 					})}
 				</Section>

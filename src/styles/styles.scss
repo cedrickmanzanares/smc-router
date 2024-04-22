@@ -27,7 +27,7 @@ body {
 	background-color: #fffbf2;
 
 	--border-radius: 1rem;
-	color: var(--base-black);
+	color: var(--base-black) !important;
 	--section-padding: clamp(2.5rem, 4vw, 4rem);
 	--container-padding: clamp(2.5rem, 4vw, 4rem);
 	--gap-padding: clamp(1.5rem, 4vw, 4rem);
@@ -58,6 +58,7 @@ body {
 p:first-child {
 	margin-top: 0;
 }
+
 a {
 	text-decoration: none;
 	&:hover {
@@ -65,6 +66,7 @@ a {
 		font-weight: 500;
 	}
 }
+
 b a:hover {
 	font-weight: 800;
 }
@@ -395,7 +397,7 @@ a {
 // @import '../components/Accordion/accordion.scss';
 @import '../components/modal/modal.scss';
 
-@import '../components/single-parallax/single-parallax.scss';
+@import '../cms-components/SingleParallax/single-parallax.scss';
 
 @import '../cms-components/OurBusinesses/ourbusinesses.scss';
 @import '../cms-components/OurProject/OurProject.scss';
@@ -872,6 +874,7 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	flex: 1;
+	font-size: 90%;
 }
 
 .accordion-overflow {

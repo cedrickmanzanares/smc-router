@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/button/button';
 
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 
 import { AspectRatio, Box, Flex, Grid } from '@chakra-ui/react';
 

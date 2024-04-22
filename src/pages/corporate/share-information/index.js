@@ -20,6 +20,8 @@ import Button from '@/components/button/button';
 import { basePath } from '@/hooks/use-basepath';
 import Section from '@/cms-components/Section/Section';
 import Link from 'next/link';
+import Column from '@/cms-components/Column/column';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 export default function ShareholderInformation() {
 	return (
 		<Fade>
@@ -27,52 +29,43 @@ export default function ShareholderInformation() {
 				title='Shareholder Information'
 				direction='center'></PageBanner>
 			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-				<div className='column mobile-hide'>
-					<div className='image-content stacked'>
-						<div className='img-container'>
-							<img
-								src={`${basePath}/images/ShareholderInformation/ShareholderInformation-1.svg`}
-							/>
-						</div>
-						<div className='img-container'>
-							<img src={`${basePath}/images/ph.svg`} />
-						</div>
-						<div className='img-container'>
-							<img
-								src={`${basePath}/images/ShareholderInformation/ShareholderInformation-2.png`}
-							/>
-						</div>
-					</div>
-				</div>
-				<div className='column'>
-					<div className=''>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							President’s Message
-							<PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Share Prices <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Dividend History <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Analyst Coverage <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Total Outstanding Shares <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Top 20 Stockholders <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Exchange where listed <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-						<Link href='/' className='btn pri-btn btn-stacked'>
-							Company Ownership Report <PiCaretCircleRight size={'1.75rem'} />
-						</Link>
-					</div>
-				</div>
+				<Column>
+					<StackedImages
+						images={[
+							`${basePath}/images/ShareholderInformation/ShareholderInformation-1.svg`,
+							`${basePath}/images/ph.svg`,
+							`${basePath}/images/ShareholderInformation/ShareholderInformation-2.png`,
+						]}
+					/>
+				</Column>
+
+				<Column>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						President’s Message
+						<PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Share Prices <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Dividend History <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Analyst Coverage <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Total Outstanding Shares <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Top 20 Stockholders <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Exchange where listed <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+					<Link href='/' className='btn pri-btn btn-stacked'>
+						Company Ownership Report <PiCaretCircleRight size={'1.75rem'} />
+					</Link>
+				</Column>
 			</Section>
 		</Fade>
 	);

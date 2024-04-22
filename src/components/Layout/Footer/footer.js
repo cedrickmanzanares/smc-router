@@ -415,18 +415,24 @@ export default function Footer() {
 								</AccordionButton>
 								<AccordionPanel>
 									<div className='privacy-flex'>
-										<img
-											src={`${basePath}/images/SMC_SOR.png`}
-											alt='Seal of Registration'
-											className='dpo'
-											data-filename='SMC_SOR.png'
-										/>
+										<Link href='/corporate/smc-privacy-statement/'>
+											<img
+												src={`${basePath}/images/SMC_SOR.png`}
+												alt='Seal of Registration'
+												className='dpo'
+												data-filename='SMC_SOR.png'
+											/>
+										</Link>
 										<p className='small-text'>
 											Telephone: (+632) 8-632-3007
 											<br />
 											Email: dpo@sanmiguel.com.ph
 											<br />
-											Click <a href='/page/npc-seal'>here</a> to view our
+											Click{' '}
+											<Link href='/corporate/smc-privacy-statement/'>
+												here
+											</Link>{' '}
+											to view our
 											<br />
 											NPC Seal of Registration
 										</p>

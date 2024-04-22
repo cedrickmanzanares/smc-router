@@ -2,7 +2,7 @@
 
 import Image3D from '@/cms-components/Image3D/Image3D';
 import { useRef } from 'react';
-import SingleParallax from '../single-parallax/single-parallax';
+import SingleParallax from '../../cms-components/SingleParallax/single-parallax';
 import Button from '../button/button';
 import { motion, useScroll } from 'framer-motion';
 

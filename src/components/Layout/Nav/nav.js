@@ -396,7 +396,7 @@ export function MainNav({ c, animation = true, toggle }) {
 						className='nav-item'
 						whileHover='hover'
 						onHoverStart={() => {
-							setHovered([index, true]);
+							if (item_lvl1.children.length !== 0) setHovered([index, true]);
 							console.log('enter');
 						}}
 						onHoverEnd={() => {

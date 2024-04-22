@@ -5,13 +5,35 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { getColors } from '@/hooks/use-color';
 import useAnim from '@/hooks/use-anim';
 import { pageTranslate } from '@/hooks/pageAnim';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { basePath } from '@/hooks/use-basepath';
 
 import { easeInOut } from 'framer-motion';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 export default function Pillar({ content, position, children, simple }) {
+	const { width } = useWindowSize();
+	const [focus, setFocus] = useState(content.d.focus);
+	const [bg, setBg] = useState(content.d.bg);
+
+	const [isMobile, setIsMobile] = useState(width < 768);
+
+	useEffect(() => {
+		if (width < 500) setIsMobile(true);
+		else setIsMobile(false);
+	}, [width]);
+
+	useEffect(() => {
+		if (isMobile) {
+			setFocus(content.m.focus);
+			setBg(content.m.bg);
+		} else {
+			setFocus(content.d.focus);
+			setBg(content.d.bg);
+		}
+	}, [isMobile]);
+
 	const easing = easeInOut;
 	const careers = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -279,7 +301,7 @@ export default function Pillar({ content, position, children, simple }) {
 							x: x[0],
 							y: y[0],
 							z: z[0],
-							backgroundImage: `url(${content.bg})`,
+							backgroundImage: `url(${bg})`,
 						}}>
 						<motion.div
 							style={{
@@ -331,7 +353,7 @@ export default function Pillar({ content, position, children, simple }) {
 								x: x[0],
 								y: y[0],
 								z: z[0],
-								backgroundImage: `url(${content.bg})`,
+								backgroundImage: `url(${bg})`,
 							}}></motion.div>
 					</motion.div>
 				</motion.div>
@@ -342,7 +364,7 @@ export default function Pillar({ content, position, children, simple }) {
 						x: x[1],
 						y: y[1],
 						z: z[1],
-						backgroundImage: `url(${content.focus})`,
+						backgroundImage: `url(${focus})`,
 					}}></motion.div>
 				<motion.div className='pillar-desc'>
 					<motion.p

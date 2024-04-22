@@ -19,6 +19,7 @@ import Button from '@/components/button/button';
 import { basePath } from '@/hooks/use-basepath';
 import Section from '@/cms-components/Section/Section';
 import StackedImages from '@/cms-components/StackedImages/stackedimages';
+import Column from '@/cms-components/Column/column';
 export default function Corporate() {
 	return (
 		<Fade>
@@ -29,7 +30,7 @@ export default function Corporate() {
 				bannerShade={true}
 				image={`${basePath}/images/Corporate/Corporate-Banner.png`}></PageBanner>
 			<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-				<div className='column'>
+				<Column>
 					<h2 className='heading-2'>Tincidunt egestas phasellus sed ornare</h2>
 					<p className='heading-5'>
 						<b>
@@ -47,8 +48,8 @@ export default function Corporate() {
 						Dictumst et turpis urna accumsan ornare. Volutpat amet enim aliquam
 						magnis. Felis viverra ornare elit feugiat dictumst. Velit nisl arcu.
 					</p>
-				</div>
-				<div className='column'>
+				</Column>
+				<Column>
 					<StackedImages
 						images={[
 							`${basePath}/images/Corporate/Corporate-1.svg`,
@@ -56,10 +57,10 @@ export default function Corporate() {
 							`${basePath}/images/Corporate/Corporate-2.png`,
 						]}
 					/>
-				</div>
+				</Column>
 			</Section>
 			<Section columnCount={2}>
-				<div className='column'>
+				<Column>
 					<div className='business-item'>
 						<div className='img-container'>
 							<img src={`${basePath}/images/Corporate/governance.png`} />
@@ -81,8 +82,8 @@ export default function Corporate() {
 							</p>
 						</div>
 					</div>
-				</div>
-				<div className='column'>
+				</Column>
+				<Column>
 					<div className='business-item'>
 						<div className='img-container'>
 							<img
@@ -111,8 +112,8 @@ export default function Corporate() {
 							</p>
 						</div>
 					</div>
-				</div>
-				<div className='column'>
+				</Column>
+				<Column>
 					<div className='business-item'>
 						<div className='img-container'>
 							<img
@@ -142,8 +143,8 @@ export default function Corporate() {
 							</p>
 						</div>
 					</div>
-				</div>
-				<div className='column'>
+				</Column>
+				<Column>
 					<div className='business-item'>
 						<div className='img-container'>
 							<img src={`${basePath}/images/OurStrategy/our-strat-4.png`} />
@@ -164,7 +165,7 @@ export default function Corporate() {
 							</p>
 						</div>
 					</div>
-				</div>
+				</Column>
 			</Section>
 		</Fade>
 	);

@@ -1,5 +1,5 @@
 'use client';
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 import { useRef } from 'react';

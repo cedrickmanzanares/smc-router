@@ -6,7 +6,7 @@ import { useRef } from 'react';
 
 import { useDimensions } from '@/hooks/use-dimension';
 
-import SingleParallax from '@/components/single-parallax/single-parallax';
+import SingleParallax from '@/cms-components/SingleParallax/single-parallax';
 
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';

@@ -26,7 +26,7 @@ export default function Fade({ children, customStyle }) {
 			className={`fade ${smcTheme}`}
 			style={{
 				...{
-					transformOrigin: 'center 20%',
+					transformOrigin: 'center top',
 				},
 				...customStyle,
 			}}
