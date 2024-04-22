@@ -10,6 +10,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import ImageSlider from '@/cms-components/ImageSlider/ImageSlider';
 import { useState } from 'react';
+import Column from '@/cms-components/Column/column';
 
 export default function OurCompany() {
 	const [selected, setSelected] = useState(0);
@@ -88,64 +89,61 @@ export default function OurCompany() {
 				<PageBanner noBg={true} title={'Our Company'} />
 
 				<Section>
-					<div className='column'>
-						<div className='text-content'>
-							<div className='float float-right'>
-								<div className='img-container'>
-									<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
-								</div>
+					<Column>
+						<div className='float float-right'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/OurCompany/Our-Company.png`} />
 							</div>
-							<p>
-								San Miguel Corporation, together with its subsidiaries, is one
-								of the largest and most diversified conglomerates in the
-								Philippines by revenues and total assets—with sales equivalent
-								to approximately 6.8% of the Philippine GDP in 2022.
-							</p>
-							<p>
-								Originally founded in 1890 as a single product brewery in the
-								Philippines, SMC today owns market-leading businesses and
-								investments in various sectors, including food and beverage,
-								packaging, energy, fuel and oil, infrastructure, cement,
-								property and banking services. SMC has a portfolio of companies
-								that is tightly interwoven into the economic fabric of the
-								Philippines, benefiting from, as well as contributing to the
-								development and economic progress of the country.
-							</p>
-							<p>
-								Since adopting its business diversification program in 2007, SMC
-								has channeled its resources into what it believes are attractive
-								growth sectors, which are aligned with the development and
-								growth of the Philippine economy. SMC believes that continuing
-								this strategy and pursuing growth plans within each business
-								will achieve a more diverse mix of sales and operating income,
-								and better position SMC to access capital, present different
-								growth opportunities and mitigate the impact of downturns and
-								business cycles.
-							</p>
-							<p>
-								SMC is one of the nation’s largest employers, with a direct
-								workforce of 50,433 employees as of December 2022. For each job
-								created within the San Miguel ecosystem, many additional jobs
-								are generated through suppliers, distributors, retailers, and
-								other business partners. At present, we have more than 100 major
-								facilities in the Asia-Pacific region.
-							</p>
-							<p>
-								Through strategic partnerships forged with major international
-								companies, we have access to managerial expertise, international
-								practices and advanced technology. Our partners, notably Kirin
-								Brewery Co., Ltd., Nihon Yamamura Glass, U.S.-based Hormel Foods
-								Corporation, and Korea Water Resources Corporation, are world
-								leaders in their respective businesses.
-							</p>
-							<p>
-								SMC is listed on the Philippine Stock Exchange (PSE Ticker:
-								SMC). Publicly-listed subsidiaries include San Miguel Food and
-								Beverage, Inc., Ginebra San Miguel, Inc., and Petron
-								Corporation.
-							</p>
 						</div>
-					</div>
+						<p>
+							San Miguel Corporation, together with its subsidiaries, is one of
+							the largest and most diversified conglomerates in the Philippines
+							by revenues and total assets—with sales equivalent to
+							approximately 6.8% of the Philippine GDP in 2022.
+						</p>
+						<p>
+							Originally founded in 1890 as a single product brewery in the
+							Philippines, SMC today owns market-leading businesses and
+							investments in various sectors, including food and beverage,
+							packaging, energy, fuel and oil, infrastructure, cement, property
+							and banking services. SMC has a portfolio of companies that is
+							tightly interwoven into the economic fabric of the Philippines,
+							benefiting from, as well as contributing to the development and
+							economic progress of the country.
+						</p>
+						<p>
+							Since adopting its business diversification program in 2007, SMC
+							has channeled its resources into what it believes are attractive
+							growth sectors, which are aligned with the development and growth
+							of the Philippine economy. SMC believes that continuing this
+							strategy and pursuing growth plans within each business will
+							achieve a more diverse mix of sales and operating income, and
+							better position SMC to access capital, present different growth
+							opportunities and mitigate the impact of downturns and business
+							cycles.
+						</p>
+						<p>
+							SMC is one of the nation’s largest employers, with a direct
+							workforce of 50,433 employees as of December 2022. For each job
+							created within the San Miguel ecosystem, many additional jobs are
+							generated through suppliers, distributors, retailers, and other
+							business partners. At present, we have more than 100 major
+							facilities in the Asia-Pacific region.
+						</p>
+						<p>
+							Through strategic partnerships forged with major international
+							companies, we have access to managerial expertise, international
+							practices and advanced technology. Our partners, notably Kirin
+							Brewery Co., Ltd., Nihon Yamamura Glass, U.S.-based Hormel Foods
+							Corporation, and Korea Water Resources Corporation, are world
+							leaders in their respective businesses.
+						</p>
+						<p>
+							SMC is listed on the Philippine Stock Exchange (PSE Ticker: SMC).
+							Publicly-listed subsidiaries include San Miguel Food and Beverage,
+							Inc., Ginebra San Miguel, Inc., and Petron Corporation.
+						</p>
+					</Column>
 				</Section>
 
 				<Section

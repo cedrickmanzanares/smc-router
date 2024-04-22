@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Fade from '@/components/Layout/Fade';
 
-import { useScroll } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/button/button';
@@ -151,12 +151,12 @@ export function NewsItem({
 }) {
 	const newsItemClass = `news-item ${direction ? direction : ''}`;
 	return (
-		<div className={newsItemClass}>
-			<div className='img-container'>
+		<motion.div initial='initial' whileHover='hover' className={newsItemClass}>
+			<motion.div className='img-container'>
 				<Link href={link}>
 					<img src={img} />
 				</Link>
-			</div>
+			</motion.div>
 			<div className='desc-container'>
 				<div className='news-date'>
 					<small className='small-text'>{date}</small>
@@ -164,13 +164,20 @@ export function NewsItem({
 				<h3 className='news-title heading-5'>
 					<Link href={link}>{title}</Link>
 				</h3>
-				<p>
+				<motion.p
+					variants={{
+						hover: {
+							x: 10,
+						},
+					}}>
 					<Link href={link} className='news-link'>
 						Learn More
-						<PiCaretCircleRight size={'1.5rem'} />
+						<motion.span>
+							<PiCaretCircleRight size={'1.5rem'} />
+						</motion.span>
 					</Link>
-				</p>
+				</motion.p>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

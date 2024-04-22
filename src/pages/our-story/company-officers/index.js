@@ -9,6 +9,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 export default function CompanyOfficers() {
 	return (
 		<>
@@ -27,7 +28,7 @@ export default function CompanyOfficers() {
 				<Section
 					columnCount={3}
 					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
-					<div className='column text-content full'>
+					<Column columnClasses='full'>
 						<p>
 							<b>
 								Ramon S. Ang
@@ -35,8 +36,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Vice Chairman, President and Chief Executive Officer</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Ferdinand K. Constantino
@@ -44,9 +45,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Chief Finance Officer-Treasurer</p>
-					</div>
-
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Virgilio S. Jacinto
@@ -54,8 +54,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Corporate Secretary and Compliance Officer</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Mary Rose S. Tan
@@ -63,13 +63,13 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Assistant Corporate Secretary</p>
-					</div>
-					<div className='column full'>
+					</Column>
+					<Column columnClasses='full'>
 						<h2 className='heading-5'>
 							<b>San Miguel Food and Beverage, Inc.</b>
 						</h2>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Emmanuel B. Macalalag</b>
 						</p>
@@ -78,8 +78,8 @@ export default function CompanyOfficers() {
 							<br />
 							General Manager, Ginebra San Miguel Inc.
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Francisco S. Alejo III
@@ -91,8 +91,8 @@ export default function CompanyOfficers() {
 							<br />
 							President, San Miguel Foods
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Carlos Antonio M. Berba
@@ -100,9 +100,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>OIC, San Miguel Brewery Inc.</p>
-					</div>
-
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 className='heading-6'>
 							San Miguel Yamamura Packaging Corporation
 						</h3>
@@ -110,8 +109,8 @@ export default function CompanyOfficers() {
 							<b>Ferdinand A. Tumpalan</b>
 						</p>
 						<p>President</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 className='heading-6'>
 							<b>Petron Corporation</b>
 						</h3>
@@ -119,8 +118,8 @@ export default function CompanyOfficers() {
 							<b>Lubin B. Nepomuceno</b>
 						</p>
 						<p>General Manager</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 class='heading-6'>
 							<b>SMC Global Power Holdings Corp.</b>
 						</h3>
@@ -129,8 +128,8 @@ export default function CompanyOfficers() {
 							<br />
 						</p>
 						<p>General Manager</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 class='heading-6'>
 							<b>San Miguel Holdings Corp.</b>
 						</h3>
@@ -142,8 +141,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Senior Vice President and Head</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 class='heading-6'>
 							<b>San Miguel Properties, Inc.</b>
 						</h3>
@@ -154,8 +153,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>General Manager</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 class='heading-6'>
 							<b>Northen Cement Corporation</b>
 						</h3>
@@ -166,8 +165,8 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>Officer-in-charge</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<h3 class='heading-6'>
 							<b>Eagle Cement Corporation</b>
 						</h3>
@@ -178,7 +177,7 @@ export default function CompanyOfficers() {
 							</b>
 						</p>
 						<p>President</p>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

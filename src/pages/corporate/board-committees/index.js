@@ -9,6 +9,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 export default function BoardCommittees() {
 	return (
 		<>
@@ -27,7 +28,7 @@ export default function BoardCommittees() {
 				<Section
 					columnCount={3}
 					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
-					<div className='column text-content'>
+					<Column>
 						<p class='heading-5'>
 							<b>EXECUTIVE COMMITTEE</b>
 						</p>
@@ -53,8 +54,8 @@ export default function BoardCommittees() {
 							<b>Iñigo Zobel</b>
 							<br />
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<header class='heading-5'>
 							<b>AUDIT AND RISK OVERSIGHT COMMITTEE</b>
 						</header>
@@ -96,9 +97,8 @@ export default function BoardCommittees() {
 								Internal Audit Charter
 							</a>
 						</p>
-					</div>
-
-					<div className='column'>
+					</Column>
+					<Column>
 						<header class='heading-5'>
 							<b>RELATED PARTY TRANSACTIONS COMMITTE</b>
 						</header>
@@ -129,8 +129,8 @@ export default function BoardCommittees() {
 								Related Party Transactions Committee Charter
 							</a>
 						</p>
-					</div>
-					<div className='column grow-limit'>
+					</Column>
+					<Column>
 						<header class='heading-5'>
 							<b>CORPORATE GOVERNANCE COMMITTEE</b>
 						</header>
@@ -161,9 +161,9 @@ export default function BoardCommittees() {
 								Corporate Governance Committee Charter
 							</a>
 						</p>
-					</div>
+					</Column>
 
-					<div className='column grow-limit'>
+					<Column>
 						<header class='heading-5'>
 							<b>BOARD SUSTAINABILITY COMMITTEE</b>
 						</header>
@@ -194,7 +194,7 @@ export default function BoardCommittees() {
 								Board Sustainability Committee Charter
 							</a>
 						</p>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

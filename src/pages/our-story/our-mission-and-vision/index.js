@@ -7,6 +7,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import { basePath } from '@/hooks/use-basepath';
+import Column from '@/cms-components/Column/column';
 
 export default function OurMissionAndVison() {
 	const { gray2, red } = getColors;
@@ -29,10 +30,12 @@ export default function OurMissionAndVison() {
 			<Fade>
 				<PageBanner title={'Our Mission & Vision'} direction='center' />
 				<Section>
-					<div className='column'>
-						<VideoContent />
-					</div>
-					<div className='column'>
+					<Column>
+						<VideoContent
+							src={`${basePath}/videos/SMC_VISION_PURPOSE_AVP_TOWNHALL_MEETING_2023_revised_4_5.mp4`}
+						/>
+					</Column>
+					<Column>
 						<div className='mv-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/ph.svg`} />
@@ -48,6 +51,9 @@ export default function OurMissionAndVison() {
 								<p>where everyone can enrich and enjoy their lives.</p>
 							</div>
 						</div>
+					</Column>
+
+					<Column>
 						<div className='mv-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/tao.svg`} />
@@ -67,6 +73,8 @@ export default function OurMissionAndVison() {
 								</p>
 							</div>
 						</div>
+					</Column>
+					<Column>
 						<div className='mv-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/heart.svg`} />
@@ -82,7 +90,7 @@ export default function OurMissionAndVison() {
 								<p>Excellence, Accountability, Sustainability</p>
 							</div>
 						</div>
-					</div>
+					</Column>
 				</Section>
 				<Section containerSize='small'></Section>
 			</Fade>

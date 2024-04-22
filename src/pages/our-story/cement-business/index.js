@@ -10,49 +10,9 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
-	const parallaxColumn = useRef(null);
-	const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
-	const { scrollYProgress } = useScroll({
-		target: parallaxColumn,
-		offset: ['start end', 'end start'],
-	});
-
-	const section2 = useRef(null);
-	const { scrollYProgress: section_2_scroll } = useScroll({
-		target: section2,
-		offset: ['start end', 'end start'],
-	});
-
-	const { height } = dimension;
-
-	const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-
-	const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-
-	const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-
-	const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
-
-	useEffect(() => {
-		var base_url = window.location.origin;
-		console.log(base_url);
-
-		const resize = () => {
-			setDimension({ width: window.innerWidth, height: window.innerHeight });
-		};
-
-		window.addEventListener('resize', resize);
-
-		resize();
-
-		return () => {
-			window.removeEventListener('resize', resize);
-		};
-	}, []);
-
 	return (
 		<>
 			<Head>
@@ -72,17 +32,21 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
+						<Column>
 							<p className='heading-5'>
 								The cement business is conducted through San Miguel Equity
 								Investments Inc. (SMEII), which is wholly owned by SMC.
 							</p>
+						</Column>
+						<Column>
 							<p>
 								SMEII is a holding company which owns 100% of the issued and
 								outstanding common stock of Northern Cement Corporation (NCC),
 								100% of Southern Concrete Industries Inc. (SCII), and 99.96% of
 								the newly acquired Eagle Cement Corporation (Eagle).
 							</p>
+						</Column>
+						<Column>
 							<p>
 								The cement business owns and operates fully-integrated cement
 								production facilities in Barangay Labayug, Sison, Province of
@@ -94,7 +58,7 @@ export default function FoodAndBeverages() {
 								cement production capacity of approximately 17.5 million MTPY of
 								finished cement.
 							</p>
-						</div>
+						</Column>
 					</div>
 				</Section>
 

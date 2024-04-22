@@ -9,6 +9,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 export default function OurValues() {
 	return (
 		<>
@@ -24,12 +25,12 @@ export default function OurValues() {
 			<Fade>
 				<PageBanner title={'Our Values'} direction='center' />
 				<Section>
-					<div className='column'>
+					<Column>
 						<VideoContent src={`${basePath}/videos/615559faf380d.mp4`} />
-					</div>
+					</Column>
 				</Section>
 				<Section>
-					<div className='column text-content'>
+					<Column>
 						<h2 className='heading-2 split-color'>
 							Malasakit is at the core <b>of who we are as a company</b>
 						</h2>
@@ -81,7 +82,7 @@ export default function OurValues() {
 							energy optimization and reducing waste are our key environmental
 							priorities.
 						</p>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

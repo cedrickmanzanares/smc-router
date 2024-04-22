@@ -14,6 +14,7 @@ import Section from '@/cms-components/Section/Section';
 
 import { CgPlayButtonO } from 'react-icons/cg';
 import VideoContent from '@/cms-components/VideoContent/Video';
+import Column from '@/cms-components/Column/column';
 
 export default function OurHistory() {
 	const parent1 = useRef(null);
@@ -50,11 +51,10 @@ export default function OurHistory() {
 				<PageBanner title={'Our History'} direction='center' />
 
 				<Section direction={'center'}>
-					<div className='column'>
+					<Column>
 						<h2 className='heading-2'>Proud Beginnings</h2>
-					</div>
-
-					<div className='column'>
+					</Column>
+					<Column>
 						<iframe
 							width='914'
 							height='514'
@@ -64,15 +64,15 @@ export default function OurHistory() {
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 							referrerpolicy='strict-origin-when-cross-origin'
 							allowfullscreen
-							style={{ maxWidth: '100%' }}></iframe>
+							style={{ maxWidth: '100%', width: '100%' }}></iframe>
 						{/* <VideoContent /> */}
-					</div>
+					</Column>
 				</Section>
 				<Section
 					direction={'center'}
 					containerSize='small'
 					sectionStyle={{ minHeight: '0', paddingTop: 0 }}>
-					<div className='column'>
+					<Column>
 						<p>
 							Established in 1890, La Fabrica de Cerveza de San Miguel,
 							Southeast Asia’s first brewery produced and bottled what would
@@ -80,172 +80,182 @@ export default function OurHistory() {
 							Within the span of a generation, San Miguel Beer would become an
 							icon among beer drinkers.
 						</p>
-					</div>
+					</Column>
 				</Section>
 				<motion.div
 					style={{ paddingTop: 0 }}
 					className='section-content img-section full no-min-height'
 					ref={parent1}>
 					<div className='container-fluid-width' style={{ rowGap: 0 }}>
-						<div className='marquee'>
-							<motion.div
-								className='marquee-overflow'
-								initial={{
-									x: 0,
-								}}
-								// style={{ x: xVal }}
-								animate={{
-									x: '-100vw',
-								}}
-								transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}>
-								<div
-									className='grid'
-									style={{
-										gridTemplateColumns:
-											'1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+						<Column>
+							<div className='marquee'>
+								<motion.div
+									className='marquee-overflow'
+									initial={{
+										x: 0,
+									}}
+									// style={{ x: xVal }}
+									animate={{
+										x: '-100vw',
+									}}
+									transition={{
+										repeat: Infinity,
+										duration: 25,
+										ease: 'linear',
 									}}>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/11.jpg`} />
-										</SingleParallax>
+									<div
+										className='grid'
+										style={{
+											gridTemplateColumns:
+												'1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+										}}>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/11.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/12.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/13.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/14.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/15.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/11.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/12.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/13.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/14.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/15.jpg`} />
+											</SingleParallax>
+										</div>
 									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/12.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/13.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/14.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/15.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/11.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/12.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/13.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/14.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/15.jpg`} />
-										</SingleParallax>
-									</div>
-								</div>
-							</motion.div>
-						</div>
-						<div className='marquee'>
-							<motion.div
-								className='marquee-overflow'
-								initial={{
-									x: '-100vw',
-								}}
-								animate={{
-									x: '0vw',
-								}}
-								transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}>
-								<div
-									className='grid'
-									style={{
-										gridTemplateColumns:
-											'1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+								</motion.div>
+							</div>
+							<div className='marquee'>
+								<motion.div
+									className='marquee-overflow'
+									initial={{
+										x: '-100vw',
+									}}
+									animate={{
+										x: '0vw',
+									}}
+									transition={{
+										repeat: Infinity,
+										duration: 25,
+										ease: 'linear',
 									}}>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/1.jpg`} />
-										</SingleParallax>
+									<div
+										className='grid'
+										style={{
+											gridTemplateColumns:
+												'1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+										}}>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/1.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/2.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/3.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/4.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/5.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/1.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/2.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/3.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/4.jpg`} />
+											</SingleParallax>
+										</div>
+										<div>
+											<SingleParallax
+												scrollYProgress_start={scrollYProgress_start1}>
+												<img src={`${basePath}/images/OurHistory/5.jpg`} />
+											</SingleParallax>
+										</div>
 									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/2.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/3.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/4.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/5.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/1.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/2.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/3.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/4.jpg`} />
-										</SingleParallax>
-									</div>
-									<div>
-										<SingleParallax
-											scrollYProgress_start={scrollYProgress_start1}>
-											<img src={`${basePath}/images/OurHistory/5.jpg`} />
-										</SingleParallax>
-									</div>
-								</div>
-							</motion.div>
-						</div>
+								</motion.div>
+							</div>
+						</Column>
 					</div>
 				</motion.div>
 			</Fade>

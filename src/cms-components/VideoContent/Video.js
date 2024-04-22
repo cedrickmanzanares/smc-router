@@ -21,6 +21,7 @@ export default function VideoContent({ src }) {
 						.closest('.video-content')
 						.querySelector('video');
 					video.play();
+					video.classList.add('playing');
 					if (video.requestFullscreen) {
 						video.requestFullscreen();
 					} else if (video.webkitRequestFullscreen) {
@@ -33,6 +34,7 @@ export default function VideoContent({ src }) {
 
 					let fullScreenChanged = function (e) {
 						if (!document.fullscreenElement) {
+							video.classList.remove('playing');
 							video.pause();
 						}
 					};

@@ -11,6 +11,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -72,11 +73,13 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
+						<Column>
 							<h2 className='heading-2'>
 								San Miguel Yamamura Packaging Corporation
 							</h2>
-							<img src={`${basePath}/images/OurBusinesses/packaging.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/packaging.png`} />
+							</p>
 							<p className='heading-5'>
 								San Miguel Yamamura Packaging Corporation (SMYPC) is a joint
 								venture company that combines the competencies of two recognized
@@ -120,7 +123,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>

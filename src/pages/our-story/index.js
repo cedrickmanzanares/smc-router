@@ -26,8 +26,6 @@ export default function OurStory() {
 	const router = useRouter();
 	const params = useParams();
 
-	// console.log(router);
-	// console.log(params);
 	const grid = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -178,7 +176,7 @@ export default function OurStory() {
 				<Section>
 					<div className='column'>
 						<h2 className='heading-2'>Lobortis purus at adipiscing aliquam</h2>
-						<p>
+						<p className='subheading'>
 							Eu phasellus nunc neque porta laoreet maecenas tortor in. Magnis
 							sit leo at a tortor. Quis massa tellus ut arcu sit sed sed. In
 							ultrices curabitur leo eu.

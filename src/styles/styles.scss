@@ -588,15 +588,15 @@ a {
 		gap: 0.5rem;
 		font-family: 'Merriweather Sans', sans-serif;
 		font-weight: 600;
-		svg {
-			transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-		}
+		// svg {
+		// 	transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+		// }
 
-		&:hover {
-			svg {
-				transform: translate(10px, 0);
-			}
-		}
+		// &:hover {
+		// 	svg {
+		// 		transform: translate(10px, 0);
+		// 	}
+		// }
 	}
 }
 
@@ -760,6 +760,13 @@ a {
 
 	.desc-container {
 		flex: 0 1 1;
+	}
+}
+
+.other-businesses {
+	line-height: 1.5;
+	a:hover {
+		font-weight: 600;
 	}
 }
 
@@ -957,6 +964,12 @@ a {
 
 .bussinesses-desc-column {
 	flex: 1 1 500px !important;
+	h2 {
+		margin-top: 2rem;
+	}
+	p:last-child {
+		margin-bottom: 2rem;
+	}
 }
 .bussinesses-opportunities-column {
 	flex: 0 1 250px !important;

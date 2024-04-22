@@ -11,6 +11,7 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
 	const parallaxColumn = useRef(null);
@@ -39,7 +40,6 @@ export default function FoodAndBeverages() {
 
 	useEffect(() => {
 		var base_url = window.location.origin;
-		console.log(base_url);
 
 		const resize = () => {
 			setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -73,7 +73,7 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
+						<Column>
 							<h2 className='heading-2'>San Miguel Global Power</h2>
 							<img src={`${basePath}/images/OurBusinesses/packaging.jpg`} />
 							<p className='heading-5'>
@@ -99,7 +99,8 @@ export default function FoodAndBeverages() {
 								that will change the Philippine energy mix and help the country
 								achieve a carbon-neutral economy.
 							</p>
-
+						</Column>
+						<Column>
 							<p>
 								<b>Power Generation</b>
 							</p>
@@ -145,7 +146,9 @@ export default function FoodAndBeverages() {
 								power industry and further help the country achieve energy
 								security.
 							</p>
+						</Column>
 
+						<Column>
 							<p>
 								<b>Power Distribution</b>
 							</p>
@@ -166,6 +169,9 @@ export default function FoodAndBeverages() {
 								contracts with contestable customers and expand its customer
 								base.
 							</p>
+						</Column>
+
+						<Column>
 							<p>
 								<b>Battery Energy Storage</b>
 							</p>
@@ -190,7 +196,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>

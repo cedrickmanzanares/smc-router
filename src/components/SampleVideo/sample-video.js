@@ -100,25 +100,51 @@ export default function SampleVideo() {
 					// 	y: yValue,
 					// }}
 				>
-					<div style={{ margin: 'auto' }}>
-						<motion.h2 className='heading-2'>
+					<motion.div
+						style={{ margin: 'auto' }}
+						variants={{
+							initial: {},
+							activate: {
+								transition: {
+									staggerChildren: 0.035,
+								},
+							},
+						}}
+						animate={activate ? 'activate' : 'initial'}>
+						<motion.h2
+							className='heading-2'
+							variants={{
+								activate: {
+									y: 25,
+								},
+							}}>
 							Sed ut perspiciatis unde omnis iste natus error sit voluptatem
 						</motion.h2>
-						<motion.p>
+						<motion.p
+							variants={{
+								activate: {
+									y: 25,
+								},
+							}}>
 							accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
 							quae ab illo inventore veritatis et quasi architecto beatae vitae
 							dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
 							aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
 							eos qui ratione voluptatem sequi nesciunt.
 						</motion.p>
-						<p>
+						<motion.p
+							variants={{
+								activate: {
+									y: 25,
+								},
+							}}>
 							<Button
 								link='/our-business/inner'
 								className='btn btn-bordered white'>
 								Read More
 							</Button>
-						</p>
-					</div>
+						</motion.p>
+					</motion.div>
 				</motion.div>
 				<motion.div
 					className='video-container'

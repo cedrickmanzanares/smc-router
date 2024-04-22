@@ -14,6 +14,7 @@ import TextGradient from '@/cms-components/TextGradient/TextGradient';
 import Section from '@/cms-components/Section/Section';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import { basePath } from '@/hooks/use-basepath';
+import Column from '@/cms-components/Column/column';
 
 export default function OurStrategy() {
 	const { gray2, red } = getColors;
@@ -36,34 +37,33 @@ export default function OurStrategy() {
 			<Fade>
 				<PageBanner title={'Our Strategy'} direction='center' />
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-					<div className='column'>
+					<Column>
 						<div className='image-content'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/OurStrategy-1.png`} />
 							</div>
 						</div>
-					</div>
-					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-3'>
-								San Miguel’s goal is to help people enjoy and make progress in
-								their lives through the many products and services that our
-								company offers. 
-							</h2>
-							<p>
-								We want to give every customer and consumer we touch access to
-								the best we can offer—whether in terms of quality, affordability
-								or choice.
-							</p>
-							<p>
-								Our strategy for achieving these goals has five major elements
-								which are common to both our traditional and new businesses:
-							</p>
-						</div>
-					</div>
+					</Column>
+
+					<Column>
+						<h2 className='heading-3'>
+							San Miguel’s goal is to help people enjoy and make progress in
+							their lives through the many products and services that our
+							company offers. 
+						</h2>
+						<p>
+							We want to give every customer and consumer we touch access to the
+							best we can offer—whether in terms of quality, affordability or
+							choice.
+						</p>
+						<p>
+							Our strategy for achieving these goals has five major elements
+							which are common to both our traditional and new businesses:
+						</p>
+					</Column>
 				</Section>
-				<Section sectionStyle={{ paddingTop: 0 }}>
-					<div className='column'>
+				<Section sectionStyle={{ paddingTop: 0 }} containerStyle={{ gap: 0 }}>
+					<Column>
 						<div className='business-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/our-strat-1.png`} />
@@ -83,6 +83,8 @@ export default function OurStrategy() {
 								</p>
 							</div>
 						</div>
+					</Column>
+					<Column>
 						<div className='business-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/our-strat-2.png`} />
@@ -103,6 +105,8 @@ export default function OurStrategy() {
 								</p>
 							</div>
 						</div>
+					</Column>
+					<Column>
 						<div className='business-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/our-strat-3.png`} />
@@ -125,6 +129,8 @@ export default function OurStrategy() {
 								</p>
 							</div>
 						</div>
+					</Column>
+					<Column>
 						<div className='business-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/our-strat-4.png`} />
@@ -152,6 +158,8 @@ export default function OurStrategy() {
 								</p>
 							</div>
 						</div>
+					</Column>
+					<Column>
 						<div className='business-item'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/OurStrategy/our-strat-5.png`} />
@@ -172,7 +180,7 @@ export default function OurStrategy() {
 								</p>
 							</div>
 						</div>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

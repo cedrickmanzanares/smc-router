@@ -15,6 +15,7 @@ import { basePath } from '@/hooks/use-basepath';
 import Section from '@/cms-components/Section/Section';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import { NewsItem } from '../../corporate/news';
+import Column from '@/cms-components/Column/column';
 
 export default function Kaunlaran() {
 	const kol = useRef(null);
@@ -53,13 +54,6 @@ export default function Kaunlaran() {
 			date: 'Jan-Mar 2023',
 			vol: 'Vol. 55 Issue 1',
 		},
-		{
-			link: '/',
-			img: basePath + '/images/News/n5.png',
-			title: 'Sit porttitor pellentesque fermentum leo ipsum lacus.',
-			date: 'Jan-Mar 2023',
-			vol: 'Vol. 55 Issue 1',
-		},
 	];
 	return (
 		<>
@@ -75,7 +69,7 @@ export default function Kaunlaran() {
 			<Fade>
 				<PageBanner title={'Kaunlaran Online'} noBg={true} />
 				<Section columnCount={2}>
-					<div className='column'>
+					<Column>
 						<p>
 							<b>Kaunlaran Online</b> Non dapibus eget dictum congue neque nibh.
 							Feugiat sapien cras felis tristique morbi sit sit vel. Dolor neque
@@ -93,26 +87,26 @@ export default function Kaunlaran() {
 							<img src={`${basePath}/images/Kaunlaran-2.png`} />
 							<img src={`${basePath}/images/Kaunlaran-3.png`} />
 						</div>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<div className='image-content'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/Kaunlaran-1.png`} />
 							</div>
 						</div>
-					</div>
+					</Column>
 				</Section>
 				<Section columnCount={4}>
 					<div className='column' style={{ flex: '1 1 60rem' }}>
-						<div className='column'>
+						<Column>
 							<h2 className='heading-2'>Featured Articles</h2>
 							<p className='subheading'>
 								Non dapibus eget dictum congue neque nibh. Feugiat sapien cras
 								felis tristique morbi sit sit vel. Dolor neque morbi tortor sit
 								tincidunt semper.
 							</p>
-						</div>
-						<div className='kaunlaran-featured column'>
+						</Column>
+						<Column columnClasses='kaunlaran-featured'>
 							<div className='img-container'>
 								<img src={`${kaunlaran_items[0].img}`} />
 							</div>
@@ -130,11 +124,11 @@ export default function Kaunlaran() {
 									</Button>
 								</p>
 							</div>
-						</div>
+						</Column>
 					</div>
 					{kaunlaran_items.map((news, index) => {
 						return (
-							<div className='column' key={`NewsItem_` + index}>
+							<Column key={`NewsItem_` + index}>
 								<NewsItem
 									link={news.link}
 									index={index}
@@ -143,7 +137,7 @@ export default function Kaunlaran() {
 									img={news.img}
 									direction={'horizontal'}
 								/>
-							</div>
+							</Column>
 						);
 					})}
 				</Section>

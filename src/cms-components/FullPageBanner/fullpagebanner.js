@@ -12,25 +12,35 @@ export default function FullPageBanner({ image, caption, children }) {
 	const banner = useRef();
 	const { scrollYProgress } = useScroll({
 		target: banner,
-		offset: ['start end', 'end start'],
+		offset: ['end end', 'end start'],
 	});
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-5%', '5%']);
+	const width = useTransform(scrollYProgress, [0, 1], ['100%', '80%']);
+	const padding = useTransform(scrollYProgress, [0, 1], ['0', '4rem']);
 	// const z = useTransform(scrollYProgress, [0, 1], ['0%', '-100%']);
 
 	return (
 		<motion.div className='image-content fullbanner' ref={banner}>
-			{/* <SingleParallax scrollYProgress_start={scrollYProgress}> */}
-			<div className='img-container'>
-				<motion.div
-					className='fullbanner-img'
-					style={{ backgroundImage: `url(${image})`, y: y }}></motion.div>
+			<motion.div
+				className='container-fluid-width'
+				style={{
+					paddingTop: padding,
+					paddingBottom: padding,
+					width: width,
+				}}>
+				{/* <SingleParallax scrollYProgress_start={scrollYProgress}> */}
+				<div className='img-container'>
+					<motion.div
+						className='fullbanner-img'
+						style={{ backgroundImage: `url(${image})`, y: y }}></motion.div>
 
-				{/* </SingleParallax> */}
-			</div>
-			<div className='image-caption'>
-				<h3 className='fullbanner-title heading-1'>{caption}</h3>
-			</div>
+					{/* </SingleParallax> */}
+				</div>
+				<div className='image-caption'>
+					<h3 className='fullbanner-title heading-1'>{caption}</h3>
+				</div>
+			</motion.div>
 		</motion.div>
 	);
 }

@@ -11,49 +11,9 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
-	const parallaxColumn = useRef(null);
-	const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
-	const { scrollYProgress } = useScroll({
-		target: parallaxColumn,
-		offset: ['start end', 'end start'],
-	});
-
-	const section2 = useRef(null);
-	const { scrollYProgress: section_2_scroll } = useScroll({
-		target: section2,
-		offset: ['start end', 'end start'],
-	});
-
-	const { height } = dimension;
-
-	const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-
-	const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-
-	const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-
-	const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
-
-	useEffect(() => {
-		var base_url = window.location.origin;
-		console.log(base_url);
-
-		const resize = () => {
-			setDimension({ width: window.innerWidth, height: window.innerHeight });
-		};
-
-		window.addEventListener('resize', resize);
-
-		resize();
-
-		return () => {
-			window.removeEventListener('resize', resize);
-		};
-	}, []);
-
 	return (
 		<>
 			<Head>
@@ -73,10 +33,11 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
+						<Column>
 							<h2 className='heading-2'>San Miguel Brewery Inc.</h2>
-							<img src={`${basePath}/images/OurBusinesses/smb.png`} />
-
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/smb.png`} />
+							</p>
 							<p>
 								San Miguel Brewery Inc. (SMB) is the largest producer of beer in
 								the Philippines, with nine out of ten beer drinkers preferring
@@ -162,7 +123,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>
@@ -200,11 +161,14 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
-							<p className='heading-3'>
+						<Column>
+							<h2 className='heading-2'>
 								<b>San Miguel Foods</b>
+							</h2>
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/food.png`} />
 							</p>
-							<img src={`${basePath}/images/OurBusinesses/food.png`} />
+
 							<p>
 								San Miguel Foods, a Division of San Miguel Food and Beverage,
 								Inc., is comprised of leading food companies in the Philippines.
@@ -232,9 +196,6 @@ export default function FoodAndBeverages() {
 								nationbuilding.
 							</p>
 							<p>San Miguel Foods. Always Good.</p>
-							<p></p>
-							<p></p>
-							<p></p>
 
 							<p>
 								<Button
@@ -247,7 +208,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>
@@ -274,11 +235,13 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
-							<p className='heading-3'>
+						<Column>
+							<h2 className='heading-2'>
 								<b>Ginebra San Miguel Inc.</b>
+							</h2>
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/genebra.png`} />
 							</p>
-							<img src={`${basePath}/images/OurBusinesses/genebra.png`} />
 							<p>
 								Ginebra San Miguel, Inc. is the world’s largest gin producer by
 								volume as well as the market leader in the domestic hard liquor
@@ -302,7 +265,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>

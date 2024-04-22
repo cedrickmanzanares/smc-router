@@ -1,8 +1,13 @@
 .video-content {
 	position: relative;
+	background-color: black;
 	video {
+		opacity: 0.5;
 		width: 100%;
 		background-color: var(--base-black);
+	}
+	video.playing {
+		opacity: 1;
 	}
 	.video-play {
 		position: absolute;

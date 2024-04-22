@@ -3,6 +3,7 @@ import Fade from '@/components/Layout/Fade';
 
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 
 export default function EnvironmenalProgram() {
 	return (
@@ -24,7 +25,7 @@ export default function EnvironmenalProgram() {
 				/>
 
 				<Section>
-					<div className='column'>
+					<Column>
 						<h2 className='heading-3'>Water for All</h2>
 						<p>
 							In 2017, even as our water management efficiency levels were
@@ -58,6 +59,8 @@ export default function EnvironmenalProgram() {
 							continue to reduce groundwater use, even as we work with
 							communities to protect these water sources.
 						</p>
+					</Column>
+					<Column>
 						<h2 className='heading-3'>River cleanup initiative</h2>
 						<p>
 							In August 2022, San Miguel Corporation completed the Tullahan
@@ -101,6 +104,8 @@ export default function EnvironmenalProgram() {
 							daunting endeavor, taking the first steps toward restoration is a
 							crucial part and one that SMC is more than willing to take.
 						</p>
+					</Column>
+					<Column>
 						<h2 className='heading-3'>Waste-to-resource</h2>
 						<p>
 							We make conscious and disciplined efforts to recycle coal
@@ -140,7 +145,7 @@ export default function EnvironmenalProgram() {
 								DOWNLOAD OUR LATEST SUSTAINABILITY REPORT
 							</a>
 						</p>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

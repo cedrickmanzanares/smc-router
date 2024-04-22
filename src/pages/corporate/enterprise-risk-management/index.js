@@ -9,6 +9,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 export default function SMCPrivacy() {
 	return (
 		<>

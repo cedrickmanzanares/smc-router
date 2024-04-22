@@ -11,49 +11,9 @@ import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
-	const parallaxColumn = useRef(null);
-	const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
-	const { scrollYProgress } = useScroll({
-		target: parallaxColumn,
-		offset: ['start end', 'end start'],
-	});
-
-	const section2 = useRef(null);
-	const { scrollYProgress: section_2_scroll } = useScroll({
-		target: section2,
-		offset: ['start end', 'end start'],
-	});
-
-	const { height } = dimension;
-
-	const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-
-	const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-
-	const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-
-	const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
-
-	useEffect(() => {
-		var base_url = window.location.origin;
-		console.log(base_url);
-
-		const resize = () => {
-			setDimension({ width: window.innerWidth, height: window.innerHeight });
-		};
-
-		window.addEventListener('resize', resize);
-
-		resize();
-
-		return () => {
-			window.removeEventListener('resize', resize);
-		};
-	}, []);
-
 	return (
 		<>
 			<Head>
@@ -73,7 +33,7 @@ export default function FoodAndBeverages() {
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<div className='column bussinesses-desc-column'>
-						<div className='text-content'>
+						<Column>
 							<p>
 								SMC Infrastructure, our infrastructure arm handles the
 								construction, management, and operation of the country’s largest
@@ -88,9 +48,9 @@ export default function FoodAndBeverages() {
 							<h2 className='heading-2'>
 								Tarlac-Pangasinan-la Union Expressway (TPLEX)
 							</h2>
-
-							<img src={`${basePath}/images/OurBusinesses/infra-1.png`} />
-
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-1.png`} />
+							</p>
 							<p>
 								The <b>Tarlac-Pangasinan-La Union Expressway (TPLEX)</b> is an
 								89.21-km toll road that runs from Tarlac to La Union. It has
@@ -101,9 +61,12 @@ export default function FoodAndBeverages() {
 								easier. This expressway has also been the gateway to beautiful
 								destinations up north.
 							</p>
-
+						</Column>
+						<Column>
 							<h2 className='heading-2'>Skyway System</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-2.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-2.png`} />
+							</p>
 							<p>
 								<b>Skyway Stage 1</b> consists of a 9.3-km elevated road that
 								runs from Bicutan to the Makati Central Business District; as
@@ -142,11 +105,14 @@ export default function FoodAndBeverages() {
 								Heights, Muntinlupa. This toll road will also provide additional
 								lanes to Sucat, and is expected to be completed by 2021.
 							</p>
-
+						</Column>
+						<Column>
 							<h2 className='heading-2'>
 								Southern Tagalog Arterial Road (STAR)
 							</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-3.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-3.png`} />
+							</p>
 							<p>
 								The Southern Tagalog Arterial Road (STAR) is a 41.9-km highway
 								that stretches out from Sto. Tomas, Batangas all the way to
@@ -156,8 +122,12 @@ export default function FoodAndBeverages() {
 								more convenient movement of goods from the port all the way to
 								Mindoro and other parts of Visayas
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>South Luzon Expressway (SLEX)</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-4.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-4.png`} />
+							</p>
 							<p>
 								The South Luzon Expressway (SLEX), is a 36-km long highway, with
 								toll roads 1, 2 and 3, that runs from Alabang to Sto. Tomas,
@@ -181,8 +151,12 @@ export default function FoodAndBeverages() {
 								its expansion provide faster access to the provinces of Laguna,
 								Batangas and Quezon.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>NAIA Expressway (NAIAX)</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-5.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-5.png`} />
+							</p>
 							<p>
 								The NAIA Expressway or (NAIAX), an important component of the
 								company’s infrastructure portfolio, is a 5.4-km, four-lane
@@ -191,8 +165,12 @@ export default function FoodAndBeverages() {
 								NAIAX, passengers are handed the luxury of a stress-free travel,
 								be it by land or by air.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading02'>Pasig River Expressway (PAREX)</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-6.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-6.png`} />
+							</p>
 							<p>
 								The Pasig River Expressway (PAREX) is a 19.37-km, 6-lane
 								elevated expressway that will connect the Radial Road 10 (R10)
@@ -202,8 +180,12 @@ export default function FoodAndBeverages() {
 								establishing a direct link between the western and eastern
 								cities of Metro Manila.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>Autosweep RFID</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-7.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-7.png`} />
+							</p>
 							<p>
 								Autosweep RFID commenced its formal operations in 2016 for a
 								faster and more effective electronic toll collection program for
@@ -215,8 +197,12 @@ export default function FoodAndBeverages() {
 								accounts, can conveniently apply for their own RFID and enjoy a
 								more hassle-free drive.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>Metro Rail Transit 7 (MRT-7)</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-8.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-8.png`} />
+							</p>
 							<p>
 								SMC Infrastructure has also ventured early on in other projects
 								aside from the toll road business. The Metro Rail Transit 7
@@ -225,10 +211,14 @@ export default function FoodAndBeverages() {
 								Bulacan with 14 stations, which can accommodate up to 650,000
 								passengers daily.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>
 								Bulacan Bulk Water Supply System Project (BBWSSP)
 							</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-9.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-9.png`} />
+							</p>
 							<p>
 								The Bulacan Bulk Water Supply System Project is a treatment
 								facility with 3 stages – it will provide affordable and potable
@@ -238,8 +228,12 @@ export default function FoodAndBeverages() {
 								providing Bulacenos easier access to the kind of water they
 								deserve, by also giving them a better quality of life.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>Manila North Harbor Port</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-10.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-10.png`} />
+							</p>
 							<p>
 								Through concessionaire, SMC also initiated the rehabilitation of
 								the Manila North Harbor Port, the country’s busiest port. Aside
@@ -247,8 +241,12 @@ export default function FoodAndBeverages() {
 								also provides passengers first-class service, making their
 								safety and security from and to the vessels the top priority.{' '}
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>Boracay Airport</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-11.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-11.png`} />
+							</p>
 							<p>
 								SMC Infrastructure took the lead in overseeing the modernization
 								of the Boracay Airport, the current and long-term developments
@@ -257,10 +255,14 @@ export default function FoodAndBeverages() {
 								serve bigger aircrafts and to keep passengers happy and
 								satisfied.
 							</p>
+						</Column>
+						<Column>
 							<h2 className='heading-2'>
 								New Manila International Airport (NMIA)
 							</h2>
-							<img src={`${basePath}/images/OurBusinesses/infra-12.png`} />
+							<p>
+								<img src={`${basePath}/images/OurBusinesses/infra-12.png`} />
+							</p>
 							<p>
 								The New Manila International Airport (NMIA) project is a
 								game-changer for the Philippines, a world class airport that
@@ -280,7 +282,7 @@ export default function FoodAndBeverages() {
 									Read More
 								</Button>
 							</p>
-						</div>
+						</Column>
 					</div>
 					<div className='column bussinesses-opportunities-column sticky'>
 						<div className='text-content'>

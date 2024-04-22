@@ -11,6 +11,8 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import { NewsItem } from '@/pages/corporate/news';
+import Column from '@/cms-components/Column/column';
+import StackedImages from '@/cms-components/StackedImages/stackedimages';
 
 export default function CSR() {
 	const images = [
@@ -81,90 +83,73 @@ export default function CSR() {
 				/>
 
 				<Section columnCount={2}>
-					<div className='column'>
+					<Column>
 						<div className='image-content'>
 							<div className='img-container'>
 								<img src={`${basePath}/images/CSR/CSR-1.png`} />
 							</div>
 						</div>
-					</div>
-					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-2'>
-								More than a slogan, it’s a calling to our better selves. It’s a
-								credo rooted in hope and action.
-							</h2>
-							<p>
-								As a company, San Miguel Corporation invests in social projects
-								not only because it makes good business sense, but because we
-								believe the private sector needs to do its part. If the cities
-								and communities we serve are thriving, San Miguel will thrive
-								too.
-							</p>
-							<p>
-								<Button
-									link='/our-business/inner'
-									className='pri-btn btn-bordered'>
-									Learn More
-								</Button>
-							</p>
-						</div>
-					</div>
+					</Column>
+					<Column>
+						<h2 className='heading-2'>
+							More than a slogan, it’s a calling to our better selves. It’s a
+							credo rooted in hope and action.
+						</h2>
+						<p>
+							As a company, San Miguel Corporation invests in social projects
+							not only because it makes good business sense, but because we
+							believe the private sector needs to do its part. If the cities and
+							communities we serve are thriving, San Miguel will thrive too.
+						</p>
+						<p>
+							<Button
+								link='/our-business/inner'
+								className='pri-btn btn-bordered'>
+								Learn More
+							</Button>
+						</p>
+					</Column>
 				</Section>
 
-				<Section containerSize={'full'} columnCount={1}>
-					<div className='column'>
-						<FullPageBanner
-							image={`${basePath}/images/CSR/WWW.png`}
-							caption={'The world we want'}></FullPageBanner>
-					</div>
-				</Section>
+				<FullPageBanner
+					image={`${basePath}/images/CSR/WWW.png`}
+					caption={'The world we want'}></FullPageBanner>
 
 				<Section columnCount={2} containerStyle={{ alignItems: 'center' }}>
-					<div className='column'>
-						<div className='text-content'>
-							<h2 className='heading-2'>Environmental and Other Programs</h2>
-							<p>
-								The environmental program of San Miguel Foundation Inc. covers
-								the protection of land, water, and air. On a smaller scale, the
-								Foundation conducts tree-planting projects on areas identified
-								by different San Miguel Corporation (SMC) plants. Tree-planting
-								projects are usually scheduled to coincide with plant
-								celebrations.
-							</p>
-							<p>
-								The Foundation advocates the protection of coastal waters
-								through its Coastal Resource Management, which engages in
-								mangrove reforestation, artificial reef installation and
-								regeneration of marine resources. Training on waste management
-								and donation of trash bins through plant facilities are also
-								conducted.
-							</p>
-							<p>
-								<Button
-									link='/our-business/inner'
-									className='pri-btn btn-bordered'>
-									Learn More
-								</Button>
-							</p>
-						</div>
-					</div>
-					<div className='column'>
-						<div className='image-content stacked'>
-							<div className='img-container'>
-								<img src={`${basePath}/images/CSR/EOP-1.svg`} />
-							</div>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/ph.svg`}
-									style={{ display: 'none' }}
-								/>
-							</div>
-							<div className='img-container'>
-								<img src={`${basePath}/images/CSR/EOP-2.png`} />
-							</div>
-						</div>
-					</div>
+					<Column>
+						<h2 className='heading-2'>Environmental and Other Programs</h2>
+						<p>
+							The environmental program of San Miguel Foundation Inc. covers the
+							protection of land, water, and air. On a smaller scale, the
+							Foundation conducts tree-planting projects on areas identified by
+							different San Miguel Corporation (SMC) plants. Tree-planting
+							projects are usually scheduled to coincide with plant
+							celebrations.
+						</p>
+						<p>
+							The Foundation advocates the protection of coastal waters through
+							its Coastal Resource Management, which engages in mangrove
+							reforestation, artificial reef installation and regeneration of
+							marine resources. Training on waste management and donation of
+							trash bins through plant facilities are also conducted.
+						</p>
+						<p>
+							<Button
+								link='/our-business/inner'
+								className='pri-btn btn-bordered'>
+								Learn More
+							</Button>
+						</p>
+					</Column>
+					<Column>
+						<StackedImages
+							images={[
+								`${basePath}/images/CSR/EOP-1.svg`,
+								`${basePath}/images/ph.svg`,
+								`${basePath}/images/CSR/EOP-2.png`,
+							]}
+						/>
+					</Column>
 				</Section>
 
 				<Section columnCount={2}>
@@ -175,7 +160,7 @@ export default function CSR() {
 					</div>
 					{newsItems.map((news, index) => {
 						return (
-							<div className='column' key={`NewsItem_` + index}>
+							<Column key={`NewsItem_` + index}>
 								<NewsItem
 									link={news.link}
 									index={index}
@@ -183,25 +168,11 @@ export default function CSR() {
 									date={news.date}
 									img={news.img}
 								/>
-							</div>
+							</Column>
 						);
 					})}
 				</Section>
 			</Fade>
 		</>
-	);
-}
-
-function Column({ images, y }) {
-	return (
-		<div className='column'>
-			{images.map((src, i) => {
-				return (
-					<motion.div key={i} className='img-container' style={{ y }}>
-						<img src={src} alt='image' fill />
-					</motion.div>
-				);
-			})}
-		</div>
 	);
 }

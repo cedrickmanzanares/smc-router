@@ -16,7 +16,7 @@ export default function OurProject({ className, link, children }) {
 	const [y, setY] = useState();
 	const { scrollYProgress } = useScroll({
 		target: business,
-		offset: ['start end', 'end start'],
+		offset: ['start start', 'end end'],
 	});
 
 	const [selected, setSelected] = useState(0);
@@ -131,11 +131,10 @@ export default function OurProject({ className, link, children }) {
 	return (
 		<motion.div
 			className='ourproject-section section-content text-center'
-			style={{}}
 			initial='initial'
 			whileInView='visible'
 			ref={business}>
-			<div className='projects-bgs'>
+			<motion.div className='projects-bgs'>
 				{slides.map((slide, index) => {
 					return (
 						<motion.div
@@ -150,14 +149,14 @@ export default function OurProject({ className, link, children }) {
 							}}></motion.div>
 					);
 				})}
-			</div>
-			<div className='container-fluid-width medium'>
+			</motion.div>
+			<motion.div className='container-fluid-width medium'>
 				<div className='column'>
-					<h2 className='heading-2'>Our Projects</h2>
-					<p className='subheading'>
+					<motion.h2 className='heading-2'>Our Projects</motion.h2>
+					<motion.p className='subheading'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</p>
+					</motion.p>
 
 					<div className='projects-slider-container'>
 						<div className='projects-slider'>
@@ -249,7 +248,7 @@ export default function OurProject({ className, link, children }) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</motion.div>
 	);
 }

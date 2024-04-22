@@ -29,6 +29,9 @@
 		width: 768px;
 		max-width: 100%;
 		font-size: 1.05rem;
+
+		margin-bottom: 3rem;
+		line-height: 1.5;
 	}
 	.column {
 		container-type: inline-size;
@@ -57,11 +60,10 @@
 			padding-bottom: 4rem;
 		}
 	}
-
 	h2 {
-		transition-property: color;
-		transition-delay: 1s;
+		margin-bottom: 2rem;
 	}
+
 	&.column-2 {
 		.container-fluid-width {
 			.column {
@@ -142,13 +144,6 @@
 	}
 	.subheading {
 		margin: auto;
-	}
-	h2 {
-		margin-bottom: 1rem;
-		+ p {
-			margin-bottom: 3rem;
-			line-height: 1.5;
-		}
 	}
 }
 

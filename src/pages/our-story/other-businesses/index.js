@@ -9,6 +9,7 @@ import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs';
 import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 
 export default function FoodAndBeverages() {
 	return (
@@ -29,11 +30,7 @@ export default function FoodAndBeverages() {
 					columnCount={3}
 					containerSize='medium'
 					containerStyle={{ flexDirection: 'row-reverse' }}>
-					<div
-						class='column text-center'
-						style={{
-							lineHeight: 1.25,
-						}}>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -57,8 +54,8 @@ export default function FoodAndBeverages() {
 								</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -80,8 +77,8 @@ export default function FoodAndBeverages() {
 								<a href=''>ARCHEN Technologies</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -103,8 +100,8 @@ export default function FoodAndBeverages() {
 								<a href='https://www.bankcom.com.ph/'>Bank of Commerce</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -126,8 +123,8 @@ export default function FoodAndBeverages() {
 								<a href=''>SMC Retirement Funds Office</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -151,8 +148,8 @@ export default function FoodAndBeverages() {
 								</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -174,8 +171,8 @@ export default function FoodAndBeverages() {
 								<a href=''>SMITS, Inc.</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -197,8 +194,8 @@ export default function FoodAndBeverages() {
 								<a href='https://www.prosync.com.ph/'>ProSync</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -220,8 +217,8 @@ export default function FoodAndBeverages() {
 								<a href='#'>SMC Asia Car Distributors Corporation</a>
 							</h3>
 						</div>
-					</div>
-					<div class='column text-center'>
+					</Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							class='img-container'
 							style={{
@@ -243,13 +240,8 @@ export default function FoodAndBeverages() {
 								<a href='#'>Velocita Motors, Inc. (VMI)</a>
 							</h3>
 						</div>
-					</div>
-					<div
-						class='column text-center grow-limit'
-						style={{
-							marginLeft: 'auto',
-							marginRight: 'auto',
-						}}>
+					</Column>
+					<Column>
 						<div
 							class='img-container'
 							style={{
@@ -273,7 +265,7 @@ export default function FoodAndBeverages() {
 								</a>
 							</h3>
 						</div>
-					</div>
+					</Column>
 				</Section>
 
 				<Section sectionStyle={{ paddingTop: 0 }}>

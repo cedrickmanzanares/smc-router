@@ -9,6 +9,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import VideoContent from '@/cms-components/VideoContent/Video';
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
 export default function BoardOfDirectors() {
 	return (
 		<>
@@ -27,7 +28,7 @@ export default function BoardOfDirectors() {
 				<Section
 					columnCount={3}
 					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
-					<div className='column text-content full'>
+					<Column columnClasses='text-content full'>
 						<p>
 							<b>Ramon S. Ang</b>
 						</p>
@@ -36,30 +37,30 @@ export default function BoardOfDirectors() {
 							<br />
 							Vice Chairman, Executive Committee
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>John Paul L. Ang</b>
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Aurora T. Calderon</b>
 						</p>
 						<p>Member, Corporate Governance Committee</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Joselito D. Campos, Jr.</b>
 						</p>
 						<p>Member, Related Party Transactions Committee</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Jose C. de Venecia, Jr.</b>
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Menardo R. Jimenez</b>
 						</p>
@@ -68,8 +69,8 @@ export default function BoardOfDirectors() {
 							<br />
 							Member, Corporate Governance Committee
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Estelito P. Mendoza</b>
 						</p>
@@ -78,8 +79,8 @@ export default function BoardOfDirectors() {
 							<br />
 							Member, Audit and Risk Oversight Committee
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Alexander J. Poblador
@@ -87,18 +88,18 @@ export default function BoardOfDirectors() {
 							</b>
 						</p>
 						<p>Member, Related Party Transactions Committee</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Thomas A. Tan</b>
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Ramon F. Villavicencio</b>
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>
 								Iñigo Zobel
@@ -106,8 +107,8 @@ export default function BoardOfDirectors() {
 							</b>
 						</p>
 						<p>Member, Executive Committee</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Teresita J. Leonardo-De Castro</b>
 						</p>
@@ -117,8 +118,8 @@ export default function BoardOfDirectors() {
 							Chairman, Related Party Transactions Committee <br />
 							Member, Audit and Risk Oversight Committee
 						</p>
-					</div>
-					<div className='column'>
+					</Column>
+					<Column>
 						<p>
 							<b>Reynato S. Puno</b>
 						</p>
@@ -131,8 +132,8 @@ export default function BoardOfDirectors() {
 							<br />
 							Member, Related Party Transactions Committee
 						</p>
-					</div>
-					<div className='column grow-limit'>
+					</Column>
+					<Column>
 						<p>
 							<b>Margarito B. Teves</b>
 						</p>
@@ -145,8 +146,8 @@ export default function BoardOfDirectors() {
 							<br />
 							Member, Corporate Governance Committee
 						</p>
-					</div>
-					<div className='column grow-limit'>
+					</Column>
+					<Column>
 						<p>
 							<b>Diosdado M. Peralta</b>
 						</p>
@@ -158,7 +159,7 @@ export default function BoardOfDirectors() {
 							Member, Corporate Governance Committee
 							<br />
 						</p>
-					</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>
