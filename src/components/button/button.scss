@@ -165,6 +165,11 @@
 	svg {
 		margin-left: 0.5rem;
 	}
+	&:hover {
+		background-color: var(--base-black) !important;
+		color: white;
+		font-weight: 600 !important;
+	}
 }
 
 @media only screen and (max-width: 450px) {

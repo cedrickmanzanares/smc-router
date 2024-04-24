@@ -458,8 +458,8 @@ export function MainNav({ c, animation = true, toggle }) {
 				},
 			}}>
 			{menu.map((item_lvl1, index) => {
-				let activeClass = index === 0 ? 'active' : '';
-				let height = index === 0 ? 'auto' : '0px';
+				let activeClass = animation ? (index === 0 ? 'active' : '') : '';
+				let height = animation ? (index === 0 ? 'auto' : '0px') : 'auto';
 				let link = item_lvl1.page.length
 					? `/${item_lvl1.page[0].slug}`
 					: `${item_lvl1.url}`;
@@ -505,9 +505,16 @@ export function MainNav({ c, animation = true, toggle }) {
 								}}>
 								<div className='container-fluid-width medium accordion-group'>
 									{item_lvl1.children.map((item_lvl2, index2) => {
-										let activeClass =
-											index === 0 && index2 === 0 ? 'active' : '';
-										let height = index === 0 && index2 === 0 ? 'auto' : '0px';
+										let activeClass = animation
+											? index === 0 && index2 === 0
+												? 'active'
+												: ''
+											: '';
+										let height = animation
+											? index === 0 && index2 === 0
+												? 'auto'
+												: '0px'
+											: 'auto';
 
 										let link = parent_slug;
 										link = item_lvl2.url
