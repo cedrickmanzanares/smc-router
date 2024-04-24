@@ -133,13 +133,14 @@ export const useGetButtonColor = () => {
 
 export const useGetBannerData = () => {
 	const today = new Date();
+	const { baseBlack } = getColors;
 	const images = [
 		{
 			video: `${basePath}/images/Homepage-1/NewBanner/banner_morning.mp4`,
 			images: [],
 			start: '5:00',
 			end: '6:59',
-			bg: ['#6ba7cc', '#bac1c9'],
+			bg: ['#dcb994', '#eccda2'],
 		},
 		{
 			images: [
@@ -151,6 +152,7 @@ export const useGetBannerData = () => {
 			start: '7:00',
 			end: '10:59',
 			bg: ['#bac1c9', '#6ba7cc'],
+			color: baseBlack,
 		},
 		{
 			images: [
@@ -204,12 +206,14 @@ export const useGetBannerData = () => {
 			banner_data.images = image.images;
 			banner_data.video = image.video;
 			banner_data.bg = image.bg;
+			banner_data.color = image.color;
 		}
 		if (index === 4) {
 			if (imageTimeEnd >= today || today >= imageTimeStart) {
 				banner_data.images = image.images;
 				banner_data.video = image.video;
 				banner_data.bg = image.bg;
+				banner_data.color = image.color;
 			}
 		}
 	});

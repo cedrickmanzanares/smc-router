@@ -15,8 +15,8 @@ import { enterDuration } from '../anim';
 import Link from 'next/link';
 import { basePath } from '@/hooks/use-basepath';
 import Search from './search';
-import { PiPlusCircle } from 'react-icons/pi';
-import { useGetToggleFill } from '@/data/data';
+import { PiMinusCircle, PiPlusCircle } from 'react-icons/pi';
+import { useGetBannerData, useGetToggleFill } from '@/data/data';
 import {
 	floatingNavContent_variants,
 	path1_variants,
@@ -54,11 +54,12 @@ const HoveredContext = createContext(null);
 
 export default function Nav({}) {
 	const router = useRouter();
+	const { color } = useGetBannerData();
 	const { fakePreload, doneIntro } = useContext(PreloadContext);
 	const { smcThemeDelayed, smcTheme } = useContext(ThemeContext);
 	const [[navIndex, navHovered], setHovered] = useState([null, false]);
 	const className = router.route === '/' ? 'home' : 'inner';
-
+	const [navColor, setNavColor] = useState('#ffffff');
 	const { scrollY } = useScroll();
 	const [navOpen, navShow] = useState(true);
 	const [isToggleOpen, toggle] = useCycle(false, true);
@@ -102,6 +103,17 @@ export default function Nav({}) {
 	};
 
 	useEffect(() => {
+		console.log(color, 'color');
+		switch (smcTheme) {
+			case 'smc-yellow':
+				setNavColor(baseBlack);
+			case 'smc-default':
+				setNavColor(color ? color : '#ffffff');
+			default:
+				setNavColor('#ffffff');
+		}
+	}, [smcTheme, color]);
+	useEffect(() => {
 		getBackground(navIndex, navHovered);
 	}, [navIndex, navHovered]);
 
@@ -122,13 +134,13 @@ export default function Nav({}) {
 	const navContainer_variants = {
 		initial: {
 			opacity: 1,
-			color: 'white',
+			color: navColor,
 		},
 		'smc-red': {
 			...default_variants,
 			...{
 				backgroundColor: red,
-				color: 'white',
+				color: navColor,
 			},
 		},
 		'smc-yellow': {
@@ -142,18 +154,18 @@ export default function Nav({}) {
 			...default_variants,
 			...{
 				backgroundColor: blue,
-				color: 'white',
+				color: navColor,
 			},
 		},
 		'smc-default': {
 			...default_variants,
 			...{
-				color: 'white',
+				color: color,
 			},
 		},
 		preload: {
 			opacity: 0,
-			color: 'white',
+			color: navColor,
 			transition: {
 				duration: 2,
 				staggerChildren: 0.5,
@@ -162,7 +174,7 @@ export default function Nav({}) {
 
 		closed: {
 			opacity: 0,
-			color: 'black',
+			color: navColor,
 			transition: {
 				duration: 0.35,
 				ease: [0.76, 0, 0.24, 1],
@@ -356,9 +368,60 @@ export function MainNav({ c, animation = true, toggle }) {
 		},
 	};
 
+	const navAccordion = (event) => {
+		let target = event.target;
+		let accordionGroup = target.closest('.accordion-group');
+		let accordionButton = target.closest('button');
+		let accordionTarget = event.target
+			.closest('.accordion-source')
+			.querySelector('.accordion-target');
+
+		let accordionSources = accordionGroup.childNodes;
+
+		let accordionTargets = [...accordionSources]
+			.map((source) => {
+				return source.querySelector('.accordion-target');
+			})
+			.filter((i) => {
+				return i !== null;
+			});
+
+		console.log(accordionTargets);
+
+		let toClose = [...accordionTargets].filter((i) => {
+			console.log('i', i);
+			console.log('accordionTarget', accordionTarget);
+			return i !== accordionTarget;
+		});
+
+		// console.log(toClose);
+		if (toClose.length)
+			animate(toClose, {
+				height: '0px',
+			});
+		[...accordionTargets].map((target) => {
+			target.classList.remove('active');
+		});
+		[...accordionSources].map((source) => {
+			let button = source.childNodes[0].querySelector('button');
+			if (button) button.classList.remove('active');
+		});
+
+		accordionButton.classList.toggle('active');
+
+		if (event.target.closest('button').classList.contains('active'))
+			animate(accordionTarget, {
+				height: 'auto',
+			});
+		else
+			animate(accordionTarget, {
+				height: '0px',
+			});
+	};
+
 	return (
 		<motion.div
-			className={`${c} main-nav`}
+			className={`${c} main-nav accordion-group`}
 			variants={{
 				...preload_variants,
 				...{
@@ -393,7 +456,7 @@ export function MainNav({ c, animation = true, toggle }) {
 				let parent_slug = link;
 				return (
 					<motion.div
-						className='nav-item'
+						className='nav-item accordion-source'
 						whileHover='hover'
 						onHoverStart={() => {
 							if (item_lvl1.children.length !== 0) setHovered([index, true]);
@@ -405,16 +468,27 @@ export function MainNav({ c, animation = true, toggle }) {
 						}}
 						variants={navItem_variants}
 						key={`menuItem_lvl1_${item_lvl1.id}`}>
-						<Link href={link} onClick={toggle}>
-							{item_lvl1.title}
-						</Link>
+						<div className='nav-item-link'>
+							<Link href={link} onClick={toggle}>
+								{item_lvl1.title}
+							</Link>
+							{item_lvl1.children.length !== 0 && animation && (
+								<button
+									onClick={(event) => {
+										navAccordion(event);
+									}}>
+									<PiPlusCircle className='open' fontSize={'1.75rem'} />
+									<PiMinusCircle className='close' fontSize={'1.75rem'} />
+								</button>
+							)}
+						</div>
 						{item_lvl1.children.length !== 0 && (
 							<motion.div
-								className='nav-dropdown'
+								className='nav-dropdown accordion-target'
 								animate={{
 									display: navHovered && navIndex === index ? 'block' : 'none',
 								}}>
-								<div className='container-fluid-width medium'>
+								<div className='container-fluid-width medium accordion-group'>
 									{item_lvl1.children.map((item_lvl2, index) => {
 										let link = parent_slug;
 										link = item_lvl2.url
@@ -426,7 +500,7 @@ export function MainNav({ c, animation = true, toggle }) {
 
 										return (
 											<div
-												className='inner-dropdown'
+												className='inner-dropdown accordion-source'
 												key={`menuItem_lvl2_${item_lvl2.id}`}>
 												<motion.b
 													whileHover='hover'
@@ -434,11 +508,27 @@ export function MainNav({ c, animation = true, toggle }) {
 													<Link href={link} onClick={toggle}>
 														{item_lvl2.title}
 													</Link>
+													{item_lvl2.children.length !== 0 && animation && (
+														<button
+															onClick={(event) => {
+																navAccordion(event);
+															}}>
+															<PiPlusCircle
+																className='open'
+																fontSize={'1.5rem'}
+															/>
+															<PiMinusCircle
+																className='close'
+																fontSize={'1.5rem'}
+															/>
+														</button>
+													)}
 													<motion.span className='line'></motion.span>
 												</motion.b>
 
 												{item_lvl2.children.length !== 0 && (
-													<div className={`${columnClass} inner_lvl2-dropdown`}>
+													<div
+														className={`${columnClass} inner_lvl2-dropdown accordion-target accordion-group`}>
 														{item_lvl2.children.map((item_lvl3, index) => {
 															let link = parent_slug;
 															link = item_lvl3.url
@@ -446,7 +536,9 @@ export function MainNav({ c, animation = true, toggle }) {
 																: (link += '/' + item_lvl3.page[0].slug);
 
 															return (
-																<div key={`menuItem_lvl3_${item_lvl3.id}`}>
+																<div
+																	key={`menuItem_lvl3_${item_lvl3.id}`}
+																	className='accordion-source'>
 																	<div className='inner_lvl2-dropdown-link'>
 																		<Link href={link} onClick={toggle}>
 																			{item_lvl3.title}
@@ -455,34 +547,22 @@ export function MainNav({ c, animation = true, toggle }) {
 																		{item_lvl3.children.length !== 0 && (
 																			<button
 																				onClick={(event) => {
-																					event.target.classList.toggle(
-																						'active'
-																					);
-
-																					let target = event.target.closest(
-																						'.inner_lvl2-dropdown-link'
-																					).nextSibling;
-
-																					if (
-																						event.target.classList.contains(
-																							'active'
-																						)
-																					)
-																						animate(target, {
-																							height: 'auto',
-																						});
-																					else
-																						animate(target, {
-																							height: '0px',
-																						});
+																					navAccordion(event);
 																				}}>
-																				<PiPlusCircle fontSize={'1.25rem'} />
+																				<PiPlusCircle
+																					className='open'
+																					fontSize={'1.5rem'}
+																				/>
+																				<PiMinusCircle
+																					className='close'
+																					fontSize={'1.5rem'}
+																				/>
 																			</button>
 																		)}
 																	</div>
 																	{item_lvl3.children.length !== 0 && (
 																		<div
-																			className={`inner_lvl3-dropdown`}
+																			className={`inner_lvl3-dropdown accordion-target`}
 																			style={{
 																				height: 0,
 																				listStyle: 'circle',
@@ -613,17 +693,26 @@ function FloatingNav({ navOpen, isToggleOpen, toggle }) {
 						className='toggle_path1'
 						{...toggleDefaults}
 						variants={path1_variants}
+						style={{
+							transformOrigin: '35px 27px !important',
+						}}
 					/>
 
 					<motion.path
 						className='toggle_path2'
 						{...toggleDefaults}
 						variants={path2_variants}
+						style={{
+							transformOrigin: '35px 35px !important',
+						}}
 					/>
 					<motion.path
 						className='toggle_path3'
 						{...toggleDefaults}
 						variants={path3_variants}
+						style={{
+							transformOrigin: '35px 43px !important',
+						}}
 					/>
 
 					{/* <path

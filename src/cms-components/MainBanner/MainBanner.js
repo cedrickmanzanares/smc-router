@@ -8,7 +8,7 @@ import { basePath } from '@/hooks/use-basepath';
 import { useGetBannerData } from '@/data/data';
 import { PreloadContext } from '@/pages/_app';
 
-export default function MainBanner() {
+export default function MainBanner({ option2 = false }) {
 	const { fakePreload, doneIntro } = useContext(PreloadContext);
 	const { images, video } = useGetBannerData();
 

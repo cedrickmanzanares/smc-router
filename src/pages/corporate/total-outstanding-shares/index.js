@@ -28,7 +28,7 @@ export default function TotalOutstandingShares() {
 								*Updated Quarterly; will update once received
 							</span>
 						</p>
-						<table class='table'>
+						<table className='table'>
 							<tbody>
 								<tr>
 									<td>Number of Issued Common Shares</td>

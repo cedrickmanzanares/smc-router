@@ -46,9 +46,9 @@ export default function FinancialHighlights({}) {
 					</FormControl>
 				</Flex>
 				<div className='column'>
-					<table class='table'>
+					<table className='table'>
 						<tbody>
-							<tr class='upper table__header'>
+							<tr className='upper table__header'>
 								<th>
 									For the period ended 1H2023 (In Million Pesos, except per
 									share and statistical data)
@@ -77,14 +77,14 @@ export default function FinancialHighlights({}) {
 							<tr>
 								<td>Basic Earnings per share (absolute amount)</td>
 								<td></td>
-								<td class='td-yellow'>(0.84)</td>
+								<td className='td-yellow'>(0.84)</td>
 							</tr>
 							<tr>
 								<td>Cash Dividend declared</td>
 								<td>&nbsp;</td>
 								<td>4,424</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>
 									Cash Dividend declared per common share per quarter (absolute
 									amount)
@@ -92,7 +92,7 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>0.35</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>
 									Cash Dividend declared per preferred share per quarter
 									(absolute amount):
@@ -100,29 +100,29 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>&nbsp;SMCP2F</td>
 								<td>&nbsp;</td>
 								<td>1.276350</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>&nbsp;SMCP2I</td>
 								<td>&nbsp;</td>
 								<td>1.187906</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>&nbsp;SMCP2J</td>
 								<td>&nbsp;</td>
 								<td>0.890625</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>&nbsp;SMCP2K</td>
 								<td>&nbsp;</td>
 								<td>0.843750</td>
 							</tr>
 						</tbody>
 					</table>
-					<table class='table'>
+					<table className='table'>
 						<tbody>
 							<tr>
 								<th>As of 1H2023</th>
@@ -139,7 +139,7 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>728,164</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>
 									Equity Attributable to Equity Holders of the Parent Company
 								</td>
@@ -151,7 +151,7 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>633,462</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>
 									Equity Per Share Attributable to Equity Holders of Parent
 									Company:
@@ -159,7 +159,7 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>&nbsp; &nbsp;- Common</td>
 								<td>&nbsp;</td>
 								<td>79.54</td>
@@ -169,12 +169,12 @@ export default function FinancialHighlights({}) {
 								<td></td>
 								<td>75.00</td>
 							</tr>
-							<tr class='force-gray'>
+							<tr className='force-gray'>
 								<td>Number of Common Shares Outstanding:</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							</tr>
-							<tr class='force-gray'>
+							<tr className='force-gray'>
 								<td>
 									<span>&nbsp;&nbsp;&nbsp;-&nbsp;</span>Net of treasury Shares
 									(absolute number)
@@ -182,19 +182,19 @@ export default function FinancialHighlights({}) {
 								<td>&nbsp;</td>
 								<td>2,383,896,588</td>
 							</tr>
-							<tr class='force-white'>
+							<tr className='force-white'>
 								<td>Number of Stockholders (common &amp; preferred)</td>
 								<td>&nbsp;</td>
 								<td>32,488</td>
 							</tr>
-							<tr class='force-gray'>
+							<tr className='force-gray'>
 								<td>Number of Employees*</td>
 								<td>&nbsp;</td>
 								<td>51,132</td>
 							</tr>
 						</tbody>
 					</table>
-					<table class='table'>
+					<table className='table'>
 						<tbody>
 							<tr>
 								<th>Financial Statistics</th>

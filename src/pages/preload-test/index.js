@@ -24,6 +24,9 @@ export default function Preload() {
 		initial: {
 			pathLength: 0,
 			opacity: 0,
+			transition: {
+				duration: 1,
+			},
 		},
 		animate: {
 			pathLength: 1,
@@ -50,13 +53,14 @@ export default function Preload() {
 					}}
 					transition={{
 						duration: 1.5,
+						delay: 0.2,
 					}}>
 					<div className='noise'></div>
 
 					<div className='img-container white'>
 						<motion.svg
 							initial='initial'
-							animate={fakePreload ? 'animate' : 'initial'}
+							animate={!doneIntro ? 'animate' : 'initial'}
 							variants={container}
 							onAnimationComplete={() => {
 								setDoneIntro(true);

@@ -29,7 +29,7 @@ export default function BoardCommittees() {
 					columnCount={3}
 					containerStyle={{ lineHeight: 1.5, gap: '3rem' }}>
 					<Column>
-						<p class='heading-5'>
+						<p className='heading-5'>
 							<b>EXECUTIVE COMMITTEE</b>
 						</p>
 						<p>
@@ -56,7 +56,7 @@ export default function BoardCommittees() {
 						</p>
 					</Column>
 					<Column>
-						<header class='heading-5'>
+						<header className='heading-5'>
 							<b>AUDIT AND RISK OVERSIGHT COMMITTEE</b>
 						</header>
 						<p>
@@ -76,7 +76,7 @@ export default function BoardCommittees() {
 							<b>Diosdado M. Peralta</b>
 							<br />
 						</p>
-						<p class='doc-links'>
+						<p className='doc-links'>
 							<a
 								target='_blank'
 								href='/storage/files/reports/SMC-Audit-and-Risk-Oversight-Committee-Charter-10-Aug-2017.pdf'
@@ -99,7 +99,7 @@ export default function BoardCommittees() {
 						</p>
 					</Column>
 					<Column>
-						<header class='heading-5'>
+						<header className='heading-5'>
 							<b>RELATED PARTY TRANSACTIONS COMMITTE</b>
 						</header>
 						<p>
@@ -118,7 +118,7 @@ export default function BoardCommittees() {
 							<br />
 							<b>Margarito B. Teves</b>
 						</p>
-						<p class='doc-links'>
+						<p className='doc-links'>
 							<a
 								target='_blank'
 								href='/storage/files/reports/SMC-Related-Party-Transactions-Committee-Charter-10-Aug-2017.pdf'
@@ -131,7 +131,7 @@ export default function BoardCommittees() {
 						</p>
 					</Column>
 					<Column>
-						<header class='heading-5'>
+						<header className='heading-5'>
 							<b>CORPORATE GOVERNANCE COMMITTEE</b>
 						</header>
 						<p>
@@ -150,7 +150,7 @@ export default function BoardCommittees() {
 							<br />
 							<b>Margarito B. Teves</b>
 						</p>
-						<p class='doc-links'>
+						<p className='doc-links'>
 							<a
 								target='_blank'
 								href='/storage/files/reports/SMC-Corporate-Governance-Committee-Charter-10-Aug-2017.pdf'
@@ -164,7 +164,7 @@ export default function BoardCommittees() {
 					</Column>
 
 					<Column>
-						<header class='heading-5'>
+						<header className='heading-5'>
 							<b>BOARD SUSTAINABILITY COMMITTEE</b>
 						</header>
 						<p>
@@ -183,7 +183,7 @@ export default function BoardCommittees() {
 							<br />
 							<b>Alexander J. Poblador</b>
 						</p>
-						<p class='doc-links'>
+						<p className='doc-links'>
 							<a
 								target='_blank'
 								href='/storage/files/reports/SMC_Sustainability_Committee_Charter_-_3_August_2023_[for_uploading).pdf'

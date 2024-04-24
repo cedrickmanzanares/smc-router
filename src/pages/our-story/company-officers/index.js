@@ -120,7 +120,7 @@ export default function CompanyOfficers() {
 						<p>General Manager</p>
 					</Column>
 					<Column>
-						<h3 class='heading-6'>
+						<h3 className='heading-6'>
 							<b>SMC Global Power Holdings Corp.</b>
 						</h3>
 						<p>
@@ -130,7 +130,7 @@ export default function CompanyOfficers() {
 						<p>General Manager</p>
 					</Column>
 					<Column>
-						<h3 class='heading-6'>
+						<h3 className='heading-6'>
 							<b>San Miguel Holdings Corp.</b>
 						</h3>
 						<p>SMC Infrastructure Business</p>
@@ -143,7 +143,7 @@ export default function CompanyOfficers() {
 						<p>Senior Vice President and Head</p>
 					</Column>
 					<Column>
-						<h3 class='heading-6'>
+						<h3 className='heading-6'>
 							<b>San Miguel Properties, Inc.</b>
 						</h3>
 						<p>
@@ -155,7 +155,7 @@ export default function CompanyOfficers() {
 						<p>General Manager</p>
 					</Column>
 					<Column>
-						<h3 class='heading-6'>
+						<h3 className='heading-6'>
 							<b>Northen Cement Corporation</b>
 						</h3>
 						<p>
@@ -167,7 +167,7 @@ export default function CompanyOfficers() {
 						<p>Officer-in-charge</p>
 					</Column>
 					<Column>
-						<h3 class='heading-6'>
+						<h3 className='heading-6'>
 							<b>Eagle Cement Corporation</b>
 						</h3>
 						<p>

@@ -32,7 +32,7 @@ export default function FoodAndBeverages() {
 					containerStyle={{ flexDirection: 'row-reverse' }}>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#fbfbfb',
@@ -47,8 +47,8 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='https://aibc.com.ph/'>
 									Anchor Insurance Brokerage Corp
 								</a>
@@ -57,7 +57,7 @@ export default function FoodAndBeverages() {
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -72,15 +72,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href=''>ARCHEN Technologies</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -95,15 +95,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='https://www.bankcom.com.ph/'>Bank of Commerce</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -118,15 +118,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href=''>SMC Retirement Funds Office</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -141,8 +141,8 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='https://smcstocktransfer.com.ph/'>
 									SMC Stock Transfer Corp
 								</a>
@@ -151,7 +151,7 @@ export default function FoodAndBeverages() {
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -166,15 +166,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href=''>SMITS, Inc.</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -189,15 +189,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='https://www.prosync.com.ph/'>ProSync</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -212,15 +212,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='#'>SMC Asia Car Distributors Corporation</a>
 							</h3>
 						</div>
 					</Column>
 					<Column columnClasses='text-center other-businesses'>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -235,15 +235,15 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='#'>Velocita Motors, Inc. (VMI)</a>
 							</h3>
 						</div>
 					</Column>
 					<Column>
 						<div
-							class='img-container'
+							className='img-container'
 							style={{
 								borderRadius: '100%',
 								backgroundColor: '#f7f7f7',
@@ -258,8 +258,8 @@ export default function FoodAndBeverages() {
 								/>
 							</a>
 						</div>
-						<div class='desc'>
-							<h3 class='heading-5 card-title'>
+						<div className='desc'>
+							<h3 className='heading-5 card-title'>
 								<a href='https://petrogen.com.ph/' target='_blank'>
 									Petrogen Insurance Corporation
 								</a>

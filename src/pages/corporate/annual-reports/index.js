@@ -155,8 +155,8 @@ export default function AnnualReports() {
 					containerStyle={{ overflow: 'hidden' }}
 					containerClass='annual-container'>
 					<div className='column full'>
-						<Flex gap={5} className='full'>
-							<FormLabel>Select a year for quick search</FormLabel>
+						<Flex gap={5} className='full' align={'center'}>
+							<div>Select a year for quick search</div>
 							<FormControl w={'auto'}>
 								<Select placeholder='Select Year'>
 									<option>Select Year</option>

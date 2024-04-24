@@ -16,7 +16,7 @@ export default function FinancialStatement() {
 			<PageBanner title='Financial Statement' direction='center'></PageBanner>
 			<Section>
 				<div className='column'>
-					<table class='table'>
+					<table className='table'>
 						<thead>
 							<tr>
 								<th colspan='2'>17-A (Annual Report)</th>

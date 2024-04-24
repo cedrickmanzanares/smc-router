@@ -21,9 +21,9 @@ export default function BoardCommittees() {
 
 				<Section columnCount={3}>
 					<div className='column text-content'>
-						<table class='table text-center'>
+						<table className='table text-center'>
 							<tbody>
-								<tr class='upper table__header'>
+								<tr className='upper table__header'>
 									<th>Name</th>
 									<th>Company</th>
 									<th>Email Address</th>

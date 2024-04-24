@@ -26,14 +26,14 @@ export default function PresidentsMessage() {
 
 				<Section columnCount={3}>
 					<div className='column text-content'>
-						<div class='float float-left'>
-							<div class='img-container'>
+						<div className='float float-left'>
+							<div className='img-container'>
 								<img
 									src={`${basePath}/images/Corporate/RSA.jpg`}
 									data-filename='SMC President and CAO Ramon S Ang.jpg'
 								/>
 							</div>
-							<div class='caption' style={{ textAlign: 'center' }}>
+							<div className='caption' style={{ textAlign: 'center' }}>
 								<p style={{ margin: '1rem 0 0 0' }}>
 									<b>Ramon S. Ang</b>&nbsp;
 								</p>

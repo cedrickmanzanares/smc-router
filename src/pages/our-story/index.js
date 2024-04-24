@@ -307,7 +307,7 @@ export default function OurStory() {
 										className='ourstory-tab-item'
 										custom={0}
 										variants={tab_variants}>
-										<div class='mobile-only'>
+										<div className='mobile-only'>
 											<h3 className='heading-3'>Vision</h3>
 											<p>
 												A resilient and globally-competitive Philippines where
@@ -337,7 +337,7 @@ export default function OurStory() {
 												: 'initial'
 										}
 										variants={tab_variants}>
-										<div class='mobile-only'>
+										<div className='mobile-only'>
 											<h3 className='heading-3'>Purpose</h3>
 											<p>
 												To lead in nation-building by creating opportunities
@@ -367,7 +367,7 @@ export default function OurStory() {
 												: 'initial'
 										}
 										variants={tab_variants}>
-										<div class='mobile-only'>
+										<div className='mobile-only'>
 											<h3 className='heading-3'>Value</h3>
 											<p>
 												<b>

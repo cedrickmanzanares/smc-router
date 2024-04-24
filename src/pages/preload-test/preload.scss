@@ -21,18 +21,19 @@
 		left: 0;
 		background-image: url('/images/noise.svg');
 		mix-blend-mode: multiply;
+		opacity: 0.5;
 	}
 	svg {
-		width: 400px;
-		max-width: 100%;
+		width: 100%;
 	}
 	.img-container {
-		width: 400px;
+		width: 500px;
 		max-width: 100%;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		padding: calc(var(--container-padding) * 2);
 	}
 	.img-container.white {
 		path {
