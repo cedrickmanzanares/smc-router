@@ -15,7 +15,12 @@ import { enterDuration } from '../anim';
 import Link from 'next/link';
 import { basePath } from '@/hooks/use-basepath';
 import Search from './search';
-import { PiMinusCircle, PiPlusCircle } from 'react-icons/pi';
+import {
+	PiCaretDownBold,
+	PiCaretUpBold,
+	PiMinusCircle,
+	PiPlusCircle,
+} from 'react-icons/pi';
 import { useGetBannerData, useGetToggleFill } from '@/data/data';
 import {
 	floatingNavContent_variants,
@@ -371,12 +376,15 @@ export function MainNav({ c, animation = true, toggle }) {
 	const navAccordion = (event) => {
 		let target = event.target;
 		let accordionGroup = target.closest('.accordion-group');
+		let accordionSource = target.closest('.accordion-source');
 		let accordionButton = target.closest('button');
 		let accordionTarget = event.target
 			.closest('.accordion-source')
 			.querySelector('.accordion-target');
 
-		let accordionSources = accordionGroup.childNodes;
+		let accordionSources = [...accordionGroup.childNodes].filter(
+			(i) => i !== accordionSource
+		);
 
 		let accordionTargets = [...accordionSources]
 			.map((source) => {
@@ -394,6 +402,18 @@ export function MainNav({ c, animation = true, toggle }) {
 			return i !== accordionTarget;
 		});
 
+		if (event.target.closest('button').classList.contains('active')) {
+			accordionButton.classList.remove('active');
+			animate(accordionTarget, {
+				height: '0px',
+			});
+		} else {
+			accordionButton.classList.add('active');
+			animate(accordionTarget, {
+				height: 'auto',
+			});
+		}
+
 		// console.log(toClose);
 		if (toClose.length)
 			animate(toClose, {
@@ -406,17 +426,6 @@ export function MainNav({ c, animation = true, toggle }) {
 			let button = source.childNodes[0].querySelector('button');
 			if (button) button.classList.remove('active');
 		});
-
-		accordionButton.classList.toggle('active');
-
-		if (event.target.closest('button').classList.contains('active'))
-			animate(accordionTarget, {
-				height: 'auto',
-			});
-		else
-			animate(accordionTarget, {
-				height: '0px',
-			});
 	};
 
 	return (
@@ -449,6 +458,8 @@ export function MainNav({ c, animation = true, toggle }) {
 				},
 			}}>
 			{menu.map((item_lvl1, index) => {
+				let activeClass = index === 0 ? 'active' : '';
+				let height = index === 0 ? 'auto' : '0px';
 				let link = item_lvl1.page.length
 					? `/${item_lvl1.page[0].slug}`
 					: `${item_lvl1.url}`;
@@ -474,22 +485,30 @@ export function MainNav({ c, animation = true, toggle }) {
 							</Link>
 							{item_lvl1.children.length !== 0 && animation && (
 								<button
+									className={`${activeClass}`}
 									onClick={(event) => {
 										navAccordion(event);
 									}}>
-									<PiPlusCircle className='open' fontSize={'1.75rem'} />
-									<PiMinusCircle className='close' fontSize={'1.75rem'} />
+									<PiCaretDownBold className='open' fontSize={'1.75rem'} />
+									<PiCaretUpBold className='close' fontSize={'1.75rem'} />
 								</button>
 							)}
 						</div>
 						{item_lvl1.children.length !== 0 && (
 							<motion.div
 								className='nav-dropdown accordion-target'
+								style={{
+									height: height,
+								}}
 								animate={{
 									display: navHovered && navIndex === index ? 'block' : 'none',
 								}}>
 								<div className='container-fluid-width medium accordion-group'>
-									{item_lvl1.children.map((item_lvl2, index) => {
+									{item_lvl1.children.map((item_lvl2, index2) => {
+										let activeClass =
+											index === 0 && index2 === 0 ? 'active' : '';
+										let height = index === 0 && index2 === 0 ? 'auto' : '0px';
+
 										let link = parent_slug;
 										link = item_lvl2.url
 											? item_lvl2.url
@@ -510,14 +529,15 @@ export function MainNav({ c, animation = true, toggle }) {
 													</Link>
 													{item_lvl2.children.length !== 0 && animation && (
 														<button
+															className={`${activeClass}`}
 															onClick={(event) => {
 																navAccordion(event);
 															}}>
-															<PiPlusCircle
+															<PiCaretDownBold
 																className='open'
 																fontSize={'1.5rem'}
 															/>
-															<PiMinusCircle
+															<PiCaretUpBold
 																className='close'
 																fontSize={'1.5rem'}
 															/>
@@ -528,6 +548,9 @@ export function MainNav({ c, animation = true, toggle }) {
 
 												{item_lvl2.children.length !== 0 && (
 													<div
+														style={{
+															height: height,
+														}}
 														className={`${columnClass} inner_lvl2-dropdown accordion-target accordion-group`}>
 														{item_lvl2.children.map((item_lvl3, index) => {
 															let link = parent_slug;
@@ -549,13 +572,13 @@ export function MainNav({ c, animation = true, toggle }) {
 																				onClick={(event) => {
 																					navAccordion(event);
 																				}}>
-																				<PiPlusCircle
+																				<PiCaretDownBold
 																					className='open'
-																					fontSize={'1.5rem'}
+																					fontSize={'1.25rem'}
 																				/>
-																				<PiMinusCircle
+																				<PiCaretUpBold
 																					className='close'
-																					fontSize={'1.5rem'}
+																					fontSize={'1.25rem'}
 																				/>
 																			</button>
 																		)}

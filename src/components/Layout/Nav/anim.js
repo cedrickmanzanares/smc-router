@@ -96,6 +96,7 @@ export const path1_variants = {
 	open: {
 		y: '7px',
 		rotate: '135deg',
+		transformOrigin: '35px 27px',
 		transition: transitionSettings,
 	},
 };
@@ -120,6 +121,7 @@ export const path2_variants = {
 	},
 	open: {
 		scaleX: 0,
+		transformOrigin: '35px 35px',
 		transition: transitionSettings,
 	},
 };
@@ -146,6 +148,7 @@ export const path3_variants = {
 	open: {
 		y: '-8px',
 		rotate: '225deg',
+		transformOrigin: '35px 43px',
 		transition: transitionSettings,
 	},
 };

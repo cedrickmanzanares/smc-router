@@ -163,7 +163,8 @@ export const useGetBannerData = () => {
 			],
 			start: '11:00',
 			end: '15:59',
-			bg: ['#6ba7cc', '#bac1c9'],
+			bg: ['#bac1c9', '#6ba7cc'],
+			color: baseBlack,
 		},
 		{
 			images: [
@@ -175,13 +176,14 @@ export const useGetBannerData = () => {
 			start: '16:00',
 			end: '17:59',
 			bg: ['#6ba7cc', '#bac1c9'],
+			color: baseBlack,
 		},
 		{
 			video: `${basePath}/images/Homepage-1/NewBanner/banner_night.mp4`,
 			images: `${basePath}/images/Homepage-1/NewBanner/D.jpg`,
 			start: '18:00',
 			end: '5:00',
-			bg: ['#132b3b', '#0c1a23'],
+			bg: ['#8da6bd', '#b5c3ce'],
 		},
 	];
 

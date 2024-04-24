@@ -249,8 +249,9 @@
 
 @media only screen and (max-width: 768px) {
 	.ourbusinesses-section {
-		height: 100dvh !important;
+		height: 100vh !important;
 		min-height: 0;
+		overflow: hidden;
 		.pin {
 			position: relative;
 		}

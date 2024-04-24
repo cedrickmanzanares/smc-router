@@ -27,7 +27,7 @@ export default function PageCTA() {
 	let yTextValues = useTransform(
 		scrollYProgress,
 		[0, 0.5, 1],
-		['-50%', `0%`, `200%`]
+		['-50%', `0%`, `100%`]
 	);
 
 	return (

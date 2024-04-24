@@ -10,86 +10,86 @@ export default function CompanyPolicies() {
 		<Fade>
 			<PageBanner title={'Company Policies'} noBg={true} />
 			<Section columnCount={2}>
-				<Column columnClasses={'full'}>
+				<div className='column'>
 					<SimpleGrid columns={[1, 2, 4]} gap={[8, 8, 8]}>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Policy on solicitation or acceptance of gifts'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Code of conduct and ethical business policy'}
 							link={'/disclosures/inner'}
 						/>
 
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Anti-corruption and sanctions compliance policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Policy on conflict of interest'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Policy on related party transactions'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Policy on dealings in securities'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Diversity, equity, and inclusion policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Board diversity policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Anti-sexual harassment policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Policy on child and forced labor'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Personal data privacy policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Health and safety policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Environment policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Freedom of association policy'}
 							link={'/disclosures/inner'}
 						/>
 						<PDFWidget
-							headingSize='heading-4'
+							headingSize='heading-5'
 							title={'Supplier code of conduct'}
 							link={'/disclosures/inner'}
 						/>
 					</SimpleGrid>
-				</Column>
+				</div>
 				<Column columnClasses={'full'}>
 					<h2 className='heading-2'>Whistle-blowing policy</h2>
 					<p>
@@ -108,14 +108,14 @@ export default function CompanyPolicies() {
 				</Column>
 				<Column>
 					<PDFWidget
-						headingSize='heading-4'
+						headingSize='heading-5'
 						title={'SMC Policy on Whistle Blowing.'}
 						link={'/disclosures/inner'}
 					/>
 				</Column>
 				<Column>
 					<PDFWidget
-						headingSize='heading-4'
+						headingSize='heading-5'
 						title={'Whistle-Blowing Form'}
 						link={'/disclosures/inner'}
 					/>
