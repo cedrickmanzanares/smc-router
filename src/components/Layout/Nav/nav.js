@@ -124,7 +124,7 @@ export default function Nav({}) {
 
 	const default_variants = {
 		opacity: 1,
-
+		y: '0%',
 		transition: {
 			duration: 0.35,
 			ease: [0.76, 0, 0.24, 1],
@@ -139,7 +139,13 @@ export default function Nav({}) {
 	const navContainer_variants = {
 		initial: {
 			opacity: 1,
+			y: '0%',
 			color: navColor,
+			transition: {
+				y: {
+					duration: 0.5,
+				},
+			},
 		},
 		'smc-red': {
 			...default_variants,
@@ -178,7 +184,8 @@ export default function Nav({}) {
 		},
 
 		closed: {
-			opacity: 0,
+			opacity: 1,
+			y: '-100%',
 			color: navColor,
 			transition: {
 				duration: 0.35,
@@ -471,11 +478,9 @@ export function MainNav({ c, animation = true, toggle }) {
 						whileHover='hover'
 						onHoverStart={() => {
 							if (item_lvl1.children.length !== 0) setHovered([index, true]);
-							console.log('enter');
 						}}
 						onHoverEnd={() => {
 							setHovered([null, false]);
-							console.log('leave');
 						}}
 						variants={navItem_variants}
 						key={`menuItem_lvl1_${item_lvl1.id}`}>
@@ -499,12 +504,17 @@ export function MainNav({ c, animation = true, toggle }) {
 								className='nav-dropdown accordion-target'
 								style={{
 									height: height,
-								}}
-								animate={{
+									pointerEvents:
+										navHovered && navIndex === index ? 'all' : 'none',
+									zIndex: navHovered && navIndex === index ? 1 : -1,
+									// opacity: navHovered && navIndex === index ? 1 : 0,
 									display: navHovered && navIndex === index ? 'block' : 'none',
 								}}>
 								<div className='container-fluid-width medium accordion-group'>
 									{item_lvl1.children.map((item_lvl2, index2) => {
+										let flexValue = '1 1 40%';
+										if (index == 2) flexValue = '1 1 25%';
+										if (index === 2 && index2 == 0) flexValue = '1 1 50%';
 										let activeClass = animation
 											? index === 0 && index2 === 0
 												? 'active'
@@ -524,10 +534,17 @@ export function MainNav({ c, animation = true, toggle }) {
 										let columnClass =
 											item_lvl2.children.length > 4 ? 'column-2' : '';
 
+										let bold = index === 2 && index2 === 2;
+
 										return (
 											<div
-												className='inner-dropdown accordion-source'
-												key={`menuItem_lvl2_${item_lvl2.id}`}>
+												className={`inner-dropdown accordion-source ${
+													bold ? 'bold' : ''
+												}`}
+												key={`menuItem_lvl2_${item_lvl2.id}`}
+												style={{
+													flex: flexValue,
+												}}>
 												<motion.b
 													whileHover='hover'
 													className='inner-dropdown-link'>
@@ -550,7 +567,11 @@ export function MainNav({ c, animation = true, toggle }) {
 															/>
 														</button>
 													)}
-													<motion.span className='line'></motion.span>
+													<motion.span
+														className='line'
+														style={{
+															display: bold ? 'none' : 'block',
+														}}></motion.span>
 												</motion.b>
 
 												{item_lvl2.children.length !== 0 && (
@@ -569,7 +590,10 @@ export function MainNav({ c, animation = true, toggle }) {
 																<div
 																	key={`menuItem_lvl3_${item_lvl3.id}`}
 																	className='accordion-source'>
-																	<div className='inner_lvl2-dropdown-link'>
+																	<div
+																		className={`inner_lvl2-dropdown-link ${
+																			bold ? 'bold' : ''
+																		}`}>
 																		<Link href={link} onClick={toggle}>
 																			{item_lvl3.title}
 																		</Link>

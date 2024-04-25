@@ -20,12 +20,16 @@ export default function SMCPrivacy() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
 				<PageBanner title={'Enterprise Risk Management'} direction='center' />
 
-				<Section columnCount={3}>
+				<Section>
 					<div className='column text-content'>
 						<p>
 							Section 2.2.1.3.2. of the Company’s Manual on Corporate

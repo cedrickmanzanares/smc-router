@@ -183,7 +183,7 @@ export const useGetBannerData = () => {
 			images: `${basePath}/images/Homepage-1/NewBanner/D.jpg`,
 			start: '18:00',
 			end: '5:00',
-			bg: ['#8da6bd', '#b5c3ce'],
+			bg: ['#182A3A', '#101D28'],
 		},
 	];
 

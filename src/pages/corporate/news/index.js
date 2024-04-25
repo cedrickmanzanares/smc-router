@@ -75,6 +75,10 @@ export default function News() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
@@ -120,17 +124,18 @@ export default function News() {
 						<div className='other-news'>
 							<h3 className='heading-3'>Other News</h3>
 							{newsItems.map((news, index) => {
-								return (
-									<NewsItem
-										link={news.link}
-										index={index}
-										title={news.title}
-										date={news.date}
-										img={news.img}
-										// setModal={setModal}
-										key={`NewsItem_` + index}
-									/>
-								);
+								if (index < 3)
+									return (
+										<NewsItem
+											link={news.link}
+											index={index}
+											title={news.title}
+											date={news.date}
+											img={news.img}
+											// setModal={setModal}
+											key={`NewsItem_` + index}
+										/>
+									);
 							})}
 						</div>
 					</div>

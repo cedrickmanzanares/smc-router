@@ -223,6 +223,17 @@ export default function OurBusinesses({ className, link, children }) {
 									initial='initial'
 									exit='exit'
 									animate='enter'
+									variants={{
+										initial: {
+											display: 'none',
+										},
+										exit: {
+											display: 'none',
+										},
+										enter: {
+											display: 'block',
+										},
+									}}
 									transition={{
 										staggerChildren: 0.015,
 									}}

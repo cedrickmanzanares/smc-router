@@ -430,7 +430,7 @@ export default function Footer() {
 											<br />
 											Click{' '}
 											<Link href='/corporate/smc-privacy-statement/'>
-												here
+												<b>here</b>
 											</Link>{' '}
 											to view our
 											<br />

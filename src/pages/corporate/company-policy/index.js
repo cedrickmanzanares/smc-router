@@ -9,8 +9,8 @@ export default function CompanyPolicies() {
 	return (
 		<Fade>
 			<PageBanner title={'Company Policies'} noBg={true} />
-			<Section columnCount={2}>
-				<div className='column'>
+			<Section columnCount={4} containerStyle={{ gap: '2rem' }}>
+				<div className='column full'>
 					<SimpleGrid columns={[1, 2, 4]} gap={[8, 8, 8]}>
 						<PDFWidget
 							headingSize='heading-5'

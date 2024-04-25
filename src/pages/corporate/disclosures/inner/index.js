@@ -44,8 +44,9 @@ export default function InnerDisclosure({ title }) {
 					</FormControl>
 					<FormControl w={{ base: '100%', sm: 'auto' }} h={'3.5rem'}>
 						<Select placeholder='Select Year'>
-							<option>United Arab Emirates</option>
-							<option>Nigeria</option>
+							{years.map((year) => {
+								return <option>{year}</option>;
+							})}
 						</Select>
 					</FormControl>
 				</Flex>

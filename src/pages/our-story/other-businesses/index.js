@@ -10,6 +10,7 @@ import { basePath } from '@/hooks/use-basepath';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 import Section from '@/cms-components/Section/Section';
 import Column from '@/cms-components/Column/column';
+import { NextBusinesses, PrevBusinesses } from '../our-businesses/inner';
 
 export default function FoodAndBeverages() {
 	return (
@@ -21,6 +22,10 @@ export default function FoodAndBeverages() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
@@ -29,7 +34,10 @@ export default function FoodAndBeverages() {
 				<Section
 					columnCount={3}
 					containerSize='medium'
-					containerStyle={{ flexDirection: 'row-reverse' }}>
+					containerStyle={{
+						flexDirection: 'row-reverse',
+						justifyContent: 'flex-end',
+					}}>
 					<Column columnClasses='text-center other-businesses'>
 						<div
 							className='img-container'
@@ -241,7 +249,7 @@ export default function FoodAndBeverages() {
 							</h3>
 						</div>
 					</Column>
-					<Column>
+					<Column columnClasses='text-center other-businesses'>
 						<div
 							className='img-container'
 							style={{
@@ -270,50 +278,8 @@ export default function FoodAndBeverages() {
 
 				<Section sectionStyle={{ paddingTop: 0 }}>
 					<motion.div className='page-controls'>
-						<motion.div className='control prev'>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/OurBusinesses/thumb.png`}
-									style={{
-										mixBlendMode: 'multiply',
-									}}
-								/>
-							</div>
-
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowLeftCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Previous</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
-
-						<motion.div className='control next'>
-							<div className='img-container'>
-								<img
-									src={`${basePath}/images/OurBusinesses/thumb.png`}
-									style={{
-										mixBlendMode: 'multiply',
-									}}
-								/>
-							</div>
-							<div className='control-details'>
-								<div className='arrow'>
-									<BsArrowRightCircle size={'1.75rem'} />
-								</div>
-								<div>
-									<p>
-										<b>Next</b>
-									</p>
-									<p className='label heading-5'>San Miguel Foods</p>
-								</div>
-							</div>
-						</motion.div>
+						<PrevBusinesses />
+						<NextBusinesses />
 					</motion.div>
 				</Section>
 			</Fade>

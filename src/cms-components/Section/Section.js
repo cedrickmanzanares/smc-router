@@ -53,7 +53,7 @@ export default function Section({
 			className={sectionClasses}
 			{...useAnim(section_anim)}
 			style={sectionStyle}>
-			<div className={sectionContainerClasses} style={containerStyle}>
+			<div className={sectionContainerClasses} style={{ ...containerStyle }}>
 				{children}
 			</div>
 		</motion.div>

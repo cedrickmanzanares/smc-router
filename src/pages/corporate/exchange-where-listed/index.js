@@ -4,6 +4,9 @@ import Fade from '@/components/Layout/Fade';
 import PageBanner from '@/cms-components/PageBanner/PageBanner';
 
 import Section from '@/cms-components/Section/Section';
+import Column from '@/cms-components/Column/column';
+import { basePath } from '@/hooks/use-basepath';
+import Button from '@/components/button/button';
 export default function Top20Stockholders() {
 	return (
 		<>
@@ -14,13 +17,50 @@ export default function Top20Stockholders() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
 				<PageBanner title={'Exchange Where Listed'} noBg='true' />
 
-				<Section columnCount={3}>
-					<div className='column text-content'></div>
+				<Section columnCount={2}>
+					<Column>
+						<div className='exchange-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/No-image.png`} />
+							</div>
+							<div className='desc-container'>
+								<h3 className='heading-4'>Philippines Stock Exchange</h3>
+								<p>
+									<Button
+										link='/our-story/our-company'
+										className={'btn-bordered pri-btn'}>
+										Learn more
+									</Button>
+								</p>
+							</div>
+						</div>
+					</Column>
+					<Column>
+						<div className='exchange-item'>
+							<div className='img-container'>
+								<img src={`${basePath}/images/No-image.png`} />
+							</div>
+							<div className='desc-container'>
+								<h3 className='heading-4'>Singapore Exchange</h3>
+								<p>
+									<Button
+										link='/our-story/our-company'
+										className={'btn-bordered pri-btn'}>
+										Learn more
+									</Button>
+								</p>
+							</div>
+						</div>
+					</Column>
 				</Section>
 			</Fade>
 		</>

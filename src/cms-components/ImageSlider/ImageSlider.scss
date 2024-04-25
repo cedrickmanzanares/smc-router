@@ -179,8 +179,13 @@
 }
 
 @media only screen and (max-width: 450px) {
-	.btn.btn-stacked {
-		padding-left: 0;
-		padding-right: 0;
+	.filter {
+		.full {
+			flex-wrap: wrap;
+			gap: 0;
+			> div {
+				flex: 1 1 100%;
+			}
+		}
 	}
 }

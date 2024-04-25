@@ -45,6 +45,11 @@
 
 @media only screen and (max-width: 980px) {
 	.fullbanner {
+		height: 50vh;
+		.container-fluid-width {
+			min-width: 0;
+			width: 100% !important;
+		}
 		.image-caption {
 			padding: var(--container-padding);
 			width: 100%;

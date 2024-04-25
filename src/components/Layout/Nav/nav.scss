@@ -81,7 +81,6 @@
 		background-color: var(--gray-2);
 		// background-color: rgba(255, 255, 255, 0.05);
 
-		display: none;
 		.container-fluid-width {
 			align-items: flex-start;
 			padding-top: calc(var(--container-padding) / 1.5);
@@ -125,9 +124,17 @@
 		gap: 1rem;
 		justify-content: space-between;
 	}
+
+	.inner_lvl2-dropdown-link.bold {
+		font-weight: 800;
+		a {
+			&:hover {
+				font-weight: 800;
+			}
+		}
+	}
 	.inner_lvl3-dropdown {
 		font-size: 90%;
-		padding-left: 1.5rem;
 	}
 }
 
@@ -182,6 +189,15 @@
 	z-index: 1001;
 	circle {
 		fill: var(--base-red);
+	}
+	.toggle_path1 {
+		transform-origin: 35px 27px !important;
+	}
+	.toggle_path2 {
+		transform-origin: 35px 35px !important;
+	}
+	.toggle_path3 {
+		transform-origin: 35px 43px !important;
 	}
 }
 
@@ -244,6 +260,7 @@
 		color: white;
 		height: 0;
 		overflow: hidden;
+		pointer-events: all !important;
 		.container-fluid-width {
 			display: block;
 			min-width: 0;
@@ -265,13 +282,26 @@
 		justify-content: space-between;
 		span {
 			background-color: white;
-			display: none;
+			display: none !important;
 		}
 	}
+
 	.inner_lvl2-dropdown {
 		column-count: 1;
 		padding-left: 2rem;
 		height: 0;
+	}
+	.accordion-source.bold {
+		button {
+			display: none;
+		}
+		.accordion-target {
+			height: auto !important;
+		}
+	}
+	.inner_lvl2-dropdown-link.bold {
+		font-weight: 600;
+		margin-left: -2rem;
 	}
 }
 
@@ -302,6 +332,11 @@
 			fill: var(--base-red);
 		}
 	}
+	.nav-search {
+		input::placeholder {
+			color: var(--shade1-red);
+		}
+	}
 }
 
 .smc-yellow {
@@ -317,6 +352,12 @@
 			stroke: var(--base-black);
 		}
 	}
+
+	.nav-search {
+		input::placeholder {
+			color: var(--gray-4);
+		}
+	}
 }
 
 .smc-blue {
@@ -324,6 +365,11 @@
 	.nav-toggle-bg-elements {
 		circle {
 			fill: var(--base-blue);
+		}
+	}
+	.nav-search {
+		input::placeholder {
+			color: rgb(15 102 149);
 		}
 	}
 }
@@ -375,6 +421,10 @@
 
 	.main-nav.toggle-nav {
 		padding: 2rem;
+		padding-top: 6rem;
+		padding-right: 3rem;
+		transform: none !important;
+		margin: 0;
 		.nav-item {
 			padding: 0;
 			margin: 0;

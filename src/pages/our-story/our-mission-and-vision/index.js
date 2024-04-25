@@ -24,6 +24,10 @@ export default function OurMissionAndVison() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
@@ -35,6 +39,8 @@ export default function OurMissionAndVison() {
 							src={`${basePath}/videos/SMC_VISION_PURPOSE_AVP_TOWNHALL_MEETING_2023_revised_4_5.mp4`}
 						/>
 					</Column>
+				</Section>
+				<Section containerStyle={{ gap: 0 }}>
 					<Column>
 						<div className='mv-item'>
 							<div className='img-container'>

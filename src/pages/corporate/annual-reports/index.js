@@ -14,8 +14,10 @@ import ImageSlider from '@/cms-components/ImageSlider/ImageSlider';
 import Section from '@/cms-components/Section/Section';
 import Button from '@/components/button/button';
 import { PiCaretCircleLeft, PiCaretCircleRight } from 'react-icons/pi';
+import { getColors } from '@/hooks/use-color';
 
 export default function AnnualReports() {
+	const { blue } = getColors;
 	const parent1 = useRef(null);
 	const { scrollYProgress: scrollYProgress_start1 } = useScroll({
 		target: parent1,
@@ -146,6 +148,10 @@ export default function AnnualReports() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
@@ -154,7 +160,7 @@ export default function AnnualReports() {
 					columnCount={2}
 					containerStyle={{ overflow: 'hidden' }}
 					containerClass='annual-container'>
-					<div className='column full'>
+					<div className='column full article filter'>
 						<Flex gap={5} className='full' align={'center'}>
 							<div>Select a year for quick search</div>
 							<FormControl w={'auto'}>
@@ -255,7 +261,7 @@ export default function AnnualReports() {
 									setIndex((prev) => prev - 1);
 									setDirection(-1);
 								}}>
-								<PiCaretCircleLeft size={'40px'} />
+								<PiCaretCircleLeft size={'35px'} color={blue} />
 							</motion.button>
 							<motion.button
 								className='button right'
@@ -269,7 +275,7 @@ export default function AnnualReports() {
 									setIndex((prev) => prev + 1);
 									setDirection(1);
 								}}>
-								<PiCaretCircleRight size={'40px'} />
+								<PiCaretCircleRight size={'35px'} color={blue} />
 							</motion.button>
 						</div>
 					</div>

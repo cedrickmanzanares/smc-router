@@ -74,6 +74,10 @@ export default function CSR() {
 					name='viewport'
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
 				/>
+				<meta
+					http-equiv='Content-Security-Policy'
+					content='frame-src youtube.com www.youtube.com'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Fade>
@@ -152,7 +156,7 @@ export default function CSR() {
 					</Column>
 				</Section>
 
-				<Section columnCount={2}>
+				<Section columnCount={2} containerStyle={{ rowGap: 0 }}>
 					<div className='column' style={{ flex: '1 0 100%' }}>
 						<h3 className='heading-3'>
 							Pellentesque cras tortor viverra dui tempor semper cum sed.
