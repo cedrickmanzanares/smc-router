@@ -45,7 +45,7 @@ export default function InnerDisclosure({ title }) {
 					<FormControl w={{ base: '100%', sm: 'auto' }} h={'3.5rem'}>
 						<Select placeholder='Select Year'>
 							{years.map((year) => {
-								return <option>{year}</option>;
+								return <option key={year}>{year}</option>;
 							})}
 						</Select>
 					</FormControl>
